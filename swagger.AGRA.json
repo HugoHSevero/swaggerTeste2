@@ -1,0 +1,310 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "TOTVS API - PROTHEUS",
+    "description": "TOTVS API - PROTHEUS"
+  },
+  "basePath": "/fwmodel",
+  "paths": {
+    "/AGRA045": {
+      "get": {
+        "summary": "Locais de Estoque",
+        "description": "Retorna Locais de Estoque",
+        "tags": [
+          "AGRA045"
+        ],
+        "parameters": [
+          {
+            "name": "COUNT",
+            "in": "query",
+            "description": "Quantidade de registro que devem ser retornados",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "STARTINDEX",
+            "in": "query",
+            "description": "Indica a partir que qual index deverá ser retornado",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "FILTER",
+            "in": "query",
+            "description": "Filtro que será aplicado no método SetFilter()",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "FIELDDETAIL",
+            "in": "query",
+            "description": "Habilita mostrar mais informações nos campos do modelo",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "FIELDVIRTUAL",
+            "in": "query",
+            "description": "Habilita o retorno de campos virtuais",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "FIELDEMPTY",
+            "in": "query",
+            "description": "Habilita o retorno de campos vazios ou nulos",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "summary": "Locais de Estoque",
+        "description": "Cria Locais de Estoque",
+        "tags": [
+          "AGRA045"
+        ],
+        "parameters": [
+          {
+            "name": "AGRA045",
+            "in": "body",
+            "description": "Modelo MVC",
+            "schema": {
+              "$ref": "#/definitions/AGRA045"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/AGRA045/{pk}": {
+      "get": {
+        "summary": "Locais de Estoque",
+        "description": "Retorna Locais de Estoque",
+        "tags": [
+          "AGRA045"
+        ],
+        "parameters": [
+          {
+            "name": "pk",
+            "in": "path",
+            "description": "Chaves primarias",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "summary": "Locais de Estoque",
+        "description": "Cria Locais de Estoque",
+        "tags": [
+          "AGRA045"
+        ],
+        "parameters": [
+          {
+            "name": "pk",
+            "in": "path",
+            "description": "Chaves primarias",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "AGRA045",
+            "in": "body",
+            "description": "Modelo MVC",
+            "schema": {
+              "$ref": "#/definitions/AGRA045"
+            },
+            "example": {
+              "$ref": "#/examples/AGRA045"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "AGRA045": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "operation": {
+          "type": "integer"
+        },
+        "models": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "modeltype": {
+                "type": "string"
+              },
+              "fields": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "order": {
+                      "type": "integer"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "examples": {
+    "AGRA045": {
+      "id": "AGRA045",
+      "operation": 3,
+      "models": [
+        {
+          "id": "NNRMASTER",
+          "modeltype": "FIELDS",
+          "fields": [
+            {
+              "id": "NNR_FILIAL",
+              "order": 1,
+              "len": "8,0",
+              "datatype": "C",
+              "info": "Filial",
+              "obrigat": null
+            },
+            {
+              "id": "NNR_CODIGO",
+              "order": 2,
+              "len": "2,0",
+              "datatype": "C",
+              "info": "Codigo",
+              "obrigat": 1
+            },
+            {
+              "id": "NNR_DESCRI",
+              "order": 3,
+              "len": "20,0",
+              "datatype": "C",
+              "info": "Descricao",
+              "obrigat": 1
+            },
+            {
+              "id": "NNR_CODCLI",
+              "order": 4,
+              "len": "6,0",
+              "datatype": "C",
+              "info": "Cod. Cliente",
+              "obrigat": null
+            },
+            {
+              "id": "NNR_LOJCLI",
+              "order": 5,
+              "len": "2,0",
+              "datatype": "C",
+              "info": "Loja Cliente",
+              "obrigat": null
+            },
+            {
+              "id": "NNR_TIPO",
+              "order": 6,
+              "len": "1,0",
+              "datatype": "C",
+              "info": "Tipo Armazém",
+              "obrigat": null
+            },
+            {
+              "id": "NNR_CTRAB",
+              "order": 7,
+              "len": "6,0",
+              "datatype": "C",
+              "info": "Centro Trab.",
+              "obrigat": null
+            },
+            {
+              "id": "NNR_INTP",
+              "order": 8,
+              "len": "1,0",
+              "datatype": "C",
+              "info": "Int. PIMS",
+              "obrigat": null
+            },
+            {
+              "id": "NNR_MRP",
+              "order": 9,
+              "len": "1,0",
+              "datatype": "C",
+              "info": "Entra MRP",
+              "obrigat": null
+            },
+            {
+              "id": "NNR_ANP45",
+              "order": 10,
+              "len": "1,0",
+              "datatype": "L",
+              "info": "ANP45",
+              "obrigat": null
+            },
+            {
+              "id": "NNR_ARMALT",
+              "order": 11,
+              "len": "1,0",
+              "datatype": "C",
+              "info": "Ver Sld Alt",
+              "obrigat": null
+            },
+            {
+              "id": "NNR_VDADMS",
+              "order": 12,
+              "len": "1,0",
+              "datatype": "C",
+              "info": "Armazem Vda?",
+              "obrigat": null
+            },
+            {
+              "id": "NNR_AMZUNI",
+              "order": 13,
+              "len": "1,0",
+              "datatype": "C",
+              "info": "Armz. Unitiz",
+              "obrigat": null
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

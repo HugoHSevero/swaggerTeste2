@@ -1,0 +1,600 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "APIs públicas na plataforma TOTVS. Módulo Datasul FTP",
+    "version": "1.0.0",
+    "title": "TOTVS - FTP",
+    "termsOfService": "https://www.totvs.com/termos-de-uso/",
+    "contact": {
+      "email": "box@totvs.com.br"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "gales:8180",
+  "basePath": "/dts/datasul-rest/resources/prg/ftp/v3/",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "tags": [
+    {
+      "name": "itemTaxSimulationPublic",
+      "description": "Este serviço permite retornar a simulação do cálculo dos tributos de uma nota fiscal com base em alguns parâmetros passados na integração"
+    },
+    {
+      "name": "Ecommerce",
+      "description": "Este serviço permite retornar a simulação do cálculo dos tributos de uma nota fiscal com base em alguns parâmetros passados na integração para o Ecommerce"
+    }
+  ],
+  "paths": {
+    "/itemTaxSimulationPublic": {
+      "post": {
+        "tags": [
+          "itemTaxSimulationPublic"
+        ],
+        "summary": "Realiza a carga dos itens a serem simulados os tributos.",
+        "description": "Este serviço permite a visualização dos itens a serem simulados o cálculo dos tributos",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Objeto com os dados da simulação da Nota Fiscal",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/itemTaxSimulationPublic"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Requisição realizada com sucesso",
+            "schema": {
+              "$ref": "#/definitions/itemTaxSimulationPublicResponse"
+            }
+          },
+          "400": {
+            "description": "Erro requisição inválida"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "404": {
+            "description": "Não encontrado"
+          },
+          "500": {
+            "description": "Erro interno do servidor"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      }
+    },
+    "/itemTaxSimulationPublic/ecommerce": {
+      "post": {
+        "tags": [
+          "Ecommerce"
+        ],
+        "summary": "Realiza a carga dos itens a serem simulados os tributos.",
+        "description": "Este serviço permite a visualização dos itens a serem simulados o cálculo dos tributos",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Objeto com os dados da simulação da Nota Fiscal",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/itemTaxSimulationEcommercePublic"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Requisição realizada com sucesso",
+            "schema": {
+              "$ref": "#/definitions/itemTaxSimulationEcommerceResponse"
+            }
+          },
+          "400": {
+            "description": "Erro requisição inválida"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "404": {
+            "description": "Não encontrado"
+          },
+          "500": {
+            "description": "Erro interno do servidor"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "securityDefinitions": {
+    "basicAuth": {
+      "type": "basic"
+    }
+  },
+  "definitions": {
+    "itemTaxSimulationPublicResponse": {
+      "type": "object",
+      "description": "Simulação do cálculo dos tributos da nota fiscal.",
+      "properties": {
+        "valor_contabil": {
+          "type": "number",
+          "example": 135000,
+          "description": "Total Contábil"
+        },
+        "valor_mercadoria": {
+          "type": "number",
+          "example": 135000,
+          "description": "Valor Total de Mercadorias"
+        },
+        "total_impostos_sem_incidencia": {
+          "type": "number",
+          "example": 0,
+          "description": "Valor de Tributos sem Incidência"
+        },
+        "total_impostos_embutidos": {
+          "type": "number",
+          "example": 13145.63,
+          "description": "Total de Tributos Embutidos"
+        },
+        "total_impostos": {
+          "type": "number",
+          "example": 33783.76,
+          "description": "Total de Tributos"
+        },
+        "TaxesDetail": {
+          "type": "object",
+          "description": "Detalhamento dos Tributos",
+          "properties": {
+            "descricao": {
+              "type": "string",
+              "example": "ICMS",
+              "description": "Nome do Tributo"
+            },
+            "aliquota": {
+              "type": "number",
+              "example": 12,
+              "description": "Alíquota do Tributo"
+            },
+            "valor": {
+              "type": "number",
+              "example": 120,
+              "description": "Valor do Tributo"
+            },
+            "base_calculo": {
+              "type": "number",
+              "example": 1000,
+              "description": "Valor sobre qual o Tributo incide"
+            },
+            "imposto": {
+              "type": "string",
+              "example": "ICM",
+              "description": "Identificador do Tributo"
+            }
+          }
+        },
+        "Itens": {
+          "type": "object",
+          "description": "Detalhamento dos Tributos por Item do Documento Fiscal",
+          "properties": {
+            "valor_mercadoria": {
+              "type": "number",
+              "example": 1000,
+              "description": "Valor de Mercadoria do Item"
+            },
+            "valor_st": {
+              "type": "number",
+              "example": 100,
+              "description": "Valor do ICMS-ST"
+            },
+            "valor_total": {
+              "type": "number",
+              "example": 1000,
+              "description": "Valor Total do Item"
+            },
+            "seguro": {
+              "type": "number",
+              "example": 1000,
+              "description": "Valor de Seguro por Item"
+            },
+            "valor_csll": {
+              "type": "number",
+              "example": 1000,
+              "description": "Valor de CSLL"
+            },
+            "valor_unitario": {
+              "type": "number",
+              "example": 1000,
+              "description": "Valor Unitário"
+            },
+            "quantidade": {
+              "type": "number",
+              "example": 10,
+              "description": "Quantidade do Item"
+            },
+            "aliquota_pis": {
+              "type": "number",
+              "example": 1.65,
+              "description": "Alíquota do PIS/PASEP"
+            },
+            "aliquota_ipi": {
+              "type": "number",
+              "example": 10,
+              "description": "Alíquota do IPI"
+            },
+            "valor_pis": {
+              "type": "number",
+              "example": 16.5,
+              "description": "Valor do PIS/PASEP"
+            },
+            "aliquota_cofins": {
+              "type": "number",
+              "example": 7.6,
+              "description": "Alíquota do COFINS"
+            },
+            "valor_cofins": {
+              "type": "number",
+              "example": 76,
+              "description": "Valor do COFINS"
+            },
+            "aliquota_st": {
+              "type": "number",
+              "example": 2,
+              "description": "Aliquota do ICMS-ST"
+            },
+            "aliquota_icms": {
+              "type": "number",
+              "example": 18,
+              "description": "Aliquota do ICMS"
+            },
+            "frete": {
+              "type": "number",
+              "example": 100,
+              "description": "Frete do Item"
+            },
+            "codigo_produto": {
+              "type": "string",
+              "example": "000000000000000000000000000001",
+              "description": "Código do Produto"
+            },
+            "aliquota_csll": {
+              "type": "number",
+              "example": 3,
+              "description": "Aliquota do CSLL"
+            },
+            "valor_icms": {
+              "type": "number",
+              "example": 180,
+              "description": "Valor do ICMS"
+            },
+            "valor_ipi": {
+              "type": "number",
+              "example": 100,
+              "description": "Valor do IPI"
+            },
+            "desconto": {
+              "type": "number",
+              "example": 10,
+              "description": "Desconto do Item"
+            },
+            "despesas_acessorias": {
+              "type": "number",
+              "example": 10,
+              "description": "Despesas Acessórias do Item"
+            },
+            "tes": {
+              "type": "string",
+              "example": "501",
+              "description": "Tipo de Entrada/Saída do Item (Natureza de Operação)"
+            }
+          }
+        },
+        "desconto": {
+          "type": "number",
+          "example": 99.35,
+          "description": "Total de Descontos"
+        },
+        "base_duplicada": {
+          "type": "number",
+          "example": 99.35,
+          "description": "Total do Título Financeiro"
+        },
+        "seguro": {
+          "type": "number",
+          "example": 99.35,
+          "description": "Total do Seguro"
+        },
+        "frete": {
+          "type": "number",
+          "example": 99.35,
+          "description": "Total do Frete"
+        },
+        "despesas_acessorias": {
+          "type": "number",
+          "example": 9.35,
+          "description": "Total das Despesas Acessórias"
+        }
+      }
+    },
+    "itemTaxSimulationPublic": {
+      "type": "object",
+      "description": "Simulação do cálculo dos tributos da nota fiscal",
+      "required": [
+        "SalesType",
+        "CustomerId",
+        "CustomerUnit",
+        "CustomerIdDelivery",
+        "CustomerUnitDelivery",
+        "Payment",
+        "Currency"
+      ],
+      "properties": {
+        "SalesType": {
+          "type": "string",
+          "example": "N",
+          "description": "Tipo de Pedido de Venda"
+        },
+        "CustomerId": {
+          "type": "string",
+          "example": "000001",
+          "description": "Código do Cliente"
+        },
+        "CustomerUnit": {
+          "type": "string",
+          "example": "01",
+          "description": "Loja do Cliente"
+        },
+        "CustomerIdDelivery": {
+          "type": "string",
+          "example": "000001",
+          "description": "Cliente de Entrega"
+        },
+        "CustomerUnitDelivery": {
+          "type": "string",
+          "example": "01",
+          "description": "Codigo da Loja de Entrega"
+        },
+        "CustomerType": {
+          "type": "string",
+          "example": "F",
+          "description": "Tipo do Cliente"
+        },
+        "Payment": {
+          "type": "string",
+          "example": "001",
+          "description": "Condição de Pagamento"
+        },
+        "DiscountPercentage1": {
+          "type": "number",
+          "example": 10,
+          "description": "Percentual de desconto 1 em cascata"
+        },
+        "DiscountPercentage2": {
+          "type": "number",
+          "example": 10,
+          "description": "Percentual de desconto 2 em cascata"
+        },
+        "DiscountPercentage3": {
+          "type": "number",
+          "example": 10,
+          "description": "Percentual de desconto 3 em cascata"
+        },
+        "DiscountPercentage4": {
+          "type": "number",
+          "example": 10,
+          "description": "Percentual de desconto 4 em cascata"
+        },
+        "Currency": {
+          "type": "number",
+          "example": 1,
+          "description": "Moeda do Pedido de Venda"
+        },
+        "Freight": {
+          "type": "number",
+          "example": 10,
+          "description": "Valor do Frete"
+        },
+        "Insurance": {
+          "type": "number",
+          "example": 10,
+          "description": "Valor do Seguro"
+        },
+        "Expense": {
+          "type": "number",
+          "example": 10,
+          "description": "Valor de Despesa Acessória"
+        },
+        "ListofProducts": {
+          "type": "object",
+          "description": "Detalhamento dos Produtos (Itens)",
+          "required": [
+            "ItemId",
+            "ProductId",
+            "Quantity",
+            "UnitaryValue",
+            "TotalValue",
+            "TES"
+          ],
+          "properties": {
+            "ItemId": {
+              "type": "string",
+              "example": "01",
+              "description": "Número do Item no Pedido (Sequência)"
+            },
+            "ProductId": {
+              "type": "string",
+              "example": "000000000000000000000000000001",
+              "description": "Código do Produto"
+            },
+            "Quantity": {
+              "type": "number",
+              "example": 10,
+              "description": "Quantidade Vendida"
+            },
+            "UnitaryValue": {
+              "type": "number",
+              "example": 100,
+              "description": "Preco Unitario Liquido"
+            },
+            "TotalValue": {
+              "type": "number",
+              "example": 1000,
+              "description": "Valor Total do Item"
+            },
+            "TES": {
+              "type": "string",
+              "example": "001",
+              "description": "Tipo de Saída do Item (Natureza de Operação)"
+            },
+            "ItemDiscountPercentage": {
+              "type": "number",
+              "example": 10,
+              "description": "Percentual de Desconto do Item"
+            },
+            "ItemDiscountValue": {
+              "type": "number",
+              "example": 100,
+              "description": "Valor do Desconto do Item"
+            },
+            "OperationType": {
+              "type": "number",
+              "example": "01",
+              "description": "Tipo de Operação do Item"
+            }
+          }
+        }
+      }
+    },
+    "itemTaxSimulationEcommerceResponse": {
+      "type": "object",
+      "description": "Simulação do cálculo dos tributos da nota fiscal.",
+      "properties": {
+        "itemTaxResponse": {
+          "type": "object",
+          "description": "Detalhamento dos Produtos com Tributos",
+          "properties": {
+            "sku": {
+              "type": "string",
+              "description": "Código SKU do Produto"
+            },
+            "storeCode": {
+              "type": "integer",
+              "description": "Identificador do cadastro da loja E-Commerce"
+            },
+            "itemTaxResponse": {
+              "type": "object",
+              "description": "Detalhamento dos Tributos",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Nome do Imposto"
+                },
+                "value": {
+                  "type": "number",
+                  "description": "Valor do Imposto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "itemTaxSimulationEcommercePublic": {
+      "type": "object",
+      "description": "Simulação do cálculo dos tributos da nota fiscal",
+      "required": [
+        "storeCode",
+        "CustomerId",
+        "ListofProducts"
+      ],
+      "properties": {
+        "storeCode": {
+          "type": "integer",
+          "description": "Identificador do cadastro da loja E-Commerce"
+        },
+        "BranchId": {
+          "type": "string",
+          "description": "Código do Estabelecimento"
+        },
+        "CustomerId": {
+          "type": "string",
+          "example": "000001",
+          "description": "Código do Cliente"
+        },
+        "CustomerDocument": {
+          "type": "string",
+          "description": "CPF ou CNPJ do cliente (apenas números)"
+        },
+        "Freight": {
+          "type": "number",
+          "example": 10,
+          "description": "Valor do Frete"
+        },
+        "Insurance": {
+          "type": "number",
+          "example": 10,
+          "description": "Valor do Seguro"
+        },
+        "ListofProducts": {
+          "type": "object",
+          "description": "Detalhamento dos Produtos (Itens)",
+          "required": [
+            "ProductId",
+            "Quantity",
+            "UnitaryValue"
+          ],
+          "properties": {
+            "ProductId": {
+              "type": "string",
+              "description": "Código do Produto - Caso o produto seja controlado por referência enviar no padrão Código_do_Item|Referência (Ex. UN-5|00000001)"
+            },
+            "sku": {
+              "type": "string",
+              "description": "Código SKU do Produto"
+            },
+            "Quantity": {
+              "type": "number",
+              "example": 10,
+              "description": "Quantidade Vendida"
+            },
+            "UnitaryValue": {
+              "type": "number",
+              "example": 100,
+              "description": "Preco Unitario Liquido"
+            },
+            "ItemDiscountPercentage": {
+              "type": "number",
+              "example": 10,
+              "description": "Percentual de Desconto do Item"
+            },
+            "DiscountPrice": {
+              "type": "number",
+              "example": 100,
+              "description": "Valor do Desconto do Item"
+            }
+          }
+        }
+      }
+    }
+  }
+}

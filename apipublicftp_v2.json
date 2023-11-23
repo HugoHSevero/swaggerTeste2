@@ -1,0 +1,639 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "APIs públicas na plataforma TOTVS. Módulo Datasul FTP",
+    "version": "1.0.0",
+    "title": "TOTVS - FTP",
+    "termsOfService": "https://www.totvs.com/termos-de-uso/",
+    "contact": {
+      "email": "box@totvs.com.br"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "gales:8180",
+  "basePath": "/dts/datasul-rest/resources/prg/ftp/v2/",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "tags": [
+    {
+      "name": "invoicePublic",
+      "description": "Este serviço permite a sincronização das Notas Fiscais."
+    }
+  ],
+  "paths": {
+    "/invoicePublic/ecommerce/byStore/{storeCode}": {
+      "get": {
+        "tags": [
+          "ecommerce"
+        ],
+        "summary": "Realiza a carga das notas fiscais autorizadas pela Sefaz e que foram geradas por pedidos de venda criados pelo e-commerce.",
+        "description": "Este serviço permite a visualização notas fiscais autorizadas pela Sefaz e que foram geradas por pedidos de venda criados pelo e-commerce.",
+        "operationId": "getinvoicePublic/ecommerce",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "storeCode",
+            "in": "path",
+            "description": "Identificador do cadastro da loja E-Commerce",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "lastUpdate",
+            "in": "query",
+            "description": "Data de sincronização dos registros",
+            "required": false,
+            "type": "string",
+            "format": "date"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Número da página",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Quantidade de registros por página (a resposta deve retornar o campo hasNext indicando se há mais registros para a proxima página), a quantidade não deve ultrapassar 100, quantidades superiores serão consideradas 100.",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "totalCount",
+            "in": "query",
+            "description": "Considera a contagem total dos registros, respeitando os filtros anteriores.",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Requisição realizada com sucesso",
+            "schema": {
+              "$ref": "#/definitions/invoicePublicEcommerceResponse"
+            }
+          },
+          "400": {
+            "description": "Erro requisição inválida"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "404": {
+            "description": "Não encontrado"
+          },
+          "500": {
+            "description": "Erro interno do servidor"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "securityDefinitions": {
+    "basicAuth": {
+      "type": "basic"
+    }
+  },
+  "definitions": {
+    "invoicePublicResponse": {
+      "type": "object",
+      "description": "Resposta da requisição do serviço que retorna as Notas Fiscais cadastrados no ERP",
+      "properties": {
+        "total": {
+          "type": "integer",
+          "description": "Quantidade de registros"
+        },
+        "hasNext": {
+          "type": "boolean"
+        },
+        "items": {
+          "description": "Lista contendo informações das Notas Fiscais cadastradas no ERP",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/invoicePublic"
+          }
+        }
+      }
+    },
+    "invoicePublic": {
+      "type": "object",
+      "description": "Nota Fiscal",
+      "properties": {
+        "address": {
+          "type": "string",
+          "example": "nota-fiscal.endereco",
+          "description": "Endereço"
+        },
+        "billGenerationDate": {
+          "type": "string",
+          "format": "date",
+          "example": "nota-fiscal.dt-atual-cr",
+          "description": "Data da atualização da nota no módulo de contas a receber"
+        },
+        "billNumber": {
+          "type": "string",
+          "example": "nota-fiscal.nr-fatura",
+          "description": "Número da fatura"
+        },
+        "billValue": {
+          "type": "number",
+          "example": "nota-fiscal.vl-fatura",
+          "description": "Valor da fatura"
+        },
+        "calculationUser": {
+          "type": "string",
+          "example": "nota-fiscal.user-calc",
+          "description": "Usuário que fez o calculo da nota"
+        },
+        "cancellationDate": {
+          "type": "string",
+          "format": "date",
+          "example": "nota-fiscal.dt-cancela",
+          "description": "Data de cancelamento da nota"
+        },
+        "cancellationReason": {
+          "type": "string",
+          "example": "nota-fiscal.desc-cancela",
+          "description": "Descrição do motivo do cancelamento"
+        },
+        "carrierName": {
+          "type": "string",
+          "example": "nota-fiscal.nome-transp",
+          "description": "Nome do transportador"
+        },
+        "cidadeCIF": {
+          "type": "string",
+          "example": "nota-fiscal.cidade-cif",
+          "description": "Até que cidade o frete corre por conta do emitente"
+        },
+        "city": {
+          "type": "string",
+          "example": "nota-fiscal.cidade",
+          "description": "Cidade"
+        },
+        "collectingModality": {
+          "type": "integer",
+          "example": "nota-fiscal.modalidade",
+          "description": "Modalidade de cobrança referente ao portador"
+        },
+        "collectorID": {
+          "type": "integer",
+          "example": "nota-fiscal.cod-portador",
+          "description": "Código do portador"
+        },
+        "comercialInvoiceNumber": {
+          "type": "string",
+          "example": "nota-fiscal.nr-invoice",
+          "description": "Número da comercial invoice"
+        },
+        "comments": {
+          "type": "string",
+          "example": "nota-fiscal.observ-nota",
+          "description": "Observação"
+        },
+        "commissionValue": {
+          "type": "number",
+          "example": "nota-fiscal.vl-tot-com",
+          "description": "Valor da comissão"
+        },
+        "confirmationDate": {
+          "type": "string",
+          "format": "date",
+          "example": "nota-fiscal.dt-confirma",
+          "description": "Data de confirmação da nota fiscal"
+        },
+        "confirmationTime": {
+          "type": "string",
+          "example": "nota-fiscal.hr-confirma",
+          "description": "Hora da confirmação"
+        },
+        "country": {
+          "type": "string",
+          "example": "nota-fiscal.pais",
+          "description": "País"
+        },
+        "currency": {
+          "type": "string",
+          "example": "nota-fiscal.mo-codigo",
+          "description": "Código do modelo"
+        },
+        "customerID": {
+          "type": "integer",
+          "example": "nota-fiscal.cod-emitente",
+          "description": "Código do emitente"
+        },
+        "customerOrderNumber": {
+          "type": "string",
+          "example": "nota-fiscal.nr-pedcli",
+          "description": "Número do pedido do cliente"
+        },
+        "customerShortName": {
+          "type": "string",
+          "example": "nota-fiscal.nome-ab-cli",
+          "description": "Nome abreviado do cliente/fornecedor"
+        },
+        "deliveryDate": {
+          "type": "string",
+          "format": "date",
+          "example": "nota-fiscal.dt-entr-cli",
+          "description": "Data em que os materiais foram entregues ao cliente"
+        },
+        "deliveryID": {
+          "type": "string",
+          "example": "nota-fiscal.cod-entrega",
+          "description": "Código do endereço de entrega"
+        },
+        "deliveryTime": {
+          "type": "string",
+          "example": "nota-fiscal.hr-entr-cli",
+          "description": "Hora em que os materiais foram entregues ao cliente"
+        },
+        "discountAmount": {
+          "type": "number",
+          "example": "nota-fiscal.vl-desconto",
+          "description": "Valor do desconto"
+        },
+        "discountPercentage1": {
+          "type": "number",
+          "example": "nota-fiscal.perc-desco1",
+          "description": "Percentual de desconto do cliente a ser aplicado sobre a nota"
+        },
+        "discountPercentage2": {
+          "type": "number",
+          "example": "nota-fiscal.perc-desco2",
+          "description": "Segundo percentual de desconto sobre a nota"
+        },
+        "discountValue1": {
+          "type": "number",
+          "example": "nota-fiscal.descto1",
+          "description": "Valor do desconto 1"
+        },
+        "discountValue2": {
+          "type": "number",
+          "example": "nota-fiscal.descto2",
+          "description": "Valor do desconto 2"
+        },
+        "distributionChannelID": {
+          "type": "integer",
+          "example": "nota-fiscal.cod-canal-venda",
+          "description": "Código do canal de venda"
+        },
+        "district": {
+          "type": "string",
+          "example": "nota-fiscal.bairro",
+          "description": "Bairro"
+        },
+        "documentType": {
+          "type": "string",
+          "example": "nota-fiscal.esp-docto",
+          "description": "Espécie do documento"
+        },
+        "eletronicInvoiceAccessKey": {
+          "type": "string",
+          "example": "nota-fiscal.cod-chave-aces-nf-eletro",
+          "description": "Código Chave Acesso Nota fiscal Eletrônica"
+        },
+        "eletronicInvoiceEmissionType": {
+          "type": "string",
+          "example": "nota-fiscal.idi-forma-emis-nf-eletro",
+          "description": "Indica a Forma de Emissão da Nota Fiscal Eletrônica"
+        },
+        "eletronicInvoiceStatus": {
+          "type": "integer",
+          "example": "nota-fiscal.idi-sit-nf-eletro",
+          "description": "Indica a Situação da Nota fiscal Eletrônica"
+        },
+        "financialTable": {
+          "type": "integer",
+          "example": "nota-fiscal.nr-tab-finan",
+          "description": "Número da tabela de financiamento"
+        },
+        "financialTableIndexValue": {
+          "type": "number",
+          "example": "nota-fiscal.tab-ind-fin",
+          "description": "Índice de financiamento respectivo a cada prazo"
+        },
+        "freightType": {
+          "type": "integer",
+          "example": "nota-fiscal.ind-tp-frete",
+          "description": "Tipo de frete da nota fiscal."
+        },
+        "freightValue": {
+          "type": "number",
+          "example": "nota-fiscal.vl-frete",
+          "description": "Valor do frete"
+        },
+        "fullAddress": {
+          "type": "string",
+          "example": "nota-fiscal.endereco_text",
+          "description": "Endereço Completo"
+        },
+        "generateBill": {
+          "type": "boolean",
+          "example": "nota-fiscal.emite-duplic",
+          "description": "Haverá faturamento para as notas desta natureza?"
+        },
+        "goodsIssueDate": {
+          "type": "string",
+          "format": "date",
+          "example": "nota-fiscal.dt-saida",
+          "description": "Data de saída das mercadorias"
+        },
+        "goodsTarget": {
+          "type": "integer",
+          "example": "nota-fiscal.cod-des-merc",
+          "description": "Destino da mercadoria"
+        },
+        "infDiscountPercent": {
+          "type": "string",
+          "example": "nota-fiscal.des-pct-desconto-inform",
+          "description": "Percentuais de desconto informados por nota fiscal"
+        },
+        "insuranceValue": {
+          "type": "number",
+          "example": "nota-fiscal.vl-seguro",
+          "description": "Valor do Seguro"
+        },
+        "invoiceAmount": {
+          "type": "number",
+          "example": "nota-fiscal.vl-tot-nota",
+          "description": "Valor total da nota fiscal"
+        },
+        "invoiceCommissionAmount": {
+          "type": "number",
+          "example": "nota-fiscal.vl-comis-nota",
+          "description": "Valor da comissão da nota fiscal"
+        },
+        "invoicedGoodsValue": {
+          "type": "number",
+          "example": "nota-fiscal.vl-merc-tot-fat",
+          "description": "Valor total das mercadorias que geram faturamento"
+        },
+        "invoiceDiscount": {
+          "type": "number",
+          "example": "nota-fiscal.desc-valor-nota",
+          "description": "Desconto por valor concedido a nível de nota"
+        },
+        "invoicedItemsValue": {
+          "type": "number",
+          "example": "nota-fiscal.vl-tot-itens-fat",
+          "description": "Valor total dos itens faturados"
+        },
+        "invoiceExchangeRate": {
+          "type": "number",
+          "example": "nota-fiscal.vl-cotacao-fatur",
+          "description": "Valor da cotação do faturamento na moeda"
+        },
+        "invoiceNumber": {
+          "type": "string",
+          "example": "nota-fiscal.nr-nota-fis",
+          "description": "Número da nota fiscal"
+        },
+        "invoiceStatus": {
+          "type": "integer",
+          "example": "nota-fiscal.ind-sit-nota",
+          "description": "Situação da nota fiscal"
+        },
+        "invoiceType": {
+          "type": "integer",
+          "example": "nota-fiscal.ind-tip-nota",
+          "description": "Tipo da nota"
+        },
+        "invoicingType": {
+          "type": "integer",
+          "example": "nota-fiscal.tipo-fat",
+          "description": "Tipo de faturamento"
+        },
+        "representativeCode": {
+          "type": "integer",
+          "example": "nota-fiscal.cod-rep",
+          "description": "Código do representante"
+        },
+        "mainRepresentativeName": {
+          "type": "string",
+          "example": "nota-fiscal.no-ab-reppri",
+          "description": "Nome abreviado do representante"
+        },
+        "numberOfInstallments": {
+          "type": "integer",
+          "example": "nota-fiscal.nr-parcelas",
+          "description": "Número de parcelas"
+        },
+        "packageQuantity": {
+          "type": "string",
+          "example": "nota-fiscal.nr-volumes",
+          "description": "Número dos volumes"
+        },
+        "packingValue": {
+          "type": "number",
+          "example": "nota-fiscal.vl-embalagem",
+          "description": "Valor da embalagem"
+        },
+        "paymentTerms": {
+          "type": "integer",
+          "example": "nota-fiscal.cod-cond-pag",
+          "description": "Condição de pagamento da nota fiscal"
+        },
+        "priceTableDiscountPercentage": {
+          "type": "number",
+          "example": "nota-fiscal.val-pct-desconto-tab-preco",
+          "description": "Percentual de descontos referente à tabela de preços"
+        },
+        "priceTableID": {
+          "type": "string",
+          "example": "nota-fiscal.nr-tabpre",
+          "description": "Tabela de preços"
+        },
+        "priceType": {
+          "type": "integer",
+          "example": "nota-fiscal.tp-preco",
+          "description": "Tipo de preço"
+        },
+        "printDate": {
+          "type": "string",
+          "format": "date",
+          "example": "nota-fiscal.dt-emis-nota",
+          "description": "Data de emissão da nota fiscal"
+        },
+        "protocol": {
+          "type": "string",
+          "example": "nota-fiscal.cod-protoc",
+          "description": "Protocolo para identificar a NF-e no sistema do Sefaz"
+        },
+        "reshipmentCarrierName": {
+          "type": "string",
+          "example": "nota-fiscal.nome-tr-red",
+          "description": "Nome da transportadora de redespacho"
+        },
+        "routeID": {
+          "type": "string",
+          "example": "nota-fiscal.cod-rota",
+          "description": "Rota de atendimento a que esta nota pertence"
+        },
+        "series": {
+          "type": "string",
+          "example": "nota-fiscal.serie",
+          "description": "Série da nota fiscal"
+        },
+        "shipmentDate": {
+          "type": "string",
+          "format": "date",
+          "example": "nota-fiscal.dt-embarque",
+          "description": "Data de embarque da nota fiscal"
+        },
+        "shipmentNumber": {
+          "type": "number",
+          "example": "nota-fiscal.cdd-embarq",
+          "description": "Código - Decimal Embarque"
+        },
+        "siteID": {
+          "type": "string",
+          "example": "nota-fiscal.cod-estabel",
+          "description": "Código do estabelecimento"
+        },
+        "state": {
+          "type": "string",
+          "example": "nota-fiscal.estado",
+          "description": "Unidade da federação"
+        },
+        "stateTaxID": {
+          "type": "string",
+          "example": "nota-fiscal.ins-estadual",
+          "description": "Inscrição estadual"
+        },
+        "summaryNumber": {
+          "type": "integer",
+          "example": "nota-fiscal.nr-resumo",
+          "description": "Número do resumo"
+        },
+        "totalDiscountAmount": {
+          "type": "number",
+          "example": "nota-fiscal.val-desconto-total",
+          "description": "Valor do desconto total"
+        },
+        "totalDiscountPercentage": {
+          "type": "number",
+          "example": "nota-fiscal.val-pct-desconto-total",
+          "description": "Percentual de desconto total da nota fiscal"
+        },
+        "totalGoodsValue": {
+          "type": "number",
+          "example": "nota-fiscal.vl-mercad",
+          "description": "Valor da mercadoria"
+        },
+        "totalGrossWeight": {
+          "type": "number",
+          "example": "nota-fiscal.peso-bru-tot",
+          "description": "Peso bruto total"
+        },
+        "totalNetWeight": {
+          "type": "number",
+          "example": "nota-fiscal.peso-liq-tot",
+          "description": "Peso líquido total"
+        },
+        "transactionTypeID": {
+          "type": "string",
+          "example": "nota-fiscal.nat-operacao",
+          "description": "Natureza de operação"
+        },
+        "updateTime": {
+          "type": "string",
+          "example": "nota-fiscal.hr-atualiza",
+          "description": "Hora da atualização"
+        },
+        "vehicleLicensePlateID": {
+          "type": "string",
+          "example": "nota-fiscal.placa",
+          "description": "Placa do veículo de transporte"
+        },
+        "vehicleLicensePlateState": {
+          "type": "string",
+          "example": "nota-fiscal.uf-placa",
+          "description": "Estado da placa do veículo que tranportará mercadoria"
+        },
+        "zip": {
+          "type": "string",
+          "example": "nota-fiscal.cep",
+          "description": "CEP"
+        }
+      }
+    },
+    "invoicePublicEcommerceResponse": {
+      "type": "object",
+      "description": "Resposta da requisição do serviço que retorna as notas fiscais autorizadas pela Sefaz e que foram geradas por pedidos de venda criados pelo e-commerce",
+      "properties": {
+        "companyId": {
+          "type": "string",
+          "description": "Código da Empresa onde foi gerada a Nota Fiscal"
+        },
+        "branchId": {
+          "type": "string",
+          "description": "Código do Estabelecimento da Nota Fiscal"
+        },
+        "id": {
+          "type": "string",
+          "description": "Concatenação dos campos Estabelecimento, Série e Número da Nota Fiscal, separados por barra vertical"
+        },
+        "createDate": {
+          "type": "string",
+          "description": "Data e hora de criação da Nota Fiscal"
+        },
+        "lastChange": {
+          "type": "string",
+          "description": "Data e hora de autorização da Nota Fiscal"
+        },
+        "orderId": {
+          "type": "string",
+          "description": "Número do pedido criado internamente"
+        },
+        "orderStatus": {
+          "type": "integer",
+          "description": "Código de situação do pedido"
+        },
+        "number": {
+          "type": "string",
+          "description": "Número da Nota Fiscal"
+        },
+        "date": {
+          "type": "string",
+          "description": "Data de emissão da Nota Fiscal"
+        },
+        "value": {
+          "type": "number",
+          "description": "Valor total da Nota Fiscal"
+        },
+        "nfeAccessKey": {
+          "type": "string",
+          "description": "Chave de acesso da Nota Fiscal"
+        },
+        "danfeURL": {
+          "type": "string",
+          "description": "URL para consulta da Nota Fiscal na Sefaz"
+        },
+        "invoiceType": {
+          "type": "string",
+          "description": "Tipo de Nota Fiscal"
+        },
+        "storeCode": {
+          "type": "integer",
+          "description": "Identificador do cadastro da loja E-Commerce"
+        }
+      }
+    }
+  }
+}

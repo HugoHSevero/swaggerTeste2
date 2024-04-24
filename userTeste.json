@@ -1,0 +1,52 @@
+{
+    "swagger": "2.0",
+    "info":{
+        "version":"1.0.0",
+        "title":"API de Teste Marcelo"
+    },
+    "paths":{
+        "/usuarios":{
+            "get":{
+                "tags":["Lista de usuários"],
+                "summary":"List users",
+                "parameters":[
+                    {
+                        "name":"cpf",
+                        "description":"CPF a ser consultado",
+                        "type":"string",
+                        "in":"query",
+                        "required":false
+                    },
+                    {
+                        "name":"Authorization",
+                        "in":"header",
+                        "type":"string",
+                        "description":"Autenticação",
+                        "required":true
+                    }
+                ],
+                "responses":{
+                    "200":{"description":"Operação bem-sucedida",
+                        "schema":{ 
+                            "type": "object",
+                            "properties":{
+                                "nome":{
+                                    "type":"string",
+                                    "description":"Nome de usuário"
+                                }
+                            }
+                        }
+                    },
+                    "404":{"description": "Não encontrada"}
+                }
+            },
+            "post":{
+                "tags":["Usuários"],
+                "summary":"Criação de usuários",
+                "responses":{
+                    "201":{"description":"Usuário criado com sucesso"}
+                }
+            }    
+        }
+    }
+}

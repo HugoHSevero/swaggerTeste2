@@ -851,7 +851,7 @@
             "name": "Api-Key",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -861,7 +861,7 @@
             "name": "Api-Username",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -908,7 +908,7 @@
             "name": "Api-Key",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -918,7 +918,7 @@
             "name": "Api-Username",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -1026,7 +1026,7 @@
             "name": "Api-Key",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -1036,7 +1036,7 @@
             "name": "Api-Username",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -1283,7 +1283,7 @@
             "name": "Api-Key",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -1293,7 +1293,7 @@
             "name": "Api-Username",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -1350,7 +1350,7 @@
             "name": "Api-Key",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -1360,7 +1360,7 @@
             "name": "Api-Username",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -1780,7 +1780,7 @@
             "name": "Api-Key",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -1790,7 +1790,7 @@
             "name": "Api-Username",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -1836,7 +1836,7 @@
             "name": "Api-Key",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -1846,7 +1846,7 @@
             "name": "Api-Username",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -1890,7 +1890,7 @@
             "name": "Api-Key",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -1900,7 +1900,7 @@
             "name": "Api-Username",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -1940,7 +1940,7 @@
             "name": "Api-Key",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -1950,7 +1950,7 @@
             "name": "Api-Username",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -2008,7 +2008,7 @@
             "name": "Api-Key",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -2018,7 +2018,7 @@
             "name": "Api-Username",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -2075,7 +2075,7 @@
             "name": "Api-Key",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -2085,7 +2085,7 @@
             "name": "Api-Username",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -2125,7 +2125,7 @@
             "name": "Api-Key",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -2135,7 +2135,7 @@
             "name": "Api-Username",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -2192,7 +2192,7 @@
             "name": "Api-Key",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -2202,7 +2202,7 @@
             "name": "Api-Username",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -2258,7 +2258,7 @@
             "name": "Api-Key",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -2268,7 +2268,7 @@
             "name": "Api-Username",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -2314,7 +2314,7 @@
             "name": "Api-Key",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -2324,7 +2324,7 @@
             "name": "Api-Username",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -2381,7 +2381,7 @@
             "name": "Api-Key",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -2391,7 +2391,7 @@
             "name": "Api-Username",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -2448,7 +2448,7 @@
             "name": "Api-Key",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -2458,7 +2458,7 @@
             "name": "Api-Username",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -2818,7 +2818,7 @@
             "name": "Api-Key",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -2828,7 +2828,7 @@
             "name": "Api-Username",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -2875,7 +2875,7 @@
             "name": "Api-Key",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -2885,7 +2885,7 @@
             "name": "Api-Username",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -2929,7 +2929,7 @@
             "name": "Api-Key",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -2939,7 +2939,7 @@
             "name": "Api-Username",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -2996,7 +2996,7 @@
             "name": "Api-Key",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -3006,7 +3006,7 @@
             "name": "Api-Username",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -3052,7 +3052,7 @@
             "name": "Api-Key",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"
@@ -3062,7 +3062,7 @@
             "name": "Api-Username",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string"

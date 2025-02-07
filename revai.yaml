@@ -1,0 +1,1107 @@
+openapi: 3.0.0
+info:
+  title: Rev AI API
+  description: >-
+    This is a Postman collection covering the Rev AI API. See the [official
+    documentation](https://www.rev.ai/docs) for a more complete view of the API.
+
+
+    #### Getting Started
+
+
+    To get started, you'll need to create an account on
+    [Rev.ai](https://www.rev.ai/auth/signup) and [generate an access
+    token](https://www.rev.ai/access_token).
+
+
+    Once you have an access token, fork the `Rev AI API` Collection and the `Rev
+    AI API` Environment to your own personal workspace. The environment contains
+    a variable `accessToken` by which you will copy-and-paste your generated
+    access token. Activate the environment by selecting the circled check icon
+    next to the environment name.
+
+
+    #### Staying Up to Date with the Collection
+
+
+    Stay up to date with the Rev AI API collection and be notified of new
+    updates to the collection using the
+    [Watch](https://learning.postman.com/docs/collaborating-in-postman/version-control-for-collections/#watching-a-collection)
+    feature.
+
+
+    To keep your forked collection up to date with any new changes made to this
+    collection, you can do this by using the [Pull
+    Changes](https://learning.postman.com/docs/collaborating-in-postman/version-control-for-collections/#pulling-updates)
+    feature.
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []
+tags:
+  - name: Speech-to-Text
+  - name: Speech-to-Text > Transcription Jobs
+    description: >-
+      This section contains endpoints for submitting and handling transcription
+      jobs.
+  - name: Speech-to-Text > Outputs
+    description: >-
+      This section contains endpoints for retrieving transcription outputs in
+      various formats.
+  - name: Speech-to-Text > Accounts
+    description: This section contains endpoints for retrieving account information.
+  - name: Speech-to-Text > Custom Vocabularies
+    description: >-
+      This section contains endpoints for creating custom vocabularies, which
+      can be used to improve the accuracy of a transcript if media contains
+      domain-specific words or phrases that are not part of a traditional
+      English dictionary.
+
+
+      The custom vocabularies are pre-processed and can be referenced in a
+      transcription job using the `custom_vocabulary_id` that is returned when
+      submitting a new custom vocabulary for processing.
+paths:
+  /speechtotext/v1/jobs/{jobId}:
+    get:
+      tags:
+        - Speech-to-Text > Transcription Jobs
+      summary: Get Job
+      description: Returns information about a transcription job.
+      parameters:
+        - name: jobId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: (Required) Rev.ai job ID
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              examples:
+                example-0:
+                  summary: 200 OK - New Job
+                  value:
+                    id: JOoJRnQ6UClt
+                    created_on: '2021-01-01T00:05:30.000Z'
+                    completed_on: '2021-01-01T00:10:30.000Z'
+                    name: example.mp3
+                    media_url: https://www.example.com/audio.mp3
+                    status: in_progress
+                    duration_seconds: 107
+                    type: async
+                    language: en
+                example-1:
+                  summary: 200 OK - Transcribed Job
+                  value:
+                    id: JOoJRnQ6UClt
+                    created_on: '2021-01-01T00:05:30.000Z'
+                    completed_on: '2021-01-01T00:10:30.000Z'
+                    name: example.mp3
+                    media_url: https://www.example.com/audio.mp3
+                    status: transcribed
+                    duration_seconds: 107
+                    type: async
+                    language: en
+                example-2:
+                  summary: 200 OK - Failed Job
+                  value:
+                    id: JOoJRnQ6UClt
+                    created_on: '2021-01-01T00:05:30.000Z'
+                    completed_on: '2021-01-01T00:10:30.000Z'
+                    name: example.mp3
+                    media_url: https://www.example.com/audio.mp3
+                    status: failed
+                    type: async
+                    language: en
+                    failure: download_failure
+                    failure_detail: >-
+                      Failed to download media file. Please check your url and
+                      file type
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/problem+json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                title: Authorization has been denied for this request.
+                status: 401
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/problem+json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                type: https://www.rev.ai/api/v1/errors/job-not-found
+                title: could not find job
+                status: 404
+                extensions: {}
+    delete:
+      tags:
+        - Speech-to-Text > Transcription Jobs
+      summary: Delete Job
+      description: >-
+        Deletes a transcription job. All data related to the job, such as input
+        media and transcript, will be permanently deleted. A job can only be
+        deleted once it's completed (either with success or failure).
+      parameters:
+        - name: jobId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: (Required) Rev.ai job ID
+      responses:
+        '204':
+          description: No Content
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/problem+json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                title: Authorization has been denied for this request.
+                status: 401
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/problem+json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                type: https://www.rev.ai/api/v1/errors/job-not-found
+                title: could not find job
+                status: 404
+                extensions: {}
+        '409':
+          description: Conflict
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/problem+json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                allowed_values:
+                  - failed
+                  - transcribed
+                current_value: in_progress
+                type: https://www.rev.ai/api/v1/errors/invalid-job-state
+                title: Job is in invalid state
+                status: 409
+                detail: Job is in invalid state to be deleted
+                extensions: {}
+  /speechtotext/v1/jobs:
+    get:
+      tags:
+        - Speech-to-Text > Transcription Jobs
+      summary: Get List of Jobs
+      description: >-
+        Gets a list of transcription jobs submitted within the last 30 days in
+        reverse chronological order up to the provided `limit` number of jobs
+        per call. Note: Jobs older than 30 days will not be listed. Pagination
+        is supported via passing the last job `id` from a previous call into
+        `starting_after`.
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              examples:
+                example-0:
+                  summary: 200 OK - Jobs List
+                  value:
+                    - id: Z772ozcQwvnZ
+                      created_on: '2021-01-04T00:05:30.000Z'
+                      name: example4.mp3
+                      media_url: https://www.example.com/audio4.mp3
+                      status: in_progress
+                      duration_seconds: 34
+                      type: async
+                      language: en
+                    - id: Lr694KPg1ibR
+                      created_on: '2021-01-03T00:05:30.000Z'
+                      completed_on: '2021-01-03T00:10:30.000Z'
+                      name: example3.mp3
+                      media_url: https://www.example.com/audio3.mp3
+                      callback_url: https://www.example.com/callback
+                      status: transcribed
+                      duration_seconds: 107
+                      type: async
+                      delete_after_seconds: 120
+                      language: fr
+                    - id: MmFagMtRMqtt
+                      created_on: '2021-01-02T00:05:30.000Z'
+                      completed_on: '2021-01-02T00:10:30.000Z'
+                      name: example2.mp3
+                      media_url: https://www.example.com/audio2.mp3
+                      status: transcribed
+                      duration_seconds: 40
+                      type: async
+                      language: es
+                    - id: JOoJRnQ6UClt
+                      created_on: '2021-01-01T00:05:30.000Z'
+                      completed_on: '2021-01-01T00:10:30.000Z'
+                      name: example.mp3
+                      media_url: https://www.example.com/audio.mp3
+                      status: transcribed
+                      duration_seconds: 107
+                      type: async
+                      language: en
+                example-1:
+                  summary: 200 OK - Jobs List with Limit and Pagination
+                  value:
+                    - id: Lr694KPg1ibR
+                      created_on: '2021-01-03T00:05:30.000Z'
+                      completed_on: '2021-01-03T00:10:30.000Z'
+                      name: example3.mp3
+                      media_url: https://www.example.com/audio3.mp3
+                      callback_url: https://www.example.com/callback
+                      status: transcribed
+                      duration_seconds: 107
+                      type: async
+                      delete_after_seconds: 120
+                      language: en
+                    - id: MmFagMtRMqtt
+                      created_on: '2021-01-02T00:05:30.000Z'
+                      completed_on: '2021-01-02T00:10:30.000Z'
+                      name: example2.mp3
+                      media_url: https://www.example.com/audio2.mp3
+                      status: transcribed
+                      duration_seconds: 40
+                      type: async
+                      language: es
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/problem+json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                parameters:
+                  limit:
+                    - The field limit must be between 0 and 1000.
+                type: https://www.rev.ai/api/v1/errors/invalid-parameters
+                title: Your request parameters didn't validate
+                status: 400
+                extensions: {}
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/problem+json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                title: Authorization has been denied for this request.
+                status: 401
+    post:
+      tags:
+        - Speech-to-Text > Transcription Jobs
+      summary: Submit Job with Local File
+      description: >-
+        Submits an asynchronous job to transcribe speech-to-text for a media
+        file by uploading the file locally as part of a `multipart/form`
+        request. Visit https://www.rev.ai/docs#operation/SubmitTranscriptionJob
+        for more details and descriptions on the different options with which
+        you can submit.
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                media:
+                  type: string
+                  description: >-
+                    (Required) Limited to files less than 2GB in size. If the
+                    file is larger than 2GB, submit a transcription job using
+                    "Submit Job with Media URL"
+                  format: binary
+                options:
+                  type: string
+                  description: >-
+                    (Optional) Optional submit jobs options. If there are
+                    options, populate the empty JSON object in the value. If
+                    there are no options, leave the JSON value empty.
+                  example: '{}'
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: multipart/form-data
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: Lr694KPg1ibR
+                created_on: '2021-01-03T00:05:30.000Z'
+                name: audio.mp3
+                media_url: https://www.example.com/audio.mp3
+                status: in_progress
+                duration_seconds: 107
+                type: async
+                delete_after_seconds: 120
+                language: fr
+                filter_profanity: true
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/problem+json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                parameters:
+                  media_url:
+                    - The media field is required
+                type: https://www.rev.ai/api/v1/errors/invalid-parameters
+                title: Your request parameters didn't validate
+                status: 400
+                extensions: {}
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/problem+json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                title: Authorization has been denied for this request.
+                status: 401
+        '413':
+          description: Request Entity Too Large
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/problem+json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                title: Payload Too Large
+                detail: Submitted payload exceeds maximum allowed file size
+                status: 413
+  /speechtotext/v1/jobs/{jobId}/transcript:
+    get:
+      tags:
+        - Speech-to-Text > Outputs
+      summary: Get Transcript
+      description: >-
+        Returns the transcript for a completed transcription job. Transcript can
+        be returned as either JSON or plaintext format. Transcript output format
+        can be specified in the `Accept` header. Can either be
+        `application/vnd.rev.transcript.v1.0+json ` or `text/plain`. Returns
+        JSON by default.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: number
+          description: >-
+            (Required) MIME type specifying the transcript output format. Either
+            `application/vnd.rev.transcript.v1.0+json` or `text/plain`.
+          example: application/vnd.rev.transcript.v1.0+json
+        - name: jobId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: (Required) Rev.ai job ID
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: number
+                example: application/vnd.rev.transcript.v1.0+json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                monologues:
+                  - speaker: 1
+                    elements:
+                      - type: text
+                        value: Hello
+                        ts: 0.5
+                        end_ts: 1.5
+                        confidence: 1
+                      - type: punct
+                        value: ' '
+                      - type: text
+                        value: World
+                        ts: 1.75
+                        end_ts: 2.85
+                        confidence: 0.8
+                      - type: punct
+                        value: .
+                  - speaker: 2
+                    elements:
+                      - type: text
+                        value: monologues
+                        ts: 3
+                        end_ts: 3.5
+                        confidence: 1
+                      - type: punct
+                        value: ' '
+                      - type: text
+                        value: are
+                        ts: 3.6
+                        end_ts: 3.9
+                        confidence: 1
+                      - type: punct
+                        value: ' '
+                      - type: text
+                        value: a
+                        ts: 4
+                        end_ts: 4.3
+                        confidence: 1
+                      - type: punct
+                        value: ' '
+                      - type: text
+                        value: block
+                        ts: 4.5
+                        end_ts: 5.5
+                        confidence: 1
+                      - type: punct
+                        value: ' '
+                      - type: text
+                        value: of
+                        ts: 5.75
+                        end_ts: 6.14
+                        confidence: 1
+                      - type: punct
+                        value: ' '
+                      - type: unknown
+                        value: <inaudible>
+                      - type: punct
+                        value: ' '
+                      - type: text
+                        value: text
+                        ts: 6.5
+                        end_ts: 7.78
+                        confidence: 1
+                      - type: punct
+                        value: .
+            text/plain:
+              schema:
+                type: string
+              example: >
+                Speaker 0:    00:00:00    Hello there, this is a sample
+                transcript in plain text.
+
+                Speaker 1:    00:00:43    Words are returned with spaces between
+                them.
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/problem+json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                title: Authorization has been denied for this request.
+                status: 401
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/problem+json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                type: https://www.rev.ai/api/v1/errors/job-not-found
+                title: could not find job
+                status: 404
+                extensions: {}
+        '406':
+          description: Not Acceptable
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/problem+json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                allowed_values:
+                  - text/plain
+                  - application/vnd.rev.transcript.v1.0+json
+                current_value: application/json
+                type: https://www.rev.ai/api/v1/errors/unsupported-output-format
+                title: Output format is not supported
+                detail: Unsupported value application/json
+                status: 406
+        '409':
+          description: Conflict
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/problem+json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                allowed_values:
+                  - transcribed
+                current_value: in_progress
+                type: https://rev.ai/api/v1/errors/invalid-job-state
+                title: Job is in invalid state
+                detail: Job is in progress or failed
+                status: 409
+  /speechtotext/v1/jobs/{jobId}/captions:
+    get:
+      tags:
+        - Speech-to-Text > Outputs
+      summary: Get Captions
+      description: >-
+        Returns the caption output for a transcription job. We currently support
+        SubRip (SRT) and Web Video Text Tracks (VTT) output. Caption output
+        format can be specified in the `Accept` header. Returns SRT by default.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          description: >-
+            (Required) MIME type specifying the caption output format. Either
+            `application/x-subrip` or `text/vtt`.
+          example: application/x-subrip
+        - name: jobId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: (Required) Rev.ai job ID
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/x-subrip
+          content:
+            text/plain:
+              schema:
+                type: string
+              examples:
+                example-0:
+                  summary: 200 OK - SRT Captions
+                  value: |
+                    1
+                    00:00:01,210 --> 00:00:04,840
+                    Hello there, this is a example captions output
+
+                    2
+                    00:00:07,350 --> 00:00:10,970
+                    Each caption group is in the SubRip Text
+                    file format
+                example-1:
+                  summary: 200 OK - VTT Captions
+                  value: |
+                    WebVTT
+
+                    1
+                    00:00:01,210 ==> 00:00:04,840
+                    Hello there,
+                    this is an example captions output
+
+                    2
+                    00:00:07,350 --> 00:00:10,970
+                    Each caption group is in the vtt
+                    file format
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/problem+json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                title: Authorization has been denied for this request.
+                status: 401
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/problem+json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                type: https://www.rev.ai/api/v1/errors/job-not-found
+                title: could not find job
+                status: 404
+                extensions: {}
+        '405':
+          description: Method Not Allowed
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/problem+json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                type: https://rev.ai/api/v1/errors/invalid-job-properties
+                title: Job contains unsupported properties
+                detail: >-
+                  Job with speaker channels provided are not supported for
+                  retrieving captions
+                status: 405
+        '406':
+          description: Not Acceptable
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/problem+json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                allowed_values:
+                  - application/x-subrip
+                  - text/vtt
+                current_value: text/plain
+                type: https://www.rev.ai/api/v1/errors/unsupported-output-format
+                title: Output format is not supported
+                detail: Unsupported value text/plain
+                status: 406
+        '409':
+          description: Conflict
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/problem+json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                allowed_values:
+                  - transcribed
+                current_value: in_progress
+                type: https://rev.ai/api/v1/errors/invalid-job-state
+                title: Job is in invalid state
+                detail: Job is in progress or failed
+                status: 409
+  /speechtotext/v1/account:
+    get:
+      tags:
+        - Speech-to-Text > Accounts
+      summary: Get Account Info
+      description: Get the developer's account information.
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                email: user@rev.ai
+                balance_seconds: 150
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/problem+json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                title: Authorization has been denied for this request.
+                status: 401
+  /speechtotext/v1/vocabularies/{id}:
+    get:
+      tags:
+        - Speech-to-Text > Custom Vocabularies
+      summary: Get Custom Vocabulary
+      description: Gets the custom vocabulary processing information.
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          description: (Required) ID of a custom vocabulary
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              examples:
+                example-0:
+                  summary: 200 OK - New Vocabulary
+                  value:
+                    id: cvUmx5c6F7pH7r
+                    status: in_progress
+                    created_on: 2021-01-01T00:00:5.29Z
+                example-1:
+                  summary: 200 OK - Completed Vocabulary
+                  value:
+                    id: cvUmx5c6F7pH7r
+                    status: complete
+                    created_on: 2021-01-02T00:00:5.29Z
+                    completed_on: 2021-01-02T00:05:5.29Z
+                    callback_url: https://www.example.com/callback
+                example-2:
+                  summary: 200 OK - Failed Vocabulary
+                  value:
+                    id: cvUmx5c6F7pH7r
+                    status: failed
+                    created_on: 2021-01-03T00:00:5.29Z
+                    completed_on: 2021-01-03T00:05:5.29Z
+                    failure: internal_processing
+                    failure_detail: Internal processing failure
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/problem+json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                title: Authorization has been denied for this request.
+                status: 401
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/problem+json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                type: https://www.rev.ai/api/v1/errors/custom-vocabulary-not-found
+                title: could not find custom vocabulary
+                status: 404
+    delete:
+      tags:
+        - Speech-to-Text > Custom Vocabularies
+      summary: Delete Custom Vocabulary
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          description: (Required) ID of a custom vocabulary
+          example: <string>
+      responses:
+        '204':
+          description: No Content
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/problem+json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                title: Authorization has been denied for this request.
+                status: 401
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/problem+json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                type: https://www.rev.ai/api/v1/errors/custom-vocabulary-not-found
+                title: could not find custom vocabulary
+                status: 404
+        '409':
+          description: Conflict
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/problem+json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                allowed_values:
+                  - complete
+                  - failed
+                current_value: in_progress
+                type: https://rev.ai/api/v1/errors/invalid-custom-vocabulary-state
+                title: Custom vocabulary is in invalid state
+                detail: Custom vocabulary is in invalid state to be deleted
+                status: 409
+  /speechtotext/v1/vocabularies:
+    get:
+      tags:
+        - Speech-to-Text > Custom Vocabularies
+      summary: Get List of Custom Vocabularies
+      description: Gets a list of most recent custom vocabularies' processing information.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                - id: cvUmx5c6F7pH7r
+                  status: failed
+                  created_on: 2021-01-03T00:00:5.29Z
+                  completed_on: 2021-01-03T00:05:5.29Z
+                  failure: internal_processing
+                  failure_detail: Internal processing failure
+                - id: cvUmx5c6F7pH7r
+                  status: complete
+                  created_on: 2021-01-02T00:00:5.29Z
+                  completed_on: 2021-01-02T00:05:5.29Z
+                  callback_url: https://www.example.com/callback
+                - id: cvUmx5c6F7pH7r
+                  status: in_progress
+                  created_on: 2021-01-01T00:00:5.29Z
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/problem+json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                parameters:
+                  limit:
+                    - The field limit must be between 0 and 1000.
+                type: https://www.rev.ai/api/v1/errors/invalid-parameters
+                title: Your request parameters didn't validate
+                status: 400
+                extensions: {}
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/problem+json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                title: Authorization has been denied for this request.
+                status: 401
+    post:
+      tags:
+        - Speech-to-Text > Custom Vocabularies
+      summary: Submit Custom Vocabulary
+      description: Submits a custom vocabulary for asynchronous processing.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                custom_vocabularies:
+                  - phrases:
+                      - Add phrases here
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: cvUmx5c6F7pH7r
+                status: in_progress
+                created_on: 2021-01-01T00:00:5.29Z
+                metadata: sample metadata
+                callback_url: https://www.example.com/callback
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/problem+json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                parameter:
+                  custom_vocabularies:
+                    - The custom_vocabularies field is required
+                type: https://www.rev.ai/api/v1/errors/invalid-parameters
+                title: Your request parameters didn't validate
+                status: 400
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/problem+json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                title: Authorization has been denied for this request.
+                status: 401

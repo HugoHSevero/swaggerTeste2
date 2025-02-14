@@ -1,0 +1,266 @@
+openapi: 3.0.0
+info:
+  title: PagBrasil API
+  description: '[https://pbdocs.pagbrasil.com/](https://pbdocs.pagbrasil.com/)'
+  version: 1.0.0
+servers:
+  - url: https://sandbox.pagbrasil.com
+  - url: https://connect.pagbrasil.com
+tags:
+  - name: Sandbox
+  - name: Production
+paths:
+  /api/order/add:
+    post:
+      tags:
+        - Production
+      summary: Payment Link - addOrder
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                secret:
+                  type: string
+                  description: Secret phrase as defined in the PagBrasil Dashboard
+                pbtoken:
+                  type: string
+                  description: >-
+                    Token assigned to your account. Your token is displayed at
+                    the PagBrasil Dashboard, menu Account > Settings.
+                order:
+                  type: string
+                  description: Order number
+                payment_link:
+                  type: integer
+                  description: Set "1" to create the Payment Link
+                  example: '1'
+                payment_option:
+                  type: string
+                  description: >-
+                    Defines the payment methods to be included in the Payment
+                    Link. If not present all payment methods available will be
+                    included. Separate multiple payment methods by comma (e.g.
+                    "C,B,P").
+                payment_link_expiration:
+                  type: string
+                  description: >-
+                    Number of days (0 - 999) the Payment Link is valid for. If
+                    you don't use this parameter, our system will use the
+                    default value set at the PagBrasil Dashboard, menu Account >
+                    Settings
+                url_return:
+                  type: string
+                  description: >-
+                    URL you want the customer to be redirected to after they
+                    complete the payment. You may include any parameters in the
+                    URL (i.e. order number) so that you can display the proper
+                    page when the customer is redirected to "url_return"
+                product_name:
+                  type: string
+                  description: Product name
+                customer_name:
+                  type: string
+                  description: >-
+                    Customer's full name if an individual, or "razão social" if
+                    the customer is a company
+                customer_taxid:
+                  type: string
+                  description: CPF if an individual, or CNPJ if the customer is a company
+                customer_email:
+                  type: string
+                  description: Customer's e-mail address
+                customer_phone:
+                  type: string
+                  description: Customer's phone number (including the 2-digit area code)
+                address_street:
+                  type: string
+                  description: Customer's street address
+                address_number:
+                  type: string
+                  description: Customer's street address number
+                address_number_complement:
+                  type: string
+                  description: Customer's street address complement (e.g. suite)
+                address_neighborhood:
+                  type: string
+                  description: Customer's neighborhood
+                address_zip:
+                  type: string
+                  description: >-
+                    Customer's postal code (in Brazil called CEP). Only digits,
+                    do not include the dash.
+                address_city:
+                  type: string
+                  description: Customer's city
+                address_state:
+                  type: string
+                  description: Customer's state
+                amount_brl:
+                  type: string
+                  description: Amount in Brazilian Real
+                param_url:
+                  type: string
+                  description: >-
+                    A string that can be concatenated to the URL our server
+                    posts the response to
+                store_code:
+                  type: string
+                  description: >-
+                    Code defined by the merchant per store to identify a set
+                    consisting of a customized message and a logo that will be
+                    displayed on each boleto. Should not be used when the
+                    merchant has only one store associated to the supplied
+                    merchant account credentials (pbtoken and secret)
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/order/extend:
+    post:
+      tags:
+        - Production
+      summary: Pix - extend
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                secret:
+                  type: string
+                  description: Secret phrase as defined in the PagBrasil Dashboard
+                pbtoken:
+                  type: string
+                  description: Token assigned to your merchant account
+                order:
+                  type: string
+                  description: Order number
+                extend_minutes:
+                  type: string
+                  description: >-
+                    Number of minutes to add to the current expiration date
+                    (from 180 to 7200)
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/order/refund:
+    post:
+      tags:
+        - Production
+      summary: Payment Link - refund
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                secret:
+                  type: string
+                  description: Secret phrase as defined in the PagBrasil Dashboard
+                pbtoken:
+                  type: string
+                  description: Token assigned to your merchant account
+                order:
+                  type: string
+                  description: Order number
+                amount_refunded:
+                  type: string
+                  description: Amount requested to be refunded (Brazilian Real)
+                suspicious:
+                  type: string
+                  description: >-
+                    Value "1" indicates that you are refunding the order because
+                    you suspect that it is a fraudulent order. That feeds our
+                    PagShield fraud prevention service database. Otherwise, set
+                    this parameter as "0" (or blank)
+                customer_bank:
+                  type: string
+                  description: Only used when a refund is rejected. See documentation.
+                customer_branch:
+                  type: string
+                  description: Only used when a refund is rejected. See documentation.
+                customer_account:
+                  type: string
+                  description: Only used when a refund is rejected. See documentation.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/order/creditcard/delete:
+    post:
+      tags:
+        - Production
+      summary: Credit Cards - delete saved card
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                secret:
+                  type: string
+                  description: Secret phrase as defined in the PagBrasil Dashboard
+                pbtoken:
+                  type: string
+                  description: Token assigned to your merchant account
+                order:
+                  type: string
+                  description: Order number
+                customer_taxid:
+                  type: string
+                  description: CPF if an individual, or CNPJ if the customer is a company
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/order/get:
+    post:
+      tags:
+        - Production
+      summary: Get Order
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                secret:
+                  type: string
+                  description: Secret phrase as defined in the PagBrasil Dashboard
+                pbtoken:
+                  type: string
+                  description: Token assigned to your merchant account
+                order:
+                  type: string
+                  description: Order number
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/order/cancel:
+    post:
+      tags:
+        - Production
+      summary: Cancel Order - Boleto/Pix
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                secret:
+                  type: string
+                  description: Secret phrase as defined in the PagBrasil Dashboard
+                pbtoken:
+                  type: string
+                  description: Token assigned to your merchant account
+                order:
+                  type: string
+                  description: Order number
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}

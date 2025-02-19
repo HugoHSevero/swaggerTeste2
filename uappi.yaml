@@ -1,0 +1,2995 @@
+openapi: 3.0.0
+info:
+  title: API v2 wap.store
+  version: 1.0.0
+servers:
+  - url: http://{{api.wapstore}}
+tags:
+  - name: V2
+  - name: Attributes
+  - name: Auth
+  - name: Ping
+  - name: Documentation
+  - name: Collection
+  - name: Batch
+  - name: Bi
+  - name: Bi > Orders
+  - name: Brands
+  - name: Categories
+  - name: Characteristics
+  - name: Characteristics > Values
+  - name: Customers
+  - name: Customers > Credit-transactions-batch
+  - name: Customers > Login
+  - name: Customers > Recover-password
+  - name: Customers > Queue
+  - name: Freights
+  - name: Freights > Carriers
+  - name: Orders
+  - name: Orders > Internal-sale
+  - name: Orders > Queue
+  - name: Orders > Status-batch
+  - name: Payments
+  - name: Payments > Gateways
+  - name: Products
+  - name: Products > Reserves
+  - name: Products > Stock-batch
+  - name: Products > Stock-movements-batch
+  - name: Products > Price-batch
+  - name: Products > Queue
+  - name: Sales-recovery
+  - name: Statuses
+  - name: Thirdparty
+  - name: Thirdparty > Aarin
+  - name: Thirdparty > Ame
+  - name: Thirdparty > Appmax
+  - name: Thirdparty > Beeviral
+  - name: Thirdparty > Clearsale-total
+  - name: Thirdparty > Intelipost
+  - name: Thirdparty > Notazz
+  - name: Thirdparty > Onclick
+  - name: Thirdparty > Picpay
+  - name: Thirdparty > Tiny
+  - name: Thirdparty > Virtuspay
+  - name: Thirdparty > Yourviews
+paths:
+  /v2:
+    get:
+      tags:
+        - V2
+      summary: GET
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/attributes:
+    get:
+      tags:
+        - Attributes
+      summary: GET Attributes
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Attributes
+      summary: POST Attributes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                nome: Nome do atributo
+                unico: false
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/attributes/{idAtributo}/values:
+    post:
+      tags:
+        - Attributes
+      summary: POST Attributes  values
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                label: Label do valor
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+        - name: idAtributo
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/attributes/{idAtributo}:
+    get:
+      tags:
+        - Attributes
+      summary: GET Attributes
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+        - name: idAtributo
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/auth:
+    post:
+      tags:
+        - Auth
+      summary: POST Auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                apiKey: Chave pública da API de integração do Seller
+                secretKey: Chave privada da API de integração do Seller
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/ping:
+    get:
+      tags:
+        - Ping
+      summary: GET Ping
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/documentation:
+    get:
+      tags:
+        - Documentation
+      summary: GET Documentation
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/collection/{api}:
+    get:
+      tags:
+        - Collection
+      summary: GET Collection
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+        - name: api
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/batch/{id}:
+    get:
+      tags:
+        - Batch
+      summary: GET Batch
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/bi/orders:
+    get:
+      tags:
+        - Bi > Orders
+      summary: GET Bi orders
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/bi/orders/queue:
+    get:
+      tags:
+        - Bi > Orders
+      summary: GET Bi orders queue
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Bi > Orders
+      summary: DELETE Bi orders queue
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/bi/orders/{idPedido}:
+    get:
+      tags:
+        - Bi > Orders
+      summary: GET Bi orders
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: idPedido
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/brands:
+    get:
+      tags:
+        - Brands
+      summary: GET Brands
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Brands
+      summary: POST Brands
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                nome: Nome da marca
+                titulo: Título da marca
+                descricao: Descrição da marca
+                ativo: true
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/brands/{idMarca}:
+    get:
+      tags:
+        - Brands
+      summary: GET Brands
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+        - name: idMarca
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/categories:
+    get:
+      tags:
+        - Categories
+      summary: GET Categories
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Categories
+      summary: POST Categories
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                nome: Nome da categoria
+                titulo: Título da categoria
+                descricao: Descrição da categoria
+                ativo: false
+                idCategoriaPai: 12
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/categories/{idCategoria}:
+    get:
+      tags:
+        - Categories
+      summary: GET Categories
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+        - name: idCategoria
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/characteristics/values/{id}:
+    get:
+      tags:
+        - Characteristics > Values
+      summary: GET Characteristics values
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/characteristics:
+    get:
+      tags:
+        - Characteristics
+      summary: GET Characteristics
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/characteristics/{id}:
+    get:
+      tags:
+        - Characteristics
+      summary: GET Characteristics
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/characteristics/{id}/values:
+    get:
+      tags:
+        - Characteristics
+      summary: GET Characteristics  values
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/customers/credit-transactions-batch:
+    post:
+      tags:
+        - Customers > Credit-transactions-batch
+      summary: POST Customers credit-transactions-batch
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                transacoes:
+                  - idCliente: 70
+                    cpfCnpj: CPF/CNPJ do cliente (apenas dígitos) (opcional)
+                    email: E-mail do cliente (opcional)
+                    operacao: Operação da transação[credito, debito]
+                    valor: 63
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/customers/login:
+    post:
+      tags:
+        - Customers > Login
+      summary: POST Customers login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                email: E-mail do cliente
+                senha: Senha do cliente (opcional)
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/customers/recover-password:
+    post:
+      tags:
+        - Customers > Recover-password
+      summary: POST Customers recover-password
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                email: E-mail do cliente
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/customers/queue:
+    get:
+      tags:
+        - Customers > Queue
+      summary: GET Customers queue
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          example: '100'
+        - name: offset
+          in: query
+          schema:
+            type: integer
+          example: '0'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/customers/queue/{idCliente}:
+    delete:
+      tags:
+        - Customers > Queue
+      summary: DELETE Customers queue
+      parameters:
+        - name: idCliente
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/customers:
+    get:
+      tags:
+        - Customers
+      summary: GET Customers
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+        - name: offset
+          in: query
+          schema:
+            type: integer
+          example: '0'
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          example: '100'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Customers
+      summary: POST Customers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                cliNome: Nome do cliente
+                cliEmail: E-mail do cliente
+                cliSenha: Senha do cliente (opcional)
+                cliNascimento: Data de nascimento do cliente (DD/MM/YYYY)
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+        - name: offset
+          in: query
+          schema:
+            type: integer
+          example: '0'
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          example: '100'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/customers/{idCliente}:
+    get:
+      tags:
+        - Customers
+      summary: GET Customers
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+        - name: offset
+          in: query
+          schema:
+            type: integer
+          example: '0'
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          example: '100'
+        - name: idCliente
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    put:
+      tags:
+        - Customers
+      summary: PUT Customers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                cliNome: Nome do cliente
+                cliEmail: E-mail do cliente
+                cliSenha: Senha do cliente (opcional)
+                cliNascimento: Data de nascimento do cliente (DD/MM/YYYY)
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+        - name: offset
+          in: query
+          schema:
+            type: integer
+          example: '0'
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          example: '100'
+        - name: idCliente
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/freights/carriers:
+    get:
+      tags:
+        - Freights > Carriers
+      summary: GET Freights carriers
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: offset
+          in: query
+          schema:
+            type: integer
+          example: '0'
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          example: '100'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/freights:
+    get:
+      tags:
+        - Freights
+      summary: GET Freights
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+        - name: offset
+          in: query
+          schema:
+            type: integer
+          example: '0'
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          example: '100'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/freights/{id}:
+    get:
+      tags:
+        - Freights
+      summary: GET Freights
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/orders/internal-sale:
+    post:
+      tags:
+        - Orders > Internal-sale
+      summary: POST Orders internal-sale
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                idSite: 31
+                vendaInterna:
+                  idUsuario: 42
+                  enviarEmail: false
+                  observacao: Observação da venda interna (opcional)
+                cliente:
+                  nome: Nome completo ou razão social do cliente
+                  email: E-mail do cliente
+                  cpfCnpj: CPF ou CNPJ do cliente
+                  rgIe: RG ou Inscrição estadual do cliente
+                  pessoa: Pessoa física (f) ou jurídica (j)[f, j]
+                  sexo: >-
+                    Sexo do cliente. Envie 'j' para pessoas jurídicas[m, f, o,
+                    i, j]
+                  nascimento: Data de nascimento do cliente no formato 'dd/mm/aaaa'
+                  telefone: Telefone do cliente
+                  celular: Celular do cliente
+                entrega:
+                  cep: CEP de entrega
+                  destinatario: Nome do destinatário
+                  endereco: Nome da rua ou avenida
+                  bairro: Nome do bairro
+                  cidade: Nome da cidade
+                  uf: Estado de destino
+                  numero: Número da casa
+                  complemento: Complemento do endereço
+                  referencia: Ponto de referência
+                  prazoEntrega: 58
+                  valorFrete: 53
+                itens:
+                  - idProduto: 45
+                    idAtributoValor: 3
+                    quantidade: 18
+                descontos:
+                  hashCupom: Hash do cupom usado no pedido (opcional)
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/orders/queue:
+    get:
+      tags:
+        - Orders > Queue
+      summary: GET Orders queue
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/orders/queue/{numeroPedido}:
+    delete:
+      tags:
+        - Orders > Queue
+      summary: DELETE Orders queue
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: numeroPedido
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/orders/status-batch:
+    put:
+      tags:
+        - Orders > Status-batch
+      summary: PUT Orders status-batch
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                pedidos:
+                  - dataOcorrencia: Data real da alteração de status (opcional)
+                    numeroPedido: >-
+                      Número do pedido ou sub pedido (para pedidos que possuem
+                      sub pedidos é necessário enviar o número do sub pedido)
+                    status: 11
+                    nfeChave: Chave da nota fiscal eletrônica (opcional)
+                    nfeNumero: Número da nota fiscal eletrônica (opcional)
+                    nfeSerie: Número da série nota fiscal eletrônica (opcional)
+                    codigoRastreio: Código de rastreio (opcional)
+                    obs: Observação da alteração de status (opcional)
+                    enviarObsCliente: true
+                    email: true
+                    sms: false
+                    linkRastreio: URL de rastreio do pedido (opcional)
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/orders:
+    post:
+      tags:
+        - Orders
+      summary: POST Orders
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                idPedidoCanal: 67
+                prefixoPedido: >-
+                  Prefixo identificador do canal para a geração do número do
+                  pedido/subpedido (PREFIXO-ID_PEDIDO_CANAL)
+                parceiroCanal: >-
+                  Nome do canal em que o pedido foi gerado (nome do ERP, site
+                  parceiro, etc)
+                idStatus: 40
+                dataEmissao: Data da emissão do pedido no canal
+                cliente:
+                  nome: Nome completo ou razão social do cliente
+                  email: E-mail do cliente
+                  cpfCnpj: CPF ou CNPJ do cliente
+                  rgIe: RG ou Inscrição estadual do cliente
+                  pessoa: Pessoa física (f) ou jurídica (j)[f, j]
+                  sexo: >-
+                    Sexo do cliente. Envie 'j' para pessoas jurídicas[m, f, o,
+                    i, j]
+                  nascimento: Data de nascimento do cliente no formato 'dd/mm/aaaa'
+                  telefone: Telefone do cliente
+                  celular: Celular do cliente
+                entrega:
+                  cep: CEP de entrega
+                  destinatario: Nome do destinatário
+                  endereco: Nome da rua ou avenida
+                  bairro: Nome do bairro
+                  cidade: Nome da cidade
+                  uf: Estado de destino
+                  numero: Número da casa
+                  complemento: Complemento do endereço
+                  referencia: Ponto de referência
+                  prazoEntrega: 3
+                  idFrete: >-
+                    ID do tipo de frete (veja os tipos de frete disponíveis na
+                    API de fretes)
+                valores:
+                  frete: 40
+                  subtotal: 42
+                  juros: 79
+                  desconto: 81
+                  total: 7
+                itens:
+                  - sku: SKU do produto/variação
+                    nome: Nome do produto
+                    quantidade: 65
+                    valor: 82
+                pagamento:
+                  nome: Nome do tipo de pagamento
+                  descricao: Descrição do tipo de pagamento
+                  parcelas: 0
+                  valor: 20
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+        - name: offset
+          in: query
+          schema:
+            type: integer
+          example: '0'
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          example: '100'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Orders
+      summary: GET Orders
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+        - name: offset
+          in: query
+          schema:
+            type: integer
+          example: '0'
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          example: '100'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/orders/{numeroPedido}:
+    get:
+      tags:
+        - Orders
+      summary: GET Orders
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+        - name: numeroPedido
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/orders/{numeroPedido}/status:
+    put:
+      tags:
+        - Orders
+      summary: PUT Orders  status
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                dataOcorrencia: Data real da alteração de status (opcional)
+                status: 99
+                nfeChave: Chave da nota fiscal eletrônica (opcional)
+                nfeNumero: Número da nota fiscal eletrônica (opcional)
+                nfeSerie: Número da série nota fiscal eletrônica (opcional)
+                nfeXml: Conteúdo XML da nota fiscal eletrônica (opcional)
+                nfeUrl: Url da nota fiscal eletrônica (opcional)
+                codigoRastreio: Código de rastreio (opcional)
+                codigoLogisticaReversa: Código de logística reversa (opcional)
+                obs: Observação da alteração de status (opcional)
+                enviarObsCliente: false
+                email: true
+                sms: false
+                linkRastreio: URL de rastreio do pedido (opcional)
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+        - name: numeroPedido
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/payments/gateways:
+    get:
+      tags:
+        - Payments > Gateways
+      summary: GET Payments gateways
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: offset
+          in: query
+          schema:
+            type: integer
+          example: '0'
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          example: '100'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/payments:
+    get:
+      tags:
+        - Payments
+      summary: GET Payments
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+        - name: offset
+          in: query
+          schema:
+            type: integer
+          example: '0'
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          example: '100'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/payments/{id}:
+    get:
+      tags:
+        - Payments
+      summary: GET Payments
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/products/reserves:
+    get:
+      tags:
+        - Products > Reserves
+      summary: GET Products reserves
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: offset
+          in: query
+          schema:
+            type: integer
+          example: '0'
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          example: '100'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/products/reserves/{idReserva}:
+    get:
+      tags:
+        - Products > Reserves
+      summary: GET Products reserves
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: idReserva
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/products/stock-batch:
+    put:
+      tags:
+        - Products > Stock-batch
+      summary: PUT Products stock-batch
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                estoques:
+                  - sku: SKU do produto ou atributo simples (opcional)
+                    idProduto: 75
+                    idAtributoSimples: 82
+                    estoque: 9
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/products/stock-movements-batch:
+    put:
+      tags:
+        - Products > Stock-movements-batch
+      summary: PUT Products stock-movements-batch
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                movimentos:
+                  - sku: SKU do produto ou atributo simples (opcional)
+                    idProduto: 51
+                    idAtributoSimples: 94
+                    quantidade: 45
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/products/price-batch:
+    put:
+      tags:
+        - Products > Price-batch
+      summary: PUT Products price-batch
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                precos:
+                  - sku: SKU do produto ou atributo simples (opcional)
+                    idProduto: 60
+                    idAtributoSimples: 82
+                    precoDefault: false
+                    precoDe: 66
+                    precoPor: 1
+                    precoCusto: 84
+                    precoEspecial: 84
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/products/queue:
+    get:
+      tags:
+        - Products > Queue
+      summary: GET Products queue
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          example: '100'
+        - name: offset
+          in: query
+          schema:
+            type: integer
+          example: '0'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/products/queue/{idProduto}:
+    delete:
+      tags:
+        - Products > Queue
+      summary: DELETE Products queue
+      parameters:
+        - name: idProduto
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/products:
+    get:
+      tags:
+        - Products
+      summary: GET Products
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+        - name: offset
+          in: query
+          schema:
+            type: integer
+          example: '0'
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          example: '100'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Products
+      summary: POST Products
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                idCategoria: 47
+                idMarca: 94
+                idProdutoLider: 31
+                nome: Nome do produto
+                adicionalNome: Informação adicional ao nome (não aparece na URL)
+                sku: SKU do produto
+                ativo: false
+                venda: true
+                precos:
+                  precoDe: 35
+                  precoPor: 25
+                  precoCusto: 100
+                  precoEspecial: 67
+                descricaoCurta: Descrição curta do produto (sem HTML)
+                descricao: Descrição longa do produto (pode conter HTML)
+                video: URL do vídeo do produto
+                dimensoes:
+                  altura: 69
+                  largura: 44
+                  comprimento: 66
+                  peso: 74
+                prazoProducao: 77
+                prazoFornecedor: 55
+                vendaSemEstoque: false
+                busca: Palavras de busca
+                googleDescription: Meta tag de descrição para buscadores
+                googleCondition: Condição do produto
+                googleAgeGroup: Faixa etária indicada do produto
+                googleGender: Gênero indicado do produto
+                ncm: Código da Nomenclatura Comum do Mercosul
+                mpn: Código do fabricante (manufacturer part number)
+                ean: Código GTIN/EAN do produto
+                exclusivo: false
+                categoriasAdicionais: Categorias adicionais do produto
+                landingPages: Landing pages vinculadas ao produto
+                filtros: >-
+                  Filtros que podem ser aplicados no produto (IDs dos valores
+                  dos filtros)
+                caracteristicas: Características do produto seguindo o padrão {'id':'valor'}
+                idAtributoUnico: 3
+                atributosSimples:
+                  - id: 75
+                    sku: SKU do atributo simples
+                    ean: >-
+                      Código EAN/GTIN do atributo simples (deixe vazio caso seja
+                      o mesmo EAN do produto)
+                    precos:
+                      precoDefault: false
+                      precoDe: 32
+                      precoPor: 29
+                      precoEspecial: 65
+                    dimensoes:
+                      altura: 36
+                      largura: 88
+                      comprimento: 0
+                      peso: 78
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+        - name: offset
+          in: query
+          schema:
+            type: integer
+          example: '0'
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          example: '100'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/products/{idProduto}:
+    put:
+      tags:
+        - Products
+      summary: PUT Products
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                ativo: true
+                venda: true
+                ncm: Código da Nomenclatura Comum do Mercosul (opcional)
+                mpn: Código do fabricante (manufacturer part number) (opcional)
+                atributosSimples:
+                  - id: 13
+                    sku: SKU do atributo simples
+                    ean: >-
+                      Código EAN/GTIN do atributo simples (deixe vazio caso seja
+                      o mesmo EAN do produto) (opcional)
+                    precos:
+                      precoDe: 38
+                      precoPor: 49
+                      precoEspecial: 12
+                    dimensoes:
+                      altura: 9
+                      largura: 97
+                      comprimento: 92
+                      peso: 2
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+        - name: idProduto
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Products
+      summary: GET Products
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+        - name: idProduto
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/sales-recovery:
+    get:
+      tags:
+        - Sales-recovery
+      summary: GET Sales-recovery
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+        - name: offset
+          in: query
+          schema:
+            type: integer
+          example: '0'
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          example: '100'
+        - name: tipo
+          in: query
+          schema:
+            type: string
+          example: carrinho|pagamento|orcamento
+        - name: ativo
+          in: query
+          schema:
+            type: boolean
+          example: 'true'
+        - name: emailEnviado
+          in: query
+          schema:
+            type: boolean
+          example: 'true'
+        - name: clienteRetornou
+          in: query
+          schema:
+            type: boolean
+          example: 'true'
+        - name: data
+          in: query
+          schema:
+            type: string
+          example: 2022-03-01|2022-03-07
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/statuses:
+    get:
+      tags:
+        - Statuses
+      summary: GET Statuses
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+        - name: offset
+          in: query
+          schema:
+            type: integer
+          example: '0'
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          example: '100'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/statuses/{id}:
+    get:
+      tags:
+        - Statuses
+      summary: GET Statuses
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/thirdparty/aarin/callback:
+    post:
+      tags:
+        - Thirdparty > Aarin
+      summary: POST Thirdparty aarin callback
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                Id: Identificador do Pix. (opcional)
+                CobrancaId: Identificador da cobrança / transação. (opcional)
+                PixId: Identificador do pix da transação. (opcional)
+                Valor: Valor do Pix. (opcional)
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/thirdparty/ame/callback:
+    post:
+      tags:
+        - Thirdparty > Ame
+      summary: POST Thirdparty ame callback
+      requestBody:
+        content: {}
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/thirdparty/appmax/callback:
+    post:
+      tags:
+        - Thirdparty > Appmax
+      summary: POST Thirdparty appmax callback
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                environment: Ambiente da transação
+                event: Evento que disparará a alteração de status
+                data: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/thirdparty/beeviral/callback:
+    post:
+      tags:
+        - Thirdparty > Beeviral
+      summary: POST Thirdparty beeviral callback
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                RESULT:
+                  EIN: CNPJ da empresa
+                  INDICATOR:
+                    ID_INDICATOR: ID do indicador
+                    NM_INDICATOR: Nome do indicador
+                    TYPE_INDICATOR: Tipo de indicador (Customer ou Influencer)
+                    DS_TELEPHONE: Telefone do indicador
+                    DS_EMAIL: E-mail do indicador
+                    CONTENT: CPF do cliente
+                  RECOMMENDATION: Dados dos indicados
+                  CAMPAIGN:
+                    TOKEN_CAMPAIGN: Token da campanha
+                    NM_CAMPAIGN: Nome da campanha
+                    TARGET_CAMPAING: Público alvo da campanha (Customer ou Influencer)
+                  REWARD:
+                    ID_REWARD: Id da recompensa
+                    DS_REWARD: Descrição da recompensa
+                    LINK_REWARD: Url da recompensa (opcional)
+                    VL_REWARD: Valor da recompensa
+                    TARGET_REWARD: Destino da recompensa
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/thirdparty/clearsale-total/notification:
+    post:
+      tags:
+        - Thirdparty > Clearsale-total
+      summary: POST Thirdparty clearsale-total notification
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                code: 20
+                date: Data da atualização (opcional)
+                type: Tipo de atualização (opcional)
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/thirdparty/intelipost/callback:
+    post:
+      tags:
+        - Thirdparty > Intelipost
+      summary: POST Thirdparty intelipost callback
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                history:
+                  shipment_order_volume_id: 95
+                  shipment_order_volume_state: Macro status do volume do pedido de envio. (opcional)
+                  created: 40
+                  created_iso: Data de criação do evento. (opcional)
+                  provider_message: Mensagem enviada pelo transportador. (opcional)
+                  shipment_volume_micro_state:
+                    id: 90
+                    code: Código Intelipost do micro status. (opcional)
+                    default_name: Nome padrão. (opcional)
+                    description: Descrição do status. (opcional)
+                    shipment_order_volume_state_id: 94
+                    shipment_volume_state_source_id: 38
+                    name: Nome do status. (opcional)
+                  attachments: Dados dos anexos. (opcional)
+                  shipment_order_volume_state_localized: Status atual do volume do pedido de envio. (opcional)
+                  shipment_order_volume_state_history: 11
+                  event_date: 63
+                  event_date_iso: Data do evento. (opcional)
+                invoice:
+                  invoice_series: Série da nota fiscal. (opcional)
+                  invoice_number: Número da nota fiscal. (opcional)
+                  invoice_key: Chave da nota fiscal. (opcional)
+                order_number: Numero do pedido de entrega. (opcional)
+                sales_order_number: Numero do pedido de venda (opcional)
+                tracking_code: Código de rastreamento (opcional)
+                volume_number: Quantidade de volumes (opcional)
+                estimated_delivery_date: []
+                tracking_url: Link do rastreamento (opcional)
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/thirdparty/notazz/callback:
+    post:
+      tags:
+        - Thirdparty > Notazz
+      summary: POST Thirdparty notazz callback
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                token: Token da integração
+                id: Identificador da nota fiscal no Notazz
+                numero: Número da nota fiscal caso esta esteja autorizada
+                chave: Chave de acesso da nota fiscal (NF-e)
+                statusNota: Status que a nota fiscal se encontra
+                external_id: Identificador externo enviado via API
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/thirdparty/onclick:
+    post:
+      tags:
+        - Thirdparty > Onclick
+      summary: POST Thirdparty onclick
+      requestBody:
+        content: {}
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/thirdparty/onclick/example:
+    post:
+      tags:
+        - Thirdparty > Onclick
+      summary: POST Thirdparty onclick example
+      requestBody:
+        content: {}
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/thirdparty/picpay/callback:
+    post:
+      tags:
+        - Thirdparty > Picpay
+      summary: POST Thirdparty picpay callback
+      requestBody:
+        content: {}
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/thirdparty/tiny/callback:
+    post:
+      tags:
+        - Thirdparty > Tiny
+      summary: POST Thirdparty tiny callback
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                cnpj: CNPJ/CPF da conta Tiny que está enviando o payload (opcional)
+                idEcommerce: 50
+                tipo: Identificador do tipo do webhook
+                versao: Versão do Webhook (opcional)
+                dados: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/thirdparty/virtuspay/callback:
+    post:
+      tags:
+        - Thirdparty > Virtuspay
+      summary: POST Thirdparty virtuspay callback
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                transaction: Identificador da transação
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/thirdparty/yourviews/orders:
+    get:
+      tags:
+        - Thirdparty > Yourviews
+      summary: GET Thirdparty yourviews orders
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: offset
+          in: query
+          schema:
+            type: integer
+          example: '0'
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          example: '100'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/thirdparty/yourviews/orders/queue:
+    get:
+      tags:
+        - Thirdparty > Yourviews
+      summary: GET Thirdparty yourviews orders queue
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/thirdparty/yourviews/orders/queue/{numeroPedido}:
+    delete:
+      tags:
+        - Thirdparty > Yourviews
+      summary: DELETE Thirdparty yourviews orders queue
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: numeroPedido
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/thirdparty/yourviews/orders/{numeroPedido}:
+    get:
+      tags:
+        - Thirdparty > Yourviews
+      summary: GET Thirdparty yourviews orders
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: numeroPedido
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}

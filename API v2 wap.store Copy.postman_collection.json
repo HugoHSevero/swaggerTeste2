@@ -1,0 +1,3438 @@
+{
+	"info": {
+		"_postman_id": "4c3f7eab-e777-40ea-b738-77884cf2cbd9",
+		"name": "API v2 wap.store Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12428285"
+	},
+	"item": [
+		{
+			"name": "V2",
+			"item": [
+				{
+					"name": "GET",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "App-Token",
+								"value": "{{api.wapstore.v2.appToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Session",
+								"value": "{{sessionId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{api.wapstore.v2.authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Attributes",
+			"item": [
+				{
+					"name": "GET Attributes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "App-Token",
+								"value": "{{api.wapstore.v2.appToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Session",
+								"value": "{{sessionId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{api.wapstore.v2.authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/attributes",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"attributes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Attributes",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "App-Token",
+								"value": "{{api.wapstore.v2.appToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Session",
+								"value": "{{sessionId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{api.wapstore.v2.authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Nome do atributo\",\n    \"unico\": false\n}"
+						},
+						"url": {
+							"raw": "{{api.wapstore}}/v2/attributes",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"attributes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Attributes  values",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "App-Token",
+								"value": "{{api.wapstore.v2.appToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Session",
+								"value": "{{sessionId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{api.wapstore.v2.authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"label\": \"Label do valor\"\n}"
+						},
+						"url": {
+							"raw": "{{api.wapstore}}/v2/attributes/:idAtributo/values",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"attributes",
+								":idAtributo",
+								"values"
+							],
+							"variable": [
+								{
+									"key": "b04bf82e-ce1d-4ff6-9433-d5fd465e8e71"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Attributes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "App-Token",
+								"value": "{{api.wapstore.v2.appToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Session",
+								"value": "{{sessionId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{api.wapstore.v2.authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/attributes/:idAtributo",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"attributes",
+								":idAtributo"
+							],
+							"variable": [
+								{
+									"key": "6abe6a79-061e-47a0-96a8-3065629669a5"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "POST Auth",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "App-Token",
+								"value": "{{api.wapstore.v2.appToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Session",
+								"value": "{{sessionId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"apiKey\": \"Chave pública da API de integração do Seller\",\n    \"secretKey\": \"Chave privada da API de integração do Seller\"\n}"
+						},
+						"url": {
+							"raw": "{{api.wapstore}}/v2/auth",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ping",
+			"item": [
+				{
+					"name": "GET Ping",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "App-Token",
+								"value": "{{api.wapstore.v2.appToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Session",
+								"value": "{{sessionId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{api.wapstore.v2.authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/ping",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"ping"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Documentation",
+			"item": [
+				{
+					"name": "GET Documentation",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "App-Token",
+								"value": "{{api.wapstore.v2.appToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Session",
+								"value": "{{sessionId}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/documentation",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"documentation"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Collection",
+			"item": [
+				{
+					"name": "GET Collection",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "App-Token",
+								"value": "{{api.wapstore.v2.appToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Session",
+								"value": "{{sessionId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{api.wapstore.v2.authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/collection/:api",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"collection",
+								":api"
+							],
+							"variable": [
+								{
+									"key": "fc049fdd-70e0-4366-8a10-06db4f184c43"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Batch",
+			"item": [
+				{
+					"name": "GET Batch",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "App-Token",
+								"value": "{{api.wapstore.v2.appToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Session",
+								"value": "{{sessionId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{api.wapstore.v2.authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/batch/:id",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"batch",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "1b159b6a-1925-497a-9c1e-eb8d5a537acf"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bi",
+			"item": [
+				{
+					"name": "GET Bi orders",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/bi/orders",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"bi",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Bi orders queue",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/bi/orders/queue",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"bi",
+								"orders",
+								"queue"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Bi orders queue",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"pedidos\": \"Array com o conjunto de IDs a serem removidos\"\n}"
+						},
+						"url": {
+							"raw": "{{api.wapstore}}/v2/bi/orders/queue",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"bi",
+								"orders",
+								"queue"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Bi orders",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/bi/orders/:idPedido",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"bi",
+								"orders",
+								":idPedido"
+							],
+							"variable": [
+								{
+									"key": "4f57d195-991e-4389-abf8-7c7296b73431"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Brands",
+			"item": [
+				{
+					"name": "GET Brands",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "App-Token",
+								"value": "{{api.wapstore.v2.appToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Session",
+								"value": "{{sessionId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{api.wapstore.v2.authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/brands",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"brands"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Brands",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "App-Token",
+								"value": "{{api.wapstore.v2.appToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Session",
+								"value": "{{sessionId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{api.wapstore.v2.authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/brands/:idMarca",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"brands",
+								":idMarca"
+							],
+							"variable": [
+								{
+									"key": "3c99e5dd-919c-4707-b1ae-698d04c71b3a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Brands",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "App-Token",
+								"value": "{{api.wapstore.v2.appToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Session",
+								"value": "{{sessionId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{api.wapstore.v2.authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Nome da marca\",\n    \"titulo\": \"Título da marca\",\n    \"descricao\": \"Descrição da marca\",\n    \"ativo\": true\n}"
+						},
+						"url": {
+							"raw": "{{api.wapstore}}/v2/brands",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"brands"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "GET Categories",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "App-Token",
+								"value": "{{api.wapstore.v2.appToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Session",
+								"value": "{{sessionId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{api.wapstore.v2.authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/categories",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Categories",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "App-Token",
+								"value": "{{api.wapstore.v2.appToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Session",
+								"value": "{{sessionId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{api.wapstore.v2.authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/categories/:idCategoria",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"categories",
+								":idCategoria"
+							],
+							"variable": [
+								{
+									"key": "3fc49434-b258-4bdf-97d0-f5c18d9859a5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Categories",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "App-Token",
+								"value": "{{api.wapstore.v2.appToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Session",
+								"value": "{{sessionId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{api.wapstore.v2.authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Nome da categoria\",\n    \"titulo\": \"Título da categoria\",\n    \"descricao\": \"Descrição da categoria\",\n    \"ativo\": false,\n    \"idCategoriaPai\": 12\n}"
+						},
+						"url": {
+							"raw": "{{api.wapstore}}/v2/categories",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Characteristics",
+			"item": [
+				{
+					"name": "GET Characteristics values",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/characteristics/values/:id",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"characteristics",
+								"values",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "adce2ad0-ef9a-4dfa-9493-15890f08079d"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Characteristics",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "App-Token",
+								"value": "{{api.wapstore.v2.appToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Session",
+								"value": "{{sessionId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{api.wapstore.v2.authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/characteristics",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"characteristics"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Characteristics",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "App-Token",
+								"value": "{{api.wapstore.v2.appToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Session",
+								"value": "{{sessionId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{api.wapstore.v2.authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/characteristics/:id",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"characteristics",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "be27efdc-49fa-432f-b9c3-5df5f9ed917b"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Characteristics  values",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "App-Token",
+								"value": "{{api.wapstore.v2.appToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Session",
+								"value": "{{sessionId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{api.wapstore.v2.authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/characteristics/:id/values",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"characteristics",
+								":id",
+								"values"
+							],
+							"variable": [
+								{
+									"key": "bcd1ce96-5aa3-4df1-9b07-a49c65a47566"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Customers",
+			"item": [
+				{
+					"name": "POST Customers credit-transactions-batch",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"transacoes\": [\n        {\n            \"idCliente\": 70,\n            \"cpfCnpj\": \"CPF/CNPJ do cliente (apenas dígitos) (opcional)\",\n            \"email\": \"E-mail do cliente (opcional)\",\n            \"operacao\": \"Operação da transação[credito, debito]\",\n            \"valor\": 63\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{api.wapstore}}/v2/customers/credit-transactions-batch",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"customers",
+								"credit-transactions-batch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Customers login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"E-mail do cliente\",\n    \"senha\": \"Senha do cliente (opcional)\"\n}"
+						},
+						"url": {
+							"raw": "{{api.wapstore}}/v2/customers/login",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"customers",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Customers recover-password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"E-mail do cliente\"\n}"
+						},
+						"url": {
+							"raw": "{{api.wapstore}}/v2/customers/recover-password",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"customers",
+								"recover-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Customers queue",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/customers/queue?limit=100&offset=0",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"customers",
+								"queue"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "100"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "newsletter",
+									"value": "s",
+									"disabled": true
+								},
+								{
+									"key": "pessoa",
+									"value": "f",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Customers queue",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/customers/queue/:idCliente",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"customers",
+								"queue",
+								":idCliente"
+							],
+							"variable": [
+								{
+									"key": "idCliente",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Customers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "App-Token",
+								"value": "{{api.wapstore.v2.appToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Session",
+								"value": "{{sessionId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{api.wapstore.v2.authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/customers?offset=0&limit=100",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"customers"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Customers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "App-Token",
+								"value": "{{api.wapstore.v2.appToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Session",
+								"value": "{{sessionId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{api.wapstore.v2.authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/customers/:idCliente?offset=0&limit=100",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"customers",
+								":idCliente"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "100"
+								}
+							],
+							"variable": [
+								{
+									"key": "23c4c8a1-6b81-41f7-8505-fd44b94459de"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Customers",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "App-Token",
+								"value": "{{api.wapstore.v2.appToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Session",
+								"value": "{{sessionId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{api.wapstore.v2.authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cliNome\": \"Nome do cliente\",\n    \"cliEmail\": \"E-mail do cliente\",\n    \"cliSenha\": \"Senha do cliente (opcional)\",\n    \"cliNascimento\": \"Data de nascimento do cliente (DD/MM/YYYY)\"\n}"
+						},
+						"url": {
+							"raw": "{{api.wapstore}}/v2/customers?offset=0&limit=100",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"customers"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Customers",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "App-Token",
+								"value": "{{api.wapstore.v2.appToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Session",
+								"value": "{{sessionId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{api.wapstore.v2.authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cliNome\": \"Nome do cliente\",\n    \"cliEmail\": \"E-mail do cliente\",\n    \"cliSenha\": \"Senha do cliente (opcional)\",\n    \"cliNascimento\": \"Data de nascimento do cliente (DD/MM/YYYY)\"\n}"
+						},
+						"url": {
+							"raw": "{{api.wapstore}}/v2/customers/:idCliente?offset=0&limit=100",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"customers",
+								":idCliente"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "100"
+								}
+							],
+							"variable": [
+								{
+									"key": "c709f454-1589-4ac3-8cab-e6aaccac9b93"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Freights",
+			"item": [
+				{
+					"name": "GET Freights carriers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/freights/carriers?offset=0&limit=100",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"freights",
+								"carriers"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Freights",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "App-Token",
+								"value": "{{api.wapstore.v2.appToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Session",
+								"value": "{{sessionId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{api.wapstore.v2.authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/freights?offset=0&limit=100",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"freights"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Freights",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "App-Token",
+								"value": "{{api.wapstore.v2.appToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Session",
+								"value": "{{sessionId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{api.wapstore.v2.authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/freights/:id",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"freights",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "49f50072-f150-4208-96b8-997b384c7a00"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "POST Orders internal-sale",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"idSite\": 31,\n    \"vendaInterna\": {\n        \"idUsuario\": 42,\n        \"enviarEmail\": false,\n        \"observacao\": \"Observação da venda interna (opcional)\"\n    },\n    \"cliente\": {\n        \"nome\": \"Nome completo ou razão social do cliente\",\n        \"email\": \"E-mail do cliente\",\n        \"cpfCnpj\": \"CPF ou CNPJ do cliente\",\n        \"rgIe\": \"RG ou Inscrição estadual do cliente\",\n        \"pessoa\": \"Pessoa física (f) ou jurídica (j)[f, j]\",\n        \"sexo\": \"Sexo do cliente. Envie 'j' para pessoas jurídicas[m, f, o, i, j]\",\n        \"nascimento\": \"Data de nascimento do cliente no formato 'dd/mm/aaaa'\",\n        \"telefone\": \"Telefone do cliente\",\n        \"celular\": \"Celular do cliente\"\n    },\n    \"entrega\": {\n        \"cep\": \"CEP de entrega\",\n        \"destinatario\": \"Nome do destinatário\",\n        \"endereco\": \"Nome da rua ou avenida\",\n        \"bairro\": \"Nome do bairro\",\n        \"cidade\": \"Nome da cidade\",\n        \"uf\": \"Estado de destino\",\n        \"numero\": \"Número da casa\",\n        \"complemento\": \"Complemento do endereço\",\n        \"referencia\": \"Ponto de referência\",\n        \"prazoEntrega\": 58,\n        \"valorFrete\": 53\n    },\n    \"itens\": [\n        {\n            \"idProduto\": 45,\n            \"idAtributoValor\": 3,\n            \"quantidade\": 18\n        }\n    ],\n    \"descontos\": {\n        \"hashCupom\": \"Hash do cupom usado no pedido (opcional)\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{api.wapstore}}/v2/orders/internal-sale",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"orders",
+								"internal-sale"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Orders queue",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/orders/queue?&&&&&&&",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"orders",
+								"queue"
+							],
+							"query": [
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Orders queue",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/orders/queue/:numeroPedido",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"orders",
+								"queue",
+								":numeroPedido"
+							],
+							"variable": [
+								{
+									"key": "50761655-bd12-4b54-b9b4-e0bfb8759e66"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Orders status-batch",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"pedidos\": [\n        {\n            \"dataOcorrencia\": \"Data real da alteração de status (opcional)\",\n            \"numeroPedido\": \"Número do pedido ou sub pedido (para pedidos que possuem sub pedidos é necessário enviar o número do sub pedido)\",\n            \"status\": 11,\n            \"nfeChave\": \"Chave da nota fiscal eletrônica (opcional)\",\n            \"nfeNumero\": \"Número da nota fiscal eletrônica (opcional)\",\n            \"nfeSerie\": \"Número da série nota fiscal eletrônica (opcional)\",\n            \"codigoRastreio\": \"Código de rastreio (opcional)\",\n            \"obs\": \"Observação da alteração de status (opcional)\",\n            \"enviarObsCliente\": true,\n            \"email\": true,\n            \"sms\": false,\n            \"linkRastreio\": \"URL de rastreio do pedido (opcional)\"\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{api.wapstore}}/v2/orders/status-batch",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"orders",
+								"status-batch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Orders",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "App-Token",
+								"value": "{{api.wapstore.v2.appToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Session",
+								"value": "{{sessionId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{api.wapstore.v2.authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"idPedidoCanal\": 67,\n    \"prefixoPedido\": \"Prefixo identificador do canal para a geração do número do pedido/subpedido (PREFIXO-ID_PEDIDO_CANAL)\",\n    \"parceiroCanal\": \"Nome do canal em que o pedido foi gerado (nome do ERP, site parceiro, etc)\",\n    \"idStatus\": 40,\n    \"dataEmissao\": \"Data da emissão do pedido no canal\",\n    \"cliente\": {\n        \"nome\": \"Nome completo ou razão social do cliente\",\n        \"email\": \"E-mail do cliente\",\n        \"cpfCnpj\": \"CPF ou CNPJ do cliente\",\n        \"rgIe\": \"RG ou Inscrição estadual do cliente\",\n        \"pessoa\": \"Pessoa física (f) ou jurídica (j)[f, j]\",\n        \"sexo\": \"Sexo do cliente. Envie 'j' para pessoas jurídicas[m, f, o, i, j]\",\n        \"nascimento\": \"Data de nascimento do cliente no formato 'dd/mm/aaaa'\",\n        \"telefone\": \"Telefone do cliente\",\n        \"celular\": \"Celular do cliente\"\n    },\n    \"entrega\": {\n        \"cep\": \"CEP de entrega\",\n        \"destinatario\": \"Nome do destinatário\",\n        \"endereco\": \"Nome da rua ou avenida\",\n        \"bairro\": \"Nome do bairro\",\n        \"cidade\": \"Nome da cidade\",\n        \"uf\": \"Estado de destino\",\n        \"numero\": \"Número da casa\",\n        \"complemento\": \"Complemento do endereço\",\n        \"referencia\": \"Ponto de referência\",\n        \"prazoEntrega\": 3,\n        \"idFrete\": \"ID do tipo de frete (veja os tipos de frete disponíveis na API de fretes)\"\n    },\n    \"valores\": {\n        \"frete\": 40,\n        \"subtotal\": 42,\n        \"juros\": 79,\n        \"desconto\": 81,\n        \"total\": 7\n    },\n    \"itens\": [\n        {\n            \"sku\": \"SKU do produto/variação\",\n            \"nome\": \"Nome do produto\",\n            \"quantidade\": 65,\n            \"valor\": 82\n        }\n    ],\n    \"pagamento\": {\n        \"nome\": \"Nome do tipo de pagamento\",\n        \"descricao\": \"Descrição do tipo de pagamento\",\n        \"parcelas\": 0,\n        \"valor\": 20\n    }\n}"
+						},
+						"url": {
+							"raw": "{{api.wapstore}}/v2/orders?offset=0&limit=100",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"orders"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Orders",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "App-Token",
+								"value": "{{api.wapstore.v2.appToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Session",
+								"value": "{{sessionId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{api.wapstore.v2.authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/orders?offset=0&limit=100",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"orders"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Orders",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "App-Token",
+								"value": "{{api.wapstore.v2.appToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Session",
+								"value": "{{sessionId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{api.wapstore.v2.authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/orders/:numeroPedido",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"orders",
+								":numeroPedido"
+							],
+							"variable": [
+								{
+									"key": "fd8f8f19-5556-4466-ba13-e862d89eb6d9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Orders  status",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "App-Token",
+								"value": "{{api.wapstore.v2.appToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Session",
+								"value": "{{sessionId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{api.wapstore.v2.authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dataOcorrencia\": \"Data real da alteração de status (opcional)\",\n    \"status\": 99,\n    \"nfeChave\": \"Chave da nota fiscal eletrônica (opcional)\",\n    \"nfeNumero\": \"Número da nota fiscal eletrônica (opcional)\",\n    \"nfeSerie\": \"Número da série nota fiscal eletrônica (opcional)\",\n    \"nfeXml\": \"Conteúdo XML da nota fiscal eletrônica (opcional)\",\n    \"nfeUrl\": \"Url da nota fiscal eletrônica (opcional)\",\n    \"codigoRastreio\": \"Código de rastreio (opcional)\",\n    \"codigoLogisticaReversa\": \"Código de logística reversa (opcional)\",\n    \"obs\": \"Observação da alteração de status (opcional)\",\n    \"enviarObsCliente\": false,\n    \"email\": true,\n    \"sms\": false,\n    \"linkRastreio\": \"URL de rastreio do pedido (opcional)\"\n}"
+						},
+						"url": {
+							"raw": "{{api.wapstore}}/v2/orders/:numeroPedido/status",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"orders",
+								":numeroPedido",
+								"status"
+							],
+							"variable": [
+								{
+									"key": "39f87579-ebce-44bd-a843-ad4b95efb72c"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Payments",
+			"item": [
+				{
+					"name": "GET Payments gateways",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/payments/gateways?offset=0&limit=100",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"payments",
+								"gateways"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Payments",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "App-Token",
+								"value": "{{api.wapstore.v2.appToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Session",
+								"value": "{{sessionId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{api.wapstore.v2.authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/payments?offset=0&limit=100",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"payments"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Payments",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "App-Token",
+								"value": "{{api.wapstore.v2.appToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Session",
+								"value": "{{sessionId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{api.wapstore.v2.authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/payments/:id",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"payments",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "afdcf25b-b2eb-4d3b-a136-0dd463cea2b5"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "GET Products reserves",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/products/reserves?offset=0&limit=100",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"products",
+								"reserves"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Products reserves",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/products/reserves/:idReserva",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"products",
+								"reserves",
+								":idReserva"
+							],
+							"variable": [
+								{
+									"key": "276d957a-a253-40e6-9e07-5d8e6ef34638"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Products stock-batch",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"estoques\": [\n        {\n            \"sku\": \"SKU do produto ou atributo simples (opcional)\",\n            \"idProduto\": 75,\n            \"idAtributoSimples\": 82,\n            \"estoque\": 9\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{api.wapstore}}/v2/products/stock-batch",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"products",
+								"stock-batch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Products stock-movements-batch",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"movimentos\": [\n        {\n            \"sku\": \"SKU do produto ou atributo simples (opcional)\",\n            \"idProduto\": 51,\n            \"idAtributoSimples\": 94,\n            \"quantidade\": 45\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{api.wapstore}}/v2/products/stock-movements-batch",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"products",
+								"stock-movements-batch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Products price-batch",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"precos\": [\n        {\n            \"sku\": \"SKU do produto ou atributo simples (opcional)\",\n            \"idProduto\": 60,\n            \"idAtributoSimples\": 82,\n            \"precoDefault\": false,\n            \"precoDe\": 66,\n            \"precoPor\": 1,\n            \"precoCusto\": 84,\n            \"precoEspecial\": 84\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{api.wapstore}}/v2/products/price-batch",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"products",
+								"price-batch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Products queue",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/products/queue?limit=100&offset=0",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"products",
+								"queue"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "100"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "servico",
+									"value": "false",
+									"disabled": true
+								},
+								{
+									"key": "dataAtualizacao",
+									"value": "2022-10-05",
+									"disabled": true
+								},
+								{
+									"key": "idArmazem",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "idAtributo",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Products queue",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/products/queue/:idProduto",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"products",
+								"queue",
+								":idProduto"
+							],
+							"variable": [
+								{
+									"key": "idProduto",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Products",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "App-Token",
+								"value": "{{api.wapstore.v2.appToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Session",
+								"value": "{{sessionId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{api.wapstore.v2.authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/products?offset=0&limit=100",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"products"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Products",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "App-Token",
+								"value": "{{api.wapstore.v2.appToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Session",
+								"value": "{{sessionId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{api.wapstore.v2.authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"idCategoria\": 47,\n    \"idMarca\": 94,\n    \"idProdutoLider\": 31,\n    \"nome\": \"Nome do produto\",\n    \"adicionalNome\": \"Informação adicional ao nome (não aparece na URL)\",\n    \"sku\": \"SKU do produto\",\n    \"ativo\": false,\n    \"venda\": true,\n    \"precos\": {\n        \"precoDe\": 35,\n        \"precoPor\": 25,\n        \"precoCusto\": 100,\n        \"precoEspecial\": 67\n    },\n    \"descricaoCurta\": \"Descrição curta do produto (sem HTML)\",\n    \"descricao\": \"Descrição longa do produto (pode conter HTML)\",\n    \"video\": \"URL do vídeo do produto\",\n    \"dimensoes\": {\n        \"altura\": 69,\n        \"largura\": 44,\n        \"comprimento\": 66,\n        \"peso\": 74\n    },\n    \"prazoProducao\": 77,\n    \"prazoFornecedor\": 55,\n    \"vendaSemEstoque\": false,\n    \"busca\": \"Palavras de busca\",\n    \"googleDescription\": \"Meta tag de descrição para buscadores\",\n    \"googleCondition\": \"Condição do produto\",\n    \"googleAgeGroup\": \"Faixa etária indicada do produto\",\n    \"googleGender\": \"Gênero indicado do produto\",\n    \"ncm\": \"Código da Nomenclatura Comum do Mercosul\",\n    \"mpn\": \"Código do fabricante (manufacturer part number)\",\n    \"ean\": \"Código GTIN/EAN do produto\",\n    \"exclusivo\": false,\n    \"categoriasAdicionais\": \"Categorias adicionais do produto\",\n    \"landingPages\": \"Landing pages vinculadas ao produto\",\n    \"filtros\": \"Filtros que podem ser aplicados no produto (IDs dos valores dos filtros)\",\n    \"caracteristicas\": \"Características do produto seguindo o padrão {'id':'valor'}\",\n    \"idAtributoUnico\": 3,\n    \"atributosSimples\": [\n        {\n            \"id\": 75,\n            \"sku\": \"SKU do atributo simples\",\n            \"ean\": \"Código EAN/GTIN do atributo simples (deixe vazio caso seja o mesmo EAN do produto)\",\n            \"precos\": {\n                \"precoDefault\": false,\n                \"precoDe\": 32,\n                \"precoPor\": 29,\n                \"precoEspecial\": 65\n            },\n            \"dimensoes\": {\n                \"altura\": 36,\n                \"largura\": 88,\n                \"comprimento\": 0,\n                \"peso\": 78\n            }\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{api.wapstore}}/v2/products?offset=0&limit=100",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"products"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Products",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "App-Token",
+								"value": "{{api.wapstore.v2.appToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Session",
+								"value": "{{sessionId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{api.wapstore.v2.authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ativo\": true,\n    \"venda\": true,\n    \"ncm\": \"Código da Nomenclatura Comum do Mercosul (opcional)\",\n    \"mpn\": \"Código do fabricante (manufacturer part number) (opcional)\",\n    \"atributosSimples\": [\n        {\n            \"id\": 13,\n            \"sku\": \"SKU do atributo simples\",\n            \"ean\": \"Código EAN/GTIN do atributo simples (deixe vazio caso seja o mesmo EAN do produto) (opcional)\",\n            \"precos\": {\n                \"precoDe\": 38,\n                \"precoPor\": 49,\n                \"precoEspecial\": 12\n            },\n            \"dimensoes\": {\n                \"altura\": 9,\n                \"largura\": 97,\n                \"comprimento\": 92,\n                \"peso\": 2\n            }\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{api.wapstore}}/v2/products/:idProduto",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"products",
+								":idProduto"
+							],
+							"variable": [
+								{
+									"key": "7d99aead-9b29-4915-84fd-cd665c138722"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Products",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "App-Token",
+								"value": "{{api.wapstore.v2.appToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Session",
+								"value": "{{sessionId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{api.wapstore.v2.authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/products/:idProduto",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"products",
+								":idProduto"
+							],
+							"variable": [
+								{
+									"key": "5c31daa4-a6fc-4e84-becb-2133abfa5693"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sales-recovery",
+			"item": [
+				{
+					"name": "GET Sales-recovery",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "App-Token",
+								"value": "{{api.wapstore.v2.appToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Session",
+								"value": "{{sessionId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{api.wapstore.v2.authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/sales-recovery?offset=0&limit=100&tipo=carrinho|pagamento|orcamento&ativo=true&emailEnviado=true&clienteRetornou=true&data=2022-03-01|2022-03-07",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"sales-recovery"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "100"
+								},
+								{
+									"key": "tipo",
+									"value": "carrinho|pagamento|orcamento"
+								},
+								{
+									"key": "ativo",
+									"value": "true"
+								},
+								{
+									"key": "emailEnviado",
+									"value": "true"
+								},
+								{
+									"key": "clienteRetornou",
+									"value": "true"
+								},
+								{
+									"key": "data",
+									"value": "2022-03-01|2022-03-07"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Statuses",
+			"item": [
+				{
+					"name": "GET Statuses",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "App-Token",
+								"value": "{{api.wapstore.v2.appToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Session",
+								"value": "{{sessionId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{api.wapstore.v2.authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/statuses?offset=0&limit=100",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"statuses"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Statuses",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "App-Token",
+								"value": "{{api.wapstore.v2.appToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Session",
+								"value": "{{sessionId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{api.wapstore.v2.authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/statuses/:id",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"statuses",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "d3ccd328-12a8-4046-a8c7-8cf4cba8fd8f"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Thirdparty",
+			"item": [
+				{
+					"name": "GET Thirdparty yourviews orders",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/thirdparty/yourviews/orders?offset=0&limit=100",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"thirdparty",
+								"yourviews",
+								"orders"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Thirdparty yourviews orders queue",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/thirdparty/yourviews/orders/queue",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"thirdparty",
+								"yourviews",
+								"orders",
+								"queue"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Thirdparty yourviews orders queue",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/thirdparty/yourviews/orders/queue/:numeroPedido",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"thirdparty",
+								"yourviews",
+								"orders",
+								"queue",
+								":numeroPedido"
+							],
+							"variable": [
+								{
+									"key": "59f9ac6f-a5ba-4ec9-a5e8-127c8db32f88"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Thirdparty yourviews orders",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/thirdparty/yourviews/orders/:numeroPedido",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"thirdparty",
+								"yourviews",
+								"orders",
+								":numeroPedido"
+							],
+							"variable": [
+								{
+									"key": "bf7abfb4-f81e-4ae4-b711-489a05c16ae5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Thirdparty virtuspay callback",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"transaction\": \"Identificador da transação\"\n}"
+						},
+						"url": {
+							"raw": "{{api.wapstore}}/v2/thirdparty/virtuspay/callback",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"thirdparty",
+								"virtuspay",
+								"callback"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Thirdparty tiny callback",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cnpj\": \"CNPJ/CPF da conta Tiny que está enviando o payload (opcional)\",\n    \"idEcommerce\": 50,\n    \"tipo\": \"Identificador do tipo do webhook\",\n    \"versao\": \"Versão do Webhook (opcional)\",\n    \"dados\": []\n}"
+						},
+						"url": {
+							"raw": "{{api.wapstore}}/v2/thirdparty/tiny/callback",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"thirdparty",
+								"tiny",
+								"callback"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Thirdparty picpay callback",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/thirdparty/picpay/callback",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"thirdparty",
+								"picpay",
+								"callback"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Thirdparty onclick",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/thirdparty/onclick",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"thirdparty",
+								"onclick"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Thirdparty onclick example",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/thirdparty/onclick/example",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"thirdparty",
+								"onclick",
+								"example"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Thirdparty notazz callback",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"token\": \"Token da integração\",\n    \"id\": \"Identificador da nota fiscal no Notazz\",\n    \"numero\": \"Número da nota fiscal caso esta esteja autorizada\",\n    \"chave\": \"Chave de acesso da nota fiscal (NF-e)\",\n    \"statusNota\": \"Status que a nota fiscal se encontra\",\n    \"external_id\": \"Identificador externo enviado via API\"\n}"
+						},
+						"url": {
+							"raw": "{{api.wapstore}}/v2/thirdparty/notazz/callback",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"thirdparty",
+								"notazz",
+								"callback"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Thirdparty intelipost callback",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"history\": {\n        \"shipment_order_volume_id\": 95,\n        \"shipment_order_volume_state\": \"Macro status do volume do pedido de envio. (opcional)\",\n        \"created\": 40,\n        \"created_iso\": \"Data de criação do evento. (opcional)\",\n        \"provider_message\": \"Mensagem enviada pelo transportador. (opcional)\",\n        \"shipment_volume_micro_state\": {\n            \"id\": 90,\n            \"code\": \"Código Intelipost do micro status. (opcional)\",\n            \"default_name\": \"Nome padrão. (opcional)\",\n            \"description\": \"Descrição do status. (opcional)\",\n            \"shipment_order_volume_state_id\": 94,\n            \"shipment_volume_state_source_id\": 38,\n            \"name\": \"Nome do status. (opcional)\"\n        },\n        \"attachments\": \"Dados dos anexos. (opcional)\",\n        \"shipment_order_volume_state_localized\": \"Status atual do volume do pedido de envio. (opcional)\",\n        \"shipment_order_volume_state_history\": 11,\n        \"event_date\": 63,\n        \"event_date_iso\": \"Data do evento. (opcional)\"\n    },\n    \"invoice\": {\n        \"invoice_series\": \"Série da nota fiscal. (opcional)\",\n        \"invoice_number\": \"Número da nota fiscal. (opcional)\",\n        \"invoice_key\": \"Chave da nota fiscal. (opcional)\"\n    },\n    \"order_number\": \"Numero do pedido de entrega. (opcional)\",\n    \"sales_order_number\": \"Numero do pedido de venda (opcional)\",\n    \"tracking_code\": \"Código de rastreamento (opcional)\",\n    \"volume_number\": \"Quantidade de volumes (opcional)\",\n    \"estimated_delivery_date\": [],\n    \"tracking_url\": \"Link do rastreamento (opcional)\"\n}"
+						},
+						"url": {
+							"raw": "{{api.wapstore}}/v2/thirdparty/intelipost/callback",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"thirdparty",
+								"intelipost",
+								"callback"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Thirdparty clearsale-total notification",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": 20,\n    \"date\": \"Data da atualização (opcional)\",\n    \"type\": \"Tipo de atualização (opcional)\"\n}"
+						},
+						"url": {
+							"raw": "{{api.wapstore}}/v2/thirdparty/clearsale-total/notification",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"thirdparty",
+								"clearsale-total",
+								"notification"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Thirdparty beeviral callback",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"RESULT\": {\n        \"EIN\": \"CNPJ da empresa\",\n        \"INDICATOR\": {\n            \"ID_INDICATOR\": \"ID do indicador\",\n            \"NM_INDICATOR\": \"Nome do indicador\",\n            \"TYPE_INDICATOR\": \"Tipo de indicador (Customer ou Influencer)\",\n            \"DS_TELEPHONE\": \"Telefone do indicador\",\n            \"DS_EMAIL\": \"E-mail do indicador\",\n            \"CONTENT\": \"CPF do cliente\"\n        },\n        \"RECOMMENDATION\": \"Dados dos indicados\",\n        \"CAMPAIGN\": {\n            \"TOKEN_CAMPAIGN\": \"Token da campanha\",\n            \"NM_CAMPAIGN\": \"Nome da campanha\",\n            \"TARGET_CAMPAING\": \"Público alvo da campanha (Customer ou Influencer)\"\n        },\n        \"REWARD\": {\n            \"ID_REWARD\": \"Id da recompensa\",\n            \"DS_REWARD\": \"Descrição da recompensa\",\n            \"LINK_REWARD\": \"Url da recompensa (opcional)\",\n            \"VL_REWARD\": \"Valor da recompensa\",\n            \"TARGET_REWARD\": \"Destino da recompensa\"\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{api.wapstore}}/v2/thirdparty/beeviral/callback",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"thirdparty",
+								"beeviral",
+								"callback"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Thirdparty appmax callback",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"environment\": \"Ambiente da transação\",\n    \"event\": \"Evento que disparará a alteração de status\",\n    \"data\": []\n}"
+						},
+						"url": {
+							"raw": "{{api.wapstore}}/v2/thirdparty/appmax/callback",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"thirdparty",
+								"appmax",
+								"callback"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Thirdparty ame callback",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api.wapstore}}/v2/thirdparty/ame/callback",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"thirdparty",
+								"ame",
+								"callback"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Thirdparty aarin callback",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Id\": \"Identificador do Pix. (opcional)\",\n    \"CobrancaId\": \"Identificador da cobrança / transação. (opcional)\",\n    \"PixId\": \"Identificador do pix da transação. (opcional)\",\n    \"Valor\": \"Valor do Pix. (opcional)\"\n}"
+						},
+						"url": {
+							"raw": "{{api.wapstore}}/v2/thirdparty/aarin/callback",
+							"host": [
+								"{{api.wapstore}}"
+							],
+							"path": [
+								"v2",
+								"thirdparty",
+								"aarin",
+								"callback"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

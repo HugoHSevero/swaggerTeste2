@@ -20,6 +20,9 @@ tags:
   - name: Freights
   - name: Orders
   - name: Payments
+  - name: Products
+  - name: Sales-recovery
+  - name: Statuses
 paths:
   /v2:
     get:
@@ -1831,6 +1834,617 @@ paths:
       tags:
         - Payments
       summary: GET Payments
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/products/reserves:
+    get:
+      tags:
+        - Products
+      summary: GET Products reserves
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: offset
+          in: query
+          schema:
+            type: integer
+          example: '0'
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          example: '100'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/products/reserves/{idReserva}:
+    get:
+      tags:
+        - Products
+      summary: GET Products reserves
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: idReserva
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/products/stock-batch:
+    put:
+      tags:
+        - Products
+      summary: PUT Products stock-batch
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                estoques:
+                  - sku: SKU do produto ou atributo simples (opcional)
+                    idProduto: 75
+                    idAtributoSimples: 82
+                    estoque: 9
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/products/stock-movements-batch:
+    put:
+      tags:
+        - Products
+      summary: PUT Products stock-movements-batch
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                movimentos:
+                  - sku: SKU do produto ou atributo simples (opcional)
+                    idProduto: 51
+                    idAtributoSimples: 94
+                    quantidade: 45
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/products/price-batch:
+    put:
+      tags:
+        - Products
+      summary: PUT Products price-batch
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                precos:
+                  - sku: SKU do produto ou atributo simples (opcional)
+                    idProduto: 60
+                    idAtributoSimples: 82
+                    precoDefault: false
+                    precoDe: 66
+                    precoPor: 1
+                    precoCusto: 84
+                    precoEspecial: 84
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/products/queue:
+    get:
+      tags:
+        - Products
+      summary: GET Products queue
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          example: '100'
+        - name: offset
+          in: query
+          schema:
+            type: integer
+          example: '0'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/products/queue/{idProduto}:
+    delete:
+      tags:
+        - Products
+      summary: DELETE Products queue
+      parameters:
+        - name: idProduto
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/products:
+    get:
+      tags:
+        - Products
+      summary: GET Products
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+        - name: offset
+          in: query
+          schema:
+            type: integer
+          example: '0'
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          example: '100'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Products
+      summary: POST Products
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                idCategoria: 47
+                idMarca: 94
+                idProdutoLider: 31
+                nome: Nome do produto
+                adicionalNome: Informação adicional ao nome (não aparece na URL)
+                sku: SKU do produto
+                ativo: false
+                venda: true
+                precos:
+                  precoDe: 35
+                  precoPor: 25
+                  precoCusto: 100
+                  precoEspecial: 67
+                descricaoCurta: Descrição curta do produto (sem HTML)
+                descricao: Descrição longa do produto (pode conter HTML)
+                video: URL do vídeo do produto
+                dimensoes:
+                  altura: 69
+                  largura: 44
+                  comprimento: 66
+                  peso: 74
+                prazoProducao: 77
+                prazoFornecedor: 55
+                vendaSemEstoque: false
+                busca: Palavras de busca
+                googleDescription: Meta tag de descrição para buscadores
+                googleCondition: Condição do produto
+                googleAgeGroup: Faixa etária indicada do produto
+                googleGender: Gênero indicado do produto
+                ncm: Código da Nomenclatura Comum do Mercosul
+                mpn: Código do fabricante (manufacturer part number)
+                ean: Código GTIN/EAN do produto
+                exclusivo: false
+                categoriasAdicionais: Categorias adicionais do produto
+                landingPages: Landing pages vinculadas ao produto
+                filtros: >-
+                  Filtros que podem ser aplicados no produto (IDs dos valores
+                  dos filtros)
+                caracteristicas: Características do produto seguindo o padrão {'id':'valor'}
+                idAtributoUnico: 3
+                atributosSimples:
+                  - id: 75
+                    sku: SKU do atributo simples
+                    ean: >-
+                      Código EAN/GTIN do atributo simples (deixe vazio caso seja
+                      o mesmo EAN do produto)
+                    precos:
+                      precoDefault: false
+                      precoDe: 32
+                      precoPor: 29
+                      precoEspecial: 65
+                    dimensoes:
+                      altura: 36
+                      largura: 88
+                      comprimento: 0
+                      peso: 78
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+        - name: offset
+          in: query
+          schema:
+            type: integer
+          example: '0'
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          example: '100'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/products/{idProduto}:
+    put:
+      tags:
+        - Products
+      summary: PUT Products
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                ativo: true
+                venda: true
+                ncm: Código da Nomenclatura Comum do Mercosul (opcional)
+                mpn: Código do fabricante (manufacturer part number) (opcional)
+                atributosSimples:
+                  - id: 13
+                    sku: SKU do atributo simples
+                    ean: >-
+                      Código EAN/GTIN do atributo simples (deixe vazio caso seja
+                      o mesmo EAN do produto) (opcional)
+                    precos:
+                      precoDe: 38
+                      precoPor: 49
+                      precoEspecial: 12
+                    dimensoes:
+                      altura: 9
+                      largura: 97
+                      comprimento: 92
+                      peso: 2
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+        - name: idProduto
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Products
+      summary: GET Products
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+        - name: idProduto
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/sales-recovery:
+    get:
+      tags:
+        - Sales-recovery
+      summary: GET Sales-recovery
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+        - name: offset
+          in: query
+          schema:
+            type: integer
+          example: '0'
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          example: '100'
+        - name: tipo
+          in: query
+          schema:
+            type: string
+          example: carrinho|pagamento|orcamento
+        - name: ativo
+          in: query
+          schema:
+            type: boolean
+          example: 'true'
+        - name: emailEnviado
+          in: query
+          schema:
+            type: boolean
+          example: 'true'
+        - name: clienteRetornou
+          in: query
+          schema:
+            type: boolean
+          example: 'true'
+        - name: data
+          in: query
+          schema:
+            type: string
+          example: 2022-03-01|2022-03-07
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/statuses:
+    get:
+      tags:
+        - Statuses
+      summary: GET Statuses
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: App-Token
+          in: header
+          schema:
+            type: string
+          example: '{{api.wapstore.v2.appToken}}'
+        - name: Session
+          in: header
+          schema:
+            type: string
+          example: '{{sessionId}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api.wapstore.v2.authorization}}
+        - name: offset
+          in: query
+          schema:
+            type: integer
+          example: '0'
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          example: '100'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/statuses/{id}:
+    get:
+      tags:
+        - Statuses
+      summary: GET Statuses
       parameters:
         - name: Content-Type
           in: header

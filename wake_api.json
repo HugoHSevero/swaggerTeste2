@@ -234,55 +234,6 @@
                 }
             }
         },
-        "/assinaturas/{email}": {
-            "get": {
-                "tags": [
-                    "Assinatura"
-                ],
-                "summary": "Retorna as assinaturas de um determinado usuário",
-                "operationId": "Assinatura_GetAssinaturasUsuarioByemail",
-                "consumes": [],
-                "produces": [
-                    "application/json",
-                    "text/json",
-                    "text/html",
-                    "application/xml",
-                    "text/xml"
-                ],
-                "parameters": [
-                    {
-                        "name": "email",
-                        "in": "path",
-                        "description": "email do usuário",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Produtos de uma assinatura",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Assinatura"
-                            }
-                        }
-                    },
-                    "422": {
-                        "description": "Erro no processamento da operação",
-                        "schema": {
-                            "$ref": "#/definitions/Resultado"
-                        }
-                    },
-                    "500": {
-                        "description": "Erro no processamento da operação",
-                        "schema": {
-                            "$ref": "#/definitions/Resultado"
-                        }
-                    }
-                }
-            }
-        },
         "/assinaturas/{assinaturaId}/produtos": {
             "get": {
                 "tags": [
@@ -1371,40 +1322,6 @@
                         "required": true,
                         "type": "integer",
                         "format": "int64"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
-                    }
-                }
-            }
-        },
-        "/autores/{nomeAutor}": {
-            "get": {
-                "tags": [
-                    "Autor"
-                ],
-                "summary": "Buscar autor pelo nome.",
-                "operationId": "Autor_GetbyNameBynomeAutor",
-                "consumes": [],
-                "produces": [
-                    "application/json",
-                    "text/json",
-                    "text/html",
-                    "application/xml",
-                    "text/xml"
-                ],
-                "parameters": [
-                    {
-                        "name": "nomeAutor",
-                        "in": "path",
-                        "description": "Nome do autor",
-                        "required": true,
-                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -4739,45 +4656,6 @@
                         "description": "Fabricante excluído com sucesso",
                         "schema": {
                             "type": "boolean"
-                        }
-                    },
-                    "500": {
-                        "description": "Erro no processamento da operação",
-                        "schema": {
-                            "$ref": "#/definitions/Resultado"
-                        }
-                    }
-                }
-            }
-        },
-        "/fabricantes/{nome}": {
-            "get": {
-                "tags": [
-                    "Fabricante"
-                ],
-                "summary": "Retorna um fabricante específico pelo nome.",
-                "operationId": "Fabricante_GetBynome",
-                "consumes": [],
-                "produces": [
-                    "application/json",
-                    "text/json",
-                    "text/html",
-                    "application/xml",
-                    "text/xml"
-                ],
-                "parameters": [
-                    {
-                        "name": "nome",
-                        "in": "path",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Fabricante encontrado",
-                        "schema": {
-                            "$ref": "#/definitions/Fabricante"
                         }
                     },
                     "500": {
@@ -8719,46 +8597,6 @@
                 }
             }
         },
-        "/parceiros/{nome}": {
-            "get": {
-                "tags": [
-                    "Parceiro"
-                ],
-                "summary": "Retorna o parceiro pelo nome",
-                "operationId": "Parceiro_GetBynome",
-                "consumes": [],
-                "produces": [
-                    "application/json",
-                    "text/json",
-                    "text/html",
-                    "application/xml",
-                    "text/xml"
-                ],
-                "parameters": [
-                    {
-                        "name": "nome",
-                        "in": "path",
-                        "description": "Nome do parceiro",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Parceiro encontrado",
-                        "schema": {
-                            "$ref": "#/definitions/Parceiro"
-                        }
-                    },
-                    "500": {
-                        "description": "Erro no processamento da operação",
-                        "schema": {
-                            "$ref": "#/definitions/Resultado"
-                        }
-                    }
-                }
-            }
-        },
         "/parceiros/{parceiroId}/usuarios": {
             "get": {
                 "tags": [
@@ -8782,49 +8620,6 @@
                         "required": true,
                         "type": "integer",
                         "format": "int64"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Usuários encontrados",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/ResultadoUsuarioParceiro"
-                            }
-                        }
-                    },
-                    "500": {
-                        "description": "Erro no processamento da operação",
-                        "schema": {
-                            "$ref": "#/definitions/Resultado"
-                        }
-                    }
-                }
-            }
-        },
-        "/parceiros/{nome}/usuarios": {
-            "get": {
-                "tags": [
-                    "Parceiro"
-                ],
-                "summary": "Retorna os usuários pelo nome do parceiro",
-                "operationId": "Parceiro_GetUsuariosPorParceiroBynome",
-                "consumes": [],
-                "produces": [
-                    "application/json",
-                    "text/json",
-                    "text/html",
-                    "application/xml",
-                    "text/xml"
-                ],
-                "parameters": [
-                    {
-                        "name": "nome",
-                        "in": "path",
-                        "description": "Nome do parceiro",
-                        "required": true,
-                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -11278,46 +11073,6 @@
                         "description": "Portfolio excluído com sucesso",
                         "schema": {
                             "type": "boolean"
-                        }
-                    },
-                    "500": {
-                        "description": "Erro no processamento da operação",
-                        "schema": {
-                            "$ref": "#/definitions/Resultado"
-                        }
-                    }
-                }
-            }
-        },
-        "/portfolios/{nome}": {
-            "get": {
-                "tags": [
-                    "Portfolio"
-                ],
-                "summary": "Retorna o portfolio pelo nome",
-                "operationId": "Portfolio_GetBynome",
-                "consumes": [],
-                "produces": [
-                    "application/json",
-                    "text/json",
-                    "text/html",
-                    "application/xml",
-                    "text/xml"
-                ],
-                "parameters": [
-                    {
-                        "name": "nome",
-                        "in": "path",
-                        "description": "Nome do portfolio que se deseja buscar",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Portfolio encontrado",
-                        "schema": {
-                            "$ref": "#/definitions/NovoContratoGet.Portfolio"
                         }
                     },
                     "500": {
@@ -14963,112 +14718,6 @@
                 }
             }
         },
-        "/regionalizacao/regioes": {
-            "get": {
-                "tags": [
-                    "Regionalizacao"
-                ],
-                "summary": "Retorna uma lista de regiões",
-                "operationId": "Regionalizacao_GetRegioesAsyncBybuscaativoarquivadopossuiRegiaoGoogleordenaColunadirecaoOrdenacaolimitepagina",
-                "consumes": [],
-                "produces": [
-                    "application/json",
-                    "text/json",
-                    "text/html",
-                    "application/xml",
-                    "text/xml"
-                ],
-                "parameters": [
-                    {
-                        "name": "busca",
-                        "in": "query",
-                        "description": "Este campo permite que o usuário envie um termo de busca.",
-                        "required": false,
-                        "type": "string"
-                    },
-                    {
-                        "name": "ativo",
-                        "in": "query",
-                        "description": "Irá filtrar se é para retornar apenas as regiões ativas ou não.",
-                        "required": false,
-                        "type": "boolean"
-                    },
-                    {
-                        "name": "arquivado",
-                        "in": "query",
-                        "description": "Irá filtrar se é para retornar apenas as regiões arquivadas ou não.",
-                        "required": false,
-                        "type": "boolean"
-                    },
-                    {
-                        "name": "possuiRegiaoGoogle",
-                        "in": "query",
-                        "description": "Irá filtrar se é para retornar apenas regiões que possuam região google vinculada ou não.",
-                        "required": false,
-                        "type": "boolean"
-                    },
-                    {
-                        "name": "ordenaColuna",
-                        "in": "query",
-                        "description": "Receber o nome do campo que deve ser ordenado.",
-                        "required": false,
-                        "type": "string",
-                        "enum": [
-                            "Ordem",
-                            "Nome",
-                            "Data",
-                            "Regiao",
-                            "TabelaPreco",
-                            "Priorizacao",
-                            "TipoRegiao"
-                        ]
-                    },
-                    {
-                        "name": "direcaoOrdenacao",
-                        "in": "query",
-                        "description": "Ordena em Decrescente ou Crescente a coluna que foi informada no campo anterior.",
-                        "required": false,
-                        "type": "boolean"
-                    },
-                    {
-                        "name": "limite",
-                        "in": "query",
-                        "description": "Limite de registros por requisição (Padrão: 50)",
-                        "required": false,
-                        "type": "integer",
-                        "format": "int32"
-                    },
-                    {
-                        "name": "pagina",
-                        "in": "query",
-                        "description": "Número da página na paginação dos registros da requisição (Padrão: 1)",
-                        "required": false,
-                        "type": "integer",
-                        "format": "int32"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Regiões",
-                        "schema": {
-                            "$ref": "#/definitions/RegiaoPaginacao`1"
-                        }
-                    },
-                    "422": {
-                        "description": "Erro no processamento da operação",
-                        "schema": {
-                            "$ref": "#/definitions/Resultado"
-                        }
-                    },
-                    "500": {
-                        "description": "Erro no processamento da operação",
-                        "schema": {
-                            "$ref": "#/definitions/Resultado"
-                        }
-                    }
-                }
-            }
-        },
         "/regionalizacao/regiao": {
             "post": {
                 "tags": [
@@ -16967,62 +16616,6 @@
                 }
             }
         },
-        "/usuarios/{email}": {
-            "put": {
-                "tags": [
-                    "Usuario"
-                ],
-                "summary": "Atualiza um usuário pelo email",
-                "operationId": "Usuario_PutByemailusuario",
-                "consumes": [
-                    "application/json",
-                    "text/json",
-                    "text/html",
-                    "application/xml",
-                    "text/xml",
-                    "application/x-www-form-urlencoded"
-                ],
-                "produces": [
-                    "application/json",
-                    "text/json",
-                    "text/html",
-                    "application/xml",
-                    "text/xml"
-                ],
-                "parameters": [
-                    {
-                        "name": "email",
-                        "in": "path",
-                        "description": "E-mail do usuário.",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "usuario",
-                        "in": "body",
-                        "description": "Dados para atualizar o usuário.",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/UsuarioPost"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Usuário atualizado com sucesso",
-                        "schema": {
-                            "type": "boolean"
-                        }
-                    },
-                    "500": {
-                        "description": "Erro no processamento da operação",
-                        "schema": {
-                            "$ref": "#/definitions/Resultado"
-                        }
-                    }
-                }
-            }
-        },
         "/usuarios/informacoescadastrais": {
             "put": {
                 "tags": [
@@ -17185,106 +16778,6 @@
                 }
             }
         },
-        "/usuarios/{usuarioId}/enderecos": {
-            "get": {
-                "tags": [
-                    "Usuario"
-                ],
-                "summary": "Retorna uma lista de endereços de um usuário pelo id do usuário",
-                "operationId": "Usuario_GetEnderecosByusuarioId",
-                "consumes": [],
-                "produces": [
-                    "application/json",
-                    "text/json",
-                    "text/html",
-                    "application/xml",
-                    "text/xml"
-                ],
-                "parameters": [
-                    {
-                        "name": "usuarioId",
-                        "in": "path",
-                        "description": "Identificador do usuário.",
-                        "required": true,
-                        "type": "integer",
-                        "format": "int64"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Retorna usuário encontrado",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Endereco"
-                            }
-                        }
-                    },
-                    "500": {
-                        "description": "Erro no processamento da operação",
-                        "schema": {
-                            "$ref": "#/definitions/Resultado"
-                        }
-                    }
-                }
-            },
-            "post": {
-                "tags": [
-                    "Usuario"
-                ],
-                "summary": "Insere um endereço para um usuário pelo id do usuário",
-                "operationId": "Usuario_PostEnderecoByusuarioIdendereco",
-                "consumes": [
-                    "application/json",
-                    "text/json",
-                    "text/html",
-                    "application/xml",
-                    "text/xml",
-                    "application/x-www-form-urlencoded"
-                ],
-                "produces": [
-                    "application/json",
-                    "text/json",
-                    "text/html",
-                    "application/xml",
-                    "text/xml"
-                ],
-                "parameters": [
-                    {
-                        "name": "usuarioId",
-                        "in": "path",
-                        "description": "Identificador do usuário.",
-                        "required": true,
-                        "type": "integer",
-                        "format": "int64"
-                    },
-                    {
-                        "name": "endereco",
-                        "in": "body",
-                        "description": "Dados de endereço do usuário.",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/NovoContratoPost.EnderecoPost"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Endereço cadastrado com sucesso",
-                        "schema": {
-                            "format": "int64",
-                            "type": "integer"
-                        }
-                    },
-                    "500": {
-                        "description": "Erro no processamento da operação",
-                        "schema": {
-                            "$ref": "#/definitions/Resultado"
-                        }
-                    }
-                }
-            }
-        },
         "/usuarios/{email}/enderecos/{enderecoId}": {
             "put": {
                 "tags": [
@@ -17349,71 +16842,6 @@
                 }
             }
         },
-        "/usuarios/{usuarioId}/enderecos/{enderecoId}": {
-            "put": {
-                "tags": [
-                    "Usuario"
-                ],
-                "summary": "Atualiza um endereço de um usuário pelo id do usuário",
-                "operationId": "Usuario_PutEnderecoByusuarioIdenderecoIdendereco",
-                "consumes": [
-                    "application/json",
-                    "text/json",
-                    "text/html",
-                    "application/xml",
-                    "text/xml",
-                    "application/x-www-form-urlencoded"
-                ],
-                "produces": [
-                    "application/json",
-                    "text/json",
-                    "text/html",
-                    "application/xml",
-                    "text/xml"
-                ],
-                "parameters": [
-                    {
-                        "name": "usuarioId",
-                        "in": "path",
-                        "description": "Identificador do usuário.",
-                        "required": true,
-                        "type": "integer",
-                        "format": "int64"
-                    },
-                    {
-                        "name": "enderecoId",
-                        "in": "path",
-                        "description": "Identificador do endereço do usuário a ser atualizado.",
-                        "required": true,
-                        "type": "integer",
-                        "format": "int64"
-                    },
-                    {
-                        "name": "endereco",
-                        "in": "body",
-                        "description": "Dados do endereço para atualização.",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/NovoContratoPost.EnderecoPost"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Endereço de um usuário atualizado com sucesso",
-                        "schema": {
-                            "type": "boolean"
-                        }
-                    },
-                    "500": {
-                        "description": "Erro no processamento da operação",
-                        "schema": {
-                            "$ref": "#/definitions/Resultado"
-                        }
-                    }
-                }
-            }
-        },
         "/usuarios/{usuarioId}/enderecos/{enderecoId}/ativar": {
             "put": {
                 "tags": [
@@ -17444,70 +16872,6 @@
                         "required": true,
                         "type": "integer",
                         "format": "int64"
-                    },
-                    {
-                        "name": "enderecoId",
-                        "in": "path",
-                        "description": "Id do endereço que se deseja alterar o status",
-                        "required": true,
-                        "type": "integer",
-                        "format": "int64"
-                    },
-                    {
-                        "name": "enderecoStatus",
-                        "in": "body",
-                        "description": "Status do endereço",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/EnderecoStatus"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Status endereço de um usuário atualizado com sucesso",
-                        "schema": {
-                            "type": "boolean"
-                        }
-                    },
-                    "500": {
-                        "description": "Erro no processamento da operação",
-                        "schema": {
-                            "$ref": "#/definitions/Resultado"
-                        }
-                    }
-                }
-            }
-        },
-        "/usuarios/{email}/enderecos/{enderecoId}/ativar": {
-            "put": {
-                "tags": [
-                    "Usuario"
-                ],
-                "summary": "Ativa ou desativa um endereço de um usuário com base no e-mail do usuário",
-                "operationId": "Usuario_PutEnderecoAtivarByUsuarioEmailByemailenderecoIdenderecoStatus",
-                "consumes": [
-                    "application/json",
-                    "text/json",
-                    "text/html",
-                    "application/xml",
-                    "text/xml",
-                    "application/x-www-form-urlencoded"
-                ],
-                "produces": [
-                    "application/json",
-                    "text/json",
-                    "text/html",
-                    "application/xml",
-                    "text/xml"
-                ],
-                "parameters": [
-                    {
-                        "name": "email",
-                        "in": "path",
-                        "description": "E-mail do usuário que se deseja alterar o status so endereço",
-                        "required": true,
-                        "type": "string"
                     },
                     {
                         "name": "enderecoId",

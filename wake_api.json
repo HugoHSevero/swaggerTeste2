@@ -870,161 +870,6 @@
                 }
             }
         },
-        "/contascorrentes/{email}": {
-            "get": {
-                "tags": [
-                    "ContaCorrente"
-                ],
-                "summary": "Retorna o saldo de um usuário.",
-                "operationId": "ContaCorrente_GetByemail",
-                "consumes": [],
-                "produces": [
-                    "application/json",
-                    "text/json",
-                    "text/html",
-                    "application/xml",
-                    "text/xml"
-                ],
-                "parameters": [
-                    {
-                        "name": "email",
-                        "in": "path",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Lista de emails e saldos de conta corrente",
-                        "schema": {
-                            "format": "double",
-                            "type": "number"
-                        }
-                    },
-                    "500": {
-                        "description": "Erro no processamento da operação",
-                        "schema": {
-                            "$ref": "#/definitions/Resultado"
-                        }
-                    }
-                }
-            },
-            "post": {
-                "tags": [
-                    "ContaCorrente"
-                ],
-                "summary": "Realiza um novo lançamento na conta corrente do cliente.",
-                "operationId": "ContaCorrente_PostByemailcontaCorrente",
-                "consumes": [
-                    "application/json",
-                    "text/json",
-                    "text/html",
-                    "application/xml",
-                    "text/xml",
-                    "application/x-www-form-urlencoded"
-                ],
-                "produces": [
-                    "application/json",
-                    "text/json",
-                    "text/html",
-                    "application/xml",
-                    "text/xml"
-                ],
-                "parameters": [
-                    {
-                        "name": "email",
-                        "in": "path",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "contaCorrente",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/ContaCorrente"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
-                    },
-                    "201": {
-                        "description": "Id da conta corrente gerada",
-                        "schema": {
-                            "format": "int64",
-                            "type": "integer"
-                        }
-                    },
-                    "500": {
-                        "description": "Erro no processamento da operação",
-                        "schema": {
-                            "$ref": "#/definitions/Resultado"
-                        }
-                    }
-                }
-            }
-        },
-        "/contascorrentes/{email}/extrato": {
-            "get": {
-                "tags": [
-                    "ContaCorrente"
-                ],
-                "summary": "Busca todas as movimentações de conta corrente de um usuário.",
-                "operationId": "ContaCorrente_ExtratoByemaildataInicialdataFinal",
-                "consumes": [],
-                "produces": [
-                    "application/json",
-                    "text/json",
-                    "text/html",
-                    "application/xml",
-                    "text/xml"
-                ],
-                "parameters": [
-                    {
-                        "name": "email",
-                        "in": "path",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "dataInicial",
-                        "in": "query",
-                        "required": true,
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    {
-                        "name": "dataFinal",
-                        "in": "query",
-                        "required": true,
-                        "type": "string",
-                        "format": "date-time"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Extrato retornado com sucesso",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/ContaCorrenteCompleta"
-                            }
-                        }
-                    },
-                    "500": {
-                        "description": "Erro no processamento da operação",
-                        "schema": {
-                            "$ref": "#/definitions/Resultado"
-                        }
-                    }
-                }
-            }
-        },
         "/conteudos": {
             "get": {
                 "tags": [
@@ -15487,77 +15332,6 @@
                 }
             }
         },
-        "ContaCorrente": {
-            "type": "object",
-            "properties": {
-                "valor": {
-                    "format": "double",
-                    "type": "number"
-                },
-                "tipoLancamento": {
-                    "enum": [
-                        "Credito",
-                        "Debito"
-                    ],
-                    "type": "string"
-                },
-                "observacao": {
-                    "type": "string"
-                },
-                "visivelParaCliente": {
-                    "type": "boolean"
-                },
-                "tipoContaCorrenteId": {
-                    "format": "int32",
-                    "type": "integer"
-                },
-                "referencia": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                }
-            }
-        },
-        "ContaCorrenteCompleta": {
-            "type": "object",
-            "properties": {
-                "data": {
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "historico": {
-                    "type": "string"
-                },
-                "valor": {
-                    "format": "double",
-                    "type": "number"
-                },
-                "tipoLancamento": {
-                    "enum": [
-                        "Credito",
-                        "Debito"
-                    ],
-                    "type": "string"
-                },
-                "observacao": {
-                    "type": "string"
-                },
-                "visivelParaCliente": {
-                    "type": "boolean"
-                },
-                "tipoContaCorrenteId": {
-                    "format": "int32",
-                    "type": "integer"
-                },
-                "referencia": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                }
-            }
-        },
         "Conteudo": {
             "type": "object",
             "properties": {
@@ -17858,9 +17632,7 @@
                 "detalhesContaCorrente": {
                     "description": "Lista de ContaCorrentes vinculado ao Pedido",
                     "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/DetalhesContaCorrente"
-                    }
+                    "items": {}
                 },
                 "pedidoPai": {
                     "format": "int64",
@@ -18424,32 +18196,6 @@
                 "valor": {
                     "description": "Valor do metadado do pedido",
                     "type": "string"
-                }
-            }
-        },
-        "DetalhesContaCorrente": {
-            "type": "object",
-            "properties": {
-                "contaCorrenteId": {
-                    "format": "int32",
-                    "type": "integer"
-                },
-                "tipoContaCorrenteId": {
-                    "format": "int32",
-                    "type": "integer"
-                },
-                "descricaoTipoConta": {
-                    "type": "string"
-                },
-                "valor": {
-                    "format": "double",
-                    "type": "number"
-                },
-                "referencias": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
                 }
             }
         },

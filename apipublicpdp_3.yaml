@@ -1,0 +1,2106 @@
+openapi: 3.0.1
+info:
+  title: TOTVS - PDP
+  description: APIs públicas na plataforma TOTVS. Módulo Datasul PDP
+  termsOfService: https://www.totvs.com/termos-de-uso/
+  contact:
+    email: box@totvs.com.br
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+- url: http://gales:8180/dts/datasul-rest/resources/prg/pdp/v3/
+- url: https://gales:8180/dts/datasul-rest/resources/prg/pdp/v3/
+tags:
+- name: ordersPublic
+  description: Pedido de Venda
+- name: orderItemsPublic
+  description: Itens do Pedido de Venda
+- name: ordersPublic/ecommerce
+  description: Pedido de Venda E-commerce
+paths:
+  /ordersPublic:
+    get:
+      tags:
+      - ordersPublic
+      summary: Realiza a carga dos Pedidos de Venda
+      description: "Este serviço permite a visualização dos Pedidos de Venda. \r\n\
+        `Campos Indexados:` {salesChannel, paymentTerms, branchId, collectorCode,\
+        \ evaluationSituation, commercialSituation, orderSituation, priceSituation,\
+        \ deliveryDate, implantationDate, modality, transactionType, representativeShortName,\
+        \ shortName, reshipmentTransp, carrierName, customerOrderId, orderId, priceTableOrder,\
+        \ priceOrderType}"
+      operationId: getordersPublic
+      parameters:
+      - name: lastUpdate
+        in: query
+        description: Data de sincronização dos registros
+        schema:
+          type: string
+          format: date-time
+      - name: page
+        in: query
+        description: Número da página
+        schema:
+          type: integer
+      - name: pageSize
+        in: query
+        description: "Quantidade de registros por página (a resposta deve retornar\
+          \ o campo hasNext indicando se há mais registros para a proxima página),\
+          \ a quantidade não deve ultrapassar 100, quantidades superiores serão consideradas\
+          \ 100."
+        schema:
+          type: integer
+      - name: totalCount
+        in: query
+        description: "Considera a contagem total dos registros, respeitando os filtros\
+          \ anteriores."
+        schema:
+          type: boolean
+      - name: printDateFirst
+        in: query
+        description: Data inicial da implantação do pedido
+        schema:
+          type: string
+          format: date
+      - name: printDateLast
+        in: query
+        description: Data final da implantação do pedido
+        schema:
+          type: string
+          format: date
+      - name: storeCode
+        in: query
+        description: "Lista de códigos das lojas E-Commerce separados por vírgula\
+          \ (,)"
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Requisição realizada com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ordersPublicResponse'
+        "400":
+          description: Erro requisição inválida
+          content: {}
+        "401":
+          description: Não autorizado
+          content: {}
+        "404":
+          description: Não encontrado
+          content: {}
+        "500":
+          description: Erro interno do servidor
+          content: {}
+      security:
+      - basicAuth: []
+    post:
+      tags:
+      - ordersPublic
+      summary: Inclusão do Pedido de Venda
+      description: Este serviço permite a inclusão do Pedido de Venda.
+      operationId: postordersPublic
+      requestBody:
+        description: Objeto com os dados do Pedido
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ordersPublicPost'
+        required: true
+      responses:
+        "200":
+          description: Requisição realizada com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ordersPublic'
+        "400":
+          description: Erro requisição inválida
+          content: {}
+        "401":
+          description: Não autorizado
+          content: {}
+        "404":
+          description: Não encontrado
+          content: {}
+        "405":
+          description: Dados inválidos
+          content: {}
+      security:
+      - basicAuth: []
+      x-codegen-request-body-name: body
+  /ordersPublic/{orderID}:
+    put:
+      tags:
+      - ordersPublic
+      summary: Atualização de Pedido de Venda
+      description: Este serviço permite a atualização do Pedido de Venda.
+      operationId: putordersPublic
+      parameters:
+      - name: orderID
+        in: path
+        description: Identificador do Pedido de Venda a ser atualizado
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: Objeto com os dados dos Pedidos de Venda
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ordersPublicPost'
+        required: true
+      responses:
+        "200":
+          description: Requisição realizada com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ordersPublic'
+        "400":
+          description: Erro requisição inválida
+          content: {}
+        "401":
+          description: Não autorizado
+          content: {}
+        "404":
+          description: Não encontrado
+          content: {}
+        "405":
+          description: Dados inválidos
+          content: {}
+      security:
+      - basicAuth: []
+      x-codegen-request-body-name: body
+    patch:
+      tags:
+      - ordersPublic
+      summary: Atualização do Pedido de Venda
+      description: Este serviço permite a atualização do Pedido de Venda.
+      operationId: patchordersPublic
+      parameters:
+      - name: orderID
+        in: path
+        description: Identificador do Pedido de Venda a ser atualizado
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: Objeto com os dados dos Pedidos de Venda
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ordersPublicPost'
+        required: true
+      responses:
+        "200":
+          description: Requisição realizada com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ordersPublic'
+        "400":
+          description: Erro requisição inválida
+          content: {}
+        "401":
+          description: Não autorizado
+          content: {}
+        "404":
+          description: Não encontrado
+          content: {}
+        "405":
+          description: Dados inválidos
+          content: {}
+      security:
+      - basicAuth: []
+      x-codegen-request-body-name: body
+  /ordersPublic/complete/{orderID}:
+    put:
+      tags:
+      - ordersPublic
+      summary: Completa o Pedido de Venda
+      description: Este serviço permite completar o Pedido de Venda.
+      operationId: completeordersPublic
+      parameters:
+      - name: orderID
+        in: path
+        description: Identificador do Pedido de Venda a ser atualizado
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Requisição realizada com sucesso
+          content: {}
+        "400":
+          description: Erro requisição inválida
+          content: {}
+        "401":
+          description: Não autorizado
+          content: {}
+        "404":
+          description: Não encontrado
+          content: {}
+        "405":
+          description: Dados inválidos
+          content: {}
+      security:
+      - basicAuth: []
+  /ordersPublic/cancel/{orderID}:
+    put:
+      tags:
+      - ordersPublic
+      summary: Cancela o Pedido de Venda
+      description: Este serviço permite cancelar o Pedido de Venda.
+      operationId: cancelordersPublic
+      parameters:
+      - name: orderID
+        in: path
+        description: Identificador do Pedido de Venda a ser cancelado
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Requisição realizada com sucesso
+          content: {}
+        "400":
+          description: Erro requisição inválida
+          content: {}
+        "401":
+          description: Não autorizado
+          content: {}
+        "404":
+          description: Não encontrado
+          content: {}
+        "405":
+          description: Dados inválidos
+          content: {}
+      security:
+      - basicAuth: []
+  /orderItemsPublic:
+    get:
+      tags:
+      - orderItemsPublic
+      summary: Realiza a carga dos Itens do Pedidos de Venda
+      description: "Este serviço permite a visualização dos Itens do Pedidos de Venda.\
+        \ \r\n`Campos Indexados:` {deliveryCode, referenceCode, orderItemSituation,\
+        \ delireryDate, itemCode, shortName, customerOrderId, sequence, priceTable}"
+      operationId: getorderItemsPublic
+      parameters:
+      - name: lastUpdate
+        in: query
+        description: Data de sincronização dos registros
+        schema:
+          type: string
+          format: date-time
+      - name: page
+        in: query
+        description: Número da página
+        schema:
+          type: integer
+      - name: pageSize
+        in: query
+        description: "Quantidade de registros por página (a resposta deve retornar\
+          \ o campo hasNext indicando se há mais registros para a proxima página),\
+          \ a quantidade não deve ultrapassar 100, quantidades superiores serão consideradas\
+          \ 100."
+        schema:
+          type: integer
+      - name: totalCount
+        in: query
+        description: "Considera a contagem total dos registros, respeitando os filtros\
+          \ anteriores."
+        schema:
+          type: boolean
+      responses:
+        "200":
+          description: Requisição realizada com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/orderItemsPublicResponse'
+        "400":
+          description: Erro requisição inválida
+          content: {}
+        "401":
+          description: Não autorizado
+          content: {}
+        "404":
+          description: Não encontrado
+          content: {}
+        "500":
+          description: Erro interno do servidor
+          content: {}
+      security:
+      - basicAuth: []
+    post:
+      tags:
+      - orderItemsPublic
+      summary: Inclusão de Item do Pedido de Venda
+      description: Este serviço permite a inclusão de Item do Pedido de Venda.
+      operationId: postorderItemsPublic
+      requestBody:
+        description: Objeto com os dados do Cliente
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/orderItems'
+        required: true
+      responses:
+        "200":
+          description: Requisição realizada com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/orderItems'
+        "400":
+          description: Erro requisição inválida
+          content: {}
+        "401":
+          description: Não autorizado
+          content: {}
+        "404":
+          description: Não encontrado
+          content: {}
+        "405":
+          description: Dados inválidos
+          content: {}
+      security:
+      - basicAuth: []
+      x-codegen-request-body-name: body
+  /orderItemsPublic/{orderID}/{sequence}:
+    put:
+      tags:
+      - orderItemsPublic
+      summary: Atualização do Item do Pedido de Venda
+      description: Este serviço permite a atualização do Item Pedido de Venda.
+      operationId: putorderItemsPublic
+      parameters:
+      - name: orderID
+        in: path
+        description: Identificador do Pedido de Venda a ser atualizado
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: sequence
+        in: path
+        description: Identificador da sequencia do Item do Pedido de Venda a ser atualizado
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: Objeto com os dados do Item do Pedidos de Venda
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/orderItems'
+        required: true
+      responses:
+        "200":
+          description: Requisição realizada com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/orderItems'
+        "400":
+          description: Erro requisição inválida
+          content: {}
+        "401":
+          description: Não autorizado
+          content: {}
+        "404":
+          description: Não encontrado
+          content: {}
+        "405":
+          description: Dados inválidos
+          content: {}
+      security:
+      - basicAuth: []
+      x-codegen-request-body-name: body
+    delete:
+      tags:
+      - orderItemsPublic
+      summary: Exclusão do Item do Pedido de Venda
+      description: Este serviço permite a exclusão do Item Pedido de Venda.
+      operationId: deleteorderItemsPublic
+      parameters:
+      - name: orderID
+        in: path
+        description: Identificador do Pedido de Venda a ser atualizado
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: sequence
+        in: path
+        description: Identificador da sequencia do Item do Pedido de Venda a ser atualizado
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Requisição realizada com sucesso
+          content: {}
+        "400":
+          description: Erro requisição inválida
+          content: {}
+        "401":
+          description: Não autorizado
+          content: {}
+        "404":
+          description: Não encontrado
+          content: {}
+        "405":
+          description: Dados inválidos
+          content: {}
+      security:
+      - basicAuth: []
+    patch:
+      tags:
+      - orderItemsPublic
+      summary: Atualização do Item do Pedido de Venda
+      description: Este serviço permite a atualização do Item Pedido de Venda.
+      operationId: patchorderItemsPublic
+      parameters:
+      - name: orderID
+        in: path
+        description: Identificador do Pedido de Venda a ser atualizado
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: sequence
+        in: path
+        description: Identificador da sequencia do Item do Pedido de Venda a ser atualizado
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: Objeto com os dados do Item do Pedido de Venda
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/orderItems'
+        required: true
+      responses:
+        "200":
+          description: Requisição realizada com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/orderItems'
+        "400":
+          description: Erro requisição inválida
+          content: {}
+        "401":
+          description: Não autorizado
+          content: {}
+        "404":
+          description: Não encontrado
+          content: {}
+        "405":
+          description: Dados inválidos
+          content: {}
+      security:
+      - basicAuth: []
+      x-codegen-request-body-name: body
+  /orderItemsPublic/cancel/{orderID}/{sequence}:
+    put:
+      tags:
+      - orderItemsPublic
+      summary: Cancelamento do Item do Pedido de Venda
+      description: Este serviço permite cancelar o Item do Pedido de Venda.
+      operationId: cancelorderItemsPublic
+      parameters:
+      - name: orderID
+        in: path
+        description: Identificador do Pedido de Venda a ser atualizado
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: sequence
+        in: path
+        description: Identificador da sequencia do Item do Pedido de Venda a ser atualizado
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Requisição realizada com sucesso
+          content: {}
+        "400":
+          description: Erro requisição inválida
+          content: {}
+        "401":
+          description: Não autorizado
+          content: {}
+        "404":
+          description: Não encontrado
+          content: {}
+        "405":
+          description: Dados inválidos
+          content: {}
+      security:
+      - basicAuth: []
+  /ordersPublic/ecommerce:
+    post:
+      tags:
+      - ordersPublic/ecommerce
+      summary: Inclusão do Pedido de Venda via E-commerce
+      description: Este serviço permite a inclusão do Pedido de Venda via solicitação
+        e-commerce.
+      operationId: postOrderStorePublic
+      requestBody:
+        description: Objeto com os dados do Pedido
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ordersStorePublicPost'
+        required: true
+      responses:
+        "200":
+          description: Requisição realizada com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ordersStorePublicResponse'
+        "400":
+          description: Erro requisição inválida
+          content: {}
+        "401":
+          description: Não autorizado
+          content: {}
+        "404":
+          description: Não encontrado
+          content: {}
+        "405":
+          description: Dados inválidos
+          content: {}
+      security:
+      - basicAuth: []
+      x-codegen-request-body-name: body
+  /ordersPublic/ecommerce/canceled/byStore/{storeCode}:
+    get:
+      tags:
+      - ordersPublic/ecommerce
+      summary: Retorna os Pedidos de Venda Cancelados
+      description: "Este serviço permite a visualização dos Pedidos de Venda Cancelados.\
+        \ \r\n`Campos Indexados:` {branchId, implantationDate, customerOrderId, orderId}"
+      operationId: getCanceledOrdersPublic
+      parameters:
+      - name: storeCode
+        in: path
+        description: Identificador do cadastro da loja E-Commerce
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: lastUpdate
+        in: query
+        description: Data de sincronização dos registros
+        schema:
+          type: string
+          format: date-time
+      - name: page
+        in: query
+        description: Número da página
+        schema:
+          type: integer
+      - name: pageSize
+        in: query
+        description: "Quantidade de registros por página (a resposta deve retornar\
+          \ o campo hasNext indicando se há mais registros para a proxima página),\
+          \ a quantidade não deve ultrapassar 100, quantidades superiores serão consideradas\
+          \ 100."
+        schema:
+          type: integer
+      - name: totalCount
+        in: query
+        description: "Considera a contagem total dos registros, respeitando os filtros\
+          \ anteriores."
+        schema:
+          type: boolean
+      responses:
+        "200":
+          description: Requisição realizada com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ordersCanceledPublicResponse'
+        "400":
+          description: Erro requisição inválida
+          content: {}
+        "401":
+          description: Não autorizado
+          content: {}
+        "404":
+          description: Não encontrado
+          content: {}
+        "500":
+          description: Erro interno do servidor
+          content: {}
+      security:
+      - basicAuth: []
+  /ordersPublic/ecommerce/canceled/{orderID}:
+    get:
+      tags:
+      - ordersPublic/ecommerce
+      summary: Retorna Informações Detalhadas do Pedido de Venda Cancelado
+      description: Este serviço permite buscar e detalhar um Pedido de Venda em específico
+        que foi cancelado.
+      operationId: getCanceledOrderPublic
+      parameters:
+      - name: orderID
+        in: path
+        description: Identificador do Pedido de Venda a ser localizado
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Requisição realizada com sucesso
+          content: {}
+        "400":
+          description: Erro requisição inválida
+          content: {}
+        "401":
+          description: Não autorizado
+          content: {}
+        "404":
+          description: Não encontrado
+          content: {}
+        "405":
+          description: Dados inválidos
+          content: {}
+      security:
+      - basicAuth: []
+components:
+  schemas:
+    ordersPublicResponse:
+      type: object
+      properties:
+        total:
+          type: integer
+          description: Quantidade de registros
+        hasNext:
+          type: boolean
+        items:
+          type: array
+          description: Lista contendo informações dos Pedidos de Venda cadastrados
+            no ERP
+          items:
+            $ref: '#/components/schemas/ordersPublic'
+      description: Resposta da requisição do serviço que retorna os Pedidos de Venda
+        cadastrados no ERP
+    orderItemsPublicResponse:
+      type: object
+      properties:
+        total:
+          type: integer
+          description: Quantidade de registros
+        hasNext:
+          type: boolean
+        items:
+          type: array
+          description: Lista contendo informações dos Itens dos Pedidos de Venda cadastrados
+            no ERP
+          items:
+            $ref: '#/components/schemas/orderItems'
+      description: Resposta da requisição do serviço que retorna os Itens do Pedido
+        de Venda cadastrados no ERP
+    ordersPublic:
+      type: object
+      properties:
+        allocationSituation:
+          type: integer
+          description: Situação da alocação do estoque
+        branchId:
+          type: string
+          description: Código do estabelecimento
+          example: movdis.ped-venda.cod-estabel
+        campaignId:
+          type: integer
+          description: Número Id Campanha Crm
+        cancellationDate:
+          type: string
+          description: Data do Cancelamento do Pedido
+          format: date
+        cancellationReason:
+          type: string
+          description: Descrição do motivo do cancelamento
+          example: movdis.ped-venda.desc-cancela
+        carrierName:
+          type: string
+          description: Nome do transportador
+          example: movdis.ped-venda.nome-transp
+        cifCity:
+          type: string
+          description: Até que cidade o frete corre por conta do emitente
+          example: movdis.ped-venda.cidade-cif
+        codeCarrier:
+          type: integer
+          description: Código do Transportador
+        codeReshipmentTransp:
+          type: integer
+          description: Transportadora Redespacho
+        collectorCode:
+          type: integer
+          description: Código do portador
+        comments:
+          type: string
+          description: Observação
+          example: movdis.ped-venda.observacoes
+        commercialSituation:
+          type: integer
+          description: Código da situação da avaliação comercial
+        completeAddress:
+          type: string
+          description: Endereço Completo
+          example: movdis.ped-venda.endereco_text
+        creditApprovalDate:
+          type: string
+          description: Data de aprovação de crédito
+          format: date
+        creditLockReason:
+          type: string
+          description: Motivo da não liberação de crédito para o pedido
+          example: movdis.ped-venda.desc-bloq-cr
+        currencyBillingCode:
+          type: integer
+          description: Código da moeda do Faturamento
+        currencyCode:
+          type: integer
+          description: Código da moeda de referência dos valores
+        customerCode:
+          type: integer
+          description: Código do cliente
+        customerDiscount:
+          type: number
+          description: Percentual de desconto do cliente a ser aplicado sobre a nota
+        customerOrderId:
+          type: string
+          description: Número do pedido do cliente
+          example: movdis.ped-venda.nr-pedcli
+        customerOrderType:
+          type: string
+          description: Disponível para classificação/indicação própria do usuário
+          example: movdis.ped-venda.tp-pedido
+        dateUpdatedSituation:
+          type: string
+          description: Data da alteração da situação
+          format: date
+        deliveryCity:
+          type: string
+          description: Cidade para a Entrega do Pedido
+          example: movdis.ped-venda.cidade
+        deliveryCode:
+          type: string
+          description: Código do endereço de entrega
+          example: movdis.ped-venda.cod-entrega
+        deliveryCountry:
+          type: string
+          description: País de Entrega do Pedido
+          example: movdis.ped-venda.pais
+        deliveryDate:
+          type: string
+          description: Data prevista para entrega do Pedido
+          format: date
+        deliveryNeighborhood:
+          type: string
+          description: Bairro
+          example: movdis.ped-venda.bairro
+        deliveryPlace:
+          type: string
+          description: Endereço de entrega do cliente
+          example: movdis.ped-venda.local-entreg
+        deliveryState:
+          type: string
+          description: Unidade da federação para entrega
+          example: movdis.ped-venda.estado
+        deliveryZipCode:
+          type: string
+          description: CEP
+          example: movdis.ped-venda.cep
+        discountAmt:
+          type: number
+          description: Valor do desconto
+        discountPercentage:
+          type: string
+          description: Percentuais de desconto informados por pedido
+          example: movdis.ped-venda.des-pct-desconto-inform
+        email:
+          type: string
+          description: Endereço eletrônico na Internet
+          example: movdis.ped-venda.e-mail
+        emissionDate:
+          type: string
+          description: Data em que o pedido foi emitido pelo representante/cliente
+          format: date
+        evaluationSituation:
+          type: integer
+          description: Situação de avaliação de crédito
+        financingTable:
+          type: integer
+          description: Tabela financeira
+        financingTableSequence:
+          type: integer
+          description: Índice da tabela de financiamento
+        forcedApprover:
+          type: string
+          description: Nome do aprovador de créditos forçados
+          example: movdis.ped-venda.aprov-forcado
+        forcedReleaseReason:
+          type: string
+          description: Motivo da liberação de crédito forçado para o pedido
+          example: movdis.ped-venda.desc-forc-cr
+        freightMode:
+          type: string
+          description: Modalidade de Frete
+          example: "movdis.ped-venda.char-2,109,8"
+        implantationDate:
+          type: string
+          description: Data em que o Pedido foi implantado no sistema
+          format: date
+        limitBillingDate:
+          type: string
+          description: Data Limite para atendimento do Pedido
+          format: date
+        merchandiseDescription:
+          type: integer
+          description: Destino da mercadoria
+        minimumBillingDate:
+          type: string
+          description: Data Mínima para atendimento do Pedido
+          format: date
+        modality:
+          type: integer
+          description: Modalidade de cobrança referente ao portador
+        openAmount:
+          type: number
+          description: Valor da mercadoria em aberto + IPI do saldo aberto
+        operationTypeCode:
+          type: integer
+          description: Código do Tipo de Pedido
+        operationTypeDetail:
+          type: string
+          description: Detalhe Tipo de Operação
+          example: mgdis.tip-ped-cia.descricao
+        orderAmount:
+          type: number
+          description: Valor líquido da mercadoria pedida
+        orderCompleted:
+          type: boolean
+          description: O pedido está completo?
+          example: false
+        orderId:
+          type: integer
+          description: Número do pedido
+        orderSituation:
+          type: integer
+          description: Situação do pedido
+        orderType:
+          type: integer
+          description: Espécie do pedido
+        originalDeliveryDate:
+          type: string
+          description: Data de entrega solicitada pelo cliente
+          format: date
+        paymentTerms:
+          type: integer
+          description: Código da condição de pagamento
+        paymentTermsDetail:
+          type: string
+          description: Detalhe Condição de Pagamento
+          example: mgadm.cond-pagto.descricao
+        percentageFreight:
+          type: number
+          description: Percentual de Frete
+        percentageInsurance:
+          type: number
+          description: Percentual de Seguro
+        percentagePacking:
+          type: number
+          description: Percentual de Embalagem
+        priceOrderType:
+          type: integer
+          description: Tipo de preço
+        priceReason:
+          type: string
+          description: Motivo da liberação forçada dos preços para o pedido
+          example: movdis.ped-venda.desc-lib-preco
+        priceSituation:
+          type: integer
+          description: Código da situação da avaliação Preços
+        priceTableDiscPerc:
+          type: number
+          description: Percentual de descontos referente à tabela de preços
+        priceTableOrder:
+          type: string
+          description: Tabela de preços
+          example: movdis.ped-venda.nr-tabpre
+        priceTableOrderDetail:
+          type: string
+          description: Detalhe Tabela de Preço
+          example: mgdis.tb-preco.descricao
+        reactivationDate:
+          type: string
+          description: Data de reativação
+          format: date
+        reactivationReason:
+          type: string
+          description: Informe o motivo da reativação do pedido.
+          example: movdis.ped-venda.desc-reativa
+        representativeName:
+          type: string
+          description: Nome do Representante principal
+          example: mgadm.repres.nome
+        representativeOrderId:
+          type: string
+          description: Número do pedido do representante
+          example: movdis.ped-venda.nr-pedrep
+        representativeShortName:
+          type: string
+          description: Nome abreviado do representante principal
+          example: movdis.ped-venda.no-ab-reppri
+        reshipmentTransp:
+          type: string
+          description: Nome da transportadora de redespacho
+          example: movdis.ped-venda.nome-tr-red
+        salesChannel:
+          type: integer
+          description: Código do canal de venda
+        shortName:
+          type: string
+          description: Nome abreviado do cliente
+          example: movdis.ped-venda.nome-abrev
+        storeCode:
+          type: integer
+          description: Código da loja e-commerce
+        storeName:
+          type: string
+          description: Nome da loja e-commerce
+          example: mgdis.integr-loja.cod-loja
+        suspensionDate:
+          type: string
+          description: Data de suspensão
+          format: date
+        suspensionReason:
+          type: string
+          description: Motivo da suspensão do pedido
+          example: movdis.ped-venda.desc-suspend
+        totalDiscount:
+          type: number
+          description: Valor do desconto total
+        totalDiscountPercentage:
+          type: number
+          description: Percentual de desconto total do pedido
+        totalDiscountValue:
+          type: number
+          description: Percentual de desconto por valor do pedido
+        totalOrderAmount:
+          type: number
+          description: Valor total da mercadoria pedida adicionada do IPI
+        transactionType:
+          type: string
+          description: Natureza de operação
+          example: movdis.ped-venda.nat-operacao
+        unitBusinessCod:
+          type: string
+          description: Código Unidade Negócio
+          example: movdis.ped-venda.cod-unid-negoc
+        useBillingAddress:
+          type: boolean
+          description: Indica se o endereço será usado no faturamento do pedido.
+          example: false
+        useDiscountTable:
+          type: boolean
+          description: Usa a tabela de descontos no tratamento deste pedido?
+          example: false
+        userApprover:
+          type: string
+          description: Usuário que aprovou o pedido
+          example: movdis.ped-venda.user-aprov
+        userCancel:
+          type: string
+          description: Usuário que efetuou o cancelamento
+          example: movdis.ped-venda.user-canc
+        userCreditApprover:
+          type: string
+          description: Usuário que aprovou o crédito
+          example: movdis.ped-venda.quem-aprovou
+        userLastChange:
+          type: string
+          description: Usuário que efetuou a última alteração
+          example: movdis.ped-venda.user-alte
+        userUpdatedSituation:
+          type: string
+          description: Usuário de alteração da situação
+          example: movdis.ped-venda.cod-usu-alt-sit
+        valueFreight:
+          type: number
+          description: Informe o valor do frete
+        valueInsurance:
+          type: number
+          description: Informe o valor do seguro
+        valuePacking:
+          type: number
+          description: Informe o valor da embalagem
+        orderItems:
+          type: array
+          description: Itens do Pedido de Venda.
+          items:
+            $ref: '#/components/schemas/orderItems'
+        orderRepresentatives:
+          type: array
+          description: Representantes.
+          items:
+            $ref: '#/components/schemas/orderRepresentatives'
+        preInvoicing:
+          type: array
+          description: Embarque.
+          items:
+            $ref: '#/components/schemas/preInvoicing'
+      description: Pedido de Venda
+    ordersPublicPost:
+      type: object
+      properties:
+        allocationSituation:
+          type: integer
+          description: Situação da alocação do estoque
+        branchId:
+          type: string
+          description: Código do estabelecimento
+          example: movdis.ped-venda.cod-estabel
+        campaignId:
+          type: integer
+          description: Número Id Campanha Crm
+        cancellationDate:
+          type: string
+          description: Data do Cancelamento do Pedido
+          format: date
+        cancellationReason:
+          type: string
+          description: Descrição do motivo do cancelamento
+          example: movdis.ped-venda.desc-cancela
+        carrierName:
+          type: string
+          description: Nome do transportador
+          example: movdis.ped-venda.nome-transp
+        cifCity:
+          type: string
+          description: Até que cidade o frete corre por conta do emitente
+          example: movdis.ped-venda.cidade-cif
+        codeCarrier:
+          type: integer
+          description: Código do Transportador
+        codeReshipmentTransp:
+          type: integer
+          description: Transportadora Redespacho
+        collectorCode:
+          type: integer
+          description: Código do portador
+        comments:
+          type: string
+          description: Observação
+          example: movdis.ped-venda.observacoes
+        commercialSituation:
+          type: integer
+          description: Código da situação da avaliação comercial
+        completeAddress:
+          type: string
+          description: Endereço Completo
+          example: movdis.ped-venda.endereco_text
+        creditApprovalDate:
+          type: string
+          description: Data de aprovação de crédito
+          format: date
+        creditLockReason:
+          type: string
+          description: Motivo da não liberação de crédito para o pedido
+          example: movdis.ped-venda.desc-bloq-cr
+        currencyBillingCode:
+          type: integer
+          description: Código da moeda do Faturamento
+        currencyCode:
+          type: integer
+          description: Código da moeda de referência dos valores
+        customerCode:
+          type: integer
+          description: Código do cliente
+        customerDiscount:
+          type: number
+          description: Percentual de desconto do cliente a ser aplicado sobre a nota
+        customerOrderId:
+          type: string
+          description: Número do pedido do cliente
+          example: movdis.ped-venda.nr-pedcli
+        customerOrderType:
+          type: string
+          description: Disponível para classificação/indicação própria do usuário
+          example: movdis.ped-venda.tp-pedido
+        dateUpdatedSituation:
+          type: string
+          description: Data da alteração da situação
+          format: date
+        deliveryCity:
+          type: string
+          description: Cidade para a Entrega do Pedido
+          example: movdis.ped-venda.cidade
+        deliveryCode:
+          type: string
+          description: Código do endereço de entrega
+          example: movdis.ped-venda.cod-entrega
+        deliveryCountry:
+          type: string
+          description: País de Entrega do Pedido
+          example: movdis.ped-venda.pais
+        deliveryDate:
+          type: string
+          description: Data prevista para entrega do Pedido
+          format: date
+        deliveryNeighborhood:
+          type: string
+          description: Bairro
+          example: movdis.ped-venda.bairro
+        deliveryPlace:
+          type: string
+          description: Endereço de entrega do cliente
+          example: movdis.ped-venda.local-entreg
+        deliveryState:
+          type: string
+          description: Unidade da federação para entrega
+          example: movdis.ped-venda.estado
+        deliveryZipCode:
+          type: string
+          description: CEP
+          example: movdis.ped-venda.cep
+        discountAmt:
+          type: number
+          description: Valor do desconto
+        discountPercentage:
+          type: string
+          description: Percentuais de desconto informados por pedido
+          example: movdis.ped-venda.des-pct-desconto-inform
+        email:
+          type: string
+          description: Endereço eletrônico na Internet
+          example: movdis.ped-venda.e-mail
+        emissionDate:
+          type: string
+          description: Data em que o pedido foi emitido pelo representante/cliente
+          format: date
+        evaluationSituation:
+          type: integer
+          description: Situação de avaliação de crédito
+        forcedApprover:
+          type: string
+          description: Nome do aprovador de créditos forçados
+          example: movdis.ped-venda.aprov-forcado
+        forcedReleaseReason:
+          type: string
+          description: Motivo da liberação de crédito forçado para o pedido
+          example: movdis.ped-venda.desc-forc-cr
+        freightMode:
+          type: string
+          description: Modalidade de Frete
+          example: "movdis.ped-venda.char-2,109,8"
+        implantationDate:
+          type: string
+          description: Data em que o Pedido foi implantado no sistema
+          format: date
+        limitBillingDate:
+          type: string
+          description: Data Limite para atendimento do Pedido
+          format: date
+        merchandiseDescription:
+          type: integer
+          description: Destino da mercadoria
+        minimumBillingDate:
+          type: string
+          description: Data Mínima para atendimento do Pedido
+          format: date
+        modality:
+          type: integer
+          description: Modalidade de cobrança referente ao portador
+        openAmount:
+          type: number
+          description: Valor da mercadoria em aberto + IPI do saldo aberto
+        operationTypeCode:
+          type: integer
+          description: Código do Tipo de Pedido
+        operationTypeDetail:
+          type: string
+          description: Detalhe Tipo de Operação
+          example: mgdis.tip-ped-cia.descricao
+        orderAmount:
+          type: number
+          description: Valor líquido da mercadoria pedida
+        orderCompleted:
+          type: boolean
+          description: O pedido está completo?
+          example: false
+        orderId:
+          type: integer
+          description: Número do pedido
+        orderSituation:
+          type: integer
+          description: Situação do pedido
+        orderType:
+          type: integer
+          description: Espécie do pedido
+        originalDeliveryDate:
+          type: string
+          description: Data de entrega solicitada pelo cliente
+          format: date
+        paymentTerms:
+          type: integer
+          description: Código da condição de pagamento
+        paymentTermsDetail:
+          type: string
+          description: Detalhe Condição de Pagamento
+          example: mgadm.cond-pagto.descricao
+        percentageFreight:
+          type: number
+          description: Percentual de Frete
+        percentageInsurance:
+          type: number
+          description: Percentual de Seguro
+        percentagePacking:
+          type: number
+          description: Percentual de Embalagem
+        priceOrderType:
+          type: integer
+          description: Tipo de preço
+        priceReason:
+          type: string
+          description: Motivo da liberação forçada dos preços para o pedido
+          example: movdis.ped-venda.desc-lib-preco
+        priceSituation:
+          type: integer
+          description: Código da situação da avaliação Preços
+        priceTableDiscPerc:
+          type: number
+          description: Percentual de descontos referente à tabela de preços
+        priceTableOrder:
+          type: string
+          description: Tabela de preços
+          example: movdis.ped-venda.nr-tabpre
+        priceTableOrderDetail:
+          type: string
+          description: Detalhe Tabela de Preço
+          example: mgdis.tb-preco.descricao
+        reactivationDate:
+          type: string
+          description: Data de reativação
+          format: date
+        reactivationReason:
+          type: string
+          description: Informe o motivo da reativação do pedido.
+          example: movdis.ped-venda.desc-reativa
+        representativeName:
+          type: string
+          description: Nome do Representante principal
+          example: mgadm.repres.nome
+        representativeOrderId:
+          type: string
+          description: Número do pedido do representante
+          example: movdis.ped-venda.nr-pedrep
+        representativeShortName:
+          type: string
+          description: Nome abreviado do representante principal
+          example: movdis.ped-venda.no-ab-reppri
+        reshipmentTransp:
+          type: string
+          description: Nome da transportadora de redespacho
+          example: movdis.ped-venda.nome-tr-red
+        salesChannel:
+          type: integer
+          description: Código do canal de venda
+        shortName:
+          type: string
+          description: Nome abreviado do cliente
+          example: movdis.ped-venda.nome-abrev
+        suspensionDate:
+          type: string
+          description: Data de suspensão
+          format: date
+        suspensionReason:
+          type: string
+          description: Motivo da suspensão do pedido
+          example: movdis.ped-venda.desc-suspend
+        totalDiscount:
+          type: number
+          description: Valor do desconto total
+        totalDiscountPercentage:
+          type: number
+          description: Percentual de desconto total do pedido
+        totalDiscountValue:
+          type: number
+          description: Percentual de desconto por valor do pedido
+        totalOrderAmount:
+          type: number
+          description: Valor total da mercadoria pedida adicionada do IPI
+        transactionType:
+          type: string
+          description: Natureza de operação
+          example: movdis.ped-venda.nat-operacao
+        unitBusinessCod:
+          type: string
+          description: Código Unidade Negócio
+          example: movdis.ped-venda.cod-unid-negoc
+        useBillingAddress:
+          type: boolean
+          description: Indica se o endereço será usado no faturamento do pedido.
+          example: false
+        useDiscountTable:
+          type: boolean
+          description: Usa a tabela de descontos no tratamento deste pedido?
+          example: false
+        userApprover:
+          type: string
+          description: Usuário que aprovou o pedido
+          example: movdis.ped-venda.user-aprov
+        userCancel:
+          type: string
+          description: Usuário que efetuou o cancelamento
+          example: movdis.ped-venda.user-canc
+        userCreditApprover:
+          type: string
+          description: Usuário que aprovou o crédito
+          example: movdis.ped-venda.quem-aprovou
+        userLastChange:
+          type: string
+          description: Usuário que efetuou a última alteração
+          example: movdis.ped-venda.user-alte
+        userUpdatedSituation:
+          type: string
+          description: Usuário de alteração da situação
+          example: movdis.ped-venda.cod-usu-alt-sit
+        valueFreight:
+          type: number
+          description: Informe o valor do frete
+        valueInsurance:
+          type: number
+          description: Informe o valor do seguro
+        valuePacking:
+          type: number
+          description: Informe o valor da embalagem
+        orderItems:
+          type: array
+          description: Itens do Pedido de Venda.
+          items:
+            $ref: '#/components/schemas/orderItems'
+      description: Pedido de Venda
+    orderItems:
+      type: object
+      properties:
+        aliquot:
+          type: number
+          description: Alíquota de IPI
+        ipiValue:
+          type: number
+          description: Valor IPI
+        allocationSituation:
+          type: integer
+          description: Situação da alocação do estoque
+        campaignId:
+          type: integer
+          description: Número Id Campanha Crm
+        cancelationItemDate:
+          type: string
+          description: Data em que o Item foi cancelado
+          format: date
+        cancelationUser:
+          type: string
+          description: Código do usuário que cancelou o item
+          example: movdis.ped-item.user-canc
+        comments:
+          type: string
+          description: Observação do item do pedido
+          example: movdis.ped-item.observacao
+        commercialSituation:
+          type: integer
+          description: Código da situação da avaliação comercial
+        customerOrderId:
+          type: string
+          description: Número do pedido do cliente
+          example: movdis.ped-item.nr-pedcli
+        dateCancel:
+          type: string
+          description: Data de Cancelamento da seqüência do pedido
+          format: date
+        dateDevol:
+          type: string
+          description: Data de devolução
+          format: date
+        delireryDate:
+          type: string
+          description: Data de entrega do item do Pedido
+          format: date
+        deliveryCode:
+          type: string
+          description: Código do endereço de entrega
+          example: movdis.ped-item.cod-entrega
+        descCancel:
+          type: string
+          description: Descrição do motivo do Cancelamento
+          example: movdis.ped-item.desc-cancela
+        descDevol:
+          type: string
+          description: Motivo da devolução
+          example: movdis.ped-item.desc-devol
+        devolutionItemDate:
+          type: string
+          description: Data em que ocorreu a devolução
+          format: date
+        devolutionUser:
+          type: string
+          description: Usuário que efetuou a devolução
+          example: movdis.ped-item.user-devol
+        discountPercentage:
+          type: string
+          description: Percentuais de desconto informados por item do pedido
+          example: movdis.ped-item.des-pct-desconto-inform
+        discountPrice:
+          type: number
+          description: Valor do desconto
+        informedDiscount:
+          type: number
+          description: Valor do desconto informado
+        insurancePrice:
+          type: number
+          description: Informe o valor do seguro
+        itemCode:
+          type: string
+          description: Código do item
+          example: movdis.ped-item.it-codigo
+        itemDescription:
+          type: string
+          description: Descrição do Item
+          example: mgind.item.desc-item
+        itemPercentageDiscount:
+          type: number
+          description: Percentual de desconto sobre o preço unitário
+        lastChangeUser:
+          type: string
+          description: Código do último usuário a alterar o item do pedido
+          example: movdis.ped-item.user-alte
+        liquidMerchandise:
+          type: number
+          description: Valor líquido da mercadoria
+        msrUnit:
+          type: string
+          description: Unidade Medida
+          example: movdis.ped-item.cod-un
+        openAmount:
+          type: number
+          description: Valor total em aberto do item de pedido
+        openLiquidMerchandise:
+          type: number
+          description: Valor líquido da mercadoria em aberto
+        orderItemSituation:
+          type: integer
+          description: Situação do item
+        originalDeliveryDate:
+          type: string
+          description: Data de entrega solicitada pelo cliente
+          format: date
+        originalPrice:
+          type: number
+          description: Preço informado ou de tabela multiplicado pelo índice de financ
+        originalPriceBilling:
+          type: number
+          description: Preço Original na Unidade de Medida de Faturamento
+        periodDiscount:
+          type: number
+          description: Percentual de desconto referente ao período controlado
+        priceSituation:
+          type: integer
+          description: Código da situação da avaliação de preços
+        priceTable:
+          type: string
+          description: Tabela de preços
+          example: movdis.ped-item.nr-tabpre
+        priceTableDiscount:
+          type: number
+          description: Percentual de descontos em quantidade da tabela de preços
+        priceTableValue:
+          type: number
+          description: Preço de tabela ou informado caso não exista tabela de preços
+        priceUnitary:
+          type: number
+          description: Preço unitário líquido (preço original - descontos)
+        purchaseOrder:
+          type: string
+          description: "Número da ordem de compra do item, originário do pedido compra."
+          example: movdis.ped-item.cod-ord-compra
+        quantityAttentive:
+          type: number
+          description: Quantidade faturada para o item no pedido
+        quantityBilling:
+          type: number
+          description: Quantidade na UM utilizada para Faturamento do Item
+        quantityPending:
+          type: number
+          description: Quantidade faturada a ser atualizada como atendida
+        quantityRequested:
+          type: number
+          description: Quantidade solicitada do Item no pedido de compra ou venda
+        reactivationDate:
+          type: string
+          description: Data de reativação
+          format: date
+        referenceCode:
+          type: string
+          description: Código de referência do item
+          example: movdis.ped-item.cod-refer
+        sequence:
+          type: integer
+          description: Número de seqüência do item no pedido
+        shortName:
+          type: string
+          description: Nome abreviado do cliente
+          example: movdis.ped-item.nome-abrev
+        suspensionDate:
+          type: string
+          description: Data de suspensão
+          format: date
+        suspensionItemDate:
+          type: string
+          description: Data de suspensão
+          format: date
+        termDiscount:
+          type: number
+          description: Percentual de desconto referente ao prazo de pagamento
+        totalOrderItemAmount:
+          type: number
+          description: Valor total do item de pedido
+        totalPercentageDiscount:
+          type: number
+          description: Percentual de desconto total do item do pedido
+        totalValueDiscount:
+          type: number
+          description: Valor do desconto total
+        transactionType:
+          type: string
+          description: Natureza de operação
+          example: movdis.ped-item.nat-operacao
+        typeAttendance:
+          type: integer
+          description: Tipo de atendimento
+        unitBusinessCod:
+          type: string
+          description: Código Unidade Negócio
+          example: movdis.ped-item.cod-unid-negoc
+        unitMeasureBilling:
+          type: string
+          description: Unidade de medida do item do pedido.
+          example: movdis.ped-item.des-un-medida
+        unitMeasureBillingDesc:
+          type: string
+          description: Unidade de Medida de Faturamento
+          example: mgind.tab-unidade.descricao
+        unitMeasureStock:
+          type: string
+          description: Unidade de Medida de estoque
+          example: "movdis.ped-item.char-2,09,02"
+        unitMeasureStockDesc:
+          type: string
+          description: Descrição Unidade de Medida de estoque
+          example: mgind.tab-unidade.descricao
+      description: Itens do Pedido de Venda
+    orderRepresentatives:
+      type: object
+      properties:
+        classifCode:
+          type: string
+          description: Classificador
+          example: movdis.ped-repre.cod-classificador
+        commissionPerc:
+          type: number
+          description: Percentual de comissão do representante
+        name:
+          type: string
+          description: Nome Representante
+          example: mgadm.repres.nome
+        orderId:
+          type: integer
+          description: Número do pedido
+        percentPrintComm:
+          type: integer
+          description: Percentual de comissão na emissão do pedido
+        shortReprName:
+          type: string
+          description: Nome abreviado do representante
+          example: movdis.ped-repre.nome-ab-rep
+      description: Representantes
+    preInvoicing:
+      type: object
+      properties:
+        customerOrderId:
+          type: string
+          description: Número do pedido do cliente
+          example: mgdis.pre-fatur.nr-pedcli
+        shipmentNo:
+          type: number
+          description: Código - Decimal Embarque
+        shipmentSit:
+          type: integer
+          description: Situação da alocação do estoque
+        shortName:
+          type: string
+          description: Nome abreviado do cliente
+          example: mgdis.pre-fatur.nome-abrev
+        summaryNo:
+          type: integer
+          description: Número da chave do resumo gerado para o calculo de notas fiscais
+      description: Embarque
+    ordersCanceledPublicResponse:
+      type: object
+      properties:
+        total:
+          type: integer
+          description: Quantidade de registros
+        hasNext:
+          type: boolean
+        items:
+          type: array
+          description: Lista contendo informações dos Pedidos de Venda cancelados
+            no ERP
+          items:
+            $ref: '#/components/schemas/ordersCanceled'
+      description: Resposta da requisição do serviço que retorna os Pedidos de Venda
+        cancelados no ERP
+    ordersCanceled:
+      type: object
+      properties:
+        branchId:
+          type: string
+          description: Código do estabelecimento
+          example: movdis.ped-venda.cod-estabel
+        cancellationDate:
+          type: string
+          description: Data do Cancelamento do Pedido
+          format: date
+        customerOrderId:
+          type: string
+          description: Número do pedido do cliente
+          example: movdis.ped-venda.nr-pedcli
+        implantationDate:
+          type: string
+          description: Data em que o Pedido foi implantado no sistema
+          format: date
+        lastChange:
+          type: string
+          description: Data de atualização do registro
+          format: date-time
+        orderId:
+          type: integer
+          description: Número do pedido cancelado
+        orderSituation:
+          type: integer
+          description: Situação do pedido
+        totalOrderAmount:
+          type: number
+          description: Valor total da mercadoria pedida adicionada do IPI
+        storeCode:
+          title: mgdis.integr-loja.cdn-loja
+          type: integer
+          description: Identificador do cadastro da loja E-Commerce
+        canceledOrderItems:
+          type: array
+          description: Itens do Pedido de Venda Cancelado.
+          items:
+            $ref: '#/components/schemas/canceledOrderItems'
+      description: Pedido de Venda Cancelado
+    canceledOrderItems:
+      type: object
+      properties:
+        customerOrderId:
+          type: string
+          description: Número do pedido do cliente
+          example: movdis.ped-item.nr-pedcli
+        itemCode:
+          type: string
+          description: Código do item
+          example: movdis.ped-item.it-codigo
+        sequence:
+          type: integer
+          description: Sequência do item
+        priceUnitary:
+          type: number
+          description: Preço unitário líquido (preço original - descontos)
+        quantityRequested:
+          type: number
+          description: Quantidade solicitada do Item no pedido de compra ou venda
+      description: Itens do Pedido de Venda Cancelado
+    ordersStorePublicResponse:
+      type: object
+      properties:
+        codeCarrier:
+          type: integer
+          description: Código do Transportador
+        customerCode:
+          type: integer
+          description: Código do cliente
+        customerOrderId:
+          type: string
+          description: Número do pedido do cliente
+          example: movdis.ped-venda.nr-pedcli
+        shortName:
+          type: string
+          description: Nome abreviado do cliente
+          example: movdis.ped-venda.nome-abrev
+        implantationDate:
+          type: string
+          description: Data em que o Pedido foi implantado no sistema
+          format: date
+        orderAmount:
+          type: number
+          description: Valor líquido da mercadoria pedida
+        orderIdStore:
+          type: string
+          description: Código do pedido na loja
+          example: iphone14prata32gbRef001
+        representativeOrderId:
+          type: string
+          description: Código do pedido do representante
+          example: movdis.ped-venda.nr-pedrep
+        orderSituationStore:
+          type: string
+          description: Status Pagamento Loja
+          example: "1 - Liberado, 3 - Faturado, 4 - Pendente, 6 - Cancelado, 7 - Aprovado"
+        salesChannelStore:
+          type: string
+          description: Canal de venda loja
+          example: "movdis.ped-venda.char-2,121,5 | cod-pol-comerc"
+        sourceChannel:
+          type: string
+          description: Nome abreviado Representante
+          example: movdis.ped-venda.no-ab-reppri
+        totalDiscount:
+          type: number
+          description: Valor do desconto total
+        totalOrderAmount:
+          type: number
+          description: Valor total da mercadoria pedida adicionada do IPI
+        valueFreight:
+          type: number
+          description: Informe o valor do frete
+        storeCode:
+          title: mgdis.integr-loja.cdn-loja
+          type: integer
+          description: Identificador do cadastro da loja E-Commerce
+        orderItemsStore:
+          type: array
+          description: Itens do Pedido de Venda.
+          items:
+            $ref: '#/components/schemas/orderItemsStore'
+        orderPaymentsStore:
+          type: array
+          description: Condições de pagamento.
+          items:
+            $ref: '#/components/schemas/orderPaymentsStore'
+        deliveryPlaceStore:
+          type: array
+          description: Endereço de Entrega
+          items:
+            $ref: '#/components/schemas/orderDeliveryPlaceStore'
+      description: Pedido de Venda
+    ordersStorePublicPost:
+      required:
+      - codeCarrier
+      - customerCode
+      - customerOrderId
+      - deliveryPlaceStore
+      - implantationDate
+      - orderAmount
+      - orderIdStore
+      - orderItemsStore
+      - orderPaymentsStore
+      - orderSituationStore
+      - salesChannelStore
+      - sourceChannel
+      - storeCode
+      - totalOrderAmount
+      - valueFreight
+      type: object
+      properties:
+        storeCode:
+          title: mgdis.integr-loja.cdn-loja
+          type: integer
+          description: Identificador do cadastro da loja E-Commerce
+        branchId:
+          type: string
+          description: Código do estabelecimento
+          example: movdis.ped-venda.cod-estabel
+        cifCity:
+          type: string
+          description: Até que cidade o frete corre por conta do emitente
+          example: movdis.ped-venda.cidade-cif
+        codeCarrier:
+          type: integer
+          description: Código do Transportador
+        customerCode:
+          type: integer
+          description: Código do cliente
+        customerOrderId:
+          type: string
+          description: Número do pedido do cliente
+          example: movdis.ped-venda.nr-pedcli
+        customerOrderType:
+          type: string
+          description: Disponível para classificação/indicação própria do usuário
+          example: movdis.ped-venda.tp-pedido
+        deliveryDate:
+          type: string
+          description: Data prevista para entrega do Pedido
+          format: date
+        implantationDate:
+          type: string
+          description: Data em que o Pedido foi implantado no sistema
+          format: date
+        orderAmount:
+          type: number
+          description: Valor líquido da mercadoria pedida
+        orderIdStore:
+          type: string
+          description: Código do pedido na loja (Máximo 30 caracteres)
+          example: iphone14prata32gbRef001
+        representativeOrderId:
+          type: string
+          description: Código do pedido do representante
+          example: movdis.ped-venda.nr-pedrep
+        orderSituationStore:
+          type: string
+          description: Status Pagamento Loja
+          example: "1 - Liberado, 3 - Faturado, 4 - Pendente, 6 - Cancelado, 7 - Aprovado"
+        priceTableOrder:
+          type: string
+          description: Tabela de preços
+          example: movdis.ped-venda.nr-tabpre
+        salesChannelStore:
+          type: string
+          description: Canal de venda loja
+          example: "movdis.ped-venda.char-2,121,5 | cod-pol-comerc"
+        sourceChannel:
+          type: string
+          description: Nome abreviado Representante
+          example: movdis.ped-venda.no-ab-reppri
+        totalDiscount:
+          type: number
+          description: Valor do desconto total
+        totalOrderAmount:
+          type: number
+          description: Valor total da mercadoria pedida adicionada do IPI
+        valueFreight:
+          type: number
+          description: Informe o valor do frete
+        orderItemsStore:
+          type: array
+          description: Itens do Pedido de Venda.
+          items:
+            $ref: '#/components/schemas/orderItemsStore'
+        orderPaymentsStore:
+          type: array
+          description: Condições de pagamento.
+          items:
+            $ref: '#/components/schemas/orderPaymentsStore'
+        deliveryPlaceStore:
+          type: array
+          description: Endereço de Entrega
+          items:
+            $ref: '#/components/schemas/orderDeliveryPlaceStore'
+        customFields:
+          type: array
+          description: Campos customizados.
+          items:
+            $ref: '#/components/schemas/orderCustomFields'
+        taxes:
+          type: array
+          description: Todos os impostos aplicados no pedido.
+          items:
+            $ref: '#/components/schemas/orderTaxes'
+      description: Pedido de Venda
+    orderItemsStore:
+      required:
+      - itemCode
+      - liquidMerchandise
+      - originalPrice
+      - quantityBilling
+      type: object
+      properties:
+        representativeOrderId:
+          type: string
+          description: Código pedido representante
+          example: movdis.ped-vda.nr-pedrep
+        itemCode:
+          type: string
+          description: Código do item
+          example: movdis.ped-item.it-codigo
+        liquidMerchandise:
+          type: number
+          description: Valor líquido da mercadoria
+        originalPrice:
+          type: number
+          description: Preço informado ou de tabela multiplicado pelo índice de financ
+        quantityBilling:
+          type: number
+          description: Quantidade na UM utilizada para Faturamento do Item
+        discount:
+          type: number
+          description: Valor do desconto por item
+        taxes:
+          type: array
+          description: Todos os impostos aplicados para o item informado.
+          items:
+            $ref: '#/components/schemas/orderTaxes'
+      description: Itens do Pedido E-commerce
+    orderPaymentsStore:
+      required:
+      - nsu
+      - paymentDate
+      - paymentMethod
+      - paymentValue
+      - quantityOfInstallments
+      - transactionId
+      type: object
+      properties:
+        representativeOrderId:
+          type: string
+          description: Código pedido representante
+          example: movdis.ped-vda.nr-pedrep
+        paymentDate:
+          type: string
+          description: Data do Pagamento
+          format: date
+        paymentMethod:
+          type: string
+          description: Método de Pagamento
+          example: cod-metod
+        quantityOfInstallments:
+          type: number
+          description: Quantidade de parcelas
+        transactionId:
+          type: string
+          description: Código da transação
+          example: cod-trans
+        nsu:
+          type: string
+          description: Código autorização
+          example: cod-autoriz
+        paymentValue:
+          type: number
+          description: Valor pago
+      description: Condições de Pagamento do Pedido E-commerce
+    orderDeliveryPlaceStore:
+      required:
+      - deliveryPlaceAddress
+      - deliveryPlaceCity
+      - deliveryPlaceCountry
+      - deliveryPlaceNeighborhood
+      - deliveryPlaceState
+      - deliveryPlaceZipCode
+      type: object
+      properties:
+        representativeOrderId:
+          type: string
+          description: Código pedido representante
+          example: movdis.ped-vda.nr-pedrep
+        deliveryPlaceCity:
+          type: string
+          description: Cidade
+          example: movdis.ped-item.cidade
+        deliveryPlaceState:
+          type: string
+          description: Estado
+          example: movdis.ped-item.estado
+        deliveryPlaceNeighborhood:
+          type: string
+          description: Bairro
+          example: movdis.ped-item.bairro
+        deliveryPlaceZipCode:
+          type: string
+          description: CEP
+          example: movdis.ped-item.cep
+        deliveryPlaceCountry:
+          type: string
+          description: País
+          example: movdis.ped-item.pais
+        deliveryPlaceAddress:
+          type: string
+          description: Endereço
+          example: movdis.ped-item.endereco
+        deliveryPlaceCompleteAddress:
+          type: string
+          description: Endereço Completo
+          example: movdis.ped-item.endereco_text
+      description: Endereço de Entrega do Pedido E-commerce
+    orderCustomFields:
+      required:
+      - fieldId
+      - fieldType
+      - fieldValue
+      type: object
+      properties:
+        fieldId:
+          type: string
+          description: Identificador do Campo Personalizado
+          example: fieldId
+        fieldValue:
+          type: string
+          description: Valor do Campo Personalizado
+          example: fieldValue
+        description:
+          type: string
+          description: Breve Descrição do Campo Personalizado
+          example: description
+        fieldType:
+          type: string
+          description: Tipo de Informação Armazenada no Campo
+          example: "character, integer, decimal, date, logical ou datetime"
+        observation:
+          type: string
+          description: Observações
+          example: observation
+      description: Utilizado para repassar dados customizados que serão acessados
+        diretamente nos pontos de UPC
+    orderTaxes:
+      required:
+      - name
+      - value
+      type: object
+      properties:
+        name:
+          type: string
+          description: Identificador do Imposto
+          example: TxIcms
+        value:
+          type: number
+          description: Valor do imposto aplicado
+          example: 0.0
+      description: "Utilizado para repassar os impostos utilizados no cálculo do pedido\
+        \ e nos itens do pedido pela loja. Essas informações não são implementadas\
+        \ na API durante o cálculo dos valores no ERP, apenas ficam salvas no pedido\
+        \ para caso apresente divergência no cálculo sirvam como insumos durante uma\
+        \ possível análise."
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+x-original-swagger-version: "2.0"

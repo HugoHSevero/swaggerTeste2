@@ -1,0 +1,2951 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "APIs públicas na plataforma TOTVS. Módulo Datasul PDP",
+    "version": "1.0.0",
+    "title": "TOTVS - PDP",
+    "termsOfService": "https://www.totvs.com/termos-de-uso/",
+    "contact": {
+      "email": "box@totvs.com.br"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "gales:8180",
+  "basePath": "/dts/datasul-rest/resources/prg/pdp/v3/",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "tags": [
+    {
+      "name": "ordersPublic",
+      "description": "Pedido de Venda"
+    },
+    {
+      "name": "orderItemsPublic",
+      "description": "Itens do Pedido de Venda"
+    },
+    {
+      "name": "ordersPublic/ecommerce",
+      "description": "Pedido de Venda E-commerce"
+    }
+  ],
+  "paths": {
+    "/ordersPublic": {
+      "get": {
+        "tags": [
+          "ordersPublic"
+        ],
+        "summary": "Realiza a carga dos Pedidos de Venda",
+        "description": "Este serviço permite a visualização dos Pedidos de Venda. \r\n`Campos Indexados:` {salesChannel, paymentTerms, branchId, collectorCode, evaluationSituation, commercialSituation, orderSituation, priceSituation, deliveryDate, implantationDate, modality, transactionType, representativeShortName, shortName, reshipmentTransp, carrierName, customerOrderId, orderId, priceTableOrder, priceOrderType}",
+        "operationId": "getordersPublic",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "lastUpdate",
+            "in": "query",
+            "description": "Data de sincronização dos registros",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Número da página",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Quantidade de registros por página (a resposta deve retornar o campo hasNext indicando se há mais registros para a proxima página), a quantidade não deve ultrapassar 100, quantidades superiores serão consideradas 100.",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "totalCount",
+            "in": "query",
+            "description": "Considera a contagem total dos registros, respeitando os filtros anteriores.",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "printDateFirst",
+            "in": "query",
+            "description": "Data inicial da implantação do pedido",
+            "required": false,
+            "type": "string",
+            "format": "date"
+          },
+          {
+            "name": "printDateLast",
+            "in": "query",
+            "description": "Data final da implantação do pedido",
+            "required": false,
+            "type": "string",
+            "format": "date"
+          },
+          {
+            "name": "storeCode",
+            "in": "query",
+            "description": "Lista de códigos das lojas E-Commerce separados por vírgula (,)",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Requisição realizada com sucesso",
+            "schema": {
+              "$ref": "#/definitions/ordersPublicResponse"
+            }
+          },
+          "400": {
+            "description": "Erro requisição inválida"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "404": {
+            "description": "Não encontrado"
+          },
+          "500": {
+            "description": "Erro interno do servidor"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "ordersPublic"
+        ],
+        "summary": "Inclusão do Pedido de Venda",
+        "description": "Este serviço permite a inclusão do Pedido de Venda.",
+        "operationId": "postordersPublic",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Objeto com os dados do Pedido",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ordersPublicPost"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Requisição realizada com sucesso",
+            "schema": {
+              "$ref": "#/definitions/ordersPublic"
+            }
+          },
+          "400": {
+            "description": "Erro requisição inválida"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "404": {
+            "description": "Não encontrado"
+          },
+          "405": {
+            "description": "Dados inválidos"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      }
+    },
+    "/ordersPublic/{orderID}": {
+      "put": {
+        "tags": [
+          "ordersPublic"
+        ],
+        "summary": "Atualização de Pedido de Venda",
+        "description": "Este serviço permite a atualização do Pedido de Venda.",
+        "operationId": "putordersPublic",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "orderID",
+            "in": "path",
+            "description": "Identificador do Pedido de Venda a ser atualizado",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Objeto com os dados dos Pedidos de Venda",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ordersPublicPost"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Requisição realizada com sucesso",
+            "schema": {
+              "$ref": "#/definitions/ordersPublic"
+            }
+          },
+          "400": {
+            "description": "Erro requisição inválida"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "404": {
+            "description": "Não encontrado"
+          },
+          "405": {
+            "description": "Dados inválidos"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "ordersPublic"
+        ],
+        "summary": "Atualização do Pedido de Venda",
+        "description": "Este serviço permite a atualização do Pedido de Venda.",
+        "operationId": "patchordersPublic",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "orderID",
+            "in": "path",
+            "description": "Identificador do Pedido de Venda a ser atualizado",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Objeto com os dados dos Pedidos de Venda",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ordersPublicPost"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Requisição realizada com sucesso",
+            "schema": {
+              "$ref": "#/definitions/ordersPublic"
+            }
+          },
+          "400": {
+            "description": "Erro requisição inválida"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "404": {
+            "description": "Não encontrado"
+          },
+          "405": {
+            "description": "Dados inválidos"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      }
+    },
+    "/ordersPublic/complete/{orderID}": {
+      "put": {
+        "tags": [
+          "ordersPublic"
+        ],
+        "summary": "Completa o Pedido de Venda",
+        "description": "Este serviço permite completar o Pedido de Venda.",
+        "operationId": "completeordersPublic",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "orderID",
+            "in": "path",
+            "description": "Identificador do Pedido de Venda a ser atualizado",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Requisição realizada com sucesso"
+          },
+          "400": {
+            "description": "Erro requisição inválida"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "404": {
+            "description": "Não encontrado"
+          },
+          "405": {
+            "description": "Dados inválidos"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      }
+    },
+    "/ordersPublic/cancel/{orderID}": {
+      "put": {
+        "tags": [
+          "ordersPublic"
+        ],
+        "summary": "Cancela o Pedido de Venda",
+        "description": "Este serviço permite cancelar o Pedido de Venda.",
+        "operationId": "cancelordersPublic",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "orderID",
+            "in": "path",
+            "description": "Identificador do Pedido de Venda a ser cancelado",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Requisição realizada com sucesso"
+          },
+          "400": {
+            "description": "Erro requisição inválida"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "404": {
+            "description": "Não encontrado"
+          },
+          "405": {
+            "description": "Dados inválidos"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      }
+    },
+    "/orderItemsPublic": {
+      "get": {
+        "tags": [
+          "orderItemsPublic"
+        ],
+        "summary": "Realiza a carga dos Itens do Pedidos de Venda",
+        "description": "Este serviço permite a visualização dos Itens do Pedidos de Venda. \r\n`Campos Indexados:` {deliveryCode, referenceCode, orderItemSituation, delireryDate, itemCode, shortName, customerOrderId, sequence, priceTable}",
+        "operationId": "getorderItemsPublic",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "lastUpdate",
+            "in": "query",
+            "description": "Data de sincronização dos registros",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Número da página",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Quantidade de registros por página (a resposta deve retornar o campo hasNext indicando se há mais registros para a proxima página), a quantidade não deve ultrapassar 100, quantidades superiores serão consideradas 100.",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "totalCount",
+            "in": "query",
+            "description": "Considera a contagem total dos registros, respeitando os filtros anteriores.",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Requisição realizada com sucesso",
+            "schema": {
+              "$ref": "#/definitions/orderItemsPublicResponse"
+            }
+          },
+          "400": {
+            "description": "Erro requisição inválida"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "404": {
+            "description": "Não encontrado"
+          },
+          "500": {
+            "description": "Erro interno do servidor"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "orderItemsPublic"
+        ],
+        "summary": "Inclusão de Item do Pedido de Venda",
+        "description": "Este serviço permite a inclusão de Item do Pedido de Venda.",
+        "operationId": "postorderItemsPublic",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Objeto com os dados do Cliente",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderItems"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Requisição realizada com sucesso",
+            "schema": {
+              "$ref": "#/definitions/orderItems"
+            }
+          },
+          "400": {
+            "description": "Erro requisição inválida"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "404": {
+            "description": "Não encontrado"
+          },
+          "405": {
+            "description": "Dados inválidos"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      }
+    },
+    "/orderItemsPublic/{orderID}/{sequence}": {
+      "put": {
+        "tags": [
+          "orderItemsPublic"
+        ],
+        "summary": "Atualização do Item do Pedido de Venda",
+        "description": "Este serviço permite a atualização do Item Pedido de Venda.",
+        "operationId": "putorderItemsPublic",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "orderID",
+            "in": "path",
+            "description": "Identificador do Pedido de Venda a ser atualizado",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "sequence",
+            "in": "path",
+            "description": "Identificador da sequencia do Item do Pedido de Venda a ser atualizado",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Objeto com os dados do Item do Pedidos de Venda",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderItems"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Requisição realizada com sucesso",
+            "schema": {
+              "$ref": "#/definitions/orderItems"
+            }
+          },
+          "400": {
+            "description": "Erro requisição inválida"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "404": {
+            "description": "Não encontrado"
+          },
+          "405": {
+            "description": "Dados inválidos"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "orderItemsPublic"
+        ],
+        "summary": "Atualização do Item do Pedido de Venda",
+        "description": "Este serviço permite a atualização do Item Pedido de Venda.",
+        "operationId": "patchorderItemsPublic",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "orderID",
+            "in": "path",
+            "description": "Identificador do Pedido de Venda a ser atualizado",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "sequence",
+            "in": "path",
+            "description": "Identificador da sequencia do Item do Pedido de Venda a ser atualizado",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Objeto com os dados do Item do Pedido de Venda",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderItems"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Requisição realizada com sucesso",
+            "schema": {
+              "$ref": "#/definitions/orderItems"
+            }
+          },
+          "400": {
+            "description": "Erro requisição inválida"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "404": {
+            "description": "Não encontrado"
+          },
+          "405": {
+            "description": "Dados inválidos"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "orderItemsPublic"
+        ],
+        "summary": "Exclusão do Item do Pedido de Venda",
+        "description": "Este serviço permite a exclusão do Item Pedido de Venda.",
+        "operationId": "deleteorderItemsPublic",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "orderID",
+            "in": "path",
+            "description": "Identificador do Pedido de Venda a ser atualizado",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "sequence",
+            "in": "path",
+            "description": "Identificador da sequencia do Item do Pedido de Venda a ser atualizado",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Requisição realizada com sucesso"
+          },
+          "400": {
+            "description": "Erro requisição inválida"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "404": {
+            "description": "Não encontrado"
+          },
+          "405": {
+            "description": "Dados inválidos"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      }
+    },
+    "/orderItemsPublic/cancel/{orderID}/{sequence}": {
+      "put": {
+        "tags": [
+          "orderItemsPublic"
+        ],
+        "summary": "Cancelamento do Item do Pedido de Venda",
+        "description": "Este serviço permite cancelar o Item do Pedido de Venda.",
+        "operationId": "cancelorderItemsPublic",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "orderID",
+            "in": "path",
+            "description": "Identificador do Pedido de Venda a ser atualizado",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "sequence",
+            "in": "path",
+            "description": "Identificador da sequencia do Item do Pedido de Venda a ser atualizado",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Requisição realizada com sucesso"
+          },
+          "400": {
+            "description": "Erro requisição inválida"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "404": {
+            "description": "Não encontrado"
+          },
+          "405": {
+            "description": "Dados inválidos"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      }
+    },
+    "/ordersPublic/ecommerce": {
+      "post": {
+        "tags": [
+          "ordersPublic/ecommerce"
+        ],
+        "summary": "Inclusão do Pedido de Venda via E-commerce",
+        "description": "Este serviço permite a inclusão do Pedido de Venda via solicitação e-commerce.",
+        "operationId": "postOrderStorePublic",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Objeto com os dados do Pedido",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ordersStorePublicPost"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Requisição realizada com sucesso",
+            "schema": {
+              "$ref": "#/definitions/ordersStorePublicResponse"
+            }
+          },
+          "400": {
+            "description": "Erro requisição inválida"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "404": {
+            "description": "Não encontrado"
+          },
+          "405": {
+            "description": "Dados inválidos"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      }
+    },
+    "/ordersPublic/ecommerce/canceled/byStore/{storeCode}": {
+      "get": {
+        "tags": [
+          "ordersPublic/ecommerce"
+        ],
+        "summary": "Retorna os Pedidos de Venda Cancelados",
+        "description": "Este serviço permite a visualização dos Pedidos de Venda Cancelados. \r\n`Campos Indexados:` {branchId, implantationDate, customerOrderId, orderId}",
+        "operationId": "getCanceledOrdersPublic",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "storeCode",
+            "in": "path",
+            "description": "Identificador do cadastro da loja E-Commerce",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "lastUpdate",
+            "in": "query",
+            "description": "Data de sincronização dos registros",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Número da página",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Quantidade de registros por página (a resposta deve retornar o campo hasNext indicando se há mais registros para a proxima página), a quantidade não deve ultrapassar 100, quantidades superiores serão consideradas 100.",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "totalCount",
+            "in": "query",
+            "description": "Considera a contagem total dos registros, respeitando os filtros anteriores.",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Requisição realizada com sucesso",
+            "schema": {
+              "$ref": "#/definitions/ordersCanceledPublicResponse"
+            }
+          },
+          "400": {
+            "description": "Erro requisição inválida"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "404": {
+            "description": "Não encontrado"
+          },
+          "500": {
+            "description": "Erro interno do servidor"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      }
+    },
+    "/ordersPublic/ecommerce/canceled/{orderID}": {
+      "get": {
+        "tags": [
+          "ordersPublic/ecommerce"
+        ],
+        "summary": "Retorna Informações Detalhadas do Pedido de Venda Cancelado",
+        "description": "Este serviço permite buscar e detalhar um Pedido de Venda em específico que foi cancelado.",
+        "operationId": "getCanceledOrderPublic",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "orderID",
+            "in": "path",
+            "description": "Identificador do Pedido de Venda a ser localizado",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Requisição realizada com sucesso"
+          },
+          "400": {
+            "description": "Erro requisição inválida"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "404": {
+            "description": "Não encontrado"
+          },
+          "405": {
+            "description": "Dados inválidos"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "securityDefinitions": {
+    "basicAuth": {
+      "type": "basic"
+    }
+  },
+  "definitions": {
+    "ordersPublicResponse": {
+      "type": "object",
+      "description": "Resposta da requisição do serviço que retorna os Pedidos de Venda cadastrados no ERP",
+      "properties": {
+        "total": {
+          "type": "integer",
+          "description": "Quantidade de registros"
+        },
+        "hasNext": {
+          "type": "boolean"
+        },
+        "items": {
+          "description": "Lista contendo informações dos Pedidos de Venda cadastrados no ERP",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ordersPublic"
+          }
+        }
+      }
+    },
+    "orderItemsPublicResponse": {
+      "type": "object",
+      "description": "Resposta da requisição do serviço que retorna os Itens do Pedido de Venda cadastrados no ERP",
+      "properties": {
+        "total": {
+          "type": "integer",
+          "description": "Quantidade de registros"
+        },
+        "hasNext": {
+          "type": "boolean"
+        },
+        "items": {
+          "description": "Lista contendo informações dos Itens dos Pedidos de Venda cadastrados no ERP",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderItems"
+          }
+        }
+      }
+    },
+    "ordersPublic": {
+      "type": "object",
+      "description": "Pedido de Venda",
+      "properties": {
+        "allocationSituation": {
+          "type": "integer",
+          "example": "movdis.ped-venda.cod-sit-pre",
+          "description": "Situação da alocação do estoque"
+        },
+        "branchId": {
+          "type": "string",
+          "example": "movdis.ped-venda.cod-estabel",
+          "description": "Código do estabelecimento"
+        },
+        "campaignId": {
+          "type": "integer",
+          "example": "movdis.ped-venda.num-id-campanha-crm",
+          "description": "Número Id Campanha Crm"
+        },
+        "cancellationDate": {
+          "type": "string",
+          "format": "date",
+          "example": "movdis.ped-venda.dt-cancela",
+          "description": "Data do Cancelamento do Pedido"
+        },
+        "cancellationReason": {
+          "type": "string",
+          "example": "movdis.ped-venda.desc-cancela",
+          "description": "Descrição do motivo do cancelamento"
+        },
+        "carrierName": {
+          "type": "string",
+          "example": "movdis.ped-venda.nome-transp",
+          "description": "Nome do transportador"
+        },
+        "cifCity": {
+          "type": "string",
+          "example": "movdis.ped-venda.cidade-cif",
+          "description": "Até que cidade o frete corre por conta do emitente"
+        },
+        "codeCarrier": {
+          "type": "integer",
+          "example": "mgadm.transporte.cod-transp",
+          "description": "Código do Transportador"
+        },
+        "codeReshipmentTransp": {
+          "type": "integer",
+          "example": "mgadm.transporte.cod-transp-red",
+          "description": "Transportadora Redespacho"
+        },
+        "collectorCode": {
+          "type": "integer",
+          "example": "movdis.ped-venda.cod-portador",
+          "description": "Código do portador"
+        },
+        "comments": {
+          "type": "string",
+          "example": "movdis.ped-venda.observacoes",
+          "description": "Observação"
+        },
+        "commercialSituation": {
+          "type": "integer",
+          "example": "movdis.ped-venda.cod-sit-com",
+          "description": "Código da situação da avaliação comercial"
+        },
+        "completeAddress": {
+          "type": "string",
+          "example": "movdis.ped-venda.endereco_text",
+          "description": "Endereço Completo"
+        },
+        "creditApprovalDate": {
+          "type": "string",
+          "format": "date",
+          "example": "movdis.ped-venda.dt-apr-cred",
+          "description": "Data de aprovação de crédito"
+        },
+        "creditLockReason": {
+          "type": "string",
+          "example": "movdis.ped-venda.desc-bloq-cr",
+          "description": "Motivo da não liberação de crédito para o pedido"
+        },
+        "currencyBillingCode": {
+          "type": "integer",
+          "example": "movdis.ped-venda.mo-fatur",
+          "description": "Código da moeda do Faturamento"
+        },
+        "currencyCode": {
+          "type": "integer",
+          "example": "movdis.ped-venda.mo-codigo",
+          "description": "Código da moeda de referência dos valores"
+        },
+        "customerCode": {
+          "type": "integer",
+          "example": "movdis.ped-venda.cod-emitente",
+          "description": "Código do cliente"
+        },
+        "customerDiscount": {
+          "type": "number",
+          "example": "movdis.ped-venda.perc-desco1",
+          "description": "Percentual de desconto do cliente a ser aplicado sobre a nota"
+        },
+        "customerOrderId": {
+          "type": "string",
+          "example": "movdis.ped-venda.nr-pedcli",
+          "description": "Número do pedido do cliente"
+        },
+        "customerOrderType": {
+          "type": "string",
+          "example": "movdis.ped-venda.tp-pedido",
+          "description": "Disponível para classificação/indicação própria do usuário"
+        },
+        "dateUpdatedSituation": {
+          "type": "string",
+          "format": "date",
+          "example": "movdis.ped-venda.dat-alter-sit",
+          "description": "Data da alteração da situação"
+        },
+        "deliveryCity": {
+          "type": "string",
+          "example": "movdis.ped-venda.cidade",
+          "description": "Cidade para a Entrega do Pedido"
+        },
+        "deliveryCode": {
+          "type": "string",
+          "example": "movdis.ped-venda.cod-entrega",
+          "description": "Código do endereço de entrega"
+        },
+        "deliveryCountry": {
+          "type": "string",
+          "example": "movdis.ped-venda.pais",
+          "description": "País de Entrega do Pedido"
+        },
+        "deliveryDate": {
+          "type": "string",
+          "format": "date",
+          "example": "movdis.ped-venda.dt-entrega",
+          "description": "Data prevista para entrega do Pedido"
+        },
+        "deliveryNeighborhood": {
+          "type": "string",
+          "example": "movdis.ped-venda.bairro",
+          "description": "Bairro"
+        },
+        "deliveryPlace": {
+          "type": "string",
+          "example": "movdis.ped-venda.local-entreg",
+          "description": "Endereço de entrega do cliente"
+        },
+        "deliveryState": {
+          "type": "string",
+          "example": "movdis.ped-venda.estado",
+          "description": "Unidade da federação para entrega"
+        },
+        "deliveryZipCode": {
+          "type": "string",
+          "example": "movdis.ped-venda.cep",
+          "description": "CEP"
+        },
+        "discountAmt": {
+          "type": "number",
+          "example": "movdis.ped-venda.vl-desconto",
+          "description": "Valor do desconto"
+        },
+        "discountPercentage": {
+          "type": "string",
+          "example": "movdis.ped-venda.des-pct-desconto-inform",
+          "description": "Percentuais de desconto informados por pedido"
+        },
+        "email": {
+          "type": "string",
+          "example": "movdis.ped-venda.e-mail",
+          "description": "Endereço eletrônico na Internet"
+        },
+        "emissionDate": {
+          "type": "string",
+          "format": "date",
+          "example": "movdis.ped-venda.dt-emissao",
+          "description": "Data em que o pedido foi emitido pelo representante/cliente"
+        },
+        "evaluationSituation": {
+          "type": "integer",
+          "example": "movdis.ped-venda.cod-sit-aval",
+          "description": "Situação de avaliação de crédito"
+        },
+        "financingTable": {
+          "type": "integer",
+          "example": "movdis.ped-venda.nr-tab-finan",
+          "description": "Tabela financeira"
+        },
+        "financingTableSequence": {
+          "type": "integer",
+          "example": "movdis.ped-venda.nr-ind-finan",
+          "description": "Índice da tabela de financiamento"
+        },
+        "forcedApprover": {
+          "type": "string",
+          "example": "movdis.ped-venda.aprov-forcado",
+          "description": "Nome do aprovador de créditos forçados"
+        },
+        "forcedReleaseReason": {
+          "type": "string",
+          "example": "movdis.ped-venda.desc-forc-cr",
+          "description": "Motivo da liberação de crédito forçado para o pedido"
+        },
+        "freightMode": {
+          "type": "string",
+          "example": "movdis.ped-venda.char-2,109,8",
+          "description": "Modalidade de Frete"
+        },
+        "implantationDate": {
+          "type": "string",
+          "format": "date",
+          "example": "movdis.ped-venda.dt-implant",
+          "description": "Data em que o Pedido foi implantado no sistema"
+        },
+        "limitBillingDate": {
+          "type": "string",
+          "format": "date",
+          "example": "movdis.ped-venda.dt-lim-fat",
+          "description": "Data Limite para atendimento do Pedido"
+        },
+        "merchandiseDescription": {
+          "type": "integer",
+          "example": "movdis.ped-venda.cod-des-merc",
+          "description": "Destino da mercadoria"
+        },
+        "minimumBillingDate": {
+          "type": "string",
+          "format": "date",
+          "example": "movdis.ped-venda.dt-minfat",
+          "description": "Data Mínima para atendimento do Pedido"
+        },
+        "modality": {
+          "type": "integer",
+          "example": "movdis.ped-venda.modalidade",
+          "description": "Modalidade de cobrança referente ao portador"
+        },
+        "openAmount": {
+          "type": "number",
+          "example": "movdis.ped-venda.vl-liq-abe",
+          "description": "Valor da mercadoria em aberto + IPI do saldo aberto"
+        },
+        "operationTypeCode": {
+          "type": "integer",
+          "example": "movdis.ped-venda.cdn-tip-ped",
+          "description": "Código do Tipo de Pedido"
+        },
+        "operationTypeDetail": {
+          "type": "string",
+          "example": "mgdis.tip-ped-cia.descricao",
+          "description": "Detalhe Tipo de Operação"
+        },
+        "orderAmount": {
+          "type": "number",
+          "example": "movdis.ped-venda.vl-liq-ped",
+          "description": "Valor líquido da mercadoria pedida"
+        },
+        "orderCompleted": {
+          "type": "boolean",
+          "example": "movdis.ped-venda.completo",
+          "description": "O pedido está completo?"
+        },
+        "orderId": {
+          "type": "integer",
+          "example": "movdis.ped-venda.nr-pedido",
+          "description": "Número do pedido"
+        },
+        "orderSituation": {
+          "type": "integer",
+          "example": "movdis.ped-venda.cod-sit-ped",
+          "description": "Situação do pedido"
+        },
+        "orderType": {
+          "type": "integer",
+          "example": "movdis.ped-venda.esp-ped",
+          "description": "Espécie do pedido"
+        },
+        "originalDeliveryDate": {
+          "type": "string",
+          "format": "date",
+          "example": "movdis.ped-venda.dt-entorig",
+          "description": "Data de entrega solicitada pelo cliente"
+        },
+        "paymentTerms": {
+          "type": "integer",
+          "example": "movdis.ped-venda.cod-cond-pag",
+          "description": "Código da condição de pagamento"
+        },
+        "paymentTermsDetail": {
+          "type": "string",
+          "example": "mgadm.cond-pagto.descricao",
+          "description": "Detalhe Condição de Pagamento"
+        },
+        "percentageFreight": {
+          "type": "number",
+          "example": "movdis.ped-venda.val-perc-frete",
+          "description": "Percentual de Frete"
+        },
+        "percentageInsurance": {
+          "type": "number",
+          "example": "movdis.ped-venda.val-perc-seguro",
+          "description": "Percentual de Seguro"
+        },
+        "percentagePacking": {
+          "type": "number",
+          "example": "movdis.ped-venda.val-perc-embal",
+          "description": "Percentual de Embalagem"
+        },
+        "priceOrderType": {
+          "type": "integer",
+          "example": "movdis.ped-venda.tp-preco",
+          "description": "Tipo de preço"
+        },
+        "priceReason": {
+          "type": "string",
+          "example": "movdis.ped-venda.desc-lib-preco",
+          "description": "Motivo da liberação forçada dos preços para o pedido"
+        },
+        "priceSituation": {
+          "type": "integer",
+          "example": "movdis.ped-venda.cod-sit-preco",
+          "description": "Código da situação da avaliação Preços"
+        },
+        "priceTableDiscPerc": {
+          "type": "number",
+          "example": "movdis.ped-venda.val-pct-desconto-tab-preco",
+          "description": "Percentual de descontos referente à tabela de preços"
+        },
+        "priceTableOrder": {
+          "type": "string",
+          "example": "movdis.ped-venda.nr-tabpre",
+          "description": "Tabela de preços"
+        },
+        "priceTableOrderDetail": {
+          "type": "string",
+          "example": "mgdis.tb-preco.descricao",
+          "description": "Detalhe Tabela de Preço"
+        },
+        "reactivationDate": {
+          "type": "string",
+          "format": "date",
+          "example": "movdis.ped-venda.dt-reativ",
+          "description": "Data de reativação"
+        },
+        "reactivationReason": {
+          "type": "string",
+          "example": "movdis.ped-venda.desc-reativa",
+          "description": "Informe o motivo da reativação do pedido."
+        },
+        "representativeName": {
+          "type": "string",
+          "example": "mgadm.repres.nome",
+          "description": "Nome do Representante principal"
+        },
+        "representativeOrderId": {
+          "type": "string",
+          "example": "movdis.ped-venda.nr-pedrep",
+          "description": "Número do pedido do representante"
+        },
+        "representativeShortName": {
+          "type": "string",
+          "example": "movdis.ped-venda.no-ab-reppri",
+          "description": "Nome abreviado do representante principal"
+        },
+        "reshipmentTransp": {
+          "type": "string",
+          "example": "movdis.ped-venda.nome-tr-red",
+          "description": "Nome da transportadora de redespacho"
+        },
+        "salesChannel": {
+          "type": "integer",
+          "example": "movdis.ped-venda.cod-canal-venda",
+          "description": "Código do canal de venda"
+        },
+        "shortName": {
+          "type": "string",
+          "example": "movdis.ped-venda.nome-abrev",
+          "description": "Nome abreviado do cliente"
+        },
+        "storeCode": {
+          "type": "integer",
+          "example": "movdis.pedido-integr-loja.cdn-loja",
+          "description": "Código da loja e-commerce"
+        },
+        "storeName": {
+          "type": "string",
+          "example": "mgdis.integr-loja.cod-loja",
+          "description": "Nome da loja e-commerce"
+        },
+        "suspensionDate": {
+          "type": "string",
+          "format": "date",
+          "example": "movdis.ped-venda.dt-suspensao",
+          "description": "Data de suspensão"
+        },
+        "suspensionReason": {
+          "type": "string",
+          "example": "movdis.ped-venda.desc-suspend",
+          "description": "Motivo da suspensão do pedido"
+        },
+        "totalDiscount": {
+          "type": "number",
+          "example": "movdis.ped-venda.val-desconto-total",
+          "description": "Valor do desconto total"
+        },
+        "totalDiscountPercentage": {
+          "type": "number",
+          "example": "movdis.ped-venda.val-pct-desconto-total",
+          "description": "Percentual de desconto total do pedido"
+        },
+        "totalDiscountValue": {
+          "type": "number",
+          "example": "movdis.ped-venda.val-pct-desconto-valor",
+          "description": "Percentual de desconto por valor do pedido"
+        },
+        "totalOrderAmount": {
+          "type": "number",
+          "example": "movdis.ped-venda.vl-tot-ped",
+          "description": "Valor total da mercadoria pedida adicionada do IPI"
+        },
+        "transactionType": {
+          "type": "string",
+          "example": "movdis.ped-venda.nat-operacao",
+          "description": "Natureza de operação"
+        },
+        "unitBusinessCod": {
+          "type": "string",
+          "example": "movdis.ped-venda.cod-unid-negoc",
+          "description": "Código Unidade Negócio"
+        },
+        "useBillingAddress": {
+          "type": "boolean",
+          "example": "movdis.ped-venda.ind-ender-fatur",
+          "description": "Indica se o endereço será usado no faturamento do pedido."
+        },
+        "useDiscountTable": {
+          "type": "boolean",
+          "example": "movdis.ped-venda.log-usa-tabela-desconto",
+          "description": "Usa a tabela de descontos no tratamento deste pedido?"
+        },
+        "userApprover": {
+          "type": "string",
+          "example": "movdis.ped-venda.user-aprov",
+          "description": "Usuário que aprovou o pedido"
+        },
+        "userCancel": {
+          "type": "string",
+          "example": "movdis.ped-venda.user-canc",
+          "description": "Usuário que efetuou o cancelamento"
+        },
+        "userCreditApprover": {
+          "type": "string",
+          "example": "movdis.ped-venda.quem-aprovou",
+          "description": "Usuário que aprovou o crédito"
+        },
+        "userLastChange": {
+          "type": "string",
+          "example": "movdis.ped-venda.user-alte",
+          "description": "Usuário que efetuou a última alteração"
+        },
+        "userUpdatedSituation": {
+          "type": "string",
+          "example": "movdis.ped-venda.cod-usu-alt-sit",
+          "description": "Usuário de alteração da situação"
+        },
+        "valueFreight": {
+          "type": "number",
+          "example": "movdis.ped-venda.val-frete",
+          "description": "Informe o valor do frete"
+        },
+        "valueInsurance": {
+          "type": "number",
+          "example": "movdis.ped-venda.val-seguro",
+          "description": "Informe o valor do seguro"
+        },
+        "valuePacking": {
+          "type": "number",
+          "example": "movdis.ped-venda.val-embal",
+          "description": "Informe o valor da embalagem"
+        },
+        "orderItems": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderItems"
+          },
+          "description": "Itens do Pedido de Venda."
+        },
+        "orderRepresentatives": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderRepresentatives"
+          },
+          "description": "Representantes."
+        },
+        "preInvoicing": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/preInvoicing"
+          },
+          "description": "Embarque."
+        }
+      }
+    },
+    "ordersPublicPost": {
+      "type": "object",
+      "description": "Pedido de Venda",
+      "properties": {
+        "allocationSituation": {
+          "type": "integer",
+          "example": "movdis.ped-venda.cod-sit-pre",
+          "description": "Situação da alocação do estoque"
+        },
+        "branchId": {
+          "type": "string",
+          "example": "movdis.ped-venda.cod-estabel",
+          "description": "Código do estabelecimento"
+        },
+        "campaignId": {
+          "type": "integer",
+          "example": "movdis.ped-venda.num-id-campanha-crm",
+          "description": "Número Id Campanha Crm"
+        },
+        "cancellationDate": {
+          "type": "string",
+          "format": "date",
+          "example": "movdis.ped-venda.dt-cancela",
+          "description": "Data do Cancelamento do Pedido"
+        },
+        "cancellationReason": {
+          "type": "string",
+          "example": "movdis.ped-venda.desc-cancela",
+          "description": "Descrição do motivo do cancelamento"
+        },
+        "carrierName": {
+          "type": "string",
+          "example": "movdis.ped-venda.nome-transp",
+          "description": "Nome do transportador"
+        },
+        "cifCity": {
+          "type": "string",
+          "example": "movdis.ped-venda.cidade-cif",
+          "description": "Até que cidade o frete corre por conta do emitente"
+        },
+        "codeCarrier": {
+          "type": "integer",
+          "example": "mgadm.transporte.cod-transp",
+          "description": "Código do Transportador"
+        },
+        "codeReshipmentTransp": {
+          "type": "integer",
+          "example": "mgadm.transporte.cod-transp",
+          "description": "Transportadora Redespacho"
+        },
+        "collectorCode": {
+          "type": "integer",
+          "example": "movdis.ped-venda.cod-portador",
+          "description": "Código do portador"
+        },
+        "comments": {
+          "type": "string",
+          "example": "movdis.ped-venda.observacoes",
+          "description": "Observação"
+        },
+        "commercialSituation": {
+          "type": "integer",
+          "example": "movdis.ped-venda.cod-sit-com",
+          "description": "Código da situação da avaliação comercial"
+        },
+        "completeAddress": {
+          "type": "string",
+          "example": "movdis.ped-venda.endereco_text",
+          "description": "Endereço Completo"
+        },
+        "creditApprovalDate": {
+          "type": "string",
+          "format": "date",
+          "example": "movdis.ped-venda.dt-apr-cred",
+          "description": "Data de aprovação de crédito"
+        },
+        "creditLockReason": {
+          "type": "string",
+          "example": "movdis.ped-venda.desc-bloq-cr",
+          "description": "Motivo da não liberação de crédito para o pedido"
+        },
+        "currencyBillingCode": {
+          "type": "integer",
+          "example": "movdis.ped-venda.mo-fatur",
+          "description": "Código da moeda do Faturamento"
+        },
+        "currencyCode": {
+          "type": "integer",
+          "example": "movdis.ped-venda.mo-codigo",
+          "description": "Código da moeda de referência dos valores"
+        },
+        "customerCode": {
+          "type": "integer",
+          "example": "movdis.ped-venda.cod-emitente",
+          "description": "Código do cliente"
+        },
+        "customerDiscount": {
+          "type": "number",
+          "example": "movdis.ped-venda.perc-desco1",
+          "description": "Percentual de desconto do cliente a ser aplicado sobre a nota"
+        },
+        "customerOrderId": {
+          "type": "string",
+          "example": "movdis.ped-venda.nr-pedcli",
+          "description": "Número do pedido do cliente"
+        },
+        "customerOrderType": {
+          "type": "string",
+          "example": "movdis.ped-venda.tp-pedido",
+          "description": "Disponível para classificação/indicação própria do usuário"
+        },
+        "dateUpdatedSituation": {
+          "type": "string",
+          "format": "date",
+          "example": "movdis.ped-venda.dat-alter-sit",
+          "description": "Data da alteração da situação"
+        },
+        "deliveryCity": {
+          "type": "string",
+          "example": "movdis.ped-venda.cidade",
+          "description": "Cidade para a Entrega do Pedido"
+        },
+        "deliveryCode": {
+          "type": "string",
+          "example": "movdis.ped-venda.cod-entrega",
+          "description": "Código do endereço de entrega"
+        },
+        "deliveryCountry": {
+          "type": "string",
+          "example": "movdis.ped-venda.pais",
+          "description": "País de Entrega do Pedido"
+        },
+        "deliveryDate": {
+          "type": "string",
+          "format": "date",
+          "example": "movdis.ped-venda.dt-entrega",
+          "description": "Data prevista para entrega do Pedido"
+        },
+        "deliveryNeighborhood": {
+          "type": "string",
+          "example": "movdis.ped-venda.bairro",
+          "description": "Bairro"
+        },
+        "deliveryPlace": {
+          "type": "string",
+          "example": "movdis.ped-venda.local-entreg",
+          "description": "Endereço de entrega do cliente"
+        },
+        "deliveryState": {
+          "type": "string",
+          "example": "movdis.ped-venda.estado",
+          "description": "Unidade da federação para entrega"
+        },
+        "deliveryZipCode": {
+          "type": "string",
+          "example": "movdis.ped-venda.cep",
+          "description": "CEP"
+        },
+        "discountAmt": {
+          "type": "number",
+          "example": "movdis.ped-venda.vl-desconto",
+          "description": "Valor do desconto"
+        },
+        "discountPercentage": {
+          "type": "string",
+          "example": "movdis.ped-venda.des-pct-desconto-inform",
+          "description": "Percentuais de desconto informados por pedido"
+        },
+        "email": {
+          "type": "string",
+          "example": "movdis.ped-venda.e-mail",
+          "description": "Endereço eletrônico na Internet"
+        },
+        "emissionDate": {
+          "type": "string",
+          "format": "date",
+          "example": "movdis.ped-venda.dt-emissao",
+          "description": "Data em que o pedido foi emitido pelo representante/cliente"
+        },
+        "evaluationSituation": {
+          "type": "integer",
+          "example": "movdis.ped-venda.cod-sit-aval",
+          "description": "Situação de avaliação de crédito"
+        },
+        "forcedApprover": {
+          "type": "string",
+          "example": "movdis.ped-venda.aprov-forcado",
+          "description": "Nome do aprovador de créditos forçados"
+        },
+        "forcedReleaseReason": {
+          "type": "string",
+          "example": "movdis.ped-venda.desc-forc-cr",
+          "description": "Motivo da liberação de crédito forçado para o pedido"
+        },
+        "freightMode": {
+          "type": "string",
+          "example": "movdis.ped-venda.char-2,109,8",
+          "description": "Modalidade de Frete"
+        },
+        "implantationDate": {
+          "type": "string",
+          "format": "date",
+          "example": "movdis.ped-venda.dt-implant",
+          "description": "Data em que o Pedido foi implantado no sistema"
+        },
+        "limitBillingDate": {
+          "type": "string",
+          "format": "date",
+          "example": "movdis.ped-venda.dt-lim-fat",
+          "description": "Data Limite para atendimento do Pedido"
+        },
+        "merchandiseDescription": {
+          "type": "integer",
+          "example": "movdis.ped-venda.cod-des-merc",
+          "description": "Destino da mercadoria"
+        },
+        "minimumBillingDate": {
+          "type": "string",
+          "format": "date",
+          "example": "movdis.ped-venda.dt-minfat",
+          "description": "Data Mínima para atendimento do Pedido"
+        },
+        "modality": {
+          "type": "integer",
+          "example": "movdis.ped-venda.modalidade",
+          "description": "Modalidade de cobrança referente ao portador"
+        },
+        "openAmount": {
+          "type": "number",
+          "example": "movdis.ped-venda.vl-liq-abe",
+          "description": "Valor da mercadoria em aberto + IPI do saldo aberto"
+        },
+        "operationTypeCode": {
+          "type": "integer",
+          "example": "movdis.ped-venda.cdn-tip-ped",
+          "description": "Código do Tipo de Pedido"
+        },
+        "operationTypeDetail": {
+          "type": "string",
+          "example": "mgdis.tip-ped-cia.descricao",
+          "description": "Detalhe Tipo de Operação"
+        },
+        "orderAmount": {
+          "type": "number",
+          "example": "movdis.ped-venda.vl-liq-ped",
+          "description": "Valor líquido da mercadoria pedida"
+        },
+        "orderCompleted": {
+          "type": "boolean",
+          "example": "movdis.ped-venda.completo",
+          "description": "O pedido está completo?"
+        },
+        "orderId": {
+          "type": "integer",
+          "example": "movdis.ped-venda.nr-pedido",
+          "description": "Número do pedido"
+        },
+        "orderSituation": {
+          "type": "integer",
+          "example": "movdis.ped-venda.cod-sit-ped",
+          "description": "Situação do pedido"
+        },
+        "orderType": {
+          "type": "integer",
+          "example": "movdis.ped-venda.esp-ped",
+          "description": "Espécie do pedido"
+        },
+        "originalDeliveryDate": {
+          "type": "string",
+          "format": "date",
+          "example": "movdis.ped-venda.dt-entorig",
+          "description": "Data de entrega solicitada pelo cliente"
+        },
+        "paymentTerms": {
+          "type": "integer",
+          "example": "movdis.ped-venda.cod-cond-pag",
+          "description": "Código da condição de pagamento"
+        },
+        "paymentTermsDetail": {
+          "type": "string",
+          "example": "mgadm.cond-pagto.descricao",
+          "description": "Detalhe Condição de Pagamento"
+        },
+        "percentageFreight": {
+          "type": "number",
+          "example": "movdis.ped-venda.val-perc-frete",
+          "description": "Percentual de Frete"
+        },
+        "percentageInsurance": {
+          "type": "number",
+          "example": "movdis.ped-venda.val-perc-seguro",
+          "description": "Percentual de Seguro"
+        },
+        "percentagePacking": {
+          "type": "number",
+          "example": "movdis.ped-venda.val-perc-embal",
+          "description": "Percentual de Embalagem"
+        },
+        "priceOrderType": {
+          "type": "integer",
+          "example": "movdis.ped-venda.tp-preco",
+          "description": "Tipo de preço"
+        },
+        "priceReason": {
+          "type": "string",
+          "example": "movdis.ped-venda.desc-lib-preco",
+          "description": "Motivo da liberação forçada dos preços para o pedido"
+        },
+        "priceSituation": {
+          "type": "integer",
+          "example": "movdis.ped-venda.cod-sit-preco",
+          "description": "Código da situação da avaliação Preços"
+        },
+        "priceTableDiscPerc": {
+          "type": "number",
+          "example": "movdis.ped-venda.val-pct-desconto-tab-preco",
+          "description": "Percentual de descontos referente à tabela de preços"
+        },
+        "priceTableOrder": {
+          "type": "string",
+          "example": "movdis.ped-venda.nr-tabpre",
+          "description": "Tabela de preços"
+        },
+        "priceTableOrderDetail": {
+          "type": "string",
+          "example": "mgdis.tb-preco.descricao",
+          "description": "Detalhe Tabela de Preço"
+        },
+        "reactivationDate": {
+          "type": "string",
+          "format": "date",
+          "example": "movdis.ped-venda.dt-reativ",
+          "description": "Data de reativação"
+        },
+        "reactivationReason": {
+          "type": "string",
+          "example": "movdis.ped-venda.desc-reativa",
+          "description": "Informe o motivo da reativação do pedido."
+        },
+        "representativeName": {
+          "type": "string",
+          "example": "mgadm.repres.nome",
+          "description": "Nome do Representante principal"
+        },
+        "representativeOrderId": {
+          "type": "string",
+          "example": "movdis.ped-venda.nr-pedrep",
+          "description": "Número do pedido do representante"
+        },
+        "representativeShortName": {
+          "type": "string",
+          "example": "movdis.ped-venda.no-ab-reppri",
+          "description": "Nome abreviado do representante principal"
+        },
+        "reshipmentTransp": {
+          "type": "string",
+          "example": "movdis.ped-venda.nome-tr-red",
+          "description": "Nome da transportadora de redespacho"
+        },
+        "salesChannel": {
+          "type": "integer",
+          "example": "movdis.ped-venda.cod-canal-venda",
+          "description": "Código do canal de venda"
+        },
+        "shortName": {
+          "type": "string",
+          "example": "movdis.ped-venda.nome-abrev",
+          "description": "Nome abreviado do cliente"
+        },
+        "suspensionDate": {
+          "type": "string",
+          "format": "date",
+          "example": "movdis.ped-venda.dt-suspensao",
+          "description": "Data de suspensão"
+        },
+        "suspensionReason": {
+          "type": "string",
+          "example": "movdis.ped-venda.desc-suspend",
+          "description": "Motivo da suspensão do pedido"
+        },
+        "totalDiscount": {
+          "type": "number",
+          "example": "movdis.ped-venda.val-desconto-total",
+          "description": "Valor do desconto total"
+        },
+        "totalDiscountPercentage": {
+          "type": "number",
+          "example": "movdis.ped-venda.val-pct-desconto-total",
+          "description": "Percentual de desconto total do pedido"
+        },
+        "totalDiscountValue": {
+          "type": "number",
+          "example": "movdis.ped-venda.val-pct-desconto-valor",
+          "description": "Percentual de desconto por valor do pedido"
+        },
+        "totalOrderAmount": {
+          "type": "number",
+          "example": "movdis.ped-venda.vl-tot-ped",
+          "description": "Valor total da mercadoria pedida adicionada do IPI"
+        },
+        "transactionType": {
+          "type": "string",
+          "example": "movdis.ped-venda.nat-operacao",
+          "description": "Natureza de operação"
+        },
+        "unitBusinessCod": {
+          "type": "string",
+          "example": "movdis.ped-venda.cod-unid-negoc",
+          "description": "Código Unidade Negócio"
+        },
+        "useBillingAddress": {
+          "type": "boolean",
+          "example": "movdis.ped-venda.ind-ender-fatur",
+          "description": "Indica se o endereço será usado no faturamento do pedido."
+        },
+        "useDiscountTable": {
+          "type": "boolean",
+          "example": "movdis.ped-venda.log-usa-tabela-desconto",
+          "description": "Usa a tabela de descontos no tratamento deste pedido?"
+        },
+        "userApprover": {
+          "type": "string",
+          "example": "movdis.ped-venda.user-aprov",
+          "description": "Usuário que aprovou o pedido"
+        },
+        "userCancel": {
+          "type": "string",
+          "example": "movdis.ped-venda.user-canc",
+          "description": "Usuário que efetuou o cancelamento"
+        },
+        "userCreditApprover": {
+          "type": "string",
+          "example": "movdis.ped-venda.quem-aprovou",
+          "description": "Usuário que aprovou o crédito"
+        },
+        "userLastChange": {
+          "type": "string",
+          "example": "movdis.ped-venda.user-alte",
+          "description": "Usuário que efetuou a última alteração"
+        },
+        "userUpdatedSituation": {
+          "type": "string",
+          "example": "movdis.ped-venda.cod-usu-alt-sit",
+          "description": "Usuário de alteração da situação"
+        },
+        "valueFreight": {
+          "type": "number",
+          "example": "movdis.ped-venda.val-frete",
+          "description": "Informe o valor do frete"
+        },
+        "valueInsurance": {
+          "type": "number",
+          "example": "movdis.ped-venda.val-seguro",
+          "description": "Informe o valor do seguro"
+        },
+        "valuePacking": {
+          "type": "number",
+          "example": "movdis.ped-venda.val-embal",
+          "description": "Informe o valor da embalagem"
+        },
+        "orderItems": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderItems"
+          },
+          "description": "Itens do Pedido de Venda."
+        },
+        "orderRepresentatives": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderRepresentativesPersistent"
+          },
+          "description": "Comissão por representante."
+        }
+      }
+    },
+    "orderRepresentativesPersistent": {
+      "type": "object",
+      "description": "Comissão por Representante",
+      "required": [
+        "shortReprName"
+      ],
+      "properties": {
+        "commissionPerc": {
+          "type": "number",
+          "example": "movdis.ped-repre.perc-comis",
+          "description": "Percentual de comissão do representante"
+        },
+        "percentPrintComm": {
+          "type": "integer",
+          "example": "movdis.ped-repre.comis-emis",
+          "description": "Percentual de comissão na emissão do pedido"
+        },
+        "shortReprName": {
+          "type": "string",
+          "example": "movdis.ped-repre.nome-ab-rep",
+          "description": "Nome abreviado do representante"
+        }
+      }
+    },
+    "orderItems": {
+      "type": "object",
+      "description": "Itens do Pedido de Venda",
+      "properties": {
+        "aliquot": {
+          "type": "number",
+          "example": "movdis.ped-item.aliquota-ipi",
+          "description": "Alíquota de IPI"
+        },
+        "ipiValue": {
+          "type": "number",
+          "example": "movdis.ped-item.val-ipi",
+          "description": "Valor IPI"
+        },
+        "allocationSituation": {
+          "type": "integer",
+          "example": "movdis.ped-item.cod-sit-pre",
+          "description": "Situação da alocação do estoque"
+        },
+        "campaignId": {
+          "type": "integer",
+          "example": "movdis.ped-item.num-id-campanha-crm",
+          "description": "Número Id Campanha Crm"
+        },
+        "cancelationItemDate": {
+          "type": "string",
+          "format": "date",
+          "example": "movdis.ped-item.dt-usercan",
+          "description": "Data em que o Item foi cancelado"
+        },
+        "cancelationUser": {
+          "type": "string",
+          "example": "movdis.ped-item.user-canc",
+          "description": "Código do usuário que cancelou o item"
+        },
+        "comments": {
+          "type": "string",
+          "example": "movdis.ped-item.observacao",
+          "description": "Observação do item do pedido"
+        },
+        "commercialSituation": {
+          "type": "integer",
+          "example": "movdis.ped-item.cod-sit-com",
+          "description": "Código da situação da avaliação comercial"
+        },
+        "customerOrderId": {
+          "type": "string",
+          "example": "movdis.ped-item.nr-pedcli",
+          "description": "Número do pedido do cliente"
+        },
+        "dateCancel": {
+          "type": "string",
+          "format": "date",
+          "example": "movdis.ped-item.dt-canseq",
+          "description": "Data de Cancelamento da seqüência do pedido"
+        },
+        "dateDevol": {
+          "type": "string",
+          "format": "date",
+          "example": "movdis.ped-item.dt-devolucao",
+          "description": "Data de devolução"
+        },
+        "delireryDate": {
+          "type": "string",
+          "format": "date",
+          "example": "movdis.ped-item.dt-entrega",
+          "description": "Data de entrega do item do Pedido"
+        },
+        "deliveryCode": {
+          "type": "string",
+          "example": "movdis.ped-item.cod-entrega",
+          "description": "Código do endereço de entrega"
+        },
+        "descCancel": {
+          "type": "string",
+          "example": "movdis.ped-item.desc-cancela",
+          "description": "Descrição do motivo do Cancelamento"
+        },
+        "descDevol": {
+          "type": "string",
+          "example": "movdis.ped-item.desc-devol",
+          "description": "Motivo da devolução"
+        },
+        "devolutionItemDate": {
+          "type": "string",
+          "format": "date",
+          "example": "movdis.ped-item.dt-userdev",
+          "description": "Data em que ocorreu a devolução"
+        },
+        "devolutionUser": {
+          "type": "string",
+          "example": "movdis.ped-item.user-devol",
+          "description": "Usuário que efetuou a devolução"
+        },
+        "discountPercentage": {
+          "type": "string",
+          "example": "movdis.ped-item.des-pct-desconto-inform",
+          "description": "Percentuais de desconto informados por item do pedido"
+        },
+        "discountPrice": {
+          "type": "number",
+          "example": "movdis.ped-item.vl-desconto",
+          "description": "Valor do desconto"
+        },
+        "informedDiscount": {
+          "type": "number",
+          "example": "movdis.ped-item.val-desconto-inform",
+          "description": "Valor do desconto informado"
+        },
+        "insurancePrice": {
+          "type": "number",
+          "example": "movdis.ped-item.val-seguro",
+          "description": "Informe o valor do seguro"
+        },
+        "itemCode": {
+          "type": "string",
+          "example": "movdis.ped-item.it-codigo",
+          "description": "Código do item"
+        },
+        "itemDescription": {
+          "type": "string",
+          "example": "mgind.item.desc-item",
+          "description": "Descrição do Item"
+        },
+        "itemPercentageDiscount": {
+          "type": "number",
+          "example": "movdis.ped-item.per-des-item",
+          "description": "Percentual de desconto sobre o preço unitário"
+        },
+        "lastChangeUser": {
+          "type": "string",
+          "example": "movdis.ped-item.user-alte",
+          "description": "Código do último usuário a alterar o item do pedido"
+        },
+        "liquidMerchandise": {
+          "type": "number",
+          "example": "movdis.ped-item.vl-liq-it",
+          "description": "Valor líquido da mercadoria"
+        },
+        "msrUnit": {
+          "type": "string",
+          "example": "movdis.ped-item.cod-un",
+          "description": "Unidade Medida"
+        },
+        "openAmount": {
+          "type": "number",
+          "example": "movdis.ped-item.vl-liq-abe",
+          "description": "Valor total em aberto do item de pedido"
+        },
+        "openLiquidMerchandise": {
+          "type": "number",
+          "example": "movdis.ped-item.vl-merc-abe",
+          "description": "Valor líquido da mercadoria em aberto"
+        },
+        "orderItemSituation": {
+          "type": "integer",
+          "example": "movdis.ped-item.cod-sit-item",
+          "description": "Situação do item"
+        },
+        "originalDeliveryDate": {
+          "type": "string",
+          "format": "date",
+          "example": "movdis.ped-item.dt-entorig",
+          "description": "Data de entrega solicitada pelo cliente"
+        },
+        "originalPrice": {
+          "type": "number",
+          "example": "movdis.ped-item.vl-preori",
+          "description": "Preço informado ou de tabela multiplicado pelo índice de financ"
+        },
+        "originalPriceBilling": {
+          "type": "number",
+          "example": "movdis.ped-item.vl-preori-un-fat",
+          "description": "Preço Original na Unidade de Medida de Faturamento"
+        },
+        "periodDiscount": {
+          "type": "number",
+          "example": "movdis.ped-item.val-pct-desconto-periodo",
+          "description": "Percentual de desconto referente ao período controlado"
+        },
+        "priceSituation": {
+          "type": "integer",
+          "example": "movdis.ped-item.cod-sit-preco",
+          "description": "Código da situação da avaliação de preços"
+        },
+        "priceTable": {
+          "type": "string",
+          "example": "movdis.ped-item.nr-tabpre",
+          "description": "Tabela de preços"
+        },
+        "priceTableDiscount": {
+          "type": "number",
+          "example": "movdis.ped-item.val-pct-desconto-tab-preco",
+          "description": "Percentual de descontos em quantidade da tabela de preços"
+        },
+        "priceTableValue": {
+          "type": "number",
+          "example": "movdis.ped-item.vl-pretab",
+          "description": "Preço de tabela ou informado caso não exista tabela de preços"
+        },
+        "priceUnitary": {
+          "type": "number",
+          "example": "movdis.ped-item.vl-preuni",
+          "description": "Preço unitário líquido (preço original - descontos)"
+        },
+        "purchaseOrder": {
+          "type": "string",
+          "example": "movdis.ped-item.cod-ord-compra",
+          "description": "Número da ordem de compra do item, originário do pedido compra."
+        },
+        "quantityAttentive": {
+          "type": "number",
+          "example": "movdis.ped-item.qt-atendida",
+          "description": "Quantidade faturada para o item no pedido"
+        },
+        "quantityBilling": {
+          "type": "number",
+          "example": "movdis.ped-item.qt-un-fat",
+          "description": "Quantidade na UM utilizada para Faturamento do Item"
+        },
+        "quantityPending": {
+          "type": "number",
+          "example": "movdis.ped-item.qt-pendente",
+          "description": "Quantidade faturada a ser atualizada como atendida"
+        },
+        "quantityRequested": {
+          "type": "number",
+          "example": "movdis.ped-item.qt-pedida",
+          "description": "Quantidade solicitada do Item no pedido de compra ou venda"
+        },
+        "reactivationDate": {
+          "type": "string",
+          "format": "date",
+          "example": "movdis.ped-item.dt-reativ",
+          "description": "Data de reativação"
+        },
+        "referenceCode": {
+          "type": "string",
+          "example": "movdis.ped-item.cod-refer",
+          "description": "Código de referência do item"
+        },
+        "sequence": {
+          "type": "integer",
+          "example": "movdis.ped-item.nr-sequencia",
+          "description": "Número de seqüência do item no pedido"
+        },
+        "shortName": {
+          "type": "string",
+          "example": "movdis.ped-item.nome-abrev",
+          "description": "Nome abreviado do cliente"
+        },
+        "suspensionDate": {
+          "type": "string",
+          "format": "date",
+          "example": "movdis.ped-item.dt-suspensao",
+          "description": "Data de suspensão"
+        },
+        "suspensionItemDate": {
+          "type": "string",
+          "format": "date",
+          "example": "movdis.ped-item.dt-usersusp",
+          "description": "Data de suspensão"
+        },
+        "termDiscount": {
+          "type": "number",
+          "example": "movdis.ped-item.val-pct-desconto-prazo",
+          "description": "Percentual de desconto referente ao prazo de pagamento"
+        },
+        "totalOrderItemAmount": {
+          "type": "number",
+          "example": "movdis.ped-item.vl-tot-it",
+          "description": "Valor total do item de pedido"
+        },
+        "totalPercentageDiscount": {
+          "type": "number",
+          "example": "movdis.ped-item.val-pct-desconto-total",
+          "description": "Percentual de desconto total do item do pedido"
+        },
+        "totalValueDiscount": {
+          "type": "number",
+          "example": "movdis.ped-item.val-desconto-total",
+          "description": "Valor do desconto total"
+        },
+        "transactionType": {
+          "type": "string",
+          "example": "movdis.ped-item.nat-operacao",
+          "description": "Natureza de operação"
+        },
+        "typeAttendance": {
+          "type": "integer",
+          "example": "movdis.ped-item.tipo-atend",
+          "description": "Tipo de atendimento"
+        },
+        "unitBusinessCod": {
+          "type": "string",
+          "example": "movdis.ped-item.cod-unid-negoc",
+          "description": "Código Unidade Negócio"
+        },
+        "unitMeasureBilling": {
+          "type": "string",
+          "example": "movdis.ped-item.des-un-medida",
+          "description": "Unidade de medida do item do pedido."
+        },
+        "unitMeasureBillingDesc": {
+          "type": "string",
+          "example": "mgind.tab-unidade.descricao",
+          "description": "Unidade de Medida de Faturamento"
+        },
+        "unitMeasureStock": {
+          "type": "string",
+          "example": "movdis.ped-item.char-2,09,02",
+          "description": "Unidade de Medida de estoque"
+        },
+        "unitMeasureStockDesc": {
+          "type": "string",
+          "example": "mgind.tab-unidade.descricao",
+          "description": "Descrição Unidade de Medida de estoque"
+        }
+      }
+    },
+    "orderRepresentatives": {
+      "type": "object",
+      "description": "Representantes",
+      "properties": {
+        "classifCode": {
+          "type": "string",
+          "example": "movdis.ped-repre.cod-classificador",
+          "description": "Classificador"
+        },
+        "commissionPerc": {
+          "type": "number",
+          "example": "movdis.ped-repre.perc-comis",
+          "description": "Percentual de comissão do representante"
+        },
+        "name": {
+          "type": "string",
+          "example": "mgadm.repres.nome",
+          "description": "Nome Representante"
+        },
+        "orderId": {
+          "type": "integer",
+          "example": "movdis.ped-repre.nr-pedido",
+          "description": "Número do pedido"
+        },
+        "percentPrintComm": {
+          "type": "integer",
+          "example": "movdis.ped-repre.comis-emis",
+          "description": "Percentual de comissão na emissão do pedido"
+        },
+        "shortReprName": {
+          "type": "string",
+          "example": "movdis.ped-repre.nome-ab-rep",
+          "description": "Nome abreviado do representante"
+        }
+      }
+    },
+    "preInvoicing": {
+      "type": "object",
+      "description": "Embarque",
+      "properties": {
+        "customerOrderId": {
+          "type": "string",
+          "example": "mgdis.pre-fatur.nr-pedcli",
+          "description": "Número do pedido do cliente"
+        },
+        "shipmentNo": {
+          "type": "number",
+          "example": "mgdis.pre-fatur.cdd-embarq",
+          "description": "Código - Decimal Embarque"
+        },
+        "shipmentSit": {
+          "type": "integer",
+          "example": "mgdis.pre-fatur.cod-sit-pre",
+          "description": "Situação da alocação do estoque"
+        },
+        "shortName": {
+          "type": "string",
+          "example": "mgdis.pre-fatur.nome-abrev",
+          "description": "Nome abreviado do cliente"
+        },
+        "summaryNo": {
+          "type": "integer",
+          "example": "mgdis.pre-fatur.nr-resumo",
+          "description": "Número da chave do resumo gerado para o calculo de notas fiscais"
+        }
+      }
+    },
+    "ordersCanceledPublicResponse": {
+      "type": "object",
+      "description": "Resposta da requisição do serviço que retorna os Pedidos de Venda cancelados no ERP",
+      "properties": {
+        "total": {
+          "type": "integer",
+          "description": "Quantidade de registros"
+        },
+        "hasNext": {
+          "type": "boolean"
+        },
+        "items": {
+          "description": "Lista contendo informações dos Pedidos de Venda cancelados no ERP",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ordersCanceled"
+          }
+        }
+      }
+    },
+    "ordersCanceled": {
+      "type": "object",
+      "description": "Pedido de Venda Cancelado",
+      "properties": {
+        "branchId": {
+          "type": "string",
+          "example": "movdis.ped-venda.cod-estabel",
+          "description": "Código do estabelecimento"
+        },
+        "cancellationDate": {
+          "type": "string",
+          "format": "date",
+          "example": "movdis.ped-venda.dt-cancela",
+          "description": "Data do Cancelamento do Pedido"
+        },
+        "customerOrderId": {
+          "type": "string",
+          "example": "movdis.ped-venda.nr-pedcli",
+          "description": "Número do pedido do cliente"
+        },
+        "implantationDate": {
+          "type": "string",
+          "format": "date",
+          "example": "movdis.ped-venda.dt-implant",
+          "description": "Data em que o Pedido foi implantado no sistema"
+        },
+        "lastChange": {
+          "type": "string",
+          "format": "date-time",
+          "example": "movdis.ped-vda-log.dtm-alter",
+          "description": "Data de atualização do registro"
+        },
+        "orderId": {
+          "type": "integer",
+          "example": "movdis.ped-venda.nr-pedido",
+          "description": "Número do pedido cancelado"
+        },
+        "orderSituation": {
+          "type": "integer",
+          "example": "movdis.ped-venda.cod-sit-ped",
+          "description": "Situação do pedido"
+        },
+        "totalOrderAmount": {
+          "type": "number",
+          "example": "movdis.ped-venda.vl-tot-ped",
+          "description": "Valor total da mercadoria pedida adicionada do IPI"
+        },
+        "storeCode": {
+          "type": "integer",
+          "title": "mgdis.integr-loja.cdn-loja",
+          "example": "mgdis.integr-loja.cdn-loja",
+          "description": "Identificador do cadastro da loja E-Commerce"
+        },
+        "canceledOrderItems": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/canceledOrderItems"
+          },
+          "description": "Itens do Pedido de Venda Cancelado."
+        }
+      }
+    },
+    "canceledOrderItems": {
+      "type": "object",
+      "description": "Itens do Pedido de Venda Cancelado",
+      "properties": {
+        "customerOrderId": {
+          "type": "string",
+          "example": "movdis.ped-item.nr-pedcli",
+          "description": "Número do pedido do cliente"
+        },
+        "itemCode": {
+          "type": "string",
+          "example": "movdis.ped-item.it-codigo",
+          "description": "Código do item"
+        },
+        "sequence": {
+          "type": "integer",
+          "example": "movdis.ped-item.nr-sequencia",
+          "description": "Sequência do item"
+        },
+        "priceUnitary": {
+          "type": "number",
+          "example": "movdis.ped-item.vl-preuni",
+          "description": "Preço unitário líquido (preço original - descontos)"
+        },
+        "quantityRequested": {
+          "type": "number",
+          "example": "movdis.ped-item.qt-pedida",
+          "description": "Quantidade solicitada do Item no pedido de compra ou venda"
+        }
+      }
+    },
+    "ordersStorePublicResponse": {
+      "type": "object",
+      "description": "Pedido de Venda",
+      "properties": {
+        "codeCarrier": {
+          "type": "string",
+          "example": "mgadm.transporte.cod-transp-ecommerce",
+          "description": "Código do Transportador E-commerce"
+        },
+        "customerCode": {
+          "type": "integer",
+          "example": "movdis.ped-venda.cod-emitente",
+          "description": "Código do cliente"
+        },
+        "customerOrderId": {
+          "type": "string",
+          "example": "movdis.ped-venda.nr-pedcli",
+          "description": "Número do pedido do cliente"
+        },
+        "shortName": {
+          "type": "string",
+          "example": "movdis.ped-venda.nome-abrev",
+          "description": "Nome abreviado do cliente"
+        },
+        "implantationDate": {
+          "type": "string",
+          "format": "date",
+          "example": "movdis.ped-venda.dt-implant",
+          "description": "Data em que o Pedido foi implantado no sistema"
+        },
+        "orderAmount": {
+          "type": "number",
+          "example": "movdis.ped-venda.vl-liq-ped",
+          "description": "Valor líquido da mercadoria pedida"
+        },
+        "orderIdStore": {
+          "type": "string",
+          "example": "iphone14prata32gbRef001",
+          "description": "Código do pedido na loja"
+        },
+        "representativeOrderId": {
+          "type": "string",
+          "example": "movdis.ped-venda.nr-pedrep",
+          "description": "Código do pedido do representante"
+        },
+        "orderSituationStore": {
+          "type": "string",
+          "example": "1 - Liberado, 3 - Faturado, 4 - Pendente, 6 - Cancelado, 7 - Aprovado",
+          "description": "Status Pagamento Loja"
+        },
+        "salesChannelStore": {
+          "type": "string",
+          "example": "movdis.ped-venda.char-2,121,5 | cod-pol-comerc",
+          "description": "Canal de venda loja"
+        },
+        "sourceChannel": {
+          "type": "string",
+          "example": "movdis.ped-venda.no-ab-reppri",
+          "description": "Nome abreviado Representante"
+        },
+        "totalDiscount": {
+          "type": "number",
+          "example": "movdis.ped-venda.val-desconto-total",
+          "description": "Valor do desconto total"
+        },
+        "totalOrderAmount": {
+          "type": "number",
+          "example": "movdis.ped-venda.vl-tot-ped",
+          "description": "Valor total da mercadoria pedida adicionada do IPI"
+        },
+        "valueFreight": {
+          "type": "number",
+          "example": "movdis.ped-venda.val-frete",
+          "description": "Informe o valor do frete"
+        },
+        "storeCode": {
+          "type": "integer",
+          "example": "mgdis.integr-loja.cdn-loja",
+          "title": "mgdis.integr-loja.cdn-loja",
+          "description": "Identificador do cadastro da loja E-Commerce"
+        },
+        "orderItemsStore": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderItemsStore"
+          },
+          "description": "Itens do Pedido de Venda."
+        },
+        "orderPaymentsStore": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderPaymentsStore"
+          },
+          "description": "Condições de pagamento."
+        },
+        "deliveryPlaceStore": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderDeliveryPlaceStore"
+          },
+          "description": "Endereço de Entrega"
+        }
+      }
+    },
+    "ordersStorePublicPost": {
+      "type": "object",
+      "description": "Pedido de Venda",
+      "required": [
+        "storeCode",
+        "customerCode",
+        "customerOrderId",
+        "orderIdStore",
+        "codeCarrier",
+        "implantationDate",
+        "orderSituationStore",
+        "valueFreight",
+        "orderAmount",
+        "totalOrderAmount",
+        "salesChannelStore",
+        "sourceChannel",
+        "orderItemsStore",
+        "orderPaymentsStore",
+        "deliveryPlaceStore"
+      ],
+      "properties": {
+        "storeCode": {
+          "type": "integer",
+          "title": "mgdis.integr-loja.cdn-loja",
+          "example": "mgdis.integr-loja.cdn-loja",
+          "description": "Identificador do cadastro da loja E-Commerce"
+        },
+        "branchId": {
+          "type": "string",
+          "example": "movdis.ped-venda.cod-estabel",
+          "description": "Código do estabelecimento"
+        },
+        "cifCity": {
+          "type": "string",
+          "example": "movdis.ped-venda.cidade-cif",
+          "description": "Até que cidade o frete corre por conta do emitente"
+        },
+        "codeCarrier": {
+          "type": "string",
+          "example": "mgadm.transporte.cod-transp-ecommerce",
+          "description": "Código do Transportador E-commerce"
+        },
+        "customerCode": {
+          "type": "integer",
+          "example": "movdis.ped-venda.cod-emitente",
+          "description": "Código do cliente"
+        },
+        "customerOrderId": {
+          "type": "string",
+          "example": "movdis.ped-venda.nr-pedcli",
+          "description": "Número do pedido do cliente"
+        },
+        "customerOrderType": {
+          "type": "string",
+          "example": "movdis.ped-venda.tp-pedido",
+          "description": "Disponível para classificação/indicação própria do usuário"
+        },
+        "deliveryDate": {
+          "type": "string",
+          "format": "date",
+          "example": "movdis.ped-venda.dt-entrega",
+          "description": "Data prevista para entrega do Pedido"
+        },
+        "implantationDate": {
+          "type": "string",
+          "format": "date",
+          "example": "movdis.ped-venda.dt-implant",
+          "description": "Data em que o Pedido foi implantado no sistema"
+        },
+        "orderAmount": {
+          "type": "number",
+          "example": "movdis.ped-venda.vl-liq-ped",
+          "description": "Valor líquido da mercadoria pedida"
+        },
+        "orderIdStore": {
+          "type": "string",
+          "example": "iphone14prata32gbRef001",
+          "description": "Código do pedido na loja (Máximo 30 caracteres)"
+        },
+        "representativeOrderId": {
+          "type": "string",
+          "example": "movdis.ped-venda.nr-pedrep",
+          "description": "Código do pedido do representante"
+        },
+        "orderSituationStore": {
+          "type": "string",
+          "example": "1 - Liberado, 3 - Faturado, 4 - Pendente, 6 - Cancelado, 7 - Aprovado",
+          "description": "Status Pagamento Loja"
+        },
+        "priceTableOrder": {
+          "type": "string",
+          "example": "movdis.ped-venda.nr-tabpre",
+          "description": "Tabela de preços"
+        },
+        "salesChannelStore": {
+          "type": "string",
+          "example": "movdis.ped-venda.char-2,121,5 | cod-pol-comerc",
+          "description": "Canal de venda loja"
+        },
+        "sourceChannel": {
+          "type": "string",
+          "example": "movdis.ped-venda.no-ab-reppri",
+          "description": "Nome abreviado Representante"
+        },
+        "totalDiscount": {
+          "type": "number",
+          "example": "movdis.ped-venda.val-desconto-total",
+          "description": "Valor do desconto total"
+        },
+        "totalOrderAmount": {
+          "type": "number",
+          "example": "movdis.ped-venda.vl-tot-ped",
+          "description": "Valor total da mercadoria pedida adicionada do IPI"
+        },
+        "valueFreight": {
+          "type": "number",
+          "example": "movdis.ped-venda.val-frete",
+          "description": "Informe o valor do frete"
+        },
+        "orderItemsStore": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderItemsStore"
+          },
+          "description": "Itens do Pedido de Venda."
+        },
+        "orderPaymentsStore": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderPaymentsStore"
+          },
+          "description": "Condições de pagamento."
+        },
+        "deliveryPlaceStore": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderDeliveryPlaceStore"
+          },
+          "description": "Endereço de Entrega"
+        },
+        "customFields": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderCustomFields"
+          },
+          "description": "Campos customizados."
+        },
+        "taxes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderTaxes"
+          },
+          "description": "Todos os impostos aplicados no pedido."
+        }
+      }
+    },
+    "orderItemsStore": {
+      "type": "object",
+      "description": "Itens do Pedido E-commerce",
+      "required": [
+        "itemCode",
+        "liquidMerchandise",
+        "originalPrice",
+        "quantityBilling",
+        "discount (se B2B)"
+      ],
+      "properties": {
+        "representativeOrderId": {
+          "type": "string",
+          "example": "movdis.ped-vda.nr-pedrep",
+          "description": "Código pedido representante"
+        },
+        "itemCode": {
+          "type": "string",
+          "example": "movdis.ped-item.it-codigo",
+          "description": "Código do item"
+        },
+        "liquidMerchandise": {
+          "type": "number",
+          "example": "movdis.ped-item.vl-liq-it",
+          "description": "Valor líquido da mercadoria"
+        },
+        "originalPrice": {
+          "type": "number",
+          "example": "movdis.ped-item.vl-preori",
+          "description": "Preço informado ou de tabela multiplicado pelo índice de financ"
+        },
+        "quantityBilling": {
+          "type": "number",
+          "example": "movdis.ped-item.qt-un-fat",
+          "description": "Quantidade na UM utilizada para Faturamento do Item"
+        },
+        "discount": {
+          "type": "number",
+          "example": "movdis.ped-item.val-desconto-inform",
+          "description": "Valor do desconto por item"
+        },
+        "taxes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderTaxes"
+          },
+          "description": "Todos os impostos aplicados para o item informado."
+        }
+      }
+    },
+    "orderPaymentsStore": {
+      "type": "object",
+      "description": "Condições de Pagamento do Pedido E-commerce",
+      "required": [
+        "paymentDate",
+        "paymentMethod",
+        "quantityOfInstallments",
+        "transactionId",
+        "nsu",
+        "paymentValue"
+      ],
+      "properties": {
+        "representativeOrderId": {
+          "type": "string",
+          "example": "movdis.ped-vda.nr-pedrep",
+          "description": "Código pedido representante"
+        },
+        "paymentDate": {
+          "type": "string",
+          "format": "date",
+          "example": "dat-pagto-loja",
+          "description": "Data do Pagamento"
+        },
+        "paymentMethod": {
+          "type": "string",
+          "example": "cod-metod",
+          "description": "Método de Pagamento"
+        },
+        "quantityOfInstallments": {
+          "type": "number",
+          "example": "qtd-parcela",
+          "description": "Quantidade de parcelas"
+        },
+        "transactionId": {
+          "type": "string",
+          "example": "cod-trans",
+          "description": "Código da transação"
+        },
+        "nsu": {
+          "type": "string",
+          "example": "cod-autoriz",
+          "description": "Código autorização"
+        },
+        "paymentValue": {
+          "type": "number",
+          "example": "vl-pagto",
+          "description": "Valor pago"
+        }
+      }
+    },
+    "orderDeliveryPlaceStore": {
+      "type": "object",
+      "description": "Endereço de Entrega do Pedido E-commerce",
+      "required": [
+        "deliveryPlaceCity",
+        "deliveryPlaceState",
+        "deliveryPlaceNeighborhood",
+        "deliveryPlaceZipCode",
+        "deliveryPlaceCountry",
+        "deliveryPlaceAddress"
+      ],
+      "properties": {
+        "representativeOrderId": {
+          "type": "string",
+          "example": "movdis.ped-vda.nr-pedrep",
+          "description": "Código pedido representante"
+        },
+        "deliveryPlaceCity": {
+          "type": "string",
+          "example": "movdis.ped-item.cidade",
+          "description": "Cidade"
+        },
+        "deliveryPlaceState": {
+          "type": "string",
+          "example": "movdis.ped-item.estado",
+          "description": "Estado"
+        },
+        "deliveryPlaceNeighborhood": {
+          "type": "string",
+          "example": "movdis.ped-item.bairro",
+          "description": "Bairro"
+        },
+        "deliveryPlaceZipCode": {
+          "type": "string",
+          "example": "movdis.ped-item.cep",
+          "description": "CEP"
+        },
+        "deliveryPlaceCountry": {
+          "type": "string",
+          "example": "movdis.ped-item.pais",
+          "description": "País"
+        },
+        "deliveryPlaceAddress": {
+          "type": "string",
+          "example": "movdis.ped-item.endereco",
+          "description": "Endereço"
+        },
+        "deliveryPlaceCompleteAddress": {
+          "type": "string",
+          "example": "movdis.ped-item.endereco_text",
+          "description": "Endereço Completo"
+        }
+      }
+    },
+    "orderCustomFields": {
+      "type": "object",
+      "description": "Utilizado para repassar dados customizados que serão acessados diretamente nos pontos de UPC",
+      "required": [
+        "fieldId",
+        "fieldValue",
+        "fieldType"
+      ],
+      "properties": {
+        "fieldId": {
+          "type": "string",
+          "example": "fieldId",
+          "description": "Identificador do Campo Personalizado"
+        },
+        "fieldValue": {
+          "type": "string",
+          "example": "fieldValue",
+          "description": "Valor do Campo Personalizado"
+        },
+        "description": {
+          "type": "string",
+          "example": "description",
+          "description": "Breve Descrição do Campo Personalizado"
+        },
+        "fieldType": {
+          "type": "string",
+          "example": "character, integer, decimal, date, logical ou datetime",
+          "description": "Tipo de Informação Armazenada no Campo"
+        },
+        "observation": {
+          "type": "string",
+          "example": "observation",
+          "description": "Observações"
+        }
+      }
+    },
+    "orderTaxes": {
+      "type": "object",
+      "description": "Utilizado para repassar os impostos utilizados no cálculo do pedido e nos itens do pedido pela loja. Essas informações não são implementadas na API durante o cálculo dos valores no ERP, apenas ficam salvas no pedido para caso apresente divergência no cálculo sirvam como insumos durante uma possível análise.",
+      "required": [
+        "name",
+        "value"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "TxIcms",
+          "description": "Identificador do Imposto"
+        },
+        "value": {
+          "type": "number",
+          "example": 0,
+          "description": "Valor do imposto aplicado"
+        }
+      }
+    }
+  }
+}

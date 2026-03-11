@@ -1,0 +1,3585 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Catalogo",
+        "description": "Conjunto de APIs para manipulação do catálogo",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "https://api.lexos.com.br/Catalogo"
+        }
+    ],
+    "paths": {
+        "/Produto": {
+            "post": {
+                "summary": "/Produto",
+                "description": "Utilizado para atualizar ou criar novos produtos, o match será feito de forma automática através do campo \"SKU\", caso já exista um mesmo SKU no hub, será feito uma atualização e caso não exista, um novo produto será criado.\n\nPara consultar a tabela de preço, utilize a [API GET TabelaPreco](https://lexosapi.developer.azure-api.net/api-details#api=tabelapreco&operation=obterlistatabelapreco).",
+                "operationId": "post-api-out-atualizarprodutos",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "JWT Bearer Token obtido no processo de autenticação",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Chave",
+                        "in": "header",
+                        "description": "Chave da integração no LexosHub",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/ProdutoView"
+                                },
+                                "description": "Array com os produtos a serem inseridos/atualizados.",
+                                "nullable": true
+                            },
+                            "example": [
+                                {
+                                    "ProdutoTipoId": "configuravel",
+                                    "Sku": "7429",
+                                    "Ean": "02381239112",
+                                    "Nome": "TAMANCO FEMININO RASTEIRO",
+                                    "Unidade": "PARES",
+                                    "LocalArm": "Depósito A",
+                                    "Peso": 460,
+                                    "Comprimento": 30,
+                                    "Largura": 15,
+                                    "Altura": 10,
+                                    "DescricaoResumida": "Tamanco Feminino Rasteiro Sua Cia REF 813112538,&nbsp; é confeccionado em material napa sintético de excelente qualidade",
+                                    "Descricao": "Tamanco Feminino Rasteiro Sua Cia REF 813112538,&nbsp; é confeccionado em material napa sintético de excelente qualidade, é preso só na parte frontal do pé com recorte diferenciado, possui em seu cabedal detalhe trama. Com acabamento no bico quadrado, traz solado marrom, contorno em corda e inscrição com o nome da marca Sua Cia na Palmilha. é um modelo Chique e despretensioso ao mesmo tempo, o tamanco rasteiro confere conforto aos looks e vai bem com os mais diversos itens. Combine com vestidos longos em tecidos esvoaçantes ou mesmo com seu shorts jeans favorito.",
+                                    "DescricaoMarketplace": "Tamanco Feminino Rasteiro Sua Cia REF 813112538",
+                                    "Marca": "Sua Cia",
+                                    "Modelo": "Rasteirinha",
+                                    "VideoURL": null,
+                                    "ProdutoImposto": {
+                                        "NCM": "64029990",
+                                        "Cest": "28.059.00",
+                                        "Origem": 0
+                                    },
+                                    "Estoques": [
+                                        {
+                                            "Sku": "7429",
+                                            "LojaIdGlobal": 1,
+                                            "LocalArm": "Depósito A",
+                                            "Quantidade": 1,
+                                            "QuantidadeReservado": 0,
+                                            "Custo": 34.45
+                                        },
+                                        {
+                                            "Sku": "7429",
+                                            "LojaIdGlobal": 2,
+                                            "LocalArm": "Depósito Centro",
+                                            "Quantidade": 1,
+                                            "QuantidadeReservado": 0,
+                                            "Custo": 34.45
+                                        }
+                                    ],
+                                    "Precos": [
+                                        {
+                                            "Sku": "7429-01-01",
+                                            "Codigo": "preco_venda",
+                                            "Preco": 69.9
+                                        },
+                                        {
+                                            "Sku": "7429-01-01",
+                                            "Codigo": "preco_de_para",
+                                            "Preco": 0
+                                        },
+                                        {
+                                            "Sku": "7429-02-01",
+                                            "Codigo": "preco_venda",
+                                            "Preco": 69.9
+                                        },
+                                        {
+                                            "Sku": "7429-02-01",
+                                            "Codigo": "preco_de_para",
+                                            "Preco": 0
+                                        },
+                                        {
+                                            "Sku": "7429-03-01",
+                                            "Codigo": "preco_venda",
+                                            "Preco": 69.9
+                                        },
+                                        {
+                                            "Sku": "7429-03-01",
+                                            "Codigo": "preco_de_para",
+                                            "Preco": 0
+                                        }
+                                    ],
+                                    "Variacoes": [
+                                        {
+                                            "Sku": "7895530760158",
+                                            "EAN": "02319311",
+                                            "Tamanho": "39",
+                                            "Cor": "NUDE",
+                                            "OutrasVariacoes": [
+                                                {
+                                                    "atributoVaricaoCodigo": "embalagem",
+                                                    "atributoVaricaoDescricao": "Tipo de embalagem",
+                                                    "valor": "Caixa de sapato"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "Sku": "7895530760141",
+                                            "EAN": "133298477",
+                                            "Tamanho": "38",
+                                            "Cor": "NUDE",
+                                            "OutrasVariacoes": [
+                                                {
+                                                    "atributoVaricaoCodigo": "embalagem",
+                                                    "atributoVaricaoDescricao": "Tipo de embalagem",
+                                                    "valor": "Caixa de sapato"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "Sku": "7895530760134",
+                                            "EAN": "01823799532",
+                                            "Tamanho": "37",
+                                            "Cor": "NUDE",
+                                            "OutrasVariacoes": [
+                                                {
+                                                    "atributoVaricaoCodigo": "embalagem",
+                                                    "atributoVaricaoDescricao": "Tipo de embalagem",
+                                                    "valor": "Caixa de sapato"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "ProdutoEanComplemento": [
+                                        "EAN-alternativo1",
+                                        "EAN-alternativo2"
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                },
+                "responses": {
+                    "202": {
+                        "description": "Indica que a requisição foi aceita e a atualização foi agendada."
+                    },
+                    "400": {
+                        "description": "Erros de validação dos objetos e parâmetros informados."
+                    },
+                    "404": {
+                        "description": "Nenhum produto encontrado de acordo com os parâmetros fornecidos."
+                    }
+                }
+            }
+        },
+        "/Estoque": {
+            "post": {
+                "summary": "/Estoque",
+                "description": "Utilizado para atualização e inserção de um novo estoque para um produto.",
+                "operationId": "post-api-out-atualizarestoques",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "JWT Bearer Token obtido no processo de autenticação",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Chave",
+                        "in": "header",
+                        "description": "Chave da integração no LexosHub",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AtualizarEstoqueRequest"
+                            },
+                            "example": [
+                                {
+                                    "sku": "SKU-Produto-01",
+                                    "quantidade": 1,
+                                    "quantidadeReservado": 0,
+                                    "custo": 49.99,
+                                    "lojaIdGlobal": 3,
+                                    "localArm": "Galpão Sul"
+                                },
+                                {
+                                    "sku": "SKU-Produto-02",
+                                    "quantidade": 3,
+                                    "quantidadeReservado": 0,
+                                    "custo": 29.99,
+                                    "lojaIdGlobal": 2,
+                                    "localArm": "Galpão Norte"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "responses": {
+                    "202": {
+                        "description": "Indica que a requisição foi aceita e a atualização foi agendada."
+                    },
+                    "400": {
+                        "description": "Erros de validação dos objetos e parâmetros informados."
+                    },
+                    "404": {
+                        "description": "Nenhum produto encontrado de acordo com os parâmetros fornecidos."
+                    }
+                }
+            }
+        },
+        "/Preco": {
+            "post": {
+                "summary": "/Preco",
+                "description": "Utilizado para atualizar ou criar um novo preço para um produto.\n\nO campo \"codigo\" determina qual preço será utilizado, você pode consultar a tabela de preços usando a [API GET TabelaPreco](https://lexosapi.developer.azure-api.net/api-details#api=tabelapreco&operation=obterlistatabelapreco), caso seja necessário criar um novo preço (ex.: promocao_fim_de_ano), basta enviar o código e a descrição da tabela que o sistema irá criar automaticamente.",
+                "operationId": "post-api-out-atualizarprecos",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "JWT Bearer Token obtido no processo de autenticação",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Chave",
+                        "in": "header",
+                        "description": "Chave da integração no LexosHub",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AtualizarPrecoRequest"
+                            },
+                            "example": [
+                                {
+                                    "sku": "SKU-Produto-01",
+                                    "preco": 29.99
+                                },
+                                {
+                                    "sku": "SKU-Produto-02",
+                                    "preco": 199.99,
+                                    "codigo": "preco_revenda"
+                                },
+                                {
+                                    "sku": "SKU-Produto-03",
+                                    "preco": 59.99,
+                                    "codigo": "promocao_fim_ano",
+                                    "descricao": "Promoção fim de ano"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "responses": {
+                    "202": {
+                        "description": "Indica que a requisição foi aceita e a atualização foi agendada."
+                    },
+                    "400": {
+                        "description": "Erros de validação dos objetos e parâmetros informados."
+                    },
+                    "404": {
+                        "description": "Nenhum produto encontrado de acordo com os parâmetros fornecidos."
+                    }
+                }
+            }
+        },
+        "/ObterProdutoId": {
+            "get": {
+                "summary": "/ObterProdutoId",
+                "operationId": "obterprodutoid",
+                "parameters": [
+                    {
+                        "name": "ProdutoId",
+                        "in": "query",
+                        "description": "ID do produto",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "JWT Bearer Token obtido no processo de autenticação",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Chave",
+                        "in": "header",
+                        "description": "Chave da integração no LexosHub",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "ProdutoId": 2661152,
+                                    "ProdutoTipoId": "configuravel",
+                                    "Sku": "SKYRMASCULINA",
+                                    "Ean": "EAN-Principal",
+                                    "Nome": "JAQUETA MOTOCICLISTA MASCULINA SKY R MASCULINA",
+                                    "Unidade": "Unidade",
+                                    "Peso": 500,
+                                    "Largura": 28,
+                                    "Altura": 15,
+                                    "VideoURL": "https://www.youtube.com/watch?v=eQM0UZTsCQs&t=49s",
+                                    "Estoques": [
+                                        {
+                                            "LojaId": 26,
+                                            "LocalArm": "",
+                                            "Quantidade": 0,
+                                            "QuantidadeReservado": 0,
+                                            "Custo": 214.12
+                                        },
+                                        {
+                                            "LojaId": 104,
+                                            "LocalArm": "",
+                                            "Quantidade": 1,
+                                            "QuantidadeReservado": 0,
+                                            "Custo": 214.12
+                                        },
+                                        {
+                                            "LojaId": 55,
+                                            "LocalArm": null,
+                                            "Quantidade": 3,
+                                            "QuantidadeReservado": 0,
+                                            "Custo": 214.12
+                                        }
+                                    ],
+                                    "Precos": [
+                                        {
+                                            "Codigo": "preco_crossdocking",
+                                            "Descricao": "Preço Crossdocking",
+                                            "Preco": 0
+                                        },
+                                        {
+                                            "Codigo": "preco_de_atacado",
+                                            "Descricao": "Preço de Atacado",
+                                            "Preco": 0
+                                        },
+                                        {
+                                            "Codigo": "preco_de_para",
+                                            "Descricao": "Preço de Para",
+                                            "Preco": 0
+                                        },
+                                        {
+                                            "Codigo": "preco_venda",
+                                            "Descricao": "Preço de venda padrão",
+                                            "Preco": 0
+                                        },
+                                        {
+                                            "Codigo": "preco_dropshipping",
+                                            "Descricao": "Preço Dropshipping",
+                                            "Preco": 0
+                                        },
+                                        {
+                                            "Codigo": "preco_normal",
+                                            "Descricao": "Preço Normal",
+                                            "Preco": 0
+                                        },
+                                        {
+                                            "Codigo": "preco_promocional_loja_integrada",
+                                            "Descricao": "Preço promocional Loja Integrada",
+                                            "Preco": 0
+                                        },
+                                        {
+                                            "Codigo": "preco_promocional",
+                                            "Descricao": "Preço promocional padrão",
+                                            "Preco": 0
+                                        },
+                                        {
+                                            "Codigo": "preco_revenda",
+                                            "Descricao": "Preço Revenda",
+                                            "Preco": 0
+                                        },
+                                        {
+                                            "Codigo": "preco_revenda_promocional",
+                                            "Descricao": "Preço Revenda Promocional",
+                                            "Preco": 0
+                                        }
+                                    ],
+                                    "Variacoes": [
+                                        {
+                                            "Sku": "ds_1444177_16"
+                                        },
+                                        {
+                                            "Sku": "ds_1444178_16"
+                                        },
+                                        {
+                                            "Sku": "ds_1444179_16"
+                                        },
+                                        {
+                                            "Sku": "ds_1444180_16"
+                                        },
+                                        {
+                                            "Sku": "ds_1444175_16"
+                                        },
+                                        {
+                                            "Sku": "ds_1444174_16"
+                                        },
+                                        {
+                                            "Sku": "ds_1444176_16"
+                                        },
+                                        {
+                                            "Sku": "ds_1444173_16"
+                                        }
+                                    ],
+                                    "ProdutoEanComplemento": [
+                                        "EAN01",
+                                        "EAN02"
+                                    ],
+                                    "Imagens": [
+                                        {
+                                            "Ordem": 0,
+                                            "Url": "https://backoffice-cdn.lexos.com.br/17/produto/j/a/2022090517110434362_unidades_-_2022-09-05t165402.594.png"
+                                        },
+                                        {
+                                            "Ordem": 1,
+                                            "Url": "https://backoffice-cdn.lexos.com.br/17/produto/j/a/202209051711042786setas_27.png"
+                                        },
+                                        {
+                                            "Ordem": 2,
+                                            "Url": "https://backoffice-cdn.lexos.com.br/17/produto/j/a/2022090517110409182_unidades_-_2022-09-05t165527.089.png"
+                                        },
+                                        {
+                                            "Ordem": 3,
+                                            "Url": "https://backoffice-cdn.lexos.com.br/17/produto/j/a/2022090517110454402_unidades_-_2022-09-05t165424.052.png"
+                                        },
+                                        {
+                                            "Ordem": 4,
+                                            "Url": "https://backoffice-cdn.lexos.com.br/17/produto/j/a/2022090517110456912_unidades_-_2022-09-05t165447.585.png"
+                                        },
+                                        {
+                                            "Ordem": 5,
+                                            "Url": "https://backoffice-cdn.lexos.com.br/17/produto/j/a/2022090517110408452_unidades_-_2022-09-05t171015.110.png"
+                                        },
+                                        {
+                                            "Ordem": 6,
+                                            "Url": "https://backoffice-cdn.lexos.com.br/17/produto/j/a/2022090517110471082_unidades_-_2022-09-05t165552.825.png"
+                                        },
+                                        {
+                                            "Ordem": 7,
+                                            "Url": "https://backoffice-cdn.lexos.com.br/17/produto/j/a/2022090517110373972_unidades_-_2022-09-05t165749.626.png"
+                                        },
+                                        {
+                                            "Ordem": 8,
+                                            "Url": "https://backoffice-cdn.lexos.com.br/17/produto/j/a/202209291036156913tabela_de_medidas_new_strike.png"
+                                        }
+                                    ],
+                                    "ProdutoImposto": {
+                                        "NCM": "1",
+                                        "Cest": "2",
+                                        "Origem": 3,
+                                        "AliqImportacao": 10,
+                                        "AliqNacional": 10,
+                                        "AliqEstadual": 10,
+                                        "AliqMunicipal": 10
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Erros de validação dos objetos e parâmetros informados."
+                    },
+                    "404": {
+                        "description": "Nenhum produto encontrado de acordo com os parâmetros fornecidos."
+                    }
+                }
+            }
+        },
+        "/ObterProdutoSku": {
+            "get": {
+                "summary": "/ObterProdutoSku",
+                "operationId": "obterprodutosku",
+                "parameters": [
+                    {
+                        "name": "Sku",
+                        "in": "query",
+                        "description": "SKU do produto",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "JWT Bearer Token obtido no processo de autenticação",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Chave",
+                        "in": "header",
+                        "description": "Chave da integração no LexosHub",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "ProdutoId": 2661152,
+                                    "ProdutoTipoId": "configuravel",
+                                    "Sku": "SKYRMASCULINA",
+                                    "Ean": "EAN-Principal",
+                                    "Nome": "JAQUETA MOTOCICLISTA MASCULINA SKY R MASCULINA",
+                                    "Unidade": "Unidade",
+                                    "Peso": 500,
+                                    "Largura": 28,
+                                    "Altura": 15,
+                                    "VideoURL": "https://www.youtube.com/watch?v=eQM0UZTsCQs&t=49s",
+                                    "Estoques": [
+                                        {
+                                            "LojaId": 26,
+                                            "LocalArm": "",
+                                            "Quantidade": 0,
+                                            "QuantidadeReservado": 0,
+                                            "Custo": 214.12
+                                        },
+                                        {
+                                            "LojaId": 104,
+                                            "LocalArm": "",
+                                            "Quantidade": 1,
+                                            "QuantidadeReservado": 0,
+                                            "Custo": 214.12
+                                        },
+                                        {
+                                            "LojaId": 55,
+                                            "LocalArm": null,
+                                            "Quantidade": 3,
+                                            "QuantidadeReservado": 0,
+                                            "Custo": 214.12
+                                        }
+                                    ],
+                                    "Precos": [
+                                        {
+                                            "Codigo": "preco_crossdocking",
+                                            "Descricao": "Preço Crossdocking",
+                                            "Preco": 0
+                                        },
+                                        {
+                                            "Codigo": "preco_de_atacado",
+                                            "Descricao": "Preço de Atacado",
+                                            "Preco": 0
+                                        },
+                                        {
+                                            "Codigo": "preco_de_para",
+                                            "Descricao": "Preço de Para",
+                                            "Preco": 0
+                                        },
+                                        {
+                                            "Codigo": "preco_venda",
+                                            "Descricao": "Preço de venda padrão",
+                                            "Preco": 0
+                                        },
+                                        {
+                                            "Codigo": "preco_dropshipping",
+                                            "Descricao": "Preço Dropshipping",
+                                            "Preco": 0
+                                        },
+                                        {
+                                            "Codigo": "preco_normal",
+                                            "Descricao": "Preço Normal",
+                                            "Preco": 0
+                                        },
+                                        {
+                                            "Codigo": "preco_promocional_loja_integrada",
+                                            "Descricao": "Preço promocional Loja Integrada",
+                                            "Preco": 0
+                                        },
+                                        {
+                                            "Codigo": "preco_promocional",
+                                            "Descricao": "Preço promocional padrão",
+                                            "Preco": 0
+                                        },
+                                        {
+                                            "Codigo": "preco_revenda",
+                                            "Descricao": "Preço Revenda",
+                                            "Preco": 0
+                                        },
+                                        {
+                                            "Codigo": "preco_revenda_promocional",
+                                            "Descricao": "Preço Revenda Promocional",
+                                            "Preco": 0
+                                        }
+                                    ],
+                                    "Variacoes": [
+                                        {
+                                            "Sku": "ds_1444177_16"
+                                        },
+                                        {
+                                            "Sku": "ds_1444178_16"
+                                        },
+                                        {
+                                            "Sku": "ds_1444179_16"
+                                        },
+                                        {
+                                            "Sku": "ds_1444180_16"
+                                        },
+                                        {
+                                            "Sku": "ds_1444175_16"
+                                        },
+                                        {
+                                            "Sku": "ds_1444174_16"
+                                        },
+                                        {
+                                            "Sku": "ds_1444176_16"
+                                        },
+                                        {
+                                            "Sku": "ds_1444173_16"
+                                        }
+                                    ],
+                                    "ProdutoEanComplemento": [
+                                        "EAN01",
+                                        "EAN02"
+                                    ],
+                                    "Imagens": [
+                                        {
+                                            "Ordem": 0,
+                                            "Url": "https://backoffice-cdn.lexos.com.br/17/produto/j/a/2022090517110434362_unidades_-_2022-09-05t165402.594.png"
+                                        },
+                                        {
+                                            "Ordem": 1,
+                                            "Url": "https://backoffice-cdn.lexos.com.br/17/produto/j/a/202209051711042786setas_27.png"
+                                        },
+                                        {
+                                            "Ordem": 2,
+                                            "Url": "https://backoffice-cdn.lexos.com.br/17/produto/j/a/2022090517110409182_unidades_-_2022-09-05t165527.089.png"
+                                        },
+                                        {
+                                            "Ordem": 3,
+                                            "Url": "https://backoffice-cdn.lexos.com.br/17/produto/j/a/2022090517110454402_unidades_-_2022-09-05t165424.052.png"
+                                        },
+                                        {
+                                            "Ordem": 4,
+                                            "Url": "https://backoffice-cdn.lexos.com.br/17/produto/j/a/2022090517110456912_unidades_-_2022-09-05t165447.585.png"
+                                        },
+                                        {
+                                            "Ordem": 5,
+                                            "Url": "https://backoffice-cdn.lexos.com.br/17/produto/j/a/2022090517110408452_unidades_-_2022-09-05t171015.110.png"
+                                        },
+                                        {
+                                            "Ordem": 6,
+                                            "Url": "https://backoffice-cdn.lexos.com.br/17/produto/j/a/2022090517110471082_unidades_-_2022-09-05t165552.825.png"
+                                        },
+                                        {
+                                            "Ordem": 7,
+                                            "Url": "https://backoffice-cdn.lexos.com.br/17/produto/j/a/2022090517110373972_unidades_-_2022-09-05t165749.626.png"
+                                        },
+                                        {
+                                            "Ordem": 8,
+                                            "Url": "https://backoffice-cdn.lexos.com.br/17/produto/j/a/202209291036156913tabela_de_medidas_new_strike.png"
+                                        }
+                                    ],
+                                    "ProdutoImposto": {
+                                        "NCM": "1",
+                                        "Cest": "2",
+                                        "Origem": 3,
+                                        "AliqImportacao": 10,
+                                        "AliqNacional": 10,
+                                        "AliqEstadual": 10,
+                                        "AliqMunicipal": 10
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Erros de validação dos objetos e parâmetros informados."
+                    },
+                    "404": {
+                        "description": "Nenhum produto encontrado de acordo com os parâmetros fornecidos."
+                    }
+                }
+            }
+        },
+        "/ObterAnuncioPorProdutoId": {
+            "get": {
+                "summary": "/ObterAnuncioPorProdutoId",
+                "operationId": "obteranuncioporprodutoid",
+                "parameters": [
+                    {
+                        "name": "ProdutoId",
+                        "in": "query",
+                        "description": "ID do produto",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "JWT Bearer Token obtido no processo de autenticação",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Chave",
+                        "in": "header",
+                        "description": "Chave da integração no LexosHub",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "example": [
+                                    {
+                                        "AnuncioId": 6281468,
+                                        "ProdutoId": 3018978,
+                                        "Titulo": "Jaqueta Moto Masculina Com Proteção Impermeável + Rede Preta / L",
+                                        "UtilizarPrecoProduto": false,
+                                        "Preco": 250,
+                                        "PrecoPromocional": 0,
+                                        "QuantidadeDiasSemVenda": 0,
+                                        "AcrescimoFixo": 0,
+                                        "Estoque": 13,
+                                        "ValorFrete": 0,
+                                        "CustoFrete": 0,
+                                        "CustoMedio": 150.99,
+                                        "ValorRecebimento": 58.61,
+                                        "MediaComissao": 0,
+                                        "MargemLucro": 13.3204,
+                                        "Comissao": 74.8,
+                                        "Imposto": 39.6,
+                                        "CreatedOn": "2022-05-04T23:59:54.8400000+00:00",
+                                        "StatusAnuncio": "active",
+                                        "LinkAnuncio": "https://produto.mercadolivre.com.br/MLB-2632478733-jaqueta-moto-masculina-com-proteco-impermeavel-rede-_JM",
+                                        "SkuPlataforma": "JAQUETAPL+REDE",
+                                        "Plataforma": "meli",
+                                        "AnuncioIdPlataforma": "174474434596",
+                                        "IntegracaoDescricao": "Meli SJC",
+                                        "AlteracaoLimitada": false,
+                                        "Pausado": false,
+                                        "Sincronizar": true
+                                    },
+                                    {
+                                        "AnuncioId": 6281491,
+                                        "ProdutoId": 3018978,
+                                        "Titulo": "KIT JAQUETA MOTOCICLISTA PRETA L+ REDE",
+                                        "UtilizarPrecoProduto": false,
+                                        "Preco": 250,
+                                        "PrecoPromocional": 0,
+                                        "QuantidadeDiasSemVenda": 0,
+                                        "AcrescimoFixo": 0,
+                                        "Estoque": 13,
+                                        "ValorFrete": 0,
+                                        "CustoFrete": 0,
+                                        "CustoMedio": 266.99,
+                                        "ValorRecebimento": 88.51,
+                                        "MediaComissao": 0.2,
+                                        "MargemLucro": 19.6688,
+                                        "Comissao": 54,
+                                        "Imposto": 40.5,
+                                        "CreatedOn": "2022-05-05T00:03:22.6430000+00:00",
+                                        "StatusAnuncio": null,
+                                        "LinkAnuncio": null,
+                                        "SkuPlataforma": " JAQUETAPL+REDE",
+                                        "Plataforma": "shopee",
+                                        "AnuncioIdPlataforma": "192241267312",
+                                        "IntegracaoDescricao": "Shopee",
+                                        "AlteracaoLimitada": false,
+                                        "Pausado": false,
+                                        "Sincronizar": true
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Erros de validação dos objetos e parâmetros informados."
+                    },
+                    "404": {
+                        "description": "Nenhum anúncio encontrado de acordo com os parâmetros fornecidos."
+                    }
+                }
+            }
+        },
+        "/AtualizarPrecoAnuncio": {
+            "post": {
+                "summary": "/AtualizarPrecoAnuncio",
+                "description": "Esta API deve ser utilizada para atualização do preço de anúncios.\nO preço do produto não é afetado.",
+                "operationId": "atualizarprecoanuncio",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "JWT Bearer Token obtido no processo de autenticação",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Chave",
+                        "in": "header",
+                        "description": "Chave da integração no LexosHub",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AtualizarPrecoAnuncioRequest"
+                            },
+                            "example": [
+                                {
+                                    "anuncioId": 123456,
+                                    "preco": 199.99,
+                                    "precoPromocional": 159.99
+                                },
+                                {
+                                    "anuncioId": 654321,
+                                    "preco": 25.99,
+                                    "precoPromocional": 19.99
+                                }
+                            ]
+                        }
+                    }
+                },
+                "responses": {
+                    "202": {
+                        "description": "Indica que a requisição foi aceita e a atualização foi agendada."
+                    },
+                    "400": {
+                        "description": "Erros de validação dos objetos e parâmetros informados."
+                    },
+                    "404": {
+                        "description": "Nenhum anúncio encontrado de acordo com os parâmetros fornecidos."
+                    }
+                }
+            }
+        },
+        "/ObterAnuncioPorId": {
+            "get": {
+                "summary": "/ObterAnuncioPorId",
+                "operationId": "63f683d99f7eb5f7848af059",
+                "parameters": [
+                    {
+                        "name": "AnuncioId",
+                        "in": "query",
+                        "description": "ID do anúncio",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "JWT Bearer Token obtido no processo de autenticação",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Chave",
+                        "in": "header",
+                        "description": "Chave da integração no LexosHub",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "AnuncioId": 6281504,
+                                    "ProdutoId": 3018978,
+                                    "Titulo": "KIT JAQUETA MOTOCICLISTA PRETA L+ REDE",
+                                    "UtilizarPrecoProduto": false,
+                                    "Preco": 250,
+                                    "PrecoPromocional": 0,
+                                    "QuantidadeDiasSemVenda": 0,
+                                    "AcrescimoFixo": 0,
+                                    "Estoque": 12,
+                                    "ValorFrete": 0,
+                                    "CustoFrete": 0,
+                                    "CustoMedio": 150.99,
+                                    "ValorRecebimento": 100.81,
+                                    "MediaComissao": 0.18,
+                                    "MargemLucro": 55.9586,
+                                    "Comissao": 78.6,
+                                    "Imposto": 3.6,
+                                    "CreatedOn": "2022-05-05T00:04:18.2630000+00:00",
+                                    "StatusAnuncio": null,
+                                    "LinkAnuncio": null,
+                                    "SkuPlataforma": " JAQUETAPL+REDE",
+                                    "Plataforma": "sky_hub",
+                                    "AnuncioIdPlataforma": " JAQUETAPL+REDE",
+                                    "IntegracaoDescricao": "Meu B2W",
+                                    "AlteracaoLimitada": false,
+                                    "Pausado": false,
+                                    "Sincronizar": false
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Erros de validação dos objetos e parâmetros informados."
+                    },
+                    "404": {
+                        "description": "Nenhum anúncio encontrado de acordo com os parâmetros fornecidos."
+                    }
+                }
+            }
+        },
+        "/ObterProdutos": {
+            "get": {
+                "summary": "/ObterProdutos",
+                "operationId": "obterprodutos",
+                "parameters": [
+                    {
+                        "name": "Pagina",
+                        "in": "query",
+                        "description": "Índice da página",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "DataCriacao",
+                        "in": "query",
+                        "description": "Filtro por data de criação do produto. Formato YYYY-MM-DD hh:mm",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "JWT Bearer Token obtido no processo de autenticação",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Chave",
+                        "in": "header",
+                        "description": "Chave da integração no LexosHub",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "PaginaAtual": 10,
+                                    "TotalPaginas": 346,
+                                    "TotalRegistros": 17295,
+                                    "Produtos": [
+                                        {
+                                            "DataCriacao": "2019-10-27T21:26:12.0000000+00:00",
+                                            "Sku": "ds_64092_2",
+                                            "ProdutoId": 201425,
+                                            "Nome": "Telefone sem Fio Digital MOTO700 Preto MOTOROLA"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:26:42.0000000+00:00",
+                                            "Sku": "ds_6410_2",
+                                            "ProdutoId": 201426,
+                                            "Nome": "Pilha Mini 12V MN21 (Caixa c/6 pilhas) DURACELL - CXF / 6"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:27:09.0000000+00:00",
+                                            "Sku": "ds_6411_2",
+                                            "ProdutoId": 201427,
+                                            "Nome": "Pilha Alcalina D MN1300 cx c/12 pilhas c/2 pilhas DURACELLDZ"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:27:35.0000000+00:00",
+                                            "Sku": "ds_6412_2",
+                                            "ProdutoId": 201428,
+                                            "Nome": "Pilha Alcalina C MN1400 (Caixa c/16 pilhas) DURACELL - CXF"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:28:01.0000000+00:00",
+                                            "Sku": "ds_6413_2",
+                                            "ProdutoId": 201429,
+                                            "Nome": "Pilha Alcalina AA MN1500 (Caixa c/24 pilhas) DURACELL"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:28:28.0000000+00:00",
+                                            "Sku": "ds_6414_2",
+                                            "ProdutoId": 201430,
+                                            "Nome": "Pilha AAA Palito MN2400 (Caixa c/ 48 pilhas)(Cartela c/ 4 pilhas) DURACELL - CXF / 48"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:28:54.0000000+00:00",
+                                            "Sku": "ds_6415_2",
+                                            "ProdutoId": 201431,
+                                            "Nome": "Pilha Alcalina AA MN1500 (Caixa c/48 pilhas)(cartela c/4 pilhas) DURACELL - CXF / 48"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:29:21.0000000+00:00",
+                                            "Sku": "ds_6416_2",
+                                            "ProdutoId": 201432,
+                                            "Nome": "Bateria Alcalina 9V MN1604(CX c/12 baterias) DURACELL - DZ"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:29:48.0000000+00:00",
+                                            "Sku": "ds_6417_2",
+                                            "ProdutoId": 201433,
+                                            "Nome": "Pilha Alcalina AAA MN2400 (Caixa c/24 pilhas)DURACELL - CXF"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:30:17.0000000+00:00",
+                                            "Sku": "ds_64198_2",
+                                            "ProdutoId": 201434,
+                                            "Nome": "Barbeador Aquatouch S1030 Preto PHILIPS"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:30:49.0000000+00:00",
+                                            "Sku": "ds_64199_2",
+                                            "ProdutoId": 201435,
+                                            "Nome": "Aparador de Pelos Multigroom 6x1 MG3711/15 Preto PHILIPS"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:31:24.0000000+00:00",
+                                            "Sku": "ds_6426_2",
+                                            "ProdutoId": 201436,
+                                            "Nome": "Pilha Alcalina AAA LR03XAB/2B1 (Cartela c/ 2 pilhas)"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:31:49.0000000+00:00",
+                                            "Sku": "ds_6429_2",
+                                            "ProdutoId": 201437,
+                                            "Nome": "Bateria Alcalina 9V 6LF22XAB/1B24 (Cartela c/ 1 bateria) CXF"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:32:14.0000000+00:00",
+                                            "Sku": "ds_6436_2",
+                                            "ProdutoId": 201438,
+                                            "Nome": "Pilha Zinco AA UM3SH (Cartela c/4 unid.) PANASONIC - CAR / 4"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:32:40.0000000+00:00",
+                                            "Sku": "ds_64366_2",
+                                            "ProdutoId": 201439,
+                                            "Nome": "Fone Esportivo Bluetooth Wireless SHQ6500CL/00 Preto/Verde"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:33:11.0000000+00:00",
+                                            "Sku": "ds_64383_2",
+                                            "ProdutoId": 201440,
+                                            "Nome": "Mouse Gamer Pro M1 RGB Preto FORTREK"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:33:42.0000000+00:00",
+                                            "Sku": "ds_64384_2",
+                                            "ProdutoId": 201441,
+                                            "Nome": "Mouse Gamer PRO M3 RGB Preto FORTREK"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:34:14.0000000+00:00",
+                                            "Sku": "ds_64385_2",
+                                            "ProdutoId": 201442,
+                                            "Nome": "Mouse Gamer PRO M5 RGB Preto FORTREK"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:34:46.0000000+00:00",
+                                            "Sku": "ds_64386_2",
+                                            "ProdutoId": 201443,
+                                            "Nome": "Mouse Gamer PRO M7 RGB Preto FORTREK - New"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:35:20.0000000+00:00",
+                                            "Sku": "ds_64389_2",
+                                            "ProdutoId": 201444,
+                                            "Nome": "Teclado Gamer Pro K1 RGB Preto FORTREK Garantia 180 Dias"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:35:52.0000000+00:00",
+                                            "Sku": "ds_6439_2",
+                                            "ProdutoId": 201445,
+                                            "Nome": "Pilha Moeda CR2032 (Cartela c/ 5 unid.) PANASONIC - CAR / 5"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:36:18.0000000+00:00",
+                                            "Sku": "ds_64390_2",
+                                            "ProdutoId": 201446,
+                                            "Nome": "Headset Gamer Pro H2 Preto FORTREK"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:36:48.0000000+00:00",
+                                            "Sku": "ds_64391_2",
+                                            "ProdutoId": 201447,
+                                            "Nome": "Headset Gamer RGB H1 PRO Cinza FORTREK"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:37:19.0000000+00:00",
+                                            "Sku": "ds_64452_2",
+                                            "ProdutoId": 201448,
+                                            "Nome": "Kit Palhetas c/200 Sortidas HARMONICS"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:37:51.0000000+00:00",
+                                            "Sku": "ds_64471_2",
+                                            "ProdutoId": 201449,
+                                            "Nome": "Teclado Gamer Pro K3 RGB Preto FORTREK"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:38:28.0000000+00:00",
+                                            "Sku": "ds_64532_2",
+                                            "ProdutoId": 201450,
+                                            "Nome": "Cooler Para CPU 95x95x51mm CLR-101 FORTREK"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:38:54.0000000+00:00",
+                                            "Sku": "ds_64533_2",
+                                            "ProdutoId": 201451,
+                                            "Nome": "Cooler Para CPU 80x80x55mm CLR-102 FORTREK"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:39:23.0000000+00:00",
+                                            "Sku": "ds_64618_2",
+                                            "ProdutoId": 201452,
+                                            "Nome": "Alicate Amperimetro Digital ET3367C Azul MINIPA"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:39:48.0000000+00:00",
+                                            "Sku": "ds_64633_2",
+                                            "ProdutoId": 201453,
+                                            "Nome": "Afinador Clip CromáticoTH-101 HARMONICS"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:40:23.0000000+00:00",
+                                            "Sku": "ds_64635_2",
+                                            "ProdutoId": 201454,
+                                            "Nome": "Braçadeira Capotraste CH-101SV Prata HARMONICS"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:40:50.0000000+00:00",
+                                            "Sku": "ds_64636_2",
+                                            "ProdutoId": 201455,
+                                            "Nome": "Braçadeira Capotraste CH-101BK Preto HARMONICS"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:41:18.0000000+00:00",
+                                            "Sku": "ds_64684_2",
+                                            "ProdutoId": 201456,
+                                            "Nome": "Pilha Recarregavel AA 1000mAh NiMh NH-AA-B2RN Sony 2"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:41:48.0000000+00:00",
+                                            "Sku": "ds_64685_2",
+                                            "ProdutoId": 201457,
+                                            "Nome": "Pilha Recarregavel AA 2500mAh NiMh NH-AA-B2GN Sony"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:42:18.0000000+00:00",
+                                            "Sku": "ds_64686_2",
+                                            "ProdutoId": 201458,
+                                            "Nome": "Pilha Recarregavel AA 2500mAh NiMh Sony cartela c/4 pilhas"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:42:48.0000000+00:00",
+                                            "Sku": "ds_64687_2",
+                                            "ProdutoId": 201459,
+                                            "Nome": "Pilha Recarregavel AAA 900mAh NiMh NH-AAA-B2GN Sony 2"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:43:21.0000000+00:00",
+                                            "Sku": "ds_64688_2",
+                                            "ProdutoId": 201460,
+                                            "Nome": "Pilha Recarregavel AAA 900mAh NiMh Sony cartela c/4 pilhas"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:43:53.0000000+00:00",
+                                            "Sku": "ds_64729_2",
+                                            "ProdutoId": 201461,
+                                            "Nome": "Calculadora com Bobina Compacta HR150RC-B Preto CASIO"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:44:20.0000000+00:00",
+                                            "Sku": "ds_64734_2",
+                                            "ProdutoId": 201462,
+                                            "Nome": "Fonte Chaveada P/ Teclado Casio 9VDC 1A 9W P4 C- FTZM9I"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:44:49.0000000+00:00",
+                                            "Sku": "ds_64740_2",
+                                            "ProdutoId": 201463,
+                                            "Nome": "Fonte Chaveada 9VDC 2A 18W P4 C+ FCTP9002I Bivolt HAYONIK"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:45:18.0000000+00:00",
+                                            "Sku": "ds_64799_2",
+                                            "ProdutoId": 201464,
+                                            "Nome": "Conector RJ45 Macho 112 CAT6 FORTREK - BLI / 100"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:45:44.0000000+00:00",
+                                            "Sku": "ds_64802_2",
+                                            "ProdutoId": 201465,
+                                            "Nome": "Fonte ATX KCAS 600W 80 Plus Bronze PFC Ativo AEROCOOL"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:46:11.0000000+00:00",
+                                            "Sku": "ds_64810_2",
+                                            "ProdutoId": 201466,
+                                            "Nome": "Cabo De Força p/ Computador 10A 1,2Mt TRIPOLAR Preto X-CELL"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:46:37.0000000+00:00",
+                                            "Sku": "ds_64854_2",
+                                            "ProdutoId": 201467,
+                                            "Nome": "Caixa Acústica Ativa 600W CPA 15600 HAYONIK"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:47:11.0000000+00:00",
+                                            "Sku": "ds_64855_2",
+                                            "ProdutoId": 201468,
+                                            "Nome": "Caixa Acústica Ativa 400W CPA 12400 HAYONIK"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:47:40.0000000+00:00",
+                                            "Sku": "ds_64901_2",
+                                            "ProdutoId": 201469,
+                                            "Nome": "Fonte ATX KCAS 400W Full Range 80 Plus White PFC Ativo"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:48:35.0000000+00:00",
+                                            "Sku": "ds_64904_2",
+                                            "ProdutoId": 201471,
+                                            "Nome": "Violão Eletroacústico Aço APX600 Old Violin Sunburst YAMAHA"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:49:00.0000000+00:00",
+                                            "Sku": "ds_65015_2",
+                                            "ProdutoId": 201472,
+                                            "Nome": "Pendrive Nano 8GB PD053 Preto MULTILASER"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:49:28.0000000+00:00",
+                                            "Sku": "ds_65029_2",
+                                            "ProdutoId": 201473,
+                                            "Nome": "Pedestal para Microfone Girafa TPS Preto ASK"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:49:58.0000000+00:00",
+                                            "Sku": "ds_65048_2",
+                                            "ProdutoId": 201474,
+                                            "Nome": "Cooler para Processador VERKHO 2 Preto AEROCOOL"
+                                        },
+                                        {
+                                            "DataCriacao": "2019-10-27T21:50:30.0000000+00:00",
+                                            "Sku": "ds_65100_2",
+                                            "ProdutoId": 201475,
+                                            "Nome": "Roteador Wireless 750MBPS Dual Band DIR-819 Preto DLINK"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Erros de validação dos objetos e parâmetros informados."
+                    },
+                    "404": {
+                        "description": "Nenhum anúncio encontrado de acordo com os parâmetros fornecidos."
+                    }
+                }
+            }
+        },
+        "/ObterAnuncioPorAnuncioIdPlataforma": {
+            "get": {
+                "summary": "/ObterAnuncioPorAnuncioIdPlataforma",
+                "operationId": "obteranuncioporanuncioidplataforma",
+                "parameters": [
+                    {
+                        "name": "AnuncioIdPlataforma",
+                        "in": "query",
+                        "description": "Id do anúncio na plataforma",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "JWT Bearer Token obtido no processo de autenticação",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Chave",
+                        "in": "header",
+                        "description": "Chave da integração no LexosHub",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "example": [
+                                    {
+                                        "AnuncioId": 12885839,
+                                        "ProdutoId": 5783727,
+                                        "Titulo": "Papel De Bem Casado Casamento Dourada 15x15 40unid ",
+                                        "UtilizarPrecoProduto": true,
+                                        "Preco": 9.9,
+                                        "PrecoPromocional": 0,
+                                        "QuantidadeDiasSemVenda": -1,
+                                        "AcrescimoFixo": 0,
+                                        "Estoque": 7,
+                                        "ValorFrete": 0,
+                                        "CustoFrete": 0,
+                                        "CustoMedio": 0,
+                                        "ValorRecebimento": null,
+                                        "MediaComissao": 0,
+                                        "MargemLucro": null,
+                                        "Comissao": 0,
+                                        "Imposto": 0,
+                                        "CreatedOn": "2023-04-14T15:09:35.2900000+00:00",
+                                        "StatusAnuncio": null,
+                                        "LinkAnuncio": "https://app.lojaintegrada.com.br/painel/catalogo/produto/212653190/editar",
+                                        "SkuPlataforma": "588584",
+                                        "Plataforma": "lojaintegrada",
+                                        "AnuncioIdPlataforma": "212653190",
+                                        "IntegracaoDescricao": "Loja Integrada Sanja Festas",
+                                        "AlteracaoLimitada": false,
+                                        "Pausado": false,
+                                        "Sincronizar": true
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Erros de validação dos objetos e parâmetros informados."
+                    },
+                    "404": {
+                        "description": "Nenhum anúncio encontrado de acordo com os parâmetros fornecidos."
+                    }
+                }
+            }
+        },
+        "/{ProdutoId}/OutrosEans": {
+            "delete": {
+                "summary": "/{ProdutoId}/OutrosEans",
+                "operationId": "produtoid-outroseans",
+                "parameters": [
+                    {
+                        "name": "ProdutoId",
+                        "in": "path",
+                        "description": "Id do produto",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "JWT Bearer Token obtido no processo de autenticação",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Chave",
+                        "in": "header",
+                        "description": "Chave da integração no LexosHub",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Lista de EANs a ser inserido ao produto",
+                    "content": {
+                        "application/json": {
+                            "example": {
+                                "eans": [
+                                    "EAN001",
+                                    "EAN002",
+                                    "EAN003"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Indica que a requisição foi processada com sucesso.",
+                        "content": {
+                            "text": {
+                                "example": "Lista com detalhamento do processamento e formato string"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Erros de validação dos objetos e parâmetros informados."
+                    },
+                    "404": {
+                        "description": "Nenhum produto encontrado de acordo com os parâmetros fornecidos."
+                    }
+                }
+            },
+            "post": {
+                "summary": "/{ProdutoId}/OutrosEans",
+                "operationId": "produtoid-outroseanspost",
+                "parameters": [
+                    {
+                        "name": "ProdutoId",
+                        "in": "path",
+                        "description": "Id do produto",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "JWT Bearer Token obtido no processo de autenticação",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Chave",
+                        "in": "header",
+                        "description": "Chave da integração no LexosHub",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Lista de EANs a ser inserido ao produto",
+                    "content": {
+                        "application/json": {
+                            "example": {
+                                "eans": [
+                                    "EAN001",
+                                    "EAN002",
+                                    "EAN003"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Indica que a requisição foi processada com sucesso.",
+                        "content": {
+                            "text": {
+                                "example": "Lista com detalhamento do processamento e formato string"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Erros de validação dos objetos e parâmetros informados."
+                    },
+                    "404": {
+                        "description": "Nenhum produto encontrado de acordo com os parâmetros fornecidos."
+                    }
+                }
+            }
+        },
+        "/IncluirImagens/{produtoId}": {
+            "post": {
+                "summary": "/IncluirImagens/{produtoId}",
+                "description": "Utilizado para inserir imagens em produtos.",
+                "operationId": "out-incluirimagens-produtoid",
+                "parameters": [
+                    {
+                        "name": "produtoId",
+                        "in": "path",
+                        "description": "Id do produto",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "JWT Bearer Token obtido no processo de autenticação",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Chave",
+                        "in": "header",
+                        "description": "Chave da integração no LexosHub",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/IncluirImagensRequestView"
+                            },
+                            "example": [
+                                {
+                                    "url": "https://URL",
+                                    "isThumbnail": true,
+                                    "position": 1,
+                                    "atributoOpcaoId": 1526,
+                                    "produtoIdVariacao": 256001,
+                                    "skuVariacao": "SKU-VARIACAO-AZUL"
+                                },
+                                {
+                                    "url": "https://URL",
+                                    "isThumbnail": false,
+                                    "position": 2,
+                                    "atributoOpcaoId": 1527,
+                                    "produtoIdVariacao": 256002,
+                                    "skuVariacao": "SKU-VARIACAO-VERDE"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": ""
+                    },
+                    "400": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "GetProdutoView": {
+                "type": "object",
+                "properties": {
+                    "ProdutoId": {
+                        "type": "integer"
+                    },
+                    "ProdutoIdGlobal": {},
+                    "ProdutoConfiguravelId": {},
+                    "ProdutoTipoId": {
+                        "type": "string"
+                    },
+                    "UtilizarInformacaoDoProdutoPai": {
+                        "type": "boolean"
+                    },
+                    "Sku": {
+                        "type": "string"
+                    },
+                    "Ean": {},
+                    "Nome": {
+                        "type": "string"
+                    },
+                    "Unidade": {},
+                    "Peso": {
+                        "type": "integer"
+                    },
+                    "Comprimento": {
+                        "type": "integer"
+                    },
+                    "Largura": {
+                        "type": "integer"
+                    },
+                    "Altura": {
+                        "type": "integer"
+                    },
+                    "DescricaoResumida": {},
+                    "Descricao": {
+                        "type": "string"
+                    },
+                    "URL": {
+                        "type": "string"
+                    },
+                    "MetaTitle": {},
+                    "MetaDescription": {},
+                    "CalcularEstoqueComposicao": {},
+                    "Deleted": {
+                        "type": "boolean"
+                    },
+                    "CreatedOn": {
+                        "type": "string"
+                    },
+                    "UpdatedOn": {
+                        "type": "string"
+                    },
+                    "TenantId": {
+                        "type": "integer"
+                    },
+                    "CategoriaMercadoLivreId": {
+                        "type": "string"
+                    },
+                    "CategoriaMercadoLivre": {
+                        "type": "string"
+                    },
+                    "CategoriaVtex": {},
+                    "CategoriaVtexId": {},
+                    "CategoriaERP": {},
+                    "VideoURL": {
+                        "type": "string"
+                    },
+                    "FornecedorDropShippingId": {},
+                    "IntegracaoOrigemId": {},
+                    "DateVersion": {
+                        "type": "string"
+                    },
+                    "ProdutoConfiguravel": {},
+                    "ProdutoTipo": {},
+                    "ProdutoImposto": {
+                        "type": "object",
+                        "properties": {
+                            "ProdutoId": {
+                                "type": "integer"
+                            },
+                            "NCM": {},
+                            "Cest": {},
+                            "Origem": {
+                                "type": "integer"
+                            },
+                            "AliqImportacao": {
+                                "type": "integer"
+                            },
+                            "AliqNacional": {
+                                "type": "integer"
+                            },
+                            "AliqEstadual": {
+                                "type": "integer"
+                            },
+                            "AliqMunicipal": {
+                                "type": "integer"
+                            },
+                            "BCICMSST_Retido": {
+                                "type": "integer"
+                            },
+                            "ICMSST_Retido": {
+                                "type": "integer"
+                            },
+                            "ICMSSubstituto": {
+                                "type": "integer"
+                            },
+                            "Produto": {},
+                            "IsValid": {
+                                "type": "boolean"
+                            },
+                            "IgnoreTenant": {
+                                "type": "boolean"
+                            }
+                        }
+                    },
+                    "FornecedorDropShipping": {},
+                    "Integracao": {},
+                    "Tenant": {},
+                    "Anuncio": {
+                        "type": "object",
+                        "items": {
+                            "required": [
+                                "AnuncioId",
+                                "SkuPlataforma",
+                                "ProdutoId",
+                                "IntegracaoId",
+                                "QuantidadeVendido",
+                                "QuantidadeVisitas",
+                                "QuantidadeDiasDisponibilidadeEstoque",
+                                "Titulo",
+                                "TipoId",
+                                "UtilizarDadosProduto",
+                                "UtilizarEstoqueProduto",
+                                "UtilizarPrecoProduto",
+                                "UtilizarImagemProduto",
+                                "Descricao",
+                                "Preco",
+                                "PrecoBase",
+                                "PrecoPromocional",
+                                "AcrescimoPorcentagem",
+                                "AcrescimoFixo",
+                                "Estoque",
+                                "EstoqueMascara",
+                                "Deleted",
+                                "CreatedOn",
+                                "UpdatedOn",
+                                "NaoExibir",
+                                "AnuncioPaiId",
+                                "LinkAnuncio",
+                                "PausarAnuncioAoZerarEstoqueReal",
+                                "Pausado",
+                                "PausadoPlataforma",
+                                "ValorFrete",
+                                "UltimoRetorno",
+                                "LinkImagem",
+                                "Sincronizar",
+                                "AlteracaoLimitada",
+                                "EAN",
+                                "TemplateAnuncioId",
+                                "Status",
+                                "Plataforma",
+                                "PrecoAtual",
+                                "TituloAtual",
+                                "EstoqueAtual",
+                                "AnuncioIdPlataforma",
+                                "ProdutoTipoId",
+                                "SkuProduto",
+                                "IntegracaoDescricao",
+                                "TipoAnuncio",
+                                "TenantId",
+                                "NomeProduto",
+                                "IntegracaoLojaOficialId",
+                                "AnuncioPai",
+                                "Integracao",
+                                "Produto",
+                                "PedidoItem",
+                                "Tipo",
+                                "StatusNavigation",
+                                "AnuncioBling",
+                                "AnuncioMeli",
+                                "AnuncioPlataforma",
+                                "AnuncioWooCommerce",
+                                "AnuncioSimplo7",
+                                "AnuncioMagento",
+                                "AnuncioTray",
+                                "AnuncioTrayCorp",
+                                "AnuncioVtex",
+                                "AnuncioCarrefour",
+                                "TemplateAnuncio",
+                                "AnuncioViaVarejo",
+                                "AnuncioIntegraCommerce",
+                                "AnuncioLojaIntegrada",
+                                "AnuncioJetNeo",
+                                "AnuncioSkyhub",
+                                "LojaOficial",
+                                "AnuncioImagem",
+                                "CargaItemAnuncio",
+                                "AnunciosFilhos",
+                                "IsValid",
+                                "IgnoreTenant",
+                                "Errors"
+                            ],
+                            "type": "object",
+                            "properties": {
+                                "AnuncioId": {
+                                    "type": "integer"
+                                },
+                                "SkuPlataforma": {
+                                    "type": "string"
+                                },
+                                "ProdutoId": {
+                                    "type": "integer"
+                                },
+                                "IntegracaoId": {
+                                    "type": "integer"
+                                },
+                                "QuantidadeVendido": {
+                                    "type": "integer"
+                                },
+                                "QuantidadeVisitas": {
+                                    "type": "integer"
+                                },
+                                "QuantidadeDiasDisponibilidadeEstoque": {
+                                    "type": "integer"
+                                },
+                                "Titulo": {
+                                    "type": "string"
+                                },
+                                "TipoId": {
+                                    "type": "string"
+                                },
+                                "UtilizarDadosProduto": {
+                                    "type": "boolean"
+                                },
+                                "UtilizarEstoqueProduto": {
+                                    "type": "boolean"
+                                },
+                                "UtilizarPrecoProduto": {
+                                    "type": "boolean"
+                                },
+                                "UtilizarImagemProduto": {
+                                    "type": "boolean"
+                                },
+                                "Descricao": {},
+                                "Preco": {
+                                    "type": "number"
+                                },
+                                "PrecoBase": {
+                                    "type": "number"
+                                },
+                                "PrecoPromocional": {
+                                    "type": "number"
+                                },
+                                "AcrescimoPorcentagem": {},
+                                "AcrescimoFixo": {},
+                                "Estoque": {},
+                                "EstoqueMascara": {},
+                                "Deleted": {
+                                    "type": "boolean"
+                                },
+                                "CreatedOn": {
+                                    "type": "string"
+                                },
+                                "UpdatedOn": {
+                                    "type": "string"
+                                },
+                                "NaoExibir": {
+                                    "type": "boolean"
+                                },
+                                "AnuncioPaiId": {},
+                                "LinkAnuncio": {},
+                                "PausarAnuncioAoZerarEstoqueReal": {
+                                    "type": "boolean"
+                                },
+                                "Pausado": {
+                                    "type": "boolean"
+                                },
+                                "PausadoPlataforma": {
+                                    "type": "boolean"
+                                },
+                                "ValorFrete": {
+                                    "type": "number"
+                                },
+                                "UltimoRetorno": {
+                                    "type": "string"
+                                },
+                                "LinkImagem": {},
+                                "Sincronizar": {
+                                    "type": "boolean"
+                                },
+                                "AlteracaoLimitada": {
+                                    "type": "boolean"
+                                },
+                                "EAN": {},
+                                "TemplateAnuncioId": {},
+                                "Status": {
+                                    "type": "string"
+                                },
+                                "Plataforma": {
+                                    "type": "string"
+                                },
+                                "PrecoAtual": {},
+                                "TituloAtual": {
+                                    "type": "string"
+                                },
+                                "EstoqueAtual": {
+                                    "type": "string"
+                                },
+                                "AnuncioIdPlataforma": {},
+                                "ProdutoTipoId": {
+                                    "type": "string"
+                                },
+                                "SkuProduto": {
+                                    "type": "string"
+                                },
+                                "IntegracaoDescricao": {
+                                    "type": "string"
+                                },
+                                "TipoAnuncio": {
+                                    "type": "string"
+                                },
+                                "TenantId": {
+                                    "type": "integer"
+                                },
+                                "NomeProduto": {},
+                                "IntegracaoLojaOficialId": {
+                                    "type": "integer"
+                                },
+                                "AnuncioPai": {},
+                                "Integracao": {},
+                                "Produto": {},
+                                "PedidoItem": {},
+                                "Tipo": {},
+                                "StatusNavigation": {},
+                                "AnuncioBling": {},
+                                "AnuncioMeli": {
+                                    "type": "object",
+                                    "properties": {
+                                        "AnuncioId": {
+                                            "type": "integer"
+                                        },
+                                        "MeliAnuncioId": {},
+                                        "MeliModoDeEnvioId": {
+                                            "type": "integer"
+                                        },
+                                        "StatusAnuncio": {},
+                                        "TipoAnuncio": {
+                                            "type": "string"
+                                        },
+                                        "CategoriaMeliId": {
+                                            "type": "string"
+                                        },
+                                        "CategoriaMeliNome": {
+                                            "type": "string"
+                                        },
+                                        "Health": {
+                                            "type": "integer"
+                                        },
+                                        "Tags": {},
+                                        "SubStatusAnuncio": {},
+                                        "ValorFrete": {
+                                            "type": "integer"
+                                        },
+                                        "CustoArmazenamentoFull": {
+                                            "type": "integer"
+                                        },
+                                        "LimiteUnidadesPorVenda": {
+                                            "type": "integer"
+                                        },
+                                        "LocalPickUp": {
+                                            "type": "boolean"
+                                        },
+                                        "FreeShipping": {
+                                            "type": "boolean"
+                                        },
+                                        "CatalogListing": {
+                                            "type": "boolean"
+                                        },
+                                        "Condition": {},
+                                        "CatalogProductId": {},
+                                        "LogisticType": {},
+                                        "TagsShipping": {},
+                                        "StorePickUp": {
+                                            "type": "boolean"
+                                        },
+                                        "DateCreated": {},
+                                        "LastUpdated": {},
+                                        "Anuncio": {},
+                                        "MeliModoDeEnvio": {},
+                                        "StatusAnuncioNavigation": {},
+                                        "TipoAnuncioNavigation": {},
+                                        "IsValid": {
+                                            "type": "boolean"
+                                        },
+                                        "IgnoreTenant": {
+                                            "type": "boolean"
+                                        }
+                                    }
+                                },
+                                "AnuncioPlataforma": {},
+                                "AnuncioWooCommerce": {},
+                                "AnuncioSimplo7": {},
+                                "AnuncioMagento": {},
+                                "AnuncioTray": {},
+                                "AnuncioTrayCorp": {},
+                                "AnuncioVtex": {},
+                                "AnuncioCarrefour": {},
+                                "TemplateAnuncio": {},
+                                "AnuncioViaVarejo": {},
+                                "AnuncioIntegraCommerce": {},
+                                "AnuncioLojaIntegrada": {},
+                                "AnuncioJetNeo": {},
+                                "AnuncioSkyhub": {},
+                                "LojaOficial": {},
+                                "AnuncioImagem": [{
+                                    "type": "array"
+                                }],
+                                "CargaItemAnuncio":[ {
+                                    "type": "array"
+                                }],
+                                "AnunciosFilhos": [{
+                                    "type": "array"
+                                }],
+                                "IsValid": {
+                                    "type": "boolean"
+                                },
+                                "IgnoreTenant": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    },
+                    "ClassificacaoProduto": [{
+                        "type": "array"
+                    }],
+                    "CategoriaProduto": {
+                        "type": "array",
+                        "items": {
+                            "required": [
+                                "CategoriaProdutoId",
+                                "CategoriaId",
+                                "ProdutoId",
+                                "Posicao",
+                                "IsPrincipal",
+                                "MachineLearning",
+                                "CodigoPlataforma",
+                                "CategoriaDescricao",
+                                "CategoriaIdPlataforma",
+                                "PlataformaId",
+                                "FullPath",
+                                "Obsoleto",
+                                "Categoria",
+                                "Produto",
+                                "IsValid",
+                                "IgnoreTenant",
+                                "Errors"
+                            ],
+                            "type": "object",
+                            "properties": {
+                                "CategoriaProdutoId": {
+                                    "type": "integer"
+                                },
+                                "CategoriaId": {
+                                    "type": "integer"
+                                },
+                                "ProdutoId": {
+                                    "type": "integer"
+                                },
+                                "Posicao": {
+                                    "type": "integer"
+                                },
+                                "IsPrincipal": {
+                                    "type": "boolean"
+                                },
+                                "MachineLearning": {},
+                                "CodigoPlataforma": {
+                                    "type": "string"
+                                },
+                                "CategoriaDescricao": {
+                                    "type": "string"
+                                },
+                                "CategoriaIdPlataforma": {
+                                    "type": "string"
+                                },
+                                "PlataformaId": {
+                                    "type": "integer"
+                                },
+                                "FullPath": {
+                                    "type": "string"
+                                },
+                                "Obsoleto": {
+                                    "type": "boolean"
+                                },
+                                "Categoria": {},
+                                "Produto": {},
+                                "IsValid": {
+                                    "type": "boolean"
+                                },
+                                "IgnoreTenant": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    },
+                    "Variacoes": {
+                        "type": "array",
+                        "items": {
+                            "required": [
+                                "ProdutoId",
+                                "ProdutoIdGlobal",
+                                "ProdutoConfiguravelId",
+                                "ProdutoTipoId",
+                                "UtilizarInformacaoDoProdutoPai",
+                                "Sku",
+                                "Ean",
+                                "Nome",
+                                "Unidade",
+                                "Peso",
+                                "Comprimento",
+                                "Largura",
+                                "Altura",
+                                "DescricaoResumida",
+                                "Descricao",
+                                "URL",
+                                "MetaTitle",
+                                "MetaDescription",
+                                "CalcularEstoqueComposicao",
+                                "Deleted",
+                                "CreatedOn",
+                                "UpdatedOn",
+                                "TenantId",
+                                "CategoriaMercadoLivreId",
+                                "CategoriaMercadoLivre",
+                                "CategoriaVtex",
+                                "CategoriaVtexId",
+                                "CategoriaERP",
+                                "VideoURL",
+                                "FornecedorDropShippingId",
+                                "IntegracaoOrigemId",
+                                "DateVersion",
+                                "ProdutoConfiguravel",
+                                "ProdutoTipo",
+                                "ProdutoImposto",
+                                "FornecedorDropShipping",
+                                "Integracao",
+                                "Tenant",
+                                "Anuncio",
+                                "ClassificacaoProduto",
+                                "CategoriaProduto",
+                                "Variacoes",
+                                "ProdutoAtributoVariacao",
+                                "ProdutoAtributoOpcao",
+                                "ProdutoComposicaoProduto",
+                                "ProdutoComposicaoProdutoComposto",
+                                "ProdutoEstoque",
+                                "ProdutoPreco",
+                                "ProdutoImagem",
+                                "LogEventoProduto",
+                                "ProdutoImagemGlobal",
+                                "PedidoItem",
+                                "ProdutoTimeline",
+                                "PedidoTimeline",
+                                "ProdutoReferencia",
+                                "EstoqueLojas",
+                                "IntegracaoCategoriaObrigatoria",
+                                "PrecoAtualIntegracao",
+                                "Quantidade",
+                                "QuantidadeEstoqueLojas",
+                                "ProdutoAtributoOpcaoFichaTecnica",
+                                "ProdutoAtributoOpcaoVariacao",
+                                "CategoriaJetNeo",
+                                "CategoriasFrontEnd",
+                                "CategoriaVinculadas",
+                                "Origem",
+                                "Preco",
+                                "ValoresVariacoes",
+                                "IntegradoComErp",
+                                "IsValid",
+                                "IgnoreTenant",
+                                "Errors"
+                            ],
+                            "type": "object",
+                            "properties": {
+                                "ProdutoId": {
+                                    "type": "integer"
+                                },
+                                "ProdutoIdGlobal": {},
+                                "ProdutoConfiguravelId": {
+                                    "type": "integer"
+                                },
+                                "ProdutoTipoId": {},
+                                "UtilizarInformacaoDoProdutoPai": {
+                                    "type": "boolean"
+                                },
+                                "Sku": {
+                                    "type": "string"
+                                },
+                                "Ean": {
+                                    "type": "string"
+                                },
+                                "Nome": {
+                                    "type": "string"
+                                },
+                                "Unidade": {
+                                    "type": "string"
+                                },
+                                "Peso": {
+                                    "type": "integer"
+                                },
+                                "Comprimento": {
+                                    "type": "integer"
+                                },
+                                "Largura": {
+                                    "type": "integer"
+                                },
+                                "Altura": {
+                                    "type": "integer"
+                                },
+                                "DescricaoResumida": {},
+                                "Descricao": {},
+                                "URL": {
+                                    "type": "string"
+                                },
+                                "MetaTitle": {},
+                                "MetaDescription": {},
+                                "CalcularEstoqueComposicao": {},
+                                "Deleted": {
+                                    "type": "boolean"
+                                },
+                                "CreatedOn": {
+                                    "type": "string"
+                                },
+                                "UpdatedOn": {
+                                    "type": "string"
+                                },
+                                "TenantId": {
+                                    "type": "integer"
+                                },
+                                "CategoriaMercadoLivreId": {},
+                                "CategoriaMercadoLivre": {
+                                    "type": "string"
+                                },
+                                "CategoriaVtex": {},
+                                "CategoriaVtexId": {},
+                                "CategoriaERP": {},
+                                "VideoURL": {},
+                                "FornecedorDropShippingId": {},
+                                "IntegracaoOrigemId": {},
+                                "DateVersion": {
+                                    "type": "string"
+                                },
+                                "ProdutoConfiguravel": {},
+                                "ProdutoTipo": {},
+                                "ProdutoImposto": {},
+                                "FornecedorDropShipping": {},
+                                "Integracao": {},
+                                "Tenant": {},
+                                "Anuncio": [{
+                                    "type": "array"
+                                }],
+                                "ClassificacaoProduto": [{
+                                    "type": "array"
+                                }],
+                                "CategoriaProduto": [{
+                                    "type": "array"
+                                }],
+                                "Variacoes": [{
+                                    "type": "array"
+                                }],
+                                "ProdutoAtributoVariacao": [{
+                                    "type": "array"
+                                }],
+                                "ProdutoAtributoOpcao": {
+                                    "type": "array",
+                                    "items": {
+                                        "required": [
+                                            "ProdutoAtributoOpcaoId",
+                                            "ProdutoId",
+                                            "AtributoId",
+                                            "AtributoOpcaoId",
+                                            "AtributoCodigo",
+                                            "AtributoDescricao",
+                                            "Valor",
+                                            "TipoCampoId",
+                                            "IsCatalogoObrigatorio",
+                                            "AtributoOpcaoExternoId",
+                                            "Relevancia",
+                                            "IsVariacao",
+                                            "AtributoUnidadeId",
+                                            "IsNaoSeAplica",
+                                            "IsValorCustomizado",
+                                            "IsFichaTecnica",
+                                            "IsObsoleto",
+                                            "AtributoTipoCodigo",
+                                            "ValoresMultiSelecao",
+                                            "IsValorAlterado",
+                                            "IsDesconsiderarAtributo",
+                                            "IsObrigatorio",
+                                            "IsObrigatorioQuandoInformado",
+                                            "IsVariacaoConfiguravel",
+                                            "ShowNaoSeAplica",
+                                            "TenantIdDoValor",
+                                            "ValorIdPlataforma",
+                                            "IsDesabilitarNoFrontEnd",
+                                            "IsAtributoCustomizado",
+                                            "IsImagemVariacao",
+                                            "PlataformaId",
+                                            "CodigoExterno",
+                                            "IsVariacaoComplementar",
+                                            "Atributo",
+                                            "AtributoOpcao",
+                                            "Produto",
+                                            "AtributoUnidade",
+                                            "IsValid",
+                                            "IgnoreTenant",
+                                            "Errors"
+                                        ],
+                                        "type": "object",
+                                        "properties": {
+                                            "ProdutoAtributoOpcaoId": {
+                                                "type": "integer"
+                                            },
+                                            "ProdutoId": {
+                                                "type": "integer"
+                                            },
+                                            "AtributoId": {
+                                                "type": "integer"
+                                            },
+                                            "AtributoOpcaoId": {
+                                                "type": "integer"
+                                            },
+                                            "AtributoCodigo": {
+                                                "type": "string"
+                                            },
+                                            "AtributoDescricao": {
+                                                "type": "string"
+                                            },
+                                            "Valor": {
+                                                "type": "string"
+                                            },
+                                            "TipoCampoId": {
+                                                "type": "string"
+                                            },
+                                            "IsCatalogoObrigatorio": {
+                                                "type": "boolean"
+                                            },
+                                            "AtributoOpcaoExternoId": {},
+                                            "Relevancia": {},
+                                            "IsVariacao": {
+                                                "type": "boolean"
+                                            },
+                                            "AtributoUnidadeId": {},
+                                            "IsNaoSeAplica": {
+                                                "type": "boolean"
+                                            },
+                                            "IsValorCustomizado": {
+                                                "type": "boolean"
+                                            },
+                                            "IsFichaTecnica": {
+                                                "type": "boolean"
+                                            },
+                                            "IsObsoleto": {
+                                                "type": "boolean"
+                                            },
+                                            "AtributoTipoCodigo": {
+                                                "type": "string"
+                                            },
+                                            "ValoresMultiSelecao": {},
+                                            "IsValorAlterado": {
+                                                "type": "boolean"
+                                            },
+                                            "IsDesconsiderarAtributo": {
+                                                "type": "boolean"
+                                            },
+                                            "IsObrigatorio": {
+                                                "type": "boolean"
+                                            },
+                                            "IsObrigatorioQuandoInformado": {
+                                                "type": "boolean"
+                                            },
+                                            "IsVariacaoConfiguravel": {
+                                                "type": "boolean"
+                                            },
+                                            "ShowNaoSeAplica": {
+                                                "type": "boolean"
+                                            },
+                                            "TenantIdDoValor": {},
+                                            "ValorIdPlataforma": {},
+                                            "IsDesabilitarNoFrontEnd": {
+                                                "type": "boolean"
+                                            },
+                                            "IsAtributoCustomizado": {
+                                                "type": "boolean"
+                                            },
+                                            "IsImagemVariacao": {
+                                                "type": "boolean"
+                                            },
+                                            "PlataformaId": {},
+                                            "CodigoExterno": {},
+                                            "IsVariacaoComplementar": {
+                                                "type": "boolean"
+                                            },
+                                            "Atributo": {},
+                                            "AtributoOpcao": {},
+                                            "Produto": {},
+                                            "AtributoUnidade": {},
+                                            "IsValid": {
+                                                "type": "boolean"
+                                            },
+                                            "IgnoreTenant": {
+                                                "type": "boolean"
+                                            }
+                                        }
+                                    }
+                                },
+                                "ProdutoComposicaoProduto": [{
+                                    "type": "array"
+                                }],
+                                "ProdutoComposicaoProdutoComposto": [{
+                                    "type": "array"
+                                }],
+                                "ProdutoEstoque": [{
+                                    "type": "array"
+                                }],
+                                "ProdutoPreco": [{
+                                    "type": "array"
+                                }],
+                                "ProdutoImagem": [{
+                                    "type": "array"
+                                }],
+                                "LogEventoProduto": {},
+                                "ProdutoImagemGlobal": {},
+                                "PedidoItem": {},
+                                "ProdutoTimeline": [{
+                                    "type": "array"
+                                }],
+                                "PedidoTimeline": {},
+                                "ProdutoReferencia": [{
+                                    "type": "array"
+                                }],
+                                "EstoqueLojas": {},
+                                "IntegracaoCategoriaObrigatoria": {},
+                                "PrecoAtualIntegracao": {
+                                    "type": "integer"
+                                },
+                                "Quantidade": {
+                                    "type": "integer"
+                                },
+                                "QuantidadeEstoqueLojas": {
+                                    "type": "integer"
+                                },
+                                "ProdutoAtributoOpcaoFichaTecnica": {},
+                                "ProdutoAtributoOpcaoVariacao": {},
+                                "CategoriaJetNeo": {},
+                                "CategoriasFrontEnd": {},
+                                "CategoriaVinculadas": [{
+                                    "type": "array"
+                                }],
+                                "Origem": {
+                                    "type": "string"
+                                },
+                                "Preco": {
+                                    "type": "integer"
+                                },
+                                "ValoresVariacoes": {},
+                                "IntegradoComErp": {
+                                    "type": "boolean"
+                                },
+                                "IsValid": {
+                                    "type": "boolean"
+                                },
+                                "IgnoreTenant": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    },
+                    "ProdutoAtributoVariacao": {
+                        "type": "array",
+                        "items": {
+                            "required": [
+                                "ProdutoId",
+                                "AtributoId",
+                                "Descricao",
+                                "Codigo",
+                                "Atributo",
+                                "Produto",
+                                "IsValid",
+                                "IgnoreTenant",
+                                "Errors"
+                            ],
+                            "type": "object",
+                            "properties": {
+                                "ProdutoId": {
+                                    "type": "integer"
+                                },
+                                "AtributoId": {
+                                    "type": "integer"
+                                },
+                                "Descricao": {
+                                    "type": "string"
+                                },
+                                "Codigo": {
+                                    "type": "string"
+                                },
+                                "Atributo": {},
+                                "Produto": {},
+                                "IsValid": {
+                                    "type": "boolean"
+                                },
+                                "IgnoreTenant": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    },
+                    "ProdutoAtributoOpcao": {
+                        "type": "array",
+                        "items": {
+                            "required": [
+                                "ProdutoAtributoOpcaoId",
+                                "ProdutoId",
+                                "AtributoId",
+                                "AtributoOpcaoId",
+                                "AtributoCodigo",
+                                "AtributoDescricao",
+                                "Valor",
+                                "TipoCampoId",
+                                "IsCatalogoObrigatorio",
+                                "AtributoOpcaoExternoId",
+                                "Relevancia",
+                                "IsVariacao",
+                                "AtributoUnidadeId",
+                                "IsNaoSeAplica",
+                                "IsValorCustomizado",
+                                "IsFichaTecnica",
+                                "IsObsoleto",
+                                "AtributoTipoCodigo",
+                                "ValoresMultiSelecao",
+                                "IsValorAlterado",
+                                "IsDesconsiderarAtributo",
+                                "IsObrigatorio",
+                                "IsObrigatorioQuandoInformado",
+                                "IsVariacaoConfiguravel",
+                                "ShowNaoSeAplica",
+                                "TenantIdDoValor",
+                                "ValorIdPlataforma",
+                                "IsDesabilitarNoFrontEnd",
+                                "IsAtributoCustomizado",
+                                "IsImagemVariacao",
+                                "PlataformaId",
+                                "CodigoExterno",
+                                "IsVariacaoComplementar",
+                                "Atributo",
+                                "AtributoOpcao",
+                                "Produto",
+                                "AtributoUnidade",
+                                "IsValid",
+                                "IgnoreTenant",
+                                "Errors"
+                            ],
+                            "type": "object",
+                            "properties": {
+                                "ProdutoAtributoOpcaoId": {
+                                    "type": "integer"
+                                },
+                                "ProdutoId": {
+                                    "type": "integer"
+                                },
+                                "AtributoId": {
+                                    "type": "integer"
+                                },
+                                "AtributoOpcaoId": {
+                                    "type": "integer"
+                                },
+                                "AtributoCodigo": {
+                                    "type": "string"
+                                },
+                                "AtributoDescricao": {
+                                    "type": "string"
+                                },
+                                "Valor": {
+                                    "type": "string"
+                                },
+                                "TipoCampoId": {
+                                    "type": "string"
+                                },
+                                "IsCatalogoObrigatorio": {
+                                    "type": "boolean"
+                                },
+                                "AtributoOpcaoExternoId": {},
+                                "Relevancia": {},
+                                "IsVariacao": {
+                                    "type": "boolean"
+                                },
+                                "AtributoUnidadeId": {},
+                                "IsNaoSeAplica": {
+                                    "type": "boolean"
+                                },
+                                "IsValorCustomizado": {
+                                    "type": "boolean"
+                                },
+                                "IsFichaTecnica": {
+                                    "type": "boolean"
+                                },
+                                "IsObsoleto": {
+                                    "type": "boolean"
+                                },
+                                "AtributoTipoCodigo": {
+                                    "type": "string"
+                                },
+                                "ValoresMultiSelecao": {},
+                                "IsValorAlterado": {
+                                    "type": "boolean"
+                                },
+                                "IsDesconsiderarAtributo": {
+                                    "type": "boolean"
+                                },
+                                "IsObrigatorio": {
+                                    "type": "boolean"
+                                },
+                                "IsObrigatorioQuandoInformado": {
+                                    "type": "boolean"
+                                },
+                                "IsVariacaoConfiguravel": {
+                                    "type": "boolean"
+                                },
+                                "ShowNaoSeAplica": {
+                                    "type": "boolean"
+                                },
+                                "TenantIdDoValor": {},
+                                "ValorIdPlataforma": {},
+                                "IsDesabilitarNoFrontEnd": {
+                                    "type": "boolean"
+                                },
+                                "IsAtributoCustomizado": {
+                                    "type": "boolean"
+                                },
+                                "IsImagemVariacao": {
+                                    "type": "boolean"
+                                },
+                                "PlataformaId": {},
+                                "CodigoExterno": {},
+                                "IsVariacaoComplementar": {
+                                    "type": "boolean"
+                                },
+                                "Atributo": {},
+                                "AtributoOpcao": {},
+                                "Produto": {},
+                                "AtributoUnidade": {},
+                                "IsValid": {
+                                    "type": "boolean"
+                                },
+                                "IgnoreTenant": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    },
+                    "ProdutoComposicaoProduto": [{
+                        "type": "array"
+                    }],
+                    "ProdutoComposicaoProdutoComposto": [{
+                        "type": "array"
+                    }],
+                    "ProdutoEstoque": [{
+                        "type": "array"
+                    }],
+                    "ProdutoPreco": {
+                        "type": "array",
+                        "items": {
+                            "required": [
+                                "ProdutoPrecoId",
+                                "ProdutoId",
+                                "TipoPrecoId",
+                                "Valor",
+                                "TipoPrecoCodigo",
+                                "TipoPrecoDescricao",
+                                "DateVersion",
+                                "Produto",
+                                "TipoPreco",
+                                "IsValid",
+                                "IgnoreTenant",
+                                "Errors"
+                            ],
+                            "type": "object",
+                            "properties": {
+                                "ProdutoPrecoId": {
+                                    "type": "integer"
+                                },
+                                "ProdutoId": {
+                                    "type": "integer"
+                                },
+                                "TipoPrecoId": {
+                                    "type": "integer"
+                                },
+                                "Valor": {
+                                    "type": "integer"
+                                },
+                                "TipoPrecoCodigo": {
+                                    "type": "string"
+                                },
+                                "TipoPrecoDescricao": {
+                                    "type": "string"
+                                },
+                                "DateVersion": {
+                                    "type": "string"
+                                },
+                                "Produto": {},
+                                "TipoPreco": {},
+                                "IsValid": {
+                                    "type": "boolean"
+                                },
+                                "IgnoreTenant": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    },
+                    "ProdutoImagem": {
+                        "type": "array",
+                        "items": {
+                            "required": [
+                                "ProdutoImagemId",
+                                "ProdutoId",
+                                "Url",
+                                "CreatedOn",
+                                "AtributoOpcaoId",
+                                "Deleted",
+                                "Ordem",
+                                "Funcoes",
+                                "AtributoOpcoes",
+                                "Atributos",
+                                "FuncoesList",
+                                "ProdutoImagemGlobal",
+                                "AtributoOpcao",
+                                "Produto",
+                                "IsValid",
+                                "IgnoreTenant",
+                                "Errors"
+                            ],
+                            "type": "object",
+                            "properties": {
+                                "ProdutoImagemId": {
+                                    "type": "integer"
+                                },
+                                "ProdutoId": {
+                                    "type": "integer"
+                                },
+                                "Url": {
+                                    "type": "string"
+                                },
+                                "CreatedOn": {
+                                    "type": "string"
+                                },
+                                "AtributoOpcaoId": {},
+                                "Deleted": {
+                                    "type": "boolean"
+                                },
+                                "Ordem": {
+                                    "type": "integer"
+                                },
+                                "Funcoes": {},
+                                "AtributoOpcoes": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "Atributos": {
+                                    "type": "object",
+                                    "properties": {
+                                        "color": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                },
+                                "FuncoesList": {},
+                                "ProdutoImagemGlobal": {},
+                                "AtributoOpcao": {},
+                                "Produto": {},
+                                "IsValid": {
+                                    "type": "boolean"
+                                },
+                                "IgnoreTenant": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    },
+                    "LogEventoProduto": {},
+                    "ProdutoImagemGlobal": {},
+                    "PedidoItem": {},
+                    "ProdutoTimeline": [{
+                        "type": "array"
+                    }],
+                    "PedidoTimeline": {},
+                    "ProdutoReferencia": [{
+                        "type": "array"
+                    }],
+                    "EstoqueLojas": {
+                        "type": "array",
+                        "items": {
+                            "required": [
+                                "ProdutoId",
+                                "Sku",
+                                "Nome",
+                                "LojaId",
+                                "Quantidade",
+                                "NomeFantasia",
+                                "Lojas"
+                            ],
+                            "type": "object",
+                            "properties": {
+                                "ProdutoId": {
+                                    "type": "integer"
+                                },
+                                "Sku": {
+                                    "type": "string"
+                                },
+                                "Nome": {
+                                    "type": "string"
+                                },
+                                "LojaId": {
+                                    "type": "integer"
+                                },
+                                "Quantidade": {
+                                    "type": "integer"
+                                },
+                                "NomeFantasia": {},
+                                "Lojas": {
+                                    "type": "array",
+                                    "items": {
+                                        "required": [
+                                            "LojaId",
+                                            "Quantidade",
+                                            "NomeFantasia",
+                                            "LojaKey"
+                                        ],
+                                        "type": "object",
+                                        "properties": {
+                                            "LojaId": {
+                                                "type": "integer"
+                                            },
+                                            "Quantidade": {
+                                                "type": "integer"
+                                            },
+                                            "NomeFantasia": {
+                                                "type": "string"
+                                            },
+                                            "LojaKey": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "IntegracaoCategoriaObrigatoria": {},
+                    "PrecoAtualIntegracao": {
+                        "type": "integer"
+                    },
+                    "Quantidade": {
+                        "type": "integer"
+                    },
+                    "QuantidadeEstoqueLojas": {
+                        "type": "integer"
+                    },
+                    "ProdutoAtributoOpcaoFichaTecnica": [{
+                        "type": "array"
+                    }],
+                    "ProdutoAtributoOpcaoVariacao": [{
+                        "type": "array",
+                        "items": {
+                            "required": [
+                                "ProdutoAtributoOpcaoId",
+                                "ProdutoId",
+                                "AtributoId",
+                                "AtributoOpcaoId",
+                                "AtributoCodigo",
+                                "AtributoDescricao",
+                                "Valor",
+                                "TipoCampoId",
+                                "IsCatalogoObrigatorio",
+                                "AtributoOpcaoExternoId",
+                                "Relevancia",
+                                "IsVariacao",
+                                "AtributoUnidadeId",
+                                "IsNaoSeAplica",
+                                "IsValorCustomizado",
+                                "IsFichaTecnica",
+                                "IsObsoleto",
+                                "AtributoTipoCodigo",
+                                "ValoresMultiSelecao",
+                                "IsValorAlterado",
+                                "IsDesconsiderarAtributo",
+                                "IsObrigatorio",
+                                "IsObrigatorioQuandoInformado",
+                                "IsVariacaoConfiguravel",
+                                "ShowNaoSeAplica",
+                                "TenantIdDoValor",
+                                "ValorIdPlataforma",
+                                "IsDesabilitarNoFrontEnd",
+                                "IsAtributoCustomizado",
+                                "IsImagemVariacao",
+                                "PlataformaId",
+                                "CodigoExterno",
+                                "IsVariacaoComplementar",
+                                "Atributo",
+                                "AtributoOpcao",
+                                "Produto",
+                                "AtributoUnidade",
+                                "IsValid",
+                                "IgnoreTenant",
+                                "Errors"
+                            ],
+                            "type": "object",
+                            "properties": {
+                                "ProdutoAtributoOpcaoId": {
+                                    "type": "integer"
+                                },
+                                "ProdutoId": {
+                                    "type": "integer"
+                                },
+                                "AtributoId": {
+                                    "type": "integer"
+                                },
+                                "AtributoOpcaoId": {},
+                                "AtributoCodigo": {
+                                    "type": "string"
+                                },
+                                "AtributoDescricao": {
+                                    "type": "string"
+                                },
+                                "Valor": {},
+                                "TipoCampoId": {
+                                    "type": "string"
+                                },
+                                "IsCatalogoObrigatorio": {
+                                    "type": "boolean"
+                                },
+                                "AtributoOpcaoExternoId": {},
+                                "Relevancia": {
+                                    "type": "integer"
+                                },
+                                "IsVariacao": {
+                                    "type": "boolean"
+                                },
+                                "AtributoUnidadeId": {},
+                                "IsNaoSeAplica": {
+                                    "type": "boolean"
+                                },
+                                "IsValorCustomizado": {
+                                    "type": "boolean"
+                                },
+                                "IsFichaTecnica": {
+                                    "type": "boolean"
+                                },
+                                "IsObsoleto": {
+                                    "type": "boolean"
+                                },
+                                "AtributoTipoCodigo": {
+                                    "type": "string"
+                                },
+                                "ValoresMultiSelecao": {},
+                                "IsValorAlterado": {
+                                    "type": "boolean"
+                                },
+                                "IsDesconsiderarAtributo": {
+                                    "type": "boolean"
+                                },
+                                "IsObrigatorio": {
+                                    "type": "boolean"
+                                },
+                                "IsObrigatorioQuandoInformado": {
+                                    "type": "boolean"
+                                },
+                                "IsVariacaoConfiguravel": {
+                                    "type": "boolean"
+                                },
+                                "ShowNaoSeAplica": {
+                                    "type": "boolean"
+                                },
+                                "TenantIdDoValor": {},
+                                "ValorIdPlataforma": {},
+                                "IsDesabilitarNoFrontEnd": {
+                                    "type": "boolean"
+                                },
+                                "IsAtributoCustomizado": {
+                                    "type": "boolean"
+                                },
+                                "IsImagemVariacao": {
+                                    "type": "boolean"
+                                },
+                                "PlataformaId": {
+                                    "type": "integer"
+                                },
+                                "CodigoExterno": {},
+                                "IsVariacaoComplementar": {
+                                    "type": "boolean"
+                                },
+                                "Atributo": {},
+                                "AtributoOpcao": {},
+                                "Produto": {},
+                                "AtributoUnidade": {},
+                                "IsValid": {
+                                    "type": "boolean"
+                                },
+                                "IgnoreTenant": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    }],
+                    "CategoriaJetNeo": {},
+                    "CategoriasFrontEnd": {
+                        "type": "array",
+                        "items": {
+                            "required": [
+                                "CategoriaId",
+                                "CodigoExternoPlataforma",
+                                "Descricao",
+                                "CodigoPlataforma",
+                                "PlataformaId",
+                                "FullPath",
+                                "TemFichaTecnica",
+                                "MachineLearning"
+                            ],
+                            "type": "object",
+                            "properties": {
+                                "CategoriaId": {
+                                    "type": "integer"
+                                },
+                                "CodigoExternoPlataforma": {
+                                    "type": "string"
+                                },
+                                "Descricao": {
+                                    "type": "string"
+                                },
+                                "CodigoPlataforma": {
+                                    "type": "string"
+                                },
+                                "PlataformaId": {
+                                    "type": "integer"
+                                },
+                                "FullPath": {
+                                    "type": "string"
+                                },
+                                "TemFichaTecnica": {
+                                    "type": "boolean"
+                                },
+                                "MachineLearning": {}
+                            }
+                        }
+                    },
+                    "CategoriaVinculadas": [{
+                        "type": "array"
+                    }],
+                    "Origem": {},
+                    "Preco": {},
+                    "ValoresVariacoes": {},
+                    "IntegradoComErp": {
+                        "type": "boolean"
+                    },
+                    "IsValid": {
+                        "type": "boolean"
+                    },
+                    "IgnoreTenant": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "AtualizarPrecoAnuncioRequest": {
+                "type": "array",
+                "items": {
+                    "required": [
+                        "anuncioId",
+                        "preco"
+                    ],
+                    "type": "object",
+                    "properties": {
+                        "anuncioId": {
+                            "type": "integer",
+                            "description": "Anuncio Id do Lexos Hub"
+                        },
+                        "preco": {
+                            "type": "number",
+                            "description": "Preço do anuncio na plataforma. Este valor deve ser maior que zero."
+                        },
+                        "precoPromocional": {
+                            "type": "number",
+                            "description": "Preço promocional do anuncio na plataforma, caso o valor seja igual a zero prevalecerá o preco do anuncio. OBS: Algumas plataformas não permitem o envio de preço promocional, pois a gestao de promoção é feita diretamente na plataforma, nesse caso esse valor será ignorado."
+                        }
+                    }
+                },
+                "example": [
+                    {
+                        "anuncioId": 123456,
+                        "preco": 199.99,
+                        "precoPromocional": 159.99
+                    },
+                    {
+                        "anuncioId": 654321,
+                        "preco": 25.99,
+                        "precoPromocional": 19.99
+                    }
+                ]
+            },
+            "ProdutoEstoqueView": {
+                "type": "object",
+                "properties": {
+                    "sku": {
+                        "type": "string",
+                        "description": "Sku do produto [Máx. 50 caracteres]",
+                        "nullable": true
+                    },
+                    "lojaIdGlobal": {
+                        "type": "integer",
+                        "description": "No hub cada loja é referente a um depósito, portanto, deve ser informado o Id da loja para atualizar o estoque de um produto em um deposito especifico, para consultar este Id de loja global voce pode consultar a API de lojas.",
+                        "format": "int64"
+                    },
+                    "localArm": {
+                        "type": "string",
+                        "description": "Local de armazenamento do produto, caso o seller utilize a expedição do Hub, essa informação será utilizada na lista de separação.",
+                        "nullable": true
+                    },
+                    "quantidade": {
+                        "type": "number",
+                        "description": "Quantidade de estoque disponível para venda, o Hub não controla movimentações de entrada e saída, o valor informado será a quantidade consolidada. ",
+                        "format": "double"
+                    },
+                    "quantidadeReservado": {
+                        "type": "number",
+                        "description": "Quantidade de reserva de estoque no ERP ou WMS (Geralmente causado por pedidos que ainda não tiveram o pagamento aprovado)",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "custo": {
+                        "type": "number",
+                        "description": "Custo de compra do produto, utilizado para precificação, relatórios de lucratividade etc.",
+                        "format": "double"
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Array com informações dos estoques do produto."
+            },
+            "ProdutoVariacaoOutrasVariacoesView": {
+                "type": "object",
+                "properties": {
+                    "atributoVaricaoCodigo": {
+                        "type": "string",
+                        "description": "Código do atributo de variação [Máx. 100 caracteres]",
+                        "nullable": true
+                    },
+                    "atributoVaricaoDescricao": {
+                        "type": "string",
+                        "description": "Descrição do atributo de variação [Máx. 100 caracteres]",
+                        "nullable": true
+                    },
+                    "valor": {
+                        "type": "string",
+                        "description": "Valor do atributo de variação [Máx. 200 caracteres]",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Informar outros atributos variacao caso possua ex: Voltagem, Desenho do tecido"
+            },
+            "ProdutoVariacaoView": {
+                "type": "object",
+                "properties": {
+                    "sku": {
+                        "type": "string",
+                        "description": "Sku da variação do produto [Máx. 50 caracteres]",
+                        "nullable": true
+                    },
+                    "ean": {
+                        "type": "string",
+                        "description": "GTIN / EAN do produto [Máx. 25 caracteres]",
+                        "nullable": true
+                    },
+                    "tamanho": {
+                        "type": "string",
+                        "description": "Informar tamanho do produto caso possua ex P, M, G [Máx. 10 caracteres]",
+                        "nullable": true
+                    },
+                    "cor": {
+                        "type": "string",
+                        "description": "Informar cor do produto caso possua ex Branco, Azul, Preto [Máx. 20 caracteres]",
+                        "nullable": true
+                    },
+                    "outrasVariacoes": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ProdutoVariacaoOutrasVariacoesView"
+                        },
+                        "description": "Informar outros atributos variacao caso possua ex: Voltagem, Desenho do tecido",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Array com informações das variações do produto."
+            },
+            "ProdutoImpostoView": {
+                "type": "object",
+                "properties": {
+                    "ncm": {
+                        "type": "string",
+                        "description": "NCM do produto [Máx. 10 caracteres]",
+                        "nullable": true
+                    },
+                    "cest": {
+                        "type": "string",
+                        "description": "CEST do produto [Máx. 10 caracteres]",
+                        "nullable": true
+                    },
+                    "origem": {
+                        "type": "integer",
+                        "description": "Origem do produto",
+                        "format": "int32"
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Informações sobre o imposto do produto."
+            },
+            "ProdutoPrecoView": {
+                "type": "object",
+                "properties": {
+                    "sku": {
+                        "type": "string",
+                        "description": "SKU do produto [Máx. 50 caracteres]",
+                        "nullable": true
+                    },
+                    "preco": {
+                        "type": "number",
+                        "description": "Preço de venda do produto",
+                        "format": "double"
+                    },
+                    "codigo": {
+                        "type": "string",
+                        "description": "Código da tabela de preço [Máx. 50 caracteres]",
+                        "nullable": true
+                    },
+                    "descricao": {
+                        "type": "string",
+                        "description": "Descrição da tabela de preço | Utilize a API TabelaPreco para obter o código [Máx. 100 caracteres]",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Array com informações dos preços do produto."
+            },
+            "AtualizarPrecoRequest": {
+                "type": "array",
+                "items": {
+                    "required": [
+                        "sku",
+                        "preco"
+                    ],
+                    "type": "object",
+                    "properties": {
+                        "sku": {
+                            "type": "string",
+                            "description": "Sku do produto [Max. 50 caracteres]"
+                        },
+                        "preco": {
+                            "type": "number",
+                            "description": "Preço de venda do produto"
+                        },
+                        "codigo": {
+                            "type": "string",
+                            "description": "Códido da tabela de preço | Caso não seja informado, o valor 'preco_venda' é assumido [Max. 50 caracteres]"
+                        },
+                        "descricao": {
+                            "type": "string",
+                            "description": "Descrição da tabela de preço | Obrigatório somente na inclusão de uma nova tabela de preço [Max. 100 caracteres]"
+                        }
+                    }
+                },
+                "example": [
+                    {
+                        "sku": "SKU-Produto-01",
+                        "preco": 199.99
+                    },
+                    {
+                        "sku": "SKU-Produto-02",
+                        "preco": 29.99,
+                        "codigo": "preco_promocional"
+                    }
+                ]
+            },
+            "ProdutoView": {
+                "required": [
+                    "produtoTipoId",
+                    "sku",
+                    "nome"
+                ],
+                "type": "object",
+                "properties": {
+                    "produtoTipoId": {
+                        "type": "string",
+                        "description": "Tipo do produto [simples, configuravel, variacao, composto]",
+                        "nullable": true
+                    },
+                    "sku": {
+                        "type": "string",
+                        "description": "SKU do produto [Max. 50 caracteres]",
+                        "nullable": true
+                    },
+                    "ean": {
+                        "type": "string",
+                        "description": "GTIN / EAN principal do produto [Max. 25 caracteres]",
+                        "nullable": true
+                    },
+                    "nome": {
+                        "type": "string",
+                        "description": "Nome do produto [Max. 500 caracteres]",
+                        "nullable": true
+                    },
+                    "unidade": {
+                        "type": "string",
+                        "description": "Tipo de unidade do produto | Exemplo: pc, un, cx [Max. 6 caracteres]",
+                        "nullable": true
+                    },
+                    "peso": {
+                        "type": "number",
+                        "description": "Valor do peso em gramas",
+                        "format": "double"
+                    },
+                    "comprimento": {
+                        "type": "number",
+                        "description": "Valor do comprimento do produto com a embalagem em centímetros",
+                        "format": "double"
+                    },
+                    "largura": {
+                        "type": "number",
+                        "description": "Valor da largura do produto com a embalagem em centímetros",
+                        "format": "double"
+                    },
+                    "altura": {
+                        "type": "number",
+                        "description": "Valor da altura do produto com a embalagem em centímetros",
+                        "format": "double"
+                    },
+                    "descricaoResumida": {
+                        "type": "string",
+                        "description": "Descrição resumida do produto, utilizada somente Lojas Virtuais (Permite HTML) [Máx. 4000 caracteres]",
+                        "nullable": true
+                    },
+                    "descricao": {
+                        "type": "string",
+                        "description": "Descricao do produto, utilizada somente Lojas Virtuais (Permite HTML)",
+                        "nullable": true
+                    },
+                    "descricaoMarketplace": {
+                        "type": "string",
+                        "description": "Descricao do produto nos marketplaces (Nao permite HTML, utilizar <br> para quebra de linhas)",
+                        "nullable": true
+                    },
+                    "marca": {
+                        "type": "string",
+                        "description": "Marca do produto [Máx. 50 caracteres]",
+                        "nullable": true
+                    },
+                    "modelo": {
+                        "type": "string",
+                        "description": "Modelo do produto [Máx. 50 caracteres]",
+                        "nullable": true
+                    },
+                    "videoURL": {
+                        "type": "string",
+                        "description": "URL do vídeo do produto [Máx. 150 caracteres]",
+                        "nullable": true
+                    },
+                    "produtoImposto": {
+                        "$ref": "#/components/schemas/ProdutoImpostoView"
+                    },
+                    "estoques": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ProdutoEstoqueView"
+                        },
+                        "description": "Array com informações dos estoques do produto.",
+                        "nullable": true
+                    },
+                    "precos": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ProdutoPrecoView"
+                        },
+                        "description": "Array com informações dos preços do produto.",
+                        "nullable": true
+                    },
+                    "variacoes": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ProdutoVariacaoView"
+                        },
+                        "description": "Array com informações das variações do produto.",
+                        "nullable": true
+                    },
+                    "composicao": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ProdutoComposicaoView"
+                        },
+                        "description": "Array com informações dos composições do produto caso ele seja do ProdutoTipoId 'composto'.",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Produto a ser inserido/atualizado."
+            },
+            "ProdutoComposicaoView": {
+                "type": "object",
+                "properties": {
+                    "Sku": {
+                        "type": "string",
+                        "description": "SKU do produto que compõe este kit"
+                    },
+                    "tipo": {
+                        "type": "string",
+                        "description": "Tipo do produto composicao [simples, composto, variacao]"
+                    },
+                    "quantidade": {
+                        "type": "number",
+                        "description": "Quantidade deste componente neste kit",
+                        "format": "double"
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Array com informações das composições do produto caso ele seja do ProdutoTipoId 'composto'."
+            },
+            "AtualizarEstoqueRequest": {
+                "type": "array",
+                "items": {
+                    "required": [
+                        "sku",
+                        "quantidade",
+                        "lojaIdGlobal"
+                    ],
+                    "type": "object",
+                    "properties": {
+                        "sku": {
+                            "type": "string",
+                            "description": "Sku do produto [Max. 50 caracteres]"
+                        },
+                        "quantidade": {
+                            "type": "integer",
+                            "description": "Quantidade de estoque disponível para venda, o Hub não controla movimentações de entrada e saída, o valor informado será a quantidade consolidada"
+                        },
+                        "lojaIdGlobal": {
+                            "type": "integer",
+                            "description": "No hub cada loja é referente a um deposito, portanto, deve ser informado o Id da loja para atualizar o estoque de um produto em um depósito específico, para consultar este Id de loja global voce pode consultar a API de lojas"
+                        },
+                        "quantidadeReservado": {
+                            "type": "integer",
+                            "description": "Quantidade de reserva de estoque no ERP ou WMS (Geralmente causado por pedidos que ainda não tiveram o pagamento aprovado)"
+                        },
+                        "custo": {
+                            "type": "number",
+                            "description": "Custo de compra do produto, utilizado para precificação, relatórios de lucratividade etc"
+                        },
+                        "localArm": {
+                            "type": "string",
+                            "description": "Local de armazenamento do produto, caso o seller utilize a expedição do Hub, essa informação será utilizada na lista de separação [Máx. 150 caracteres]"
+                        }
+                    }
+                },
+                "example": [
+                    {
+                        "sku": "SKU-Produto-01",
+                        "quantidade": 1,
+                        "quantidadeReservado": 0,
+                        "custo": 49.99,
+                        "lojaIdGlobal": 3,
+                        "localArm": "Galpão Sul"
+                    },
+                    {
+                        "sku": "SKU-Produto-02",
+                        "quantidade": 3,
+                        "quantidadeReservado": 0,
+                        "custo": 29.99,
+                        "lojaIdGlobal": 2,
+                        "localArm": "Galpão Norte"
+                    }
+                ]
+            },
+            "IncluirImagensRequestView": {
+                "type": "array",
+                "items": {
+                    "required": [
+                        "url",
+                        "isThumbnail",
+                        "position"
+                    ],
+                    "type": "object",
+                    "properties": {
+                        "url": {
+                            "type": "string"
+                        },
+                        "isThumbnail": {
+                            "type": "boolean"
+                        },
+                        "position": {
+                            "type": "integer"
+                        },
+                        "atributoOpcaoId": {
+                            "type": "integer"
+                        },
+                        "produtoIdVariacao": {
+                            "type": "integer"
+                        },
+                        "skuVariacao": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "apiKeyHeader": {
+                "type": "apiKey",
+                "name": "Ocp-Apim-Subscription-Key",
+                "in": "header"
+            },
+            "apiKeyQuery": {
+                "type": "apiKey",
+                "name": "subscription-key",
+                "in": "query"
+            }
+        }
+    },
+    "security": [
+        {
+            "apiKeyHeader": []
+        },
+        {
+            "apiKeyQuery": []
+        }
+    ]
+}

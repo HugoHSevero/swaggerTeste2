@@ -13,9 +13,8 @@
   "paths": {
     "/ObterLista": {
       "get": {
-        "tags": ["Loja"],
         "summary": "ObterLista",
-        "operationId": "obterListaLojas",
+        "operationId": "obterlista",
         "parameters": [
           {
             "name": "Authorization",
@@ -38,7 +37,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Lista de lojas retornada com sucesso",
+            "description": "",
             "content": {
               "application/json": {
                 "example": [
@@ -68,35 +67,13 @@
             }
           },
           "400": {
-            "description": "Erros de validação dos objetos e parâmetros informados."
+            "description": ""
           },
           "404": {
-            "description": "Nenhuma loja encontrada de acordo com os parâmetros fornecidos."
+            "description": ""
           }
         }
       }
     }
-  },
-  "components": {
-    "securitySchemes": {
-      "apiKeyHeader": {
-        "type": "apiKey",
-        "name": "Ocp-Apim-Subscription-Key",
-        "in": "header"
-      },
-      "apiKeyQuery": {
-        "type": "apiKey",
-        "name": "subscription-key",
-        "in": "query"
-      }
-    }
-  },
-  "security": [
-    {
-      "apiKeyHeader": []
-    },
-    {
-      "apiKeyQuery": []
-    }
-  ]
+  }
 }

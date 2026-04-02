@@ -10,6 +10,12 @@
       "url": "https://api.lexos.com.br/integracao"
     }
   ],
+  "tags": [
+    {
+      "name": "Integracao",
+      "description": "Operações relacionadas a Integracao"
+    }
+  ],
   "paths": {
     "/Instalar": {
       "post": {

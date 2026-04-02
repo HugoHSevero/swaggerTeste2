@@ -13,6 +13,7 @@
     "paths": {
         "/Produto": {
             "post": {
+                "tags": ["Catalogo"],
                 "summary": "/Produto",
                 "description": "Utilizado para atualizar ou criar novos produtos, o match será feito de forma automática através do campo \"SKU\", caso já exista um mesmo SKU no hub, será feito uma atualização e caso não exista, um novo produto será criado.\n\nPara consultar a tabela de preço, utilize a [API GET TabelaPreco](https://lexosapi.developer.azure-api.net/api-details#api=tabelapreco&operation=obterlistatabelapreco).",
                 "operationId": "post-api-out-atualizarprodutos",
@@ -185,6 +186,7 @@
         },
         "/Estoque": {
             "post": {
+                "tags": ["Catalogo"],
                 "summary": "/Estoque",
                 "description": "Utilizado para atualização e inserção de um novo estoque para um produto.",
                 "operationId": "post-api-out-atualizarestoques",
@@ -250,6 +252,7 @@
         },
         "/Preco": {
             "post": {
+                "tags": ["Catalogo"],
                 "summary": "/Preco",
                 "description": "Utilizado para atualizar ou criar um novo preço para um produto.\n\nO campo \"codigo\" determina qual preço será utilizado, você pode consultar a tabela de preços usando a [API GET TabelaPreco](https://lexosapi.developer.azure-api.net/api-details#api=tabelapreco&operation=obterlistatabelapreco), caso seja necessário criar um novo preço (ex.: promocao_fim_de_ano), basta enviar o código e a descrição da tabela que o sistema irá criar automaticamente.",
                 "operationId": "post-api-out-atualizarprecos",
@@ -314,6 +317,7 @@
         },
         "/ObterProdutoId": {
             "get": {
+                "tags": ["Catalogo"],
                 "summary": "/ObterProdutoId",
                 "operationId": "obterprodutoid",
                 "parameters": [
@@ -528,6 +532,7 @@
         },
         "/ObterProdutoSku": {
             "get": {
+                "tags": ["Catalogo"],
                 "summary": "/ObterProdutoSku",
                 "operationId": "obterprodutosku",
                 "parameters": [
@@ -742,6 +747,7 @@
         },
         "/ObterAnuncioPorProdutoId": {
             "get": {
+                "tags": ["Catalogo"],
                 "summary": "/ObterAnuncioPorProdutoId",
                 "operationId": "obteranuncioporprodutoid",
                 "parameters": [
@@ -852,6 +858,7 @@
         },
         "/AtualizarPrecoAnuncio": {
             "post": {
+                "tags": ["Catalogo"],
                 "summary": "/AtualizarPrecoAnuncio",
                 "description": "Esta API deve ser utilizada para atualização do preço de anúncios.\nO preço do produto não é afetado.",
                 "operationId": "atualizarprecoanuncio",
@@ -912,6 +919,7 @@
         },
         "/ObterAnuncioPorId": {
             "get": {
+                "tags": ["Catalogo"],
                 "summary": "/ObterAnuncioPorId",
                 "operationId": "63f683d99f7eb5f7848af059",
                 "parameters": [
@@ -991,6 +999,7 @@
         },
         "/ObterProdutos": {
             "get": {
+                "tags": ["Catalogo"],
                 "summary": "/ObterProdutos",
                 "operationId": "obterprodutos",
                 "parameters": [
@@ -1355,6 +1364,7 @@
         },
         "/ObterAnuncioPorAnuncioIdPlataforma": {
             "get": {
+                "tags": ["Catalogo"],
                 "summary": "/ObterAnuncioPorAnuncioIdPlataforma",
                 "operationId": "obteranuncioporanuncioidplataforma",
                 "parameters": [
@@ -1436,6 +1446,7 @@
         },
         "/{ProdutoId}/OutrosEans": {
             "delete": {
+                "tags": ["Catalogo"],
                 "summary": "/{ProdutoId}/OutrosEans",
                 "operationId": "produtoid-outroseans",
                 "parameters": [
@@ -1499,6 +1510,7 @@
                 }
             },
             "post": {
+                "tags": ["Catalogo"],
                 "summary": "/{ProdutoId}/OutrosEans",
                 "operationId": "produtoid-outroseanspost",
                 "parameters": [
@@ -1564,6 +1576,7 @@
         },
         "/IncluirImagens/{produtoId}": {
             "post": {
+                "tags": ["Catalogo"],
                 "summary": "/IncluirImagens/{produtoId}",
                 "description": "Utilizado para inserir imagens em produtos.",
                 "operationId": "out-incluirimagens-produtoid",

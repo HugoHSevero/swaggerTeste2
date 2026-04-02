@@ -1,0 +1,232 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Entrega",
+        "description": "Conjunto de APIs para manipulação de entregas",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "https://api.lexos.com.br/Entrega"
+        }
+    ],
+    "paths": {
+        "/ObterLista": {
+            "get": {
+                "tags": ["Entrega"],
+                "summary": "/ObterLista",
+                "operationId": "obterlista",
+                "parameters": [
+                    {
+                        "name": "Pagina",
+                        "in": "query",
+                        "description": "índice da página",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "AtualizadoEm",
+                        "in": "query",
+                        "description": "Filtro por data da atualização do pedido. Formato YYYY-MM-DD hh:mm",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Status",
+                        "in": "query",
+                        "description": "Filtro por status da ENTREGA. Informar status separados por vírgula, por exemplo: Conferir,Enviado",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "\nJWT Bearer Token obtido no processo de autenticação",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Chave",
+                        "in": "header",
+                        "description": "Chave da integração no LexosHub",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "PaginaAtual": 1,
+                                    "TotalPaginas": 1,
+                                    "TotalRegistros": 4,
+                                    "Entregas": [
+                                        {
+                                            "EntregaId": 8299755,
+                                            "PedidoId": 15828326,
+                                            "AtualizadoEm": "2023-05-12T19:40:15.0000000+00:00",
+                                            "EntregaStatus": "Enviado",
+                                            "PedidoStatus": "Pagamento Confirmado"
+                                        },
+                                        {
+                                            "EntregaId": 8312169,
+                                            "PedidoId": 15843959,
+                                            "AtualizadoEm": "2023-05-12T19:47:07.0000000+00:00",
+                                            "EntregaStatus": "Entregue",
+                                            "PedidoStatus": "Pagamento Confirmado"
+                                        },
+                                        {
+                                            "EntregaId": 8314495,
+                                            "PedidoId": 15846607,
+                                            "AtualizadoEm": "2023-05-12T19:49:33.0000000+00:00",
+                                            "EntregaStatus": "Enviado",
+                                            "PedidoStatus": "Pagamento Confirmado"
+                                        },
+                                        {
+                                            "EntregaId": 8299409,
+                                            "PedidoId": 15827914,
+                                            "AtualizadoEm": "2023-05-12T19:52:04.0000000+00:00",
+                                            "EntregaStatus": "Enviado",
+                                            "PedidoStatus": "Pagamento Confirmado"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Erros de validação dos objetos e parâmetros informados."
+                    },
+                    "404": {
+                        "description": "Nenhum anúncio encontrado de acordo com os parâmetros fornecidos."
+                    }
+                }
+            }
+        },
+        "/PrepararEnvio": {
+            "post": {
+                "tags": ["Entrega"],
+                "summary": "/PrepararEnvio",
+                "operationId": "prepararenvio",
+                "parameters": [
+                    {
+                        "name": "PedidoId",
+                        "in": "query",
+                        "description": "Id do pedido",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "JWT Bearer Token obtido no processo de autenticação",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Chave",
+                        "in": "header",
+                        "description": "Chave da integração no LexosHub",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Indica que o pedido foi atualizado com sucesso."
+                    },
+                    "400": {
+                        "description": "Erros de validação dos objetos e parâmetros informados."
+                    },
+                    "404": {
+                        "description": "Nenhum pedido encontrado de acordo com os parâmetros fornecidos."
+                    }
+                }
+            }
+        },
+        "/PrepararEnvioBatch": {
+            "post": {
+                "tags": ["Entrega"],
+                "summary": "/PrepararEnvioBatch",
+                "operationId": "prepararenviobatch",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "JWT Bearer Token obtido no processo de autenticação",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Chave",
+                        "in": "header",
+                        "description": "Chave da integração no LexosHub",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "text": {
+                            "example": [
+                                9442134,
+                                126653,
+                                4555216,
+                                6839412
+                            ]
+                        }
+                    }
+                },
+                "responses": {
+                    "202": {
+                        "description": "Indica que o procedimento foi agendado com sucesso."
+                    },
+                    "400": {
+                        "description": "Erros de validação dos objetos e parâmetros informados."
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "apiKeyHeader": {
+                "type": "apiKey",
+                "name": "Ocp-Apim-Subscription-Key",
+                "in": "header"
+            },
+            "apiKeyQuery": {
+                "type": "apiKey",
+                "name": "subscription-key",
+                "in": "query"
+            }
+        }
+    },
+    "security": [
+        {
+            "apiKeyHeader": []
+        },
+        {
+            "apiKeyQuery": []
+        }
+    ]
+}

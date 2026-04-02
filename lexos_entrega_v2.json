@@ -10,10 +10,18 @@
             "url": "https://api.lexos.com.br/Entrega"
         }
     ],
+    "tags": [
+        {
+            "name": "Entrega",
+            "description": "Entrega"
+        }
+    ],
     "paths": {
         "/ObterLista": {
             "get": {
-                "tags": ["Entrega"],
+                "tags": [
+                    "Entrega"
+                ],
                 "summary": "/ObterLista",
                 "operationId": "obterlista",
                 "parameters": [
@@ -114,7 +122,9 @@
         },
         "/PrepararEnvio": {
             "post": {
-                "tags": ["Entrega"],
+                "tags": [
+                    "Entrega"
+                ],
                 "summary": "/PrepararEnvio",
                 "operationId": "prepararenvio",
                 "parameters": [
@@ -161,7 +171,9 @@
         },
         "/PrepararEnvioBatch": {
             "post": {
-                "tags": ["Entrega"],
+                "tags": [
+                    "Entrega"
+                ],
                 "summary": "/PrepararEnvioBatch",
                 "operationId": "prepararenviobatch",
                 "parameters": [

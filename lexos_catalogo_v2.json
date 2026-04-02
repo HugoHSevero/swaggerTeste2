@@ -10,6 +10,12 @@
             "url": "https://api.lexos.com.br/Catalogo"
         }
     ],
+    "tags": [
+        {
+            "name": "Catalogo",
+            "description": "Catalogo"
+        }
+    ],
     "paths": {
         "/Produto": {
             "post": {

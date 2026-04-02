@@ -14,13 +14,12 @@
     "/ObterLista": {
       "get": {
         "tags": ["Loja"],
-        "summary": "/ObterLista",
-        "operationId": "obterlista",
+        "summary": "ObterLista",
+        "operationId": "obterListaLojas",
         "parameters": [
           {
             "name": "Authorization",
             "in": "header",
-            "description": "JWT Bearer Token obtido no processo de autenticação",
             "required": true,
             "schema": {
               "type": "string"
@@ -29,7 +28,6 @@
           {
             "name": "Chave",
             "in": "header",
-            "description": "Chave da integração no LexosHub",
             "required": true,
             "schema": {
               "type": "string"
@@ -38,65 +36,16 @@
         ],
         "responses": {
           "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "example": [
-                  {
-                    "LojaId": 1,
-                    "LojaGlobalId": 3,
-                    "Cnpj": null,
-                    "NomeFantasia": "Loja/Empresa 01",
-                    "RazaoSocial": "Loja/Empresa 01"
-                  },
-                  {
-                    "LojaId": 2,
-                    "LojaGlobalId": 9,
-                    "Cnpj": "47.116.160/0001-21",
-                    "NomeFantasia": "Loja/Empresa 02",
-                    "RazaoSocial": "Loja/Empresa 02"
-                  },
-                  {
-                    "LojaId": 3,
-                    "LojaGlobalId": 2,
-                    "Cnpj": "40.524.379/0001-55",
-                    "NomeFantasia": "Loja/Empresa 03",
-                    "RazaoSocial": "Loja/Empresa 03"
-                  }
-                ]
-              }
-            }
+            "description": "Lista de lojas retornada com sucesso"
           },
           "400": {
-            "description": "Erros de validação dos objetos e parâmetros informados."
+            "description": "Erro de validação"
           },
           "404": {
-            "description": "Nenhuma loja encontrada de acordo com os parâmetros fornecidos."
+            "description": "Nenhuma loja encontrada"
           }
         }
       }
     }
-  },
-  "components": {
-    "securitySchemes": {
-      "apiKeyHeader": {
-        "type": "apiKey",
-        "name": "Ocp-Apim-Subscription-Key",
-        "in": "header"
-      },
-      "apiKeyQuery": {
-        "type": "apiKey",
-        "name": "subscription-key",
-        "in": "query"
-      }
-    }
-  },
-  "security": [
-    {
-      "apiKeyHeader": []
-    },
-    {
-      "apiKeyQuery": []
-    }
-  ]
+  }
 }

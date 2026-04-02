@@ -1,0 +1,185 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "NotaFiscal",
+    "description": "APIs de notas fiscais - versão compatível iPaaS",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.lexos.com.br/NotaFiscal"
+    }
+  ],
+  "paths": {
+    "/EmitirNFe/{tokenCliente}/{lojaId}/{codPDV}/{modoOperacao}/{idPOV}": {
+      "post": {
+        "tags": ["NotaFiscal"],
+        "operationId": "emitirNFe",
+        "parameters": [
+          { "name": "tokenCliente", "in": "path", "required": true, "schema": { "type": "string" } },
+          { "name": "lojaId", "in": "path", "required": true, "schema": { "type": "integer", "format": "int64" } },
+          { "name": "codPDV", "in": "path", "required": true, "schema": { "type": "string" } },
+          { "name": "modoOperacao", "in": "path", "required": true, "schema": { "type": "integer" } },
+          { "name": "idPOV", "in": "path", "required": true, "schema": { "type": "integer", "format": "int64" } }
+        ],
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+
+    "/GerarEnviarNFe/{tokenCliente}/{idPOV}": {
+      "post": {
+        "tags": ["NotaFiscal"],
+        "operationId": "gerarEnviarNFe",
+        "parameters": [
+          { "name": "tokenCliente", "in": "path", "required": true, "schema": { "type": "string" } },
+          { "name": "idPOV", "in": "path", "required": true, "schema": { "type": "integer", "format": "int64" } }
+        ],
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+
+    "/CancelarNFe/{tokenCliente}/{lojaId}/{PDV}": {
+      "post": {
+        "tags": ["NotaFiscal"],
+        "operationId": "cancelarNFe",
+        "parameters": [
+          { "name": "tokenCliente", "in": "path", "required": true, "schema": { "type": "string" } },
+          { "name": "lojaId", "in": "path", "required": true, "schema": { "type": "integer", "format": "int64" } },
+          { "name": "PDV", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+
+    "/ObterPorChave/{tokenCliente}/{chave}": {
+      "get": {
+        "tags": ["NotaFiscal"],
+        "operationId": "obterPorChave",
+        "parameters": [
+          { "name": "tokenCliente", "in": "path", "required": true, "schema": { "type": "string" } },
+          { "name": "chave", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+
+    "/ObterTokenPorCNPJ/{CNPJ}": {
+      "get": {
+        "tags": ["NotaFiscal"],
+        "operationId": "obterTokenPorCNPJ",
+        "parameters": [
+          { "name": "CNPJ", "in": "path", "required": true, "schema": { "type": "string" } },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+
+    "/ObterNfes/{CNPJ}": {
+      "post": {
+        "tags": ["NotaFiscal"],
+        "operationId": "obterNfes",
+        "parameters": [
+          { "name": "CNPJ", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Numero": { "type": "integer" },
+                  "Inicio": { "type": "string" },
+                  "Fim": { "type": "string" },
+                  "Status": { "type": "string" },
+                  "ModeloDocumento": { "type": "integer" }
+                }
+              }
+            }
+          }
+        },
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+
+    "/InserirNotaFiscalEmitidaExternamente": {
+      "post": {
+        "tags": ["NotaFiscal"],
+        "operationId": "inserirNFeExterna",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "Chave",
+            "in": "header",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "pedidoHubId": { "type": "integer" },
+                  "xmlNota": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+
+    "/ObterNotasFiscaisPlataforma": {
+      "get": {
+        "tags": ["NotaFiscal"],
+        "operationId": "obterNotasPlataforma",
+        "parameters": [
+          { "name": "IntegracaoId", "in": "query", "required": true, "schema": { "type": "string" } },
+          { "name": "Ano", "in": "query", "required": true, "schema": { "type": "string" } },
+          { "name": "Mes", "in": "query", "required": true, "schema": { "type": "string" } },
+          { "name": "Dia", "in": "query", "required": true, "schema": { "type": "string" } },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "Chave",
+            "in": "header",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Arquivo base64",
+            "content": {
+              "application/json": {
+                "example": {
+                  "NomeArquivo": "arquivo.zip",
+                  "ArquivoBase64": "conteudo"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

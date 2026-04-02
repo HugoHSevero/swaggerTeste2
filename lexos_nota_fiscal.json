@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "NotaFiscal",
-    "description": "APIs de notas fiscais - versão compatível iPaaS",
+    "description": "APIs de notas fiscais - compatível com iPaaS",
     "version": "1.0"
   },
   "servers": [
@@ -11,18 +11,19 @@
     }
   ],
   "paths": {
+
     "/EmitirNFe/{tokenCliente}/{lojaId}/{codPDV}/{modoOperacao}/{idPOV}": {
       "post": {
         "tags": ["NotaFiscal"],
         "operationId": "emitirNFe",
         "parameters": [
-          { "name": "tokenCliente", "in": "path", "required": true, "schema": { "type": "string" } },
-          { "name": "lojaId", "in": "path", "required": true, "schema": { "type": "integer", "format": "int64" } },
-          { "name": "codPDV", "in": "path", "required": true, "schema": { "type": "string" } },
-          { "name": "modoOperacao", "in": "path", "required": true, "schema": { "type": "integer" } },
-          { "name": "idPOV", "in": "path", "required": true, "schema": { "type": "integer", "format": "int64" } }
+          {"name":"tokenCliente","in":"path","required":true,"schema":{"type":"string"}},
+          {"name":"lojaId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}},
+          {"name":"codPDV","in":"path","required":true,"schema":{"type":"string"}},
+          {"name":"modoOperacao","in":"path","required":true,"schema":{"type":"integer"}},
+          {"name":"idPOV","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}
         ],
-        "responses": { "200": { "description": "OK" } }
+        "responses":{"200":{"description":"OK"}}
       }
     },
 
@@ -31,10 +32,10 @@
         "tags": ["NotaFiscal"],
         "operationId": "gerarEnviarNFe",
         "parameters": [
-          { "name": "tokenCliente", "in": "path", "required": true, "schema": { "type": "string" } },
-          { "name": "idPOV", "in": "path", "required": true, "schema": { "type": "integer", "format": "int64" } }
+          {"name":"tokenCliente","in":"path","required":true,"schema":{"type":"string"}},
+          {"name":"idPOV","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}
         ],
-        "responses": { "200": { "description": "OK" } }
+        "responses":{"200":{"description":"OK"}}
       }
     },
 
@@ -43,11 +44,37 @@
         "tags": ["NotaFiscal"],
         "operationId": "cancelarNFe",
         "parameters": [
-          { "name": "tokenCliente", "in": "path", "required": true, "schema": { "type": "string" } },
-          { "name": "lojaId", "in": "path", "required": true, "schema": { "type": "integer", "format": "int64" } },
-          { "name": "PDV", "in": "path", "required": true, "schema": { "type": "string" } }
+          {"name":"tokenCliente","in":"path","required":true,"schema":{"type":"string"}},
+          {"name":"lojaId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}},
+          {"name":"PDV","in":"path","required":true,"schema":{"type":"string"}}
         ],
-        "responses": { "200": { "description": "OK" } }
+        "responses":{"200":{"description":"OK"}}
+      }
+    },
+
+    "/RegistrarEntradaDevolucaoNFe/{tokenCliente}/{lojaId}/{chave}": {
+      "post": {
+        "tags": ["NotaFiscal"],
+        "operationId": "registrarEntradaDevolucao",
+        "parameters": [
+          {"name":"tokenCliente","in":"path","required":true,"schema":{"type":"string"}},
+          {"name":"lojaId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}},
+          {"name":"chave","in":"path","required":true,"schema":{"type":"string"}}
+        ],
+        "responses":{"200":{"description":"OK"}}
+      }
+    },
+
+    "/EstornarNFe/{tokenCliente}/{lojaId}/{chave}": {
+      "post": {
+        "tags": ["NotaFiscal"],
+        "operationId": "estornarNFe",
+        "parameters": [
+          {"name":"tokenCliente","in":"path","required":true,"schema":{"type":"string"}},
+          {"name":"lojaId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}},
+          {"name":"chave","in":"path","required":true,"schema":{"type":"string"}}
+        ],
+        "responses":{"200":{"description":"OK"}}
       }
     },
 
@@ -56,27 +83,73 @@
         "tags": ["NotaFiscal"],
         "operationId": "obterPorChave",
         "parameters": [
-          { "name": "tokenCliente", "in": "path", "required": true, "schema": { "type": "string" } },
-          { "name": "chave", "in": "path", "required": true, "schema": { "type": "string" } }
+          {"name":"tokenCliente","in":"path","required":true,"schema":{"type":"string"}},
+          {"name":"chave","in":"path","required":true,"schema":{"type":"string"}}
         ],
-        "responses": { "200": { "description": "OK" } }
+        "responses":{"200":{"description":"OK"}}
+      }
+    },
+
+    "/AtualizarVinculoIdPOV/{tokenCliente}/{idPOV}/{nfceId}": {
+      "post": {
+        "tags": ["NotaFiscal"],
+        "operationId": "atualizarVinculo",
+        "parameters": [
+          {"name":"tokenCliente","in":"path","required":true,"schema":{"type":"string"}},
+          {"name":"idPOV","in":"path","required":true,"schema":{"type":"integer","format":"int64"}},
+          {"name":"nfceId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}
+        ],
+        "responses":{"200":{"description":"OK"}}
+      }
+    },
+
+    "/AtualizarNFe/{tokenCliente}/{lojaId}/{naturezaOperacaoId}/{deveTruncar}": {
+      "post": {
+        "tags": ["NotaFiscal"],
+        "operationId": "atualizarNFe",
+        "parameters": [
+          {"name":"tokenCliente","in":"path","required":true,"schema":{"type":"string"}},
+          {"name":"lojaId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}},
+          {"name":"naturezaOperacaoId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}},
+          {"name":"deveTruncar","in":"path","required":true,"schema":{"type":"boolean"}}
+        ],
+        "responses":{"200":{"description":"OK"}}
       }
     },
 
     "/ObterTokenPorCNPJ/{CNPJ}": {
       "get": {
         "tags": ["NotaFiscal"],
-        "operationId": "obterTokenPorCNPJ",
+        "operationId": "obterToken",
         "parameters": [
-          { "name": "CNPJ", "in": "path", "required": true, "schema": { "type": "string" } },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "schema": { "type": "string" }
-          }
+          {"name":"CNPJ","in":"path","required":true,"schema":{"type":"string"}},
+          {"name":"Authorization","in":"header","required":true,"schema":{"type":"string"}}
         ],
-        "responses": { "200": { "description": "OK" } }
+        "responses":{"200":{"description":"OK"}}
+      }
+    },
+
+    "/ObterPorId/{tokenCliente}/{NFCeID}": {
+      "get": {
+        "tags": ["NotaFiscal"],
+        "operationId": "obterPorId",
+        "parameters": [
+          {"name":"tokenCliente","in":"path","required":true,"schema":{"type":"string"}},
+          {"name":"NFCeID","in":"path","required":true,"schema":{"type":"string"}}
+        ],
+        "responses":{"200":{"description":"OK"}}
+      }
+    },
+
+    "/api/NotasFiscais/ObterPorId": {
+      "get": {
+        "tags": ["NotaFiscal"],
+        "operationId": "obterPorChaveQuery",
+        "parameters": [
+          {"name":"chaveNFe","in":"query","schema":{"type":"string"}},
+          {"name":"Chave","in":"header","required":true,"schema":{"type":"string"}}
+        ],
+        "responses":{"200":{"description":"OK"}}
       }
     },
 
@@ -85,101 +158,95 @@
         "tags": ["NotaFiscal"],
         "operationId": "obterNfes",
         "parameters": [
-          { "name": "CNPJ", "in": "path", "required": true, "schema": { "type": "string" } }
+          {"name":"CNPJ","in":"path","required":true,"schema":{"type":"string"}}
         ],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "Numero": { "type": "integer" },
-                  "Inicio": { "type": "string" },
-                  "Fim": { "type": "string" },
-                  "Status": { "type": "string" },
-                  "ModeloDocumento": { "type": "integer" }
+                "type":"object",
+                "properties":{
+                  "Numero":{"type":"integer"},
+                  "Inicio":{"type":"string"},
+                  "Fim":{"type":"string"},
+                  "Status":{"type":"string"},
+                  "ModeloDocumento":{"type":"integer"}
                 }
               }
             }
           }
         },
-        "responses": { "200": { "description": "OK" } }
+        "responses":{"200":{"description":"OK"}}
+      }
+    },
+
+    "/api/NotasFiscais/ConfirmarSincronizacaoNFe": {
+      "put": {
+        "tags": ["NotaFiscal"],
+        "operationId": "confirmarSincronizacao",
+        "parameters": [
+          {"name":"atualizacaoId","in":"query","required":true,"schema":{"type":"string"}},
+          {"name":"Chave","in":"header","required":true,"schema":{"type":"string"}},
+          {"name":"Authorization","in":"header","required":true,"schema":{"type":"string"}}
+        ],
+        "responses":{"200":{"description":"OK"}}
+      }
+    },
+
+    "/api/NotasFiscais/ObterNFesNaoSincronizadas": {
+      "get": {
+        "tags": ["NotaFiscal"],
+        "operationId": "obterNaoSincronizadas",
+        "parameters": [
+          {"name":"Chave","in":"header","required":true,"schema":{"type":"string"}},
+          {"name":"Authorization","in":"header","required":true,"schema":{"type":"string"}}
+        ],
+        "responses":{"200":{"description":"OK"}}
       }
     },
 
     "/InserirNotaFiscalEmitidaExternamente": {
       "post": {
         "tags": ["NotaFiscal"],
-        "operationId": "inserirNFeExterna",
+        "operationId": "inserirExterna",
         "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "schema": { "type": "string" }
-          },
-          {
-            "name": "Chave",
-            "in": "header",
-            "required": true,
-            "schema": { "type": "string" }
-          }
+          {"name":"Chave","in":"header","required":true,"schema":{"type":"string"}},
+          {"name":"Authorization","in":"header","required":true,"schema":{"type":"string"}}
         ],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "pedidoHubId": { "type": "integer" },
-                  "xmlNota": { "type": "string" }
+                "type":"object",
+                "properties":{
+                  "pedidoHubId":{"type":"integer"},
+                  "xmlNota":{"type":"string"}
                 }
               }
             }
           }
         },
-        "responses": { "200": { "description": "OK" } }
+        "responses":{"200":{"description":"OK"}}
       }
     },
 
     "/ObterNotasFiscaisPlataforma": {
       "get": {
         "tags": ["NotaFiscal"],
-        "operationId": "obterNotasPlataforma",
+        "operationId": "obterNotas",
         "parameters": [
-          { "name": "IntegracaoId", "in": "query", "required": true, "schema": { "type": "string" } },
-          { "name": "Ano", "in": "query", "required": true, "schema": { "type": "string" } },
-          { "name": "Mes", "in": "query", "required": true, "schema": { "type": "string" } },
-          { "name": "Dia", "in": "query", "required": true, "schema": { "type": "string" } },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "schema": { "type": "string" }
-          },
-          {
-            "name": "Chave",
-            "in": "header",
-            "required": true,
-            "schema": { "type": "string" }
-          }
+          {"name":"IntegracaoId","in":"query","required":true,"schema":{"type":"string"}},
+          {"name":"Ano","in":"query","required":true,"schema":{"type":"string"}},
+          {"name":"Mes","in":"query","required":true,"schema":{"type":"string"}},
+          {"name":"Dia","in":"query","required":true,"schema":{"type":"string"}},
+          {"name":"Authorization","in":"header","required":true,"schema":{"type":"string"}},
+          {"name":"Chave","in":"header","required":true,"schema":{"type":"string"}}
         ],
-        "responses": {
-          "200": {
-            "description": "Arquivo base64",
-            "content": {
-              "application/json": {
-                "example": {
-                  "NomeArquivo": "arquivo.zip",
-                  "ArquivoBase64": "conteudo"
-                }
-              }
-            }
-          }
-        }
+        "responses":{"200":{"description":"OK"}}
       }
     }
+
   }
 }

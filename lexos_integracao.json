@@ -10,24 +10,16 @@
       "url": "https://api.lexos.com.br/integracao"
     }
   ],
-  "tags": [
-    {
-      "name": "Integracao",
-      "description": "Operações relacionadas a Integracao"
-    }
-  ],
   "paths": {
     "/Instalar": {
       "post": {
         "tags": ["Integracao"],
-        "summary": "Instalar integração",
-        "description": "FLUXO: LEXOS PLATAFORMA",
-        "operationId": "instalarIntegracao",
+        "summary": "Instalar",
+        "operationId": "instalar",
         "parameters": [
           {
             "name": "Authorization",
             "in": "header",
-            "description": "JWT Bearer Token obtido no processo de autenticação",
             "required": true,
             "schema": {
               "type": "string"
@@ -36,16 +28,15 @@
           {
             "name": "Chave",
             "in": "header",
-            "description": "Chave da integração no LexosHub",
             "required": true,
             "schema": {
               "type": "string"
             }
           },
           {
-            "name": "Lexos-Hmac-SHA256",
+            "name": "LexosHmacSHA256",
             "in": "header",
-            "description": "Hash para garantir autenticidade da requisição",
+            "description": "Header original: Lexos-Hmac-SHA256",
             "required": true,
             "schema": {
               "type": "string"
@@ -61,20 +52,20 @@
               },
               "example": {
                 "id": "string",
-                "webhookUrl": "https://meusistema.com/webhook"
+                "webhookUrl": "string"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Integração instalada com sucesso"
+            "description": ""
           },
           "400": {
-            "description": "Erro de validação"
+            "description": ""
           },
           "500": {
-            "description": "Erro interno"
+            "description": ""
           }
         }
       }
@@ -82,14 +73,12 @@
     "/ObterLista": {
       "get": {
         "tags": ["Integracao"],
-        "summary": "Obter lista de integrações",
-        "description": "Retorna as integrações ativas",
-        "operationId": "obterListaIntegracoes",
+        "summary": "ObterLista",
+        "operationId": "obter",
         "parameters": [
           {
             "name": "Authorization",
             "in": "header",
-            "description": "JWT Bearer Token obtido no processo de autenticação",
             "required": true,
             "schema": {
               "type": "string"
@@ -98,7 +87,6 @@
           {
             "name": "Chave",
             "in": "header",
-            "description": "Chave da integração no LexosHub",
             "required": true,
             "schema": {
               "type": "string"
@@ -107,13 +95,13 @@
         ],
         "responses": {
           "200": {
-            "description": "Lista de integrações retornada com sucesso"
+            "description": ""
           },
           "400": {
-            "description": "Erro de validação"
+            "description": ""
           },
           "500": {
-            "description": "Erro interno"
+            "description": ""
           }
         }
       }
@@ -123,38 +111,15 @@
     "schemas": {
       "InstalarRequest": {
         "type": "object",
-        "required": ["id", "webhookUrl"],
         "properties": {
           "id": {
-            "type": "string",
-            "description": "Identificador da integração"
+            "type": "string"
           },
           "webhookUrl": {
-            "type": "string",
-            "description": "URL para recebimento de eventos"
+            "type": "string"
           }
         }
       }
-    },
-    "securitySchemes": {
-      "apiKeyHeader": {
-        "type": "apiKey",
-        "name": "Ocp-Apim-Subscription-Key",
-        "in": "header"
-      },
-      "apiKeyQuery": {
-        "type": "apiKey",
-        "name": "subscription-key",
-        "in": "query"
-      }
     }
-  },
-  "security": [
-    {
-      "apiKeyHeader": []
-    },
-    {
-      "apiKeyQuery": []
-    }
-  ]
+  }
 }

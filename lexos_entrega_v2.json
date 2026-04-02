@@ -1,244 +1,204 @@
 {
-    "openapi": "3.0.1",
-    "info": {
-        "title": "Entrega",
-        "description": "Conjunto de APIs para manipulação de entregas",
-        "version": "1.0"
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Entrega",
+    "description": "Conjunto de APIs para manipulação de entregas",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.lexos.com.br/Entrega"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Entrega",
+      "description": "Operações relacionadas a entregas"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "apiKeyHeader": {
+        "type": "apiKey",
+        "name": "Ocp-Apim-Subscription-Key",
+        "in": "header"
+      },
+      "apiKeyQuery": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "subscription-key"
+      }
     },
-    "servers": [
-        {
-            "url": "https://api.lexos.com.br/Entrega"
+    "schemas": {
+      "Entrega": {
+        "type": "object",
+        "properties": {
+          "EntregaId": {
+            "type": "integer"
+          },
+          "PedidoId": {
+            "type": "integer"
+          },
+          "AtualizadoEm": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "EntregaStatus": {
+            "type": "string"
+          },
+          "PedidoStatus": {
+            "type": "string"
+          }
         }
-    ],
-    "tags": [
-        {
-            "name": "Entrega",
-            "description": "Entrega"
+      },
+      "ListaEntregasResponse": {
+        "type": "object",
+        "properties": {
+          "PaginaAtual": {
+            "type": "integer"
+          },
+          "TotalPaginas": {
+            "type": "integer"
+          },
+          "TotalRegistros": {
+            "type": "integer"
+          },
+          "Entregas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Entrega"
+            }
+          }
         }
-    ],
-    "paths": {
-        "/ObterLista": {
-            "get": {
-                "tags": [
-                    "Entrega"
-                ],
-                "summary": "/ObterLista",
-                "operationId": "obterlista",
-                "parameters": [
-                    {
-                        "name": "Pagina",
-                        "in": "query",
-                        "description": "índice da página",
-                        "schema": {
-                            "type": "integer"
-                        }
-                    },
-                    {
-                        "name": "AtualizadoEm",
-                        "in": "query",
-                        "description": "Filtro por data da atualização do pedido. Formato YYYY-MM-DD hh:mm",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "Status",
-                        "in": "query",
-                        "description": "Filtro por status da ENTREGA. Informar status separados por vírgula, por exemplo: Conferir,Enviado",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "\nJWT Bearer Token obtido no processo de autenticação",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "Chave",
-                        "in": "header",
-                        "description": "Chave da integração no LexosHub",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "PaginaAtual": 1,
-                                    "TotalPaginas": 1,
-                                    "TotalRegistros": 4,
-                                    "Entregas": [
-                                        {
-                                            "EntregaId": 8299755,
-                                            "PedidoId": 15828326,
-                                            "AtualizadoEm": "2023-05-12T19:40:15.0000000+00:00",
-                                            "EntregaStatus": "Enviado",
-                                            "PedidoStatus": "Pagamento Confirmado"
-                                        },
-                                        {
-                                            "EntregaId": 8312169,
-                                            "PedidoId": 15843959,
-                                            "AtualizadoEm": "2023-05-12T19:47:07.0000000+00:00",
-                                            "EntregaStatus": "Entregue",
-                                            "PedidoStatus": "Pagamento Confirmado"
-                                        },
-                                        {
-                                            "EntregaId": 8314495,
-                                            "PedidoId": 15846607,
-                                            "AtualizadoEm": "2023-05-12T19:49:33.0000000+00:00",
-                                            "EntregaStatus": "Enviado",
-                                            "PedidoStatus": "Pagamento Confirmado"
-                                        },
-                                        {
-                                            "EntregaId": 8299409,
-                                            "PedidoId": 15827914,
-                                            "AtualizadoEm": "2023-05-12T19:52:04.0000000+00:00",
-                                            "EntregaStatus": "Enviado",
-                                            "PedidoStatus": "Pagamento Confirmado"
-                                        }
-                                    ]
-                                }
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Erros de validação dos objetos e parâmetros informados."
-                    },
-                    "404": {
-                        "description": "Nenhum anúncio encontrado de acordo com os parâmetros fornecidos."
-                    }
-                }
+      }
+    }
+  },
+  "security": [
+    {
+      "apiKeyHeader": [],
+      "apiKeyQuery": []
+    }
+  ],
+  "paths": {
+    "/ObterLista": {
+      "get": {
+        "tags": [
+          "Entrega"
+        ],
+        "summary": "Lista entregas",
+        "operationId": "listarEntregas",
+        "parameters": [
+          {
+            "name": "Pagina",
+            "in": "query",
+            "description": "Índice da página",
+            "schema": {
+              "type": "integer"
             }
-        },
-        "/PrepararEnvio": {
-            "post": {
-                "tags": [
-                    "Entrega"
-                ],
-                "summary": "/PrepararEnvio",
-                "operationId": "prepararenvio",
-                "parameters": [
-                    {
-                        "name": "PedidoId",
-                        "in": "query",
-                        "description": "Id do pedido",
-                        "required": true,
-                        "schema": {
-                            "type": "number"
-                        }
-                    },
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "JWT Bearer Token obtido no processo de autenticação",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "Chave",
-                        "in": "header",
-                        "description": "Chave da integração no LexosHub",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Indica que o pedido foi atualizado com sucesso."
-                    },
-                    "400": {
-                        "description": "Erros de validação dos objetos e parâmetros informados."
-                    },
-                    "404": {
-                        "description": "Nenhum pedido encontrado de acordo com os parâmetros fornecidos."
-                    }
-                }
+          },
+          {
+            "name": "AtualizadoEm",
+            "in": "query",
+            "description": "Filtro por data de atualização (YYYY-MM-DD HH:mm)",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
             }
-        },
-        "/PrepararEnvioBatch": {
-            "post": {
-                "tags": [
-                    "Entrega"
-                ],
-                "summary": "/PrepararEnvioBatch",
-                "operationId": "prepararenviobatch",
-                "parameters": [
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "JWT Bearer Token obtido no processo de autenticação",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "Chave",
-                        "in": "header",
-                        "description": "Chave da integração no LexosHub",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "requestBody": {
-                    "content": {
-                        "text": {
-                            "example": [
-                                9442134,
-                                126653,
-                                4555216,
-                                6839412
-                            ]
-                        }
-                    }
-                },
-                "responses": {
-                    "202": {
-                        "description": "Indica que o procedimento foi agendado com sucesso."
-                    },
-                    "400": {
-                        "description": "Erros de validação dos objetos e parâmetros informados."
-                    }
-                }
+          },
+          {
+            "name": "Status",
+            "in": "query",
+            "description": "Status da entrega (separados por vírgula)",
+            "schema": {
+              "type": "string"
             }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de entregas retornada com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListaEntregasResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Erro de validação"
+          },
+          "404": {
+            "description": "Nenhuma entrega encontrada"
+          }
         }
+      }
     },
-    "components": {
-        "securitySchemes": {
-            "apiKeyHeader": {
-                "type": "apiKey",
-                "name": "Ocp-Apim-Subscription-Key",
-                "in": "header"
-            },
-            "apiKeyQuery": {
-                "type": "apiKey",
-                "name": "subscription-key",
-                "in": "query"
+    "/PrepararEnvio": {
+      "post": {
+        "tags": [
+          "Entrega"
+        ],
+        "summary": "Prepara envio de um pedido",
+        "operationId": "prepararEnvio",
+        "parameters": [
+          {
+            "name": "PedidoId",
+            "in": "query",
+            "required": true,
+            "description": "ID do pedido",
+            "schema": {
+              "type": "integer"
             }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Pedido preparado com sucesso"
+          },
+          "400": {
+            "description": "Erro de validação"
+          },
+          "404": {
+            "description": "Pedido não encontrado"
+          }
         }
+      }
     },
-    "security": [
-        {
-            "apiKeyHeader": []
+    "/PrepararEnvioBatch": {
+      "post": {
+        "tags": [
+          "Entrega"
+        ],
+        "summary": "Prepara envio em lote",
+        "operationId": "prepararEnvioBatch",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                }
+              },
+              "example": [
+                9442134,
+                126653,
+                4555216
+              ]
+            }
+          }
         },
-        {
-            "apiKeyQuery": []
+        "responses": {
+          "202": {
+            "description": "Processo agendado com sucesso"
+          },
+          "400": {
+            "description": "Erro de validação"
+          }
         }
-    ]
+      }
+    }
+  }
 }

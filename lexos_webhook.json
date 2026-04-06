@@ -1,0 +1,155 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Webhook",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.lexos.com.br/webhook"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Webhook"
+    }
+  ],
+  "paths": {
+
+    "/Obter": {
+      "get": {
+        "tags": ["Webhook"],
+        "operationId": "ObterWebhook",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "Chave",
+            "in": "header",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Erro de validação" },
+          "404": { "description": "Não encontrado" }
+        }
+      }
+    },
+
+    "/Cadastrar": {
+      "post": {
+        "tags": ["Webhook"],
+        "operationId": "CadastrarWebhook",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "Chave",
+            "in": "header",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebhookModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Criado" },
+          "400": { "description": "Erro de validação" },
+          "404": { "description": "Não encontrado" }
+        }
+      }
+    },
+
+    "/Remover": {
+      "delete": {
+        "tags": ["Webhook"],
+        "operationId": "RemoverWebhook",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "Chave",
+            "in": "header",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Erro de validação" },
+          "404": { "description": "Não encontrado" }
+        }
+      }
+    },
+
+    "/Testar": {
+      "get": {
+        "tags": ["Webhook"],
+        "operationId": "TestarWebhook",
+        "parameters": [
+          {
+            "name": "TipoWebhook",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "Chave",
+            "in": "header",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Erro de validação" },
+          "404": { "description": "Não encontrado" }
+        }
+      }
+    }
+
+  },
+  "components": {
+    "schemas": {
+      "WebhookModel": {
+        "type": "object",
+        "required": ["WebhookUrl"],
+        "properties": {
+          "WebhookUrl": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

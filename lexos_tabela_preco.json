@@ -1,0 +1,63 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "TabelaPreco",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.lexos.com.br/TabelaPreco"
+    }
+  ],
+  "tags": [
+    {
+      "name": "TabelaPreco"
+    }
+  ],
+  "paths": {
+    "/ObterLista": {
+      "get": {
+        "tags": ["TabelaPreco"],
+        "operationId": "ObterListaTabelaPreco",
+        "parameters": [
+          {
+            "name": "Pagina",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Chave",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Erro de validação"
+          },
+          "404": {
+            "description": "Não encontrado"
+          }
+        }
+      }
+    }
+  },
+  "components": {}
+}

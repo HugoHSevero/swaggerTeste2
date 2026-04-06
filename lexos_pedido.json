@@ -11,9 +11,7 @@
     }
   ],
   "tags": [
-    {
-      "name": "Pedido"
-    }
+    { "name": "Pedido" }
   ],
   "paths": {
 
@@ -21,26 +19,35 @@
       "get": {
         "tags": ["Pedido"],
         "summary": "Obter pedido por ID",
+        "operationId": "obterPorId",
         "parameters": [
           { "name": "PedidoId", "in": "query", "required": true, "schema": { "type": "string" } },
           { "name": "Authorization", "in": "header", "required": true, "schema": { "type": "string" } },
           { "name": "Chave", "in": "header", "required": true, "schema": { "type": "string" } }
         ],
-        "responses": { "200": { "description": "OK" } }
+        "responses": {
+          "200": { "description": "Sucesso" },
+          "400": { "description": "Erro de validação" },
+          "404": { "description": "Não encontrado" }
+        }
       }
     },
 
     "/AtualizarPedidoErpId": {
       "put": {
         "tags": ["Pedido"],
-        "summary": "Atualizar Pedido ERP",
+        "summary": "Atualizar ERP ID",
+        "operationId": "atualizarPedidoErpId",
         "parameters": [
-          { "name": "PedidoId", "in": "query", "required": true, "schema": { "type": "integer" } },
+          { "name": "PedidoId", "in": "query", "required": true, "schema": { "type": "integer", "format": "int64" } },
           { "name": "PedidoErpId", "in": "query", "required": true, "schema": { "type": "string" } },
           { "name": "Authorization", "in": "header", "required": true, "schema": { "type": "string" } },
           { "name": "Chave", "in": "header", "required": true, "schema": { "type": "string" } }
         ],
-        "responses": { "200": { "description": "OK" } }
+        "responses": {
+          "200": { "description": "Atualizado" },
+          "400": { "description": "Erro" }
+        }
       }
     },
 
@@ -48,17 +55,15 @@
       "get": {
         "tags": ["Pedido"],
         "summary": "Troca de loja",
+        "operationId": "trocaDeLoja",
         "parameters": [
-          {
-            "name": "PedidoTrocaLojaId",
-            "in": "path",
-            "required": true,
-            "schema": { "type": "string" }
-          },
+          { "name": "PedidoTrocaLojaId", "in": "path", "required": true, "schema": { "type": "string" } },
           { "name": "Authorization", "in": "header", "required": true, "schema": { "type": "string" } },
           { "name": "Chave", "in": "header", "required": true, "schema": { "type": "string" } }
         ],
-        "responses": { "200": { "description": "OK" } }
+        "responses": {
+          "200": { "description": "Sucesso" }
+        }
       }
     },
 
@@ -66,6 +71,7 @@
       "get": {
         "tags": ["Pedido"],
         "summary": "Listar pedidos",
+        "operationId": "obterLista",
         "parameters": [
           { "name": "Pagina", "in": "query", "schema": { "type": "integer" } },
           { "name": "Data", "in": "query", "schema": { "type": "string" } },
@@ -73,7 +79,9 @@
           { "name": "Authorization", "in": "header", "required": true, "schema": { "type": "string" } },
           { "name": "Chave", "in": "header", "required": true, "schema": { "type": "string" } }
         ],
-        "responses": { "200": { "description": "OK" } }
+        "responses": {
+          "200": { "description": "Lista retornada" }
+        }
       }
     },
 
@@ -81,13 +89,16 @@
       "get": {
         "tags": ["Pedido"],
         "summary": "Obter etiqueta",
+        "operationId": "obterEtiqueta",
         "parameters": [
           { "name": "PedidoId", "in": "query", "schema": { "type": "integer" } },
           { "name": "Codigo", "in": "query", "schema": { "type": "string" } },
           { "name": "Authorization", "in": "header", "required": true, "schema": { "type": "string" } },
           { "name": "Chave", "in": "header", "required": true, "schema": { "type": "string" } }
         ],
-        "responses": { "200": { "description": "OK" } }
+        "responses": {
+          "200": { "description": "Etiqueta em Base64" }
+        }
       }
     },
 
@@ -95,25 +106,15 @@
       "get": {
         "tags": ["Pedido"],
         "summary": "Obter nota fiscal",
+        "operationId": "obterNotaFiscal",
         "parameters": [
           { "name": "PedidoId", "in": "query", "required": true, "schema": { "type": "integer" } },
           { "name": "Authorization", "in": "header", "required": true, "schema": { "type": "string" } },
           { "name": "Chave", "in": "header", "required": true, "schema": { "type": "string" } }
         ],
-        "responses": { "200": { "description": "OK" } }
-      }
-    },
-
-    "/ObterIntermediador": {
-      "get": {
-        "tags": ["Pedido"],
-        "summary": "Obter intermediador",
-        "parameters": [
-          { "name": "PedidoId", "in": "query", "required": true, "schema": { "type": "string" } },
-          { "name": "Authorization", "in": "header", "required": true, "schema": { "type": "string" } },
-          { "name": "Chave", "in": "header", "required": true, "schema": { "type": "string" } }
-        ],
-        "responses": { "200": { "description": "OK" } }
+        "responses": {
+          "200": { "description": "Nota fiscal retornada" }
+        }
       }
     },
 
@@ -121,69 +122,41 @@
       "post": {
         "tags": ["Pedido"],
         "summary": "Preparar envio",
+        "operationId": "prepararEnvio",
         "parameters": [
           { "name": "PedidoId", "in": "query", "required": true, "schema": { "type": "string" } },
           { "name": "Authorization", "in": "header", "required": true, "schema": { "type": "string" } },
           { "name": "Chave", "in": "header", "required": true, "schema": { "type": "string" } }
         ],
-        "responses": { "200": { "description": "OK" } }
+        "responses": {
+          "200": { "description": "Preparado" }
+        }
       }
     },
 
     "/PrepararEnvioBatch": {
       "post": {
         "tags": ["Pedido"],
-        "summary": "Preparar envio batch",
+        "summary": "Preparar envio em lote",
+        "operationId": "prepararEnvioBatch",
         "parameters": [
           { "name": "Authorization", "in": "header", "required": true, "schema": { "type": "string" } },
           { "name": "Chave", "in": "header", "required": true, "schema": { "type": "string" } }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
-              "example": [1,2,3]
+              "schema": {
+                "type": "array",
+                "items": { "type": "integer" }
+              }
             }
           }
         },
-        "responses": { "202": { "description": "OK" } }
-      }
-    },
-
-    "/ObterPorCodigo": {
-      "get": {
-        "tags": ["Pedido"],
-        "summary": "Obter por código",
-        "parameters": [
-          { "name": "Codigo", "in": "query", "required": true, "schema": { "type": "string" } },
-          { "name": "Authorization", "in": "header", "required": true, "schema": { "type": "string" } },
-          { "name": "Chave", "in": "header", "required": true, "schema": { "type": "string" } }
-        ],
-        "responses": { "200": { "description": "OK" } }
-      }
-    },
-
-    "/NotificarAlteracaoPedido": {
-      "post": {
-        "tags": ["Pedido"],
-        "summary": "Notificar alteração",
-        "parameters": [
-          { "name": "Authorization", "in": "header", "required": true, "schema": { "type": "string" } },
-          { "name": "Chave", "in": "header", "required": true, "schema": { "type": "string" } }
-        ],
-        "responses": { "200": { "description": "OK" } }
-      }
-    },
-
-    "/ObterDadosTransacionais": {
-      "get": {
-        "tags": ["Pedido"],
-        "summary": "Dados transacionais",
-        "parameters": [
-          { "name": "PedidoId", "in": "query", "required": true, "schema": { "type": "integer" } },
-          { "name": "Authorization", "in": "header", "required": true, "schema": { "type": "string" } },
-          { "name": "Chave", "in": "header", "required": true, "schema": { "type": "string" } }
-        ],
-        "responses": { "200": { "description": "OK" } }
+        "responses": {
+          "202": { "description": "Processamento iniciado" }
+        }
       }
     },
 
@@ -191,33 +164,39 @@
       "post": {
         "tags": ["Pedido"],
         "summary": "Incluir pedido",
-        "responses": { "202": { "description": "OK" } }
-      }
-    },
-
-    "/AtualizarParaEnviado": {
-      "post": {
-        "tags": ["Pedido"],
-        "summary": "Atualizar para enviado",
-        "responses": { "200": { "description": "OK" } }
-      }
-    },
-
-    "/AtualizarParaEntregue": {
-      "post": {
-        "tags": ["Pedido"],
-        "summary": "Atualizar para entregue",
-        "responses": { "200": { "description": "OK" } }
-      }
-    },
-
-    "/ArmazenarEtiqueta": {
-      "post": {
-        "tags": ["Pedido"],
-        "summary": "Armazenar etiqueta",
-        "responses": { "200": { "description": "OK" } }
+        "operationId": "incluirPedido",
+        "parameters": [
+          { "name": "Authorization", "in": "header", "required": true, "schema": { "type": "string" } },
+          { "name": "Chave", "in": "header", "required": true, "schema": { "type": "string" } }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IncluirPedidoModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": { "description": "Pedido recebido" }
+        }
       }
     }
 
+  },
+
+  "components": {
+    "schemas": {
+      "IncluirPedidoModel": {
+        "type": "object",
+        "properties": {
+          "codigo": { "type": "string" },
+          "codigoPlataforma": { "type": "string" },
+          "total": { "type": "number" }
+        }
+      }
+    }
   }
 }

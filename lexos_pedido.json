@@ -2,6 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "Pedido",
+    "description": "Conjunto de APIs para manipulação de pedidos",
     "version": "1.0"
   },
   "servers": [

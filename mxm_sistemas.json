@@ -51,7 +51,9 @@
             "description": "successful operation",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -89,7 +91,9 @@
             "description": "Operação bem sucedida.",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaporProcessoInterfacedoAcrescimoDecrescimoAuthentication"
+                }
               }
             }
           }
@@ -127,7 +131,9 @@
             "description": "Operação bem sucedida.",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoTodosRetornaTodosAcrescimosDecrescimos"
+                }
               }
             }
           }
@@ -165,7 +171,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -203,7 +211,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaPorProcessoAntecipacao"
+                }
               }
             }
           }
@@ -241,7 +251,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaAntecipacao"
+                }
               }
             }
           }
@@ -279,7 +291,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoObterSaldoAntecipacaoEmAberto"
+                }
               }
             }
           }
@@ -317,7 +331,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarAntecipacaoDevolucaoPrestacaoAuthentication"
+                }
               }
             }
           }
@@ -355,7 +371,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarAntecipacaoDevolucaodeClienteAuthentication"
+                }
               }
             }
           }
@@ -393,7 +411,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarSaldoAntecipacaoDevolucaodeClienteAuthentication"
+                }
               }
             }
           }
@@ -431,7 +451,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -469,7 +491,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -507,7 +531,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoExcluirSincrono"
+                }
               }
             }
           }
@@ -545,7 +571,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaRequisicaoAdiantamento"
+                }
               }
             }
           }
@@ -583,7 +611,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoIncluiAnexoGenericoAuthentication"
+                }
               }
             }
           }
@@ -621,7 +651,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoRequisicaoAdiantamentoConsultarAnexoAuthentication"
+                }
               }
             }
           }
@@ -659,7 +691,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoSincrono"
+                }
               }
             }
           }
@@ -697,7 +731,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -735,7 +771,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoCategoriaFuncionalConsultaAuthentication"
+                }
               }
             }
           }
@@ -773,7 +811,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoAlocacaoUsuarioEstruturaFuncionalConsultaAuthentication"
+                }
               }
             }
           }
@@ -811,7 +851,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -849,7 +891,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoEstruturaFuncionalConsultaAuthentication"
+                }
               }
             }
           }
@@ -887,7 +931,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoRelacionamentoServicoContatoInternoConsultaAuthentication"
+                }
               }
             }
           }
@@ -925,7 +971,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoGravarParametroContabilContraPartidaAuthentication"
+                }
               }
             }
           }
@@ -963,7 +1011,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoGravarParametroContabilImpostoAuthentication"
+                }
               }
             }
           }
@@ -1001,7 +1051,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoGravarParametroContabilICMSAuthentication"
+                }
               }
             }
           }
@@ -1039,7 +1091,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoGravarParametroContabilICMSSTAuthentication"
+                }
               }
             }
           }
@@ -1077,7 +1131,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoGravarParametroContabilIPIAuthentication"
+                }
               }
             }
           }
@@ -1115,7 +1171,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoGravarParametroContabilPISCOFINSAuthentication"
+                }
               }
             }
           }
@@ -1153,7 +1211,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -1191,7 +1251,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaTipodeOperacaoPorProcesso"
+                }
               }
             }
           }
@@ -1230,7 +1292,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoTodosRetornaTodosAcrescimosDecrescimos"
+                }
               }
             }
           }
@@ -1268,7 +1332,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoGrupoCotacaoFornecedorGravarAuthentication"
+                }
               }
             }
           }
@@ -1306,7 +1372,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoGrupoCotacaoFornecedorConsultarAuthentication"
+                }
               }
             }
           }
@@ -1344,7 +1412,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoGrupoCotacaoFornecedorExcluirAuthentication"
+                }
               }
             }
           }
@@ -1382,7 +1452,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaUnidadeMedidaConsultarAuthentication"
+                }
               }
             }
           }
@@ -1420,7 +1492,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaUnidadeProdutoConsultarAuthentication"
+                }
               }
             }
           }
@@ -1458,7 +1532,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoGravarKit"
+                }
               }
             }
           }
@@ -1497,7 +1573,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarKits"
+                }
               }
             }
           }
@@ -1536,7 +1614,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarCartaoCredito"
+                }
               }
             }
           }
@@ -1575,7 +1655,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarCartaoCredito"
+                }
               }
             }
           }
@@ -1614,7 +1696,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarCartaoCredito"
+                }
               }
             }
           }
@@ -1653,7 +1737,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -1691,7 +1777,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaImpostoPorProcesso"
+                }
               }
             }
           }
@@ -1729,7 +1817,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarImpostos"
+                }
               }
             }
           }
@@ -1768,7 +1858,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -1807,7 +1899,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -1846,7 +1940,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -1885,7 +1981,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarBancos"
+                }
               }
             }
           }
@@ -1923,7 +2021,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -1961,7 +2061,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaCentrodeCustoPorProcessoeSequencia"
+                }
               }
             }
           }
@@ -1999,7 +2101,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaCentrodeCustoPorProcessoeSequencia"
+                }
               }
             }
           }
@@ -2037,7 +2141,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaCentrodeCustoPorProcesso"
+                }
               }
             }
           }
@@ -2076,7 +2182,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaCentrodeCustoPorModelo"
+                }
               }
             }
           }
@@ -2105,7 +2213,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaCentrodeCustoPorDescricao"
+                }
               }
             }
           }
@@ -2144,7 +2254,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaCentrodeCusto"
+                }
               }
             }
           }
@@ -2182,7 +2294,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -2220,7 +2334,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaporProcessoInterfacedaClassificacaoFiscalAuthentication"
+                }
               }
             }
           }
@@ -2258,7 +2374,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -2296,7 +2414,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -2334,7 +2454,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -2342,7 +2464,7 @@
         "x-codegen-request-body-name": "InterfacedoCliente/Gravar"
       }
     },
-    "/webmanager/api/InterfacedoCliente/Gravar": {
+    "/webmanager/api/InterfacedoCliente/Gravar ": {
       "post": {
         "tags": [
           "Cliente"
@@ -2372,7 +2494,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -2380,7 +2504,7 @@
         "x-codegen-request-body-name": "InterfacedoCliente/Gravar"
       }
     },
-    "/webmanager/api/InterfacedoCliente/Gravar": {
+    "/webmanager/api/InterfacedoCliente/Gravar  ": {
       "post": {
         "tags": [
           "Cliente"
@@ -2410,7 +2534,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -2448,7 +2574,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaClientePorProcesso"
+                }
               }
             }
           }
@@ -2486,7 +2614,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaClientePorProcesso"
+                }
               }
             }
           }
@@ -2524,7 +2654,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaClientePorProcesso"
+                }
               }
             }
           }
@@ -2562,7 +2694,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarParametrizacaoContabilClienteAuthentication"
+                }
               }
             }
           }
@@ -2600,7 +2734,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaClienteEndereco"
+                }
               }
             }
           }
@@ -2638,7 +2774,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoObterClientes"
+                }
               }
             }
           }
@@ -2676,7 +2814,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoObterClientes"
+                }
               }
             }
           }
@@ -2714,7 +2854,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarSituacaoFinanceiraCliente"
+                }
               }
             }
           }
@@ -2752,7 +2894,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarSituacaoFinanceiraClientePorDataCadastro"
+                }
               }
             }
           }
@@ -2790,7 +2934,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarClientePorDataCadastro"
+                }
               }
             }
           }
@@ -2828,7 +2974,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -2866,7 +3014,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaCotacaoAuthentication"
+                }
               }
             }
           }
@@ -2904,7 +3054,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoExcluirSincrono"
+                }
               }
             }
           }
@@ -2942,7 +3094,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -2980,7 +3134,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoExcluirSincrono"
+                }
               }
             }
           }
@@ -3018,7 +3174,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -3056,7 +3214,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -3094,7 +3254,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -3132,7 +3294,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarMapaCotacaoSincrono"
+                }
               }
             }
           }
@@ -3170,7 +3334,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarEventosdaFichaFinanceira"
+                }
               }
             }
           }
@@ -3208,7 +3374,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoSincrono"
+                }
               }
             }
           }
@@ -3246,7 +3414,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -3284,7 +3454,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaContatoCliente"
+                }
               }
             }
           }
@@ -3322,7 +3494,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaContatoCliente"
+                }
               }
             }
           }
@@ -3360,7 +3534,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaEmailContato"
+                }
               }
             }
           }
@@ -3398,7 +3574,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -3436,7 +3614,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -3474,7 +3654,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -3512,7 +3694,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaporProcesso"
+                }
               }
             }
           }
@@ -3550,7 +3734,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -3589,7 +3775,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaContabilidade"
+                }
               }
             }
           }
@@ -3627,7 +3815,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaContabilidade"
+                }
               }
             }
           }
@@ -3665,7 +3855,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaSaldo"
+                }
               }
             }
           }
@@ -3703,7 +3895,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaHistoricoLancamentos"
+                }
               }
             }
           }
@@ -3741,7 +3935,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaHistoricoLancamentos"
+                }
               }
             }
           }
@@ -3780,7 +3976,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -3818,7 +4016,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaModeloDemonstrativoResultadoContabilPorProcesso"
+                }
               }
             }
           }
@@ -3847,7 +4047,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -3875,7 +4077,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/InterfaceSequenciaModeloRateio"
+                }
               }
             }
           }
@@ -3913,7 +4117,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/InterfaceSequenciaModeloRateio"
+                }
               }
             }
           }
@@ -3951,7 +4157,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaBalanceteContabil"
+                }
               }
             }
           }
@@ -3989,7 +4197,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaBalanceteContabilCentroCusto"
+                }
               }
             }
           }
@@ -4027,7 +4237,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaBalanceteContabilPorPeriodo"
+                }
               }
             }
           }
@@ -4065,7 +4277,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaBalanceteContabilCentroCustoPorPeriodo"
+                }
               }
             }
           }
@@ -4073,7 +4287,7 @@
         "x-codegen-request-body-name": "InterfacedaContabilidade/Balancete/CentroCustoPorPeriodo"
       }
     },
-    "/webmanager/api/InterfacedoContasPagarReceber/Gravar": {
+    "/webmanager/api/InterfacedoContasPagarReceber/Gravar ": {
       "post": {
         "tags": [
           "Contas a pagar"
@@ -4103,7 +4317,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -4141,7 +4357,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -4179,7 +4397,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -4187,7 +4407,7 @@
         "x-codegen-request-body-name": "InterfacedoContasPagarReceber/GravarSincrono"
       }
     },
-    "/webmanager/api/InterfacedoContasPagarReceber/Gravar": {
+    "/webmanager/api/InterfacedoContasPagarReceber/Gravar  ": {
       "post": {
         "tags": [
           "Contas a receber"
@@ -4217,7 +4437,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -4225,7 +4447,7 @@
         "x-codegen-request-body-name": "GravaBaixaReceber"
       }
     },
-    "/webmanager/api/InterfacedoContasPagarReceber/GravarSincrono": {
+    "/webmanager/api/InterfacedoContasPagarReceber/GravarSincrono  ": {
       "post": {
         "tags": [
           "Contas a receber"
@@ -4255,7 +4477,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -4263,7 +4487,7 @@
         "x-codegen-request-body-name": "GravaBaixaReceber"
       }
     },
-    "/webmanager/api/InterfacedoContasPagarReceber/BaixarListaTitulos": {
+    "/webmanager/api/InterfacedoContasPagarReceber/BaixarListaTitulos  ": {
       "post": {
         "tags": [
           "Contas a receber"
@@ -4293,7 +4517,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -4301,7 +4527,7 @@
         "x-codegen-request-body-name": "GravaBaixaReceber"
       }
     },
-    "/webmanager/api/InterfacedoContasPagarReceber/Gravar": {
+    "/webmanager/api/InterfacedoContasPagarReceber/Gravar   ": {
       "post": {
         "tags": [
           "Contas a pagar"
@@ -4331,7 +4557,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -4339,7 +4567,7 @@
         "x-codegen-request-body-name": "GravaBaixaPagar"
       }
     },
-    "/webmanager/api/InterfacedoContasPagarReceber/Gravar": {
+    "/webmanager/api/InterfacedoContasPagarReceber/Gravar    ": {
       "post": {
         "tags": [
           "Contas a receber"
@@ -4369,7 +4597,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -4377,7 +4607,7 @@
         "x-codegen-request-body-name": "CancelaReceber"
       }
     },
-    "/webmanager/api/InterfacedoContasPagarReceber/GravarSincrono": {
+    "/webmanager/api/InterfacedoContasPagarReceber/GravarSincrono    ": {
       "post": {
         "tags": [
           "Contas a receber"
@@ -4407,7 +4637,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -4415,7 +4647,7 @@
         "x-codegen-request-body-name": "CancelaReceber"
       }
     },
-    "/webmanager/api/InterfacedoContasPagarReceber/Gravar": {
+    "/webmanager/api/InterfacedoContasPagarReceber/Gravar     ": {
       "post": {
         "tags": [
           "Contas a pagar"
@@ -4446,7 +4678,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -4454,7 +4688,7 @@
         "x-codegen-request-body-name": "CancelaPagar"
       }
     },
-    "/webmanager/api/InterfacedoContasPagarReceber/Gravar": {
+    "/webmanager/api/InterfacedoContasPagarReceber/Gravar      ": {
       "post": {
         "tags": [
           "Contas a receber"
@@ -4484,14 +4718,16 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
         }
       }
     },
-    "/webmanager/api/InterfacedoContasPagarReceber/GravarSincrono": {
+    "/webmanager/api/InterfacedoContasPagarReceber/GravarSincrono      ": {
       "post": {
         "tags": [
           "Contas a receber"
@@ -4521,14 +4757,16 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
         }
       }
     },
-    "/webmanager/api/InterfacedoContasPagarReceber/Gravar": {
+    "/webmanager/api/InterfacedoContasPagarReceber/Gravar       ": {
       "post": {
         "tags": [
           "Contas a pagar"
@@ -4558,7 +4796,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -4566,7 +4806,7 @@
         "x-codegen-request-body-name": "ProvisaoBaixaPagar"
       }
     },
-    "/webmanager/api/InterfacedoContasPagarReceber/Gravar": {
+    "/webmanager/api/InterfacedoContasPagarReceber/Gravar         ": {
       "post": {
         "tags": [
           "Contas a receber"
@@ -4596,7 +4836,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -4604,7 +4846,7 @@
         "x-codegen-request-body-name": "ExclusaoReceber"
       }
     },
-    "/webmanager/api/InterfacedoContasPagarReceber/Gravar": {
+    "/webmanager/api/InterfacedoContasPagarReceber/Gravar          ": {
       "post": {
         "tags": [
           "Contas a pagar"
@@ -4634,7 +4876,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -4642,7 +4886,7 @@
         "x-codegen-request-body-name": "ExclusaoPagar"
       }
     },
-    "/webmanager/api/InterfacedoContasPagarReceber/GravarSincrono": {
+    "/webmanager/api/InterfacedoContasPagarReceber/GravarSincrono         ": {
       "post": {
         "tags": [
           "Contas a receber"
@@ -4672,7 +4916,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -4680,7 +4926,7 @@
         "x-codegen-request-body-name": "ExclusaoReceber"
       }
     },
-    "/webmanager/api/InterfacedoContasPagarReceber/Gravar": {
+    "/webmanager/api/InterfacedoContasPagarReceber/Gravar           ": {
       "post": {
         "tags": [
           "Contas a receber"
@@ -4710,7 +4956,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -4718,7 +4966,7 @@
         "x-codegen-request-body-name": "ExclusaoBaixaReceber"
       }
     },
-    "/webmanager/api/InterfacedoContasPagarReceber/Gravar": {
+    "/webmanager/api/InterfacedoContasPagarReceber/Gravar            ": {
       "post": {
         "tags": [
           "Contas a pagar"
@@ -4748,7 +4996,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -4756,7 +5006,7 @@
         "x-codegen-request-body-name": "ExclusaoBaixaPagar"
       }
     },
-    "/webmanager/api/InterfacedoContasPagarReceber/GravarSincrono": {
+    "/webmanager/api/InterfacedoContasPagarReceber/GravarSincrono           ": {
       "post": {
         "tags": [
           "Contas a receber"
@@ -4786,7 +5036,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -4794,7 +5046,7 @@
         "x-codegen-request-body-name": "ExclusaoBaixaReceber"
       }
     },
-    "/webmanager/api/InterfacedoContasPagarReceber/Gravar": {
+    "/webmanager/api/InterfacedoContasPagarReceber/Gravar             ": {
       "post": {
         "tags": [
           "Contas a receber"
@@ -4824,7 +5076,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -4832,7 +5086,7 @@
         "x-codegen-request-body-name": "CancelamentoBaixaReceber"
       }
     },
-    "/webmanager/api/InterfacedoContasPagarReceber/Gravar": {
+    "/webmanager/api/InterfacedoContasPagarReceber/Gravar              ": {
       "post": {
         "tags": [
           "Contas a pagar"
@@ -4862,7 +5116,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -4870,7 +5126,7 @@
         "x-codegen-request-body-name": "CancelamentoBaixaPagar"
       }
     },
-    "/webmanager/api/InterfacedoContasPagarReceber/GravarSincrono": {
+    "/webmanager/api/InterfacedoContasPagarReceber/GravarSincrono             ": {
       "post": {
         "tags": [
           "Contas a receber"
@@ -4900,7 +5156,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -4908,7 +5166,7 @@
         "x-codegen-request-body-name": "CancelamentoBaixaReceber"
       }
     },
-    "/webmanager/api/InterfacedoContasPagarReceber/Gravar": {
+    "/webmanager/api/InterfacedoContasPagarReceber/Gravar               ": {
       "post": {
         "tags": [
           "Contas a receber"
@@ -4938,7 +5196,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -4946,7 +5206,7 @@
         "x-codegen-request-body-name": "ExclusaoBaixaPorCancelamentoReceber"
       }
     },
-    "/webmanager/api/InterfacedoContasPagarReceber/GravarSincrono": {
+    "/webmanager/api/InterfacedoContasPagarReceber/GravarSincrono               ": {
       "post": {
         "tags": [
           "Contas a receber"
@@ -4976,7 +5236,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -4984,7 +5246,7 @@
         "x-codegen-request-body-name": "ExclusaoBaixaPorCancelamentoReceber"
       }
     },
-    "/webmanager/api/InterfacedoContasPagarReceber/Gravar": {
+    "/webmanager/api/InterfacedoContasPagarReceber/Gravar                                               ": {
       "post": {
         "tags": [
           "Contas a receber"
@@ -5014,7 +5276,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -5022,7 +5286,7 @@
         "x-codegen-request-body-name": "ManutencaoTituloSemCriticaEspecificaReceber"
       }
     },
-    "/webmanager/api/InterfacedoContasPagarReceber/GravarSincrono": {
+    "/webmanager/api/InterfacedoContasPagarReceber/GravarSincrono                                               ": {
       "post": {
         "tags": [
           "Contas a receber"
@@ -5052,7 +5316,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -5060,7 +5326,7 @@
         "x-codegen-request-body-name": "ManutencaoTituloSemCriticaEspecificaReceber"
       }
     },
-    "/webmanager/api/InterfacedoContasPagarReceber/Gravar": {
+    "/webmanager/api/InterfacedoContasPagarReceber/Gravar                                     ": {
       "post": {
         "tags": [
           "Contas a receber"
@@ -5090,7 +5356,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -5098,7 +5366,7 @@
         "x-codegen-request-body-name": "ReparcelamentoTituloReceber"
       }
     },
-    "/webmanager/api/InterfacedoContasPagarReceber/GravarSincrono": {
+    "/webmanager/api/InterfacedoContasPagarReceber/GravarSincrono                                     ": {
       "post": {
         "tags": [
           "Contas a receber"
@@ -5128,7 +5396,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -5136,7 +5406,7 @@
         "x-codegen-request-body-name": "ReparcelamentoTituloReceber"
       }
     },
-    "/webmanager/api/InterfacedoContasPagarReceber/Gravar": {
+    "/webmanager/api/InterfacedoContasPagarReceber/Gravar                ": {
       "post": {
         "tags": [
           "Contas a pagar"
@@ -5166,7 +5436,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -5174,7 +5446,7 @@
         "x-codegen-request-body-name": "BorderoPagar"
       }
     },
-    "/webmanager/api/InterfacedoContasPagarReceber/Gravar": {
+    "/webmanager/api/InterfacedoContasPagarReceber/Gravar                 ": {
       "post": {
         "tags": [
           "Contas a pagar"
@@ -5204,7 +5476,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -5212,7 +5486,7 @@
         "x-codegen-request-body-name": "TituloImpostoAjustarPagar"
       }
     },
-    "/webmanager/api/InterfacedoContasPagarReceber/Gravar": {
+    "/webmanager/api/InterfacedoContasPagarReceber/Gravar                  ": {
       "post": {
         "tags": [
           "Contas a receber"
@@ -5242,7 +5516,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -5250,7 +5526,7 @@
         "x-codegen-request-body-name": "TituloImpostoAjustarReceber"
       }
     },
-    "/webmanager/api/InterfacedoContasPagarReceber/GravarSincrono": {
+    "/webmanager/api/InterfacedoContasPagarReceber/GravarSincrono                  ": {
       "post": {
         "tags": [
           "Contas a receber"
@@ -5280,7 +5556,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -5288,7 +5566,7 @@
         "x-codegen-request-body-name": "TituloImpostoAjustarReceber"
       }
     },
-    "/webmanager/api/InterfacedoContasPagarReceber/Gravar": {
+    "/webmanager/api/InterfacedoContasPagarReceber/Gravar                   ": {
       "post": {
         "tags": [
           "Contas a receber"
@@ -5318,7 +5596,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -5326,7 +5606,7 @@
         "x-codegen-request-body-name": "CancelamentoBaixaReceberNFin"
       }
     },
-    "/webmanager/api/InterfacedoContasPagarReceber/GravarSincrono": {
+    "/webmanager/api/InterfacedoContasPagarReceber/GravarSincrono                   ": {
       "post": {
         "tags": [
           "Contas a receber"
@@ -5356,7 +5636,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -5364,7 +5646,7 @@
         "x-codegen-request-body-name": "CancelamentoBaixaReceberNFin"
       }
     },
-    "/webmanager/api/InterfacedoContasPagarReceber/Gravar": {
+    "/webmanager/api/InterfacedoContasPagarReceber/Gravar                    ": {
       "post": {
         "tags": [
           "Contas a pagar"
@@ -5394,12 +5676,43 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
         },
         "x-codegen-request-body-name": "CancelamentoBaixaPagarNFin"
+      }
+    },
+    "/webmanager/api/InterfacedoContasPagarReceber/ConsultaporProcesso": {
+      "post": {
+        "tags": [
+          "Contas a pagar",
+          "Contas a receber"
+        ],
+        "summary": "Consultar status do processo enviado",
+        "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              
+            }
+          },
+          "required": false
+        },
+        "x-codegen-request-body-name": "GravaContasPagarReceber"
       }
     },
     "/webmanager/api/InterfacedoContasPagarReceber/ConsultaporProcessoeSequencia": {
@@ -5433,7 +5746,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaporProcessoeSequenciaContasPagarReceber"
+                }
               }
             }
           }
@@ -5472,7 +5787,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaTituloPagarAPI"
+                }
               }
             }
           }
@@ -5510,7 +5827,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaTituloReceber"
+                }
               }
             }
           }
@@ -5549,7 +5868,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarTitulosReceberFaturaPorStatus"
+                }
               }
             }
           }
@@ -5587,7 +5908,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaTituloPagar"
+                }
               }
             }
           }
@@ -5625,7 +5948,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaTituloPagarAlteracao"
+                }
               }
             }
           }
@@ -5663,7 +5988,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoAtualizarLinhaDigitavelTituloPagar"
+                }
               }
             }
           }
@@ -5701,7 +6028,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoAtualizarDadosPagamento"
+                }
               }
             }
           }
@@ -5739,7 +6068,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -5777,7 +6108,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarContratoVendasTituloAuthentication"
+                }
               }
             }
           }
@@ -5815,7 +6148,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaFichaFinanceiraDoCliente"
+                },
                 "example": {
                   "Success": true,
                   "Data": {
@@ -6140,7 +6475,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoContratodeCompras"
+                }
               }
             }
           }
@@ -6178,7 +6515,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaPreContratoComPedido"
+                }
               }
             }
           }
@@ -6217,7 +6556,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -6245,7 +6586,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -6273,7 +6616,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -6301,7 +6646,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoInterfacedoContratodeVendasConsultaLiberacaoPedidoPeriodoAteste"
+                }
               }
             }
           }
@@ -6329,7 +6676,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoInterfacedoContratodeVendasConsultaLiberacaoPedidoPeriodoAteste"
+                }
               }
             }
           }
@@ -6357,7 +6706,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoInterfacedoContratodeVendasConsultaLiberacaoPedidoOriundoContradoVenda"
+                }
               }
             }
           }
@@ -6385,7 +6736,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoInterfacedoContratodeVendasConsultaLiberacaoPedidoOriundoContradoVenda"
+                }
               }
             }
           }
@@ -6423,7 +6776,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaPropostaComercial"
+                }
               }
             }
           }
@@ -6461,7 +6816,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoContratodeVendas"
+                }
               }
             }
           }
@@ -6499,7 +6856,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaRelClienteContratoContato"
+                }
               }
             }
           }
@@ -6527,7 +6886,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoInterfacedoContratodeVendasAssinaturaContrato"
+                }
               }
             }
           }
@@ -6555,7 +6916,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoInterfacedoContratodeVendasConsultaClientesContratosEContatos"
+                }
               }
             }
           }
@@ -6583,7 +6946,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoInterfacedoContratodeVendasLiberacaoPedidoOriundoContradoVenda"
+                }
               }
             }
           }
@@ -6621,7 +6986,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -6659,7 +7026,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoExcluirSincrono"
+                }
               }
             }
           }
@@ -6687,7 +7056,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoInterfacedoContratodeVendasConsultarPrestadordeServico"
+                }
               }
             }
           }
@@ -6725,7 +7096,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -6763,7 +7136,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoExcluirSincrono"
+                }
               }
             }
           }
@@ -6801,7 +7176,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSelecaoValoresCentroCustoGerencial"
+                }
               }
             }
           }
@@ -6839,7 +7216,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoConsultarSelecaoValoresCentroCustoGerencial"
+                }
               }
             }
           }
@@ -6877,7 +7256,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoImportarNfeCteCteosNfceAuthentication"
+                }
               }
             }
           }
@@ -6915,7 +7296,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoImportarNfseAuthentication"
+                }
               }
             }
           }
@@ -6943,7 +7326,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaTituloPagarPeloPedidoDeVenda"
+                }
               }
             }
           }
@@ -6982,7 +7367,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaTituloPagar"
+                }
               }
             }
           }
@@ -7019,7 +7406,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarEMail"
+                }
               }
             }
           }
@@ -7057,7 +7446,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarEMail"
+                }
               }
             }
           }
@@ -7095,7 +7486,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -7133,7 +7526,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarAnexos"
+                }
               }
             }
           }
@@ -7171,7 +7566,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarEmpresa"
+                }
               }
             }
           }
@@ -7209,7 +7606,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarFilial"
+                }
               }
             }
           }
@@ -7247,7 +7646,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -7285,7 +7686,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarMovimentosEstoque"
+                }
               }
             }
           }
@@ -7323,7 +7726,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaEstoque"
+                }
               }
             }
           }
@@ -7361,7 +7766,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaEstoque"
+                }
               }
             }
           }
@@ -7399,7 +7806,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoAtenderEstoque"
+                }
               }
             }
           }
@@ -7437,7 +7846,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaAtendimentoRequisicaoInterna"
+                }
               }
             }
           }
@@ -7475,7 +7886,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaMovimentacoes"
+                }
               }
             }
           }
@@ -7513,7 +7926,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaMovimentacoesResumo"
+                }
               }
             }
           }
@@ -7551,7 +7966,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoEstoqueConsultaEstoque"
+                }
               }
             }
           }
@@ -7559,7 +7976,7 @@
         "x-codegen-request-body-name": "InterfacedoEstoque/ConsultaEstoque"
       }
     },
-    "/webmanager/api/InterfacedoProduto/ConsultaSaldoEstoque": {
+    "/webmanager/api/InterfacedoProduto/ConsultaSaldoEstoque ": {
       "post": {
         "tags": [
           "Estoque"
@@ -7589,7 +8006,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaProdutoSaldoEstoque"
+                }
               }
             }
           }
@@ -7627,7 +8046,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -7665,7 +8086,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -7703,7 +8126,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -7741,7 +8166,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -7749,7 +8176,7 @@
         "x-codegen-request-body-name": "InterfacedaFatura/GravarFaturaTelecomunicacao"
       }
     },
-    "/webmanager/api/InterfacedaFatura/Gravar": {
+    "/webmanager/api/InterfacedaFatura/Gravar ": {
       "post": {
         "tags": [
           "Faturamento"
@@ -7779,7 +8206,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -7787,7 +8216,7 @@
         "x-codegen-request-body-name": "InterfacedaFatura/Gravar"
       }
     },
-    "/webmanager/api/InterfacedaFatura/Gravar": {
+    "/webmanager/api/InterfacedaFatura/Gravar  ": {
       "post": {
         "tags": [
           "Faturamento"
@@ -7817,7 +8246,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -7855,7 +8286,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -7893,7 +8326,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -7931,7 +8366,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -7969,7 +8406,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaFaturaPorProcesso"
+                }
               }
             }
           }
@@ -8007,7 +8446,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultadeTitulosdoFaturamentoporProcesso"
+                }
               }
             }
           }
@@ -8045,7 +8486,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultadeTitulosdoFaturamentoporProcesso"
+                }
               }
             }
           }
@@ -8083,7 +8526,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaFaturas"
+                }
               }
             }
           }
@@ -8121,7 +8566,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -8149,7 +8596,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -8187,7 +8636,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -8225,7 +8676,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -8263,7 +8716,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaOrdensdeFaturamento"
+                }
               }
             }
           }
@@ -8301,7 +8756,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaOrdemdeFaturamentoResumida"
+                }
               }
             }
           }
@@ -8339,7 +8796,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -8377,7 +8836,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -8415,12 +8876,227 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoCarregarAcompanhamentoEnvioNF"
+                }
               }
             }
           }
         },
         "x-codegen-request-body-name": "InterfacedaFatura/CarregarAcompanhamentoEnvioNFe"
+      }
+    },
+    "/webmanager/api/InterfacedaFatura/EmissaoNotaFiscalOrdemFaturamento/?environmentName={environmentName}&codigodaEmpresa={codigodaEmpresa}&codigodaFilial={codigodaFilial}&codigodaFatura={codigodaFatura}&sequenciadoProcesso={sequenciadoProcesso}&sequenciadoRegistro={sequenciadoRegistro}": {
+      "get": {
+        "tags": [
+          "Faturamento"
+        ],
+        "summary": "Emissão da NF-e",
+        "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "environmentName",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "schema": {}
+          },
+          {
+            "name": "codigodaEmpresa",
+            "in": "query",
+            "description": "",
+            "schema": {}
+          },
+          {
+            "name": "codigodaFilial",
+            "in": "query",
+            "description": "",
+            "schema": {}
+          },
+          {
+            "name": "codigodaFatura",
+            "in": "query",
+            "description": "",
+            "schema": {}
+          },
+          {
+            "name": "sequenciadoProcesso",
+            "in": "query",
+            "description": "",
+            "schema": {}
+          },
+          {
+            "name": "sequenciadoRegistro",
+            "in": "query",
+            "description": "",
+            "schema": {}
+          }
+        ]
+      }
+    },
+    "/webmanager/api/InterfacedaFatura/ExportarArquivoXML/?environmentName={environmentName}&codigodaEmpresa={codigodaEmpresa}&codigodaFilial={codigodaFilial}&tipoExportacao={tipoExportacao}&dataEmissaoInicial={dataEmissaoInicial}&dataEmissaoFinal={dataEmissaoFinal}&notaFiscalInicial={notaFiscalInicial}&notaFiscalFinal={notaFiscalFinal}&codigosNotaFiscal={codigosNotaFiscal}&chaveNotaFiscalEletronica={chaveNotaFiscalEletronica}&danfe={danfe}&gerarPDF={gerarPDF}&tipoOperacaoInicial={tipoOperacaoInicial}&tipoOperacaoFinal={tipoOperacaoFinal}&codigosTipoOperacao={codigosTipoOperacao}&ordemFaturamentoInicial={ordemFaturamentoInicial}&ordemFaturamentoFinal={ordemFaturamentoFinal}&codigosOrdemFaturamento={codigosOrdemFaturamento}&clienteFornecedor={clienteFornecedor}&codigoClienteFornecedor={codigoClienteFornecedor}": {
+      "get": {
+        "tags": [
+          "Faturamento"
+        ],
+        "summary": "Exportação arquivo XML",
+        "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "environmentName",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "schema": {}
+          },
+          {
+            "name": "codigodaEmpresa",
+            "in": "query",
+            "description": "",
+            "schema": {}
+          },
+          {
+            "name": "codigodaFilial",
+            "in": "query",
+            "description": "",
+            "schema": {}
+          },
+          {
+            "name": "tipoExportacao",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "schema": {
+              "enum": [
+                "0",
+                "1",
+                "2"
+              ]
+            }
+          },
+          {
+            "name": "dataEmissaoInicial",
+            "in": "query",
+            "description": "",
+            "schema": {}
+          },
+          {
+            "name": "dataEmissaoFinal",
+            "in": "query",
+            "description": "",
+            "schema": {}
+          },
+          {
+            "name": "notaFiscalInicial",
+            "in": "query",
+            "description": "",
+            "schema": {}
+          },
+          {
+            "name": "notaFiscalFinal",
+            "in": "query",
+            "description": "",
+            "schema": {}
+          },
+          {
+            "name": "codigosNotaFiscal",
+            "in": "query",
+            "description": "",
+            "schema": {}
+          },
+          {
+            "name": "chaveNotaFiscalEletronica",
+            "in": "query",
+            "description": "",
+            "schema": {}
+          },
+          {
+            "name": "danfe",
+            "in": "query",
+            "description": "",
+            "schema": {}
+          },
+          {
+            "name": "gerarPDF",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "enum": [
+                "true",
+                "false"
+              ]
+            }
+          },
+          {
+            "name": "tipoOperacaoInicial",
+            "in": "query",
+            "description": "",
+            "schema": {}
+          },
+          {
+            "name": "tipoOperacaoFinal",
+            "in": "query",
+            "description": "",
+            "schema": {}
+          },
+          {
+            "name": "codigosTipoOperacao",
+            "in": "query",
+            "description": "",
+            "schema": {}
+          },
+          {
+            "name": "ordemFaturamentoInicial",
+            "in": "query",
+            "description": "",
+            "schema": {}
+          },
+          {
+            "name": "ordemFaturamentoFinal",
+            "in": "query",
+            "description": "",
+            "schema": {}
+          },
+          {
+            "name": "codigosOrdemFaturamento",
+            "in": "query",
+            "description": "",
+            "schema": {}
+          },
+          {
+            "name": "clienteFornecedor",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "enum": [
+                "C",
+                "F"
+              ]
+            }
+          },
+          {
+            "name": "codigoClienteFornecedor",
+            "in": "query",
+            "description": "",
+            "schema": {}
+          }
+        ]
       }
     },
     "/webmanager/api/Fatura/ConsultarAnexosOrdemFaturamento": {
@@ -8453,7 +9129,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoConsultarAnexosOrdemFaturamento"
+                }
               }
             }
           }
@@ -8491,7 +9169,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaURLsNFSe"
+                }
               }
             }
           }
@@ -8529,7 +9209,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -8567,7 +9249,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -8605,7 +9289,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -8643,7 +9329,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -8681,7 +9369,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -8689,7 +9379,7 @@
         "x-codegen-request-body-name": "InterfacedoFornecedor/Gravar"
       }
     },
-    "/webmanager/api/InterfacedoFornecedor/Gravar": {
+    "/webmanager/api/InterfacedoFornecedor/Gravar ": {
       "post": {
         "tags": [
           "Fornecedor"
@@ -8719,7 +9409,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -8757,7 +9449,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaFornecedorPorProcesso"
+                }
               }
             }
           }
@@ -8795,7 +9489,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaFornecedorPorProcesso"
+                }
               }
             }
           }
@@ -8833,7 +9529,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -8871,7 +9569,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -8909,7 +9609,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaFornecedorAuthentication"
+                }
               }
             }
           }
@@ -8947,7 +9649,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaFornecedorPorProcesso"
+                }
               }
             }
           }
@@ -8985,7 +9689,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -9023,7 +9729,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -9061,7 +9769,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarContaCorrenteFornecedorAuthentication"
+                }
               }
             }
           }
@@ -9099,7 +9809,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarParametrizacaoContabilFornecedorAuthentication"
+                }
               }
             }
           }
@@ -9137,7 +9849,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -9175,7 +9889,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoInterfacedoFornecedorAtivarInativarFornecedor"
+                }
               }
             }
           }
@@ -9213,12 +9929,42 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
         },
         "x-codegen-request-body-name": "InterfacedoCadastrosComuns/AlocacaoUsuarioEstruturaFuncional/Gravar"
+      }
+    },
+    "/webmanager/api/InterfacedoViajante/Gravar": {
+      "post": {
+        "tags": [
+          "Gestão de Viagens"
+        ],
+        "summary": "Incluir ou alterar um viajante (síncrona)",
+        "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              
+            }
+          },
+          "required": false
+        },
+        "x-codegen-request-body-name": "InterfacedoViajante/Gravar"
       }
     },
     "/webmanager/api/InterfacedoViajante/ConsultarViajante": {
@@ -9250,7 +9996,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaViajanteGravar"
+                }
               }
             }
           }
@@ -9288,7 +10036,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -9326,7 +10076,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -9364,7 +10116,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoExcluirSincrono"
+                }
               }
             }
           }
@@ -9402,7 +10156,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaStatusRequisicaoViagem"
+                }
               }
             }
           }
@@ -9440,7 +10196,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaRequisicaoViagem"
+                }
               }
             }
           }
@@ -9478,7 +10236,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -9516,7 +10276,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -9554,7 +10316,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoExcluirSincrono"
+                }
               }
             }
           }
@@ -9592,7 +10356,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaPrestacaoContaViagem"
+                }
               }
             }
           }
@@ -9630,7 +10396,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaInterfaceGestorTributarioAliquotasConsultarPadraoEntesFederativoReferenciaIVA"
+                }
               }
             }
           }
@@ -9668,7 +10436,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoTodosConsultarGrupoPagamento"
+                }
               }
             }
           }
@@ -9706,7 +10476,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -9744,7 +10516,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarGrupoPagamento"
+                }
               }
             }
           }
@@ -9782,7 +10556,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaporProcessoInterfacedoGrupodeProdutoAuthentication"
+                }
               }
             }
           }
@@ -9790,7 +10566,7 @@
         "x-codegen-request-body-name": "InterfacedoGrupodeProduto/ConsultaporProcesso"
       }
     },
-    "/api/InterfacedoGrupodeProduto/ConsultaGrupoDeProduto": {
+    "api/InterfacedoGrupodeProduto/ConsultaGrupoDeProduto": {
       "get": {
         "tags": [
           "Grupo de Produto"
@@ -9820,7 +10596,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaGrupoDeProdutoAuthentication"
+                }
               }
             }
           }
@@ -9828,7 +10606,7 @@
         "x-codegen-request-body-name": "InterfacedoGrupodeProduto/ConsultaGrupoDeProduto"
       }
     },
-    "/api/InterfacedoGrupodeProduto/ConsultaGrupoDeProdutoPost": {
+    "api/InterfacedoGrupodeProduto/ConsultaGrupoDeProdutoPost": {
       "post": {
         "tags": [
           "Grupo de Produto"
@@ -9858,7 +10636,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaGrupoDeProdutoAuthentication"
+                }
               }
             }
           }
@@ -9896,7 +10676,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoTodosConsultarGrupoRecebimento"
+                }
               }
             }
           }
@@ -9934,7 +10716,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -9972,7 +10756,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaGrupoPatrimonialPorProcesso"
+                }
               }
             }
           }
@@ -10010,7 +10796,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaporGrupoPatrimonial"
+                }
               }
             }
           }
@@ -10039,7 +10827,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoGravarInformacaoConsumo"
+                }
               }
             }
           }
@@ -10068,7 +10858,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarInformacaoConsumo"
+                }
               }
             }
           }
@@ -10106,7 +10898,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -10144,7 +10938,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaporProcessoInterfacedoClienteComercialAuthentication"
+                }
               }
             }
           }
@@ -10182,7 +10978,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaporProcessoInterfacedoClienteComercialArquivoAuthentication"
+                }
               }
             }
           }
@@ -10220,7 +11018,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarInformacaoComercialCliente"
+                }
               }
             }
           }
@@ -10258,7 +11058,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -10296,7 +11098,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaMaterialBemServicoPorProcesso"
+                }
               }
             }
           }
@@ -10334,7 +11138,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaMaterialBemServicoPorProcesso"
+                }
               }
             }
           }
@@ -10372,7 +11178,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaMaterialBemServicoAuthentication"
+                }
               }
             }
           }
@@ -10410,7 +11218,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaMaterialBemServicoPAuthentication"
+                }
               }
             }
           }
@@ -10516,7 +11326,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoRegraGerarContratoGravarAuthentication"
+                }
               }
             }
           }
@@ -10554,7 +11366,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoRegraGerarContratoExcluirAuthentication"
+                }
               }
             }
           }
@@ -10592,7 +11406,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoRegraGerarContratoObterAuthentication"
+                }
               }
             }
           }
@@ -10630,7 +11446,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoTagMinutaContratoGravarAuthentication"
+                }
               }
             }
           }
@@ -10668,7 +11486,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoTagMinutaContratoExcluirAuthentication"
+                }
               }
             }
           }
@@ -10706,7 +11526,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoTagMinutaContratoObterAuthentication"
+                }
               }
             }
           }
@@ -10744,7 +11566,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoTagMinutaContratoObterCamposDoErpAuthentication"
+                }
               }
             }
           }
@@ -10782,7 +11606,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoTemplateContratoGravarAuthentication"
+                }
               }
             }
           }
@@ -10820,7 +11646,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoTemplateContratoExcluirAuthentication"
+                }
               }
             }
           }
@@ -10858,7 +11686,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoTemplateContratoObterAuthentication"
+                }
               }
             }
           }
@@ -10896,7 +11726,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoTipoClausulaMinutaGravarAuthentication"
+                }
               }
             }
           }
@@ -10934,7 +11766,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoTipoClausulaMinutaExcluirAuthentication"
+                }
               }
             }
           }
@@ -10972,7 +11806,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoTipoClausulaMinutaObterAuthentication"
+                }
               }
             }
           }
@@ -11010,7 +11846,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -11048,7 +11886,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaInterfacedoArquivoInfoOrcamentoCentroCusto"
+                }
               }
             }
           }
@@ -11086,7 +11926,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -11124,7 +11966,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaOrcamentoVendaporProcesso"
+                }
               }
             }
           }
@@ -11162,7 +12006,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaOrcamentoVendaporProcesso"
+                }
               }
             }
           }
@@ -11200,7 +12046,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -11238,7 +12086,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaLocalFisicoPorProcesso"
+                }
               }
             }
           }
@@ -11276,7 +12126,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoGravarLocalFisicoSincrono"
+                }
               }
             }
           }
@@ -11314,7 +12166,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -11352,7 +12206,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -11390,7 +12246,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaPatrimonioPorProcesso"
+                }
               }
             }
           }
@@ -11428,7 +12286,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaPatrimonioPorProcesso"
+                }
               }
             }
           }
@@ -11466,7 +12326,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaLocalFisico"
+                }
               }
             }
           }
@@ -11504,7 +12366,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaResponsavel"
+                }
               }
             }
           }
@@ -11542,7 +12406,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaClassificacaoEspecifica"
+                }
               }
             }
           }
@@ -11580,7 +12446,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaAquisicaoPatrimonial"
+                }
               }
             }
           }
@@ -11618,7 +12486,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarItemPatrimonialAuthentication"
+                }
               }
             }
           }
@@ -11656,7 +12526,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarTransferenciaMultiplaemLote"
+                }
               }
             }
           }
@@ -11694,7 +12566,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -11732,7 +12606,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarSubgrupoPatrimonial"
+                }
               }
             }
           }
@@ -11770,7 +12646,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoGravarAlteracaoItemPatrimonial"
+                }
               }
             }
           }
@@ -11808,7 +12686,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -11846,7 +12726,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaBaixaItemPatrimonial"
+                }
               }
             }
           }
@@ -11884,7 +12766,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -11922,7 +12806,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoGravarPedidodeCompraSincrono"
+                }
               }
             }
           }
@@ -11960,7 +12846,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPreAtendimentodePedidodeCompraSincrono"
+                }
               }
             }
           }
@@ -11998,7 +12886,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaPedidodeCompraconsulta"
+                }
               }
             }
           }
@@ -12036,7 +12926,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaPedidodeCompraconsulta"
+                }
               }
             }
           }
@@ -12074,7 +12966,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaPedidodeCompraconsulta"
+                }
               }
             }
           }
@@ -12112,7 +13006,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaPedidodeCompraconsulta"
+                }
               }
             }
           }
@@ -12150,7 +13046,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaPedidodeCompraconsulta"
+                }
               }
             }
           }
@@ -12188,7 +13086,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaPedidodeCompraconsulta"
+                }
               }
             }
           }
@@ -12227,7 +13127,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoCancelarPedidoCompraAuthentication"
+                }
               }
             }
           }
@@ -12266,7 +13168,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaAprovacaoAuthentication"
+                }
               }
             }
           }
@@ -12305,7 +13209,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarPedidodeCompra"
+                }
               }
             }
           }
@@ -12343,7 +13249,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoAtenderPedidodeCompra"
+                }
               }
             }
           }
@@ -12381,7 +13289,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaDePedidoPorRequisicaoAuthentication"
+                }
               }
             }
           }
@@ -12419,7 +13329,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarUltimasAprovacoesAuthentication"
+                }
               }
             }
           }
@@ -12457,7 +13369,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarAprovacoesAuthentication"
+                }
               }
             }
           }
@@ -12495,7 +13409,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -12503,7 +13419,7 @@
         "x-codegen-request-body-name": "InterfacedoPedidodeVenda/Gravar"
       }
     },
-    "/webmanager/api/InterfacedoPedidodeVenda/Gravar": {
+    "/webmanager/api/InterfacedoPedidodeVenda/Gravar ": {
       "post": {
         "tags": [
           "Pedido de Vendas"
@@ -12533,7 +13449,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -12571,7 +13489,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -12609,7 +13529,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaPedidoVendas"
+                }
               }
             }
           }
@@ -12647,7 +13569,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaPedidodeVendaPorProcesso"
+                }
               }
             }
           }
@@ -12685,7 +13609,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaPedidodeVendaPorProcesso"
+                }
               }
             }
           }
@@ -12723,7 +13649,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaPedidosFaturadosAuthentication"
+                }
               }
             }
           }
@@ -12761,7 +13689,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaPedidosFaturadosAuthentication"
+                }
               }
             }
           }
@@ -12799,7 +13729,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -12837,7 +13769,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaPesquisaPrecoSincronoAuthentication"
+                }
               }
             }
           }
@@ -12875,7 +13809,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoExcluirSincrono"
+                }
               }
             }
           }
@@ -12913,7 +13849,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -12951,7 +13889,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaLotePesquisaPrecoSincronoAuthentication"
+                }
               }
             }
           }
@@ -12989,7 +13929,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoExcluirSincrono"
+                }
               }
             }
           }
@@ -13027,7 +13969,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -13065,7 +14009,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -13103,7 +14049,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -13141,7 +14089,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -13179,7 +14129,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoExcluirSincrono"
+                }
               }
             }
           }
@@ -13217,7 +14169,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarFornecedorPesquisaPrecoSincronoAuthentication"
+                }
               }
             }
           }
@@ -13255,7 +14209,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoRetornaPedidosVendaPorDataCadastro"
+                }
               }
             }
           }
@@ -13293,7 +14249,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -13331,7 +14289,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoSucesso"
+                }
               }
             }
           }
@@ -13369,7 +14329,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoSucesso"
+                }
               }
             }
           }
@@ -13407,7 +14369,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -13445,7 +14409,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaPlanodeContasPorProcesso"
+                }
               }
             }
           }
@@ -13483,7 +14449,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaPlanodeContasPorProcesso"
+                }
               }
             }
           }
@@ -13521,7 +14489,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoObter"
+                }
               }
             }
           }
@@ -13559,7 +14529,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -13597,7 +14569,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaPlanoContasOrcamentarioPorProcesso"
+                }
               }
             }
           }
@@ -13635,7 +14609,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -13663,7 +14639,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaPrestacaoContas"
+                }
               }
             }
           }
@@ -13701,7 +14679,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -13739,7 +14719,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -13777,7 +14759,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoExcluirSincrono"
+                }
               }
             }
           }
@@ -13815,7 +14799,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaPrestacaoContasSincrono"
+                }
               }
             }
           }
@@ -13853,7 +14839,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -13891,7 +14879,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaProdutoPorProcesso"
+                }
               }
             }
           }
@@ -13929,7 +14919,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaProdutoPorProcesso"
+                }
               }
             }
           }
@@ -13967,7 +14959,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaProdutoSaldoEstoque"
+                }
               }
             }
           }
@@ -14005,7 +14999,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaProdutoGrupo"
+                }
               }
             }
           }
@@ -14043,7 +15039,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaProdutoGrupo"
+                }
               }
             }
           }
@@ -14081,7 +15079,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaProduto"
+                }
               }
             }
           }
@@ -14119,7 +15119,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaProdutoServico"
+                }
               }
             }
           }
@@ -14157,7 +15159,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -14195,7 +15199,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaRelacionamentoMaterialProdutoPorProcesso"
+                }
               }
             }
           }
@@ -14233,12 +15239,42 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaRelacionamentoMaterialProdutoPorProcesso"
+                }
               }
             }
           }
         },
         "x-codegen-request-body-name": "InterfacedoRelacionamentoMaterialProduto/ConsultaporProcessoeSequencia"
+      }
+    },
+    "/webmanager/api/InterfacedoProjeto/Gravar": {
+      "post": {
+        "tags": [
+          "Projeto"
+        ],
+        "summary": "Incluir ou alterar um projeto (síncrona)",
+        "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              
+            }
+          },
+          "required": false
+        },
+        "x-codegen-request-body-name": "InterfacedoProjeto/Gravar"
       }
     },
     "/webmanager/api/InterfacedoProjeto/ConsultarProjeto": {
@@ -14271,7 +15307,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarProjetoAuthentication"
+                }
               }
             }
           }
@@ -14309,7 +15347,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoRetornarTodosProjetosAuthentication"
+                }
               }
             }
           }
@@ -14347,7 +15387,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaRelacionamentoEmpresaProjeto"
+                }
               }
             }
           }
@@ -14385,7 +15427,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaRelacionamentoProjetoCentroCusto"
+                }
               }
             }
           }
@@ -14423,7 +15467,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -14461,7 +15507,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -14499,7 +15547,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaProjetoDetalhesAuthentication"
+                }
               }
             }
           }
@@ -14528,7 +15578,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -14557,7 +15609,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarRelacionamentoUsuarioEmpresaFilialServicosAuthentication"
+                }
               }
             }
           }
@@ -14586,7 +15640,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoExcluirSincrono"
+                }
               }
             }
           }
@@ -14624,7 +15680,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -14662,7 +15720,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaporProcessoInterfacedoRepresentanteAuthentication"
+                }
               }
             }
           }
@@ -14700,7 +15760,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoGravarRelacRepresentanteCliente"
+                }
               }
             }
           }
@@ -14738,7 +15800,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaporProcessoRelacRepresentanteClienteInterfacedoRepresentanteAuthentication"
+                }
               }
             }
           }
@@ -14776,7 +15840,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -14814,7 +15880,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaRequisicaodeCompra"
+                }
               }
             }
           }
@@ -14852,7 +15920,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaRequisicaodeCompra"
+                }
               }
             }
           }
@@ -14890,7 +15960,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarAtendimentoDePedidoResumidoAuthentication"
+                }
               }
             }
           }
@@ -14928,7 +16000,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoObterStatusRequisicaoAuthentication"
+                }
               }
             }
           }
@@ -14966,7 +16040,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarPedidoDeRequisicaoComprasOuInternaAuthentication"
+                }
               }
             }
           }
@@ -15004,7 +16080,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaStatusDaRequisicaoAuthentication"
+                }
               }
             }
           }
@@ -15042,7 +16120,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarAtendimentoPorRequisicaoComprasEstoqueAuthentication"
+                }
               }
             }
           }
@@ -15080,7 +16160,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarRequisicaoComprasAuthentication"
+                }
               }
             }
           }
@@ -15118,7 +16200,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoExcluirSincrono"
+                }
               }
             }
           }
@@ -15156,7 +16240,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -15194,7 +16280,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -15232,7 +16320,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -15270,7 +16360,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -15308,7 +16400,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -15346,7 +16440,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoExluirRequisicaodePagamento"
+                }
               }
             }
           }
@@ -15384,7 +16480,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaRequisicaodePagamento"
+                }
               }
             }
           }
@@ -15422,7 +16520,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaRequisicaodePagamento"
+                }
               }
             }
           }
@@ -15460,7 +16560,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaTituloPagoPorSeguenciaDoProcesso"
+                }
               }
             }
           }
@@ -15498,7 +16600,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarAlteracaoAtendimentoPedidoCompraAuthentication"
+                }
               }
             }
           }
@@ -15536,7 +16640,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarAlteracaoRequisicaoFinanceiraAuthentication"
+                }
               }
             }
           }
@@ -15574,7 +16680,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarAlteracaoPrestacaoContasAuthentication"
+                }
               }
             }
           }
@@ -15612,7 +16720,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaRequisicaodePagamentoNovo"
+                }
               }
             }
           }
@@ -15650,7 +16760,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaRequisicaodePagamentoNovo"
+                }
               }
             }
           }
@@ -15688,7 +16800,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaTituloPagoPorSeguenciaDoProcesso"
+                }
               }
             }
           }
@@ -15726,7 +16840,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaSubGrupoPatrimonialAuthentication"
+                }
               }
             }
           }
@@ -15764,7 +16880,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsutaTodasTabelasdePreco"
+                }
               }
             }
           }
@@ -15802,7 +16920,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsutaTodasItensTabelasdePreco"
+                }
               }
             }
           }
@@ -15840,7 +16960,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaTabelaPreco"
+                }
               }
             }
           }
@@ -15878,7 +17000,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaTabelaPrecoPorItem"
+                }
               }
             }
           }
@@ -15916,7 +17040,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarPrecoPorDataCadastro"
+                }
               }
             }
           }
@@ -15955,7 +17081,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -15993,7 +17121,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -16031,7 +17161,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaTesouraria"
+                }
               }
             }
           }
@@ -16069,7 +17201,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaTesouraria"
+                }
               }
             }
           }
@@ -16107,7 +17241,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarContaCorrenteAuthentication"
+                }
               }
             }
           }
@@ -16145,7 +17281,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarFormaPagamentoAuthentication"
+                }
               }
             }
           }
@@ -16183,7 +17321,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarContaCorrenteSaldoAuthentication"
+                }
               }
             }
           }
@@ -16221,7 +17361,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarPagamentoRecebimentoTransferenciaAuthentication"
+                }
               }
             }
           }
@@ -16259,7 +17401,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarDadosFinanceirosAuthentication"
+                }
               }
             }
           }
@@ -16297,7 +17441,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravar"
+                }
               }
             }
           }
@@ -16335,7 +17481,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaporProcessoInterfacedoTipodeProdutoAuthentication"
+                }
               }
             }
           }
@@ -16343,7 +17491,7 @@
         "x-codegen-request-body-name": "InterfacedoTipodeProduto/ConsultaporProcesso"
       }
     },
-    "/webmanager/api/InterfacedoTipodeProduto/ConsultaTipoProduto": {
+    "api/InterfacedoTipodeProduto/ConsultaTipoProduto": {
       "get": {
         "tags": [
           "Tipo de Produto"
@@ -16373,7 +17521,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultaTipoProdutoAuthentication"
+                }
               }
             }
           }
@@ -16402,7 +17552,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoGravarSincrono"
+                }
               }
             }
           }
@@ -16431,7 +17583,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarUsuarioServicosAuthentication"
+                }
               }
             }
           }
@@ -16460,7 +17614,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarUsuarioFiltroAuthentication"
+                }
               }
             }
           }
@@ -16489,7 +17645,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoPadraoExcluirSincrono"
+                }
               }
             }
           }
@@ -16527,12 +17685,83 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoTodosConsultarServico"
+                }
               }
             }
           }
         },
         "x-codegen-request-body-name": "Servico/RetornaTodosServico"
+      }
+    },
+    "https://identityserver.mxmwebmanager.com.br/connect/token": {
+      "post": {
+        "tags": [
+          "WebManager"
+        ],
+        "summary": "Gerar token para autenticação com servidor externo",
+        "description": "",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "required": [
+                  "grant_type"
+                ],
+                "type": "object",
+                "properties": {
+                  "grant_type": {
+                    "type": "string",
+                    "description": "",
+                    "enum": [
+                      "client_credentials"
+                    ]
+                  },
+                  "scope": {
+                    "type": "string",
+                    "description": "."
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "access_token": {
+                      "type": "string",
+                      "description": "",
+                      "example": "token JWT"
+                    },
+                    "expires_in": {
+                      "type": "integer",
+                      "description": "",
+                      "example": 3600
+                    },
+                    "token_type": {
+                      "type": "string",
+                      "description": "",
+                      "example": "Bearer"
+                    },
+                    "scope": {
+                      "type": "string",
+                      "description": "",
+                      "example": ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/webmanager/api/identity/token": {
@@ -16615,7 +17844,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoVersaoWebManager"
+                }
               }
             }
           }
@@ -16642,7 +17873,9 @@
             "description": "",
             "content": {
               "application/json": {
-                
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoConsultarUltimaOperacaoServicosAuthentication"
+                }
               }
             }
           }
